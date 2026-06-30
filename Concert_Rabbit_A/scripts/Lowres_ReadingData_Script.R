@@ -26,11 +26,14 @@ model_results<- list()
 
 #Creating a lowres folder
 #NEED TO FIX: creates a new 'lowres' folder, even if the parent folder name is 'lowres'
-lowres_folder<-file.path(Folder_Path,"lowres")
-
-if(!dir.exists(lowres_folder)|| length(lowres_folder)==0 || !(grepl("lowres",Folder_Path))){
-  dir.create(lowres_folder,recursive=TRUE,showWarnings = FALSE)
+if(!grepl("lowres",Folder_Path,ignore.case=TRUE)){
+  lowres_folder<-file.path(Folder_Path,"lowres")
+} else{
+  lowres_folder<-Folder_Path
 }
+
+if (!dir.exists(lowres_folder)){
+  dir.create(lowres_folder,recursive=TRUE,showWarnings = FALSE)
 
 
 excel_files<-list.files(Folder_Path,pattern="\\.xlsx?$",full.names=TRUE,recursive=FALSE)
