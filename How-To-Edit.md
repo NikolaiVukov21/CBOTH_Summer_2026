@@ -1,7 +1,7 @@
 # Read Me
 The commands in this 
 
-#Guides
+# Guides
 
-##Repositaory loading and Copying
+# #Repositaory loading and Copying
 
