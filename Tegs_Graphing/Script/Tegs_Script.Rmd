@@ -16,16 +16,16 @@ knitr::opts_chunk$set(echo = TRUE,
 
 ```{r}
 
-if(requireNamespace("agricolae", quietly = TRUE)==FALSE) install.package ("agricolae")
-if(requireNamespace("readxl", quietly = TRUE)==FALSE) install.package ("readxl")
-if(requireNamespace("openxlsx", quietly = TRUE)==FALSE) install.package ("openxlsx")
-if(requireNamespace("dplyr", quietly = TRUE)==FALSE) install.package ("dplyr")
-if(requireNamespace("tidyr", quietly = TRUE)==FALSE) install.package ("tidyr")
-if(requireNamespace("ggplot2", quietly = TRUE)==FALSE) install.package ("ggplot2")
-if(requireNamespace("tidyverse", quietly = TRUE)==FALSE) install.package ("tidyverse")
-if(requireNamespace("patchwork", quietly = TRUE)==FALSE) install.package ("patchwork")
-if(requireNamespace("ggsignif", quietly = TRUE)==FALSE) install.package ("ggsignif")
-if(requireNamespace("knitr", quietly = TRUE)==FALSE) install.package ("knitr")
+if(requireNamespace("agricolae", quietly = TRUE)==FALSE) install.packages ("agricolae")
+if(requireNamespace("readxl", quietly = TRUE)==FALSE) install.packages ("readxl")
+if(requireNamespace("openxlsx", quietly = TRUE)==FALSE) install.packages ("openxlsx")
+if(requireNamespace("dplyr", quietly = TRUE)==FALSE) install.packages ("dplyr")
+if(requireNamespace("tidyr", quietly = TRUE)==FALSE) install.packages ("tidyr")
+if(requireNamespace("ggplot2", quietly = TRUE)==FALSE) install.packages ("ggplot2")
+if(requireNamespace("tidyverse", quietly = TRUE)==FALSE) install.packages ("tidyverse")
+if(requireNamespace("patchwork", quietly = TRUE)==FALSE) install.packages ("patchwork")
+if(requireNamespace("ggsignif", quietly = TRUE)==FALSE) install.packages ("ggsignif")
+if(requireNamespace("knitr", quietly = TRUE)==FALSE) install.packages ("knitr")
 
 
 library(agricolae)
