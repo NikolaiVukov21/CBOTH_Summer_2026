@@ -16,28 +16,35 @@ knitr::opts_chunk$set(echo = TRUE,
 
 ```{r}
 
-if(requireNamespace("agricolae", quietly = TRUE)==FALSE) install.packages ("agricolae")
-if(requireNamespace("readxl", quietly = TRUE)==FALSE) install.packages ("readxl")
-if(requireNamespace("openxlsx", quietly = TRUE)==FALSE) install.packages ("openxlsx")
-if(requireNamespace("dplyr", quietly = TRUE)==FALSE) install.packages ("dplyr")
-if(requireNamespace("tidyr", quietly = TRUE)==FALSE) install.packages ("tidyr")
-if(requireNamespace("ggplot2", quietly = TRUE)==FALSE) install.packages ("ggplot2")
-if(requireNamespace("tidyverse", quietly = TRUE)==FALSE) install.packages ("tidyverse")
-if(requireNamespace("patchwork", quietly = TRUE)==FALSE) install.packages ("patchwork")
-if(requireNamespace("ggsignif", quietly = TRUE)==FALSE) install.packages ("ggsignif")
-if(requireNamespace("knitr", quietly = TRUE)==FALSE) install.packages ("knitr")
+if(!requireNamespace("agricolae", quietly = TRUE)) install.packages ("agricolae")
+if(!requireNamespace("dplyr", quietly = TRUE)) install.packages ("dplyr")
+if(!requireNamespace("ggplot2", quietly = TRUE)) install.packages ("ggplot2")
+if(!requireNamespace("ggsignif", quietly = TRUE)) install.packages ("ggsignif")
+if(!requireNamespace ("knitr", quietly = TRUE)) install.packages ("knitr")
+if(!requireNamespace("openxlsx", quietly = TRUE)) install.packages ("openxlsx")
+if(!requireNamespace("patchwork", quietly = TRUE)) install.packages ("patchwork")
+if(!requireNamespace("readxl", quietly = TRUE)) install.packages ("readxl")
+if(!requireNamespace ("stringr", quietly = TRUE)) install.packages ("stringr")
+if(!requireNamespace("tidyr", quietly = TRUE)) install.packages ("tidyr")
+if(!requireNamespace("tidyverse", quietly = TRUE)) install.packages ("tidyverse")
+
+
+
+
 
 
 library(agricolae)
-library(readxl)
-library(openxlsx)
 library(dplyr)
-library(tidyr)
 library(ggplot2)
-library(tidyverse)
-library(patchwork)
 library(ggsignif)
 library(knitr)
+library(openxlsx)
+library(patchwork)
+library(readxl)
+library(stringr)
+library(tidyr)
+library(tidyverse)
+
 ```
 
 ```{r}
@@ -226,16 +233,16 @@ for (sheet_name in names(processed_sheets)){
   
 #Graph Pad
   
-  graphpad_wb<-createWorkbook()
+  Graphpadwb<-createWorkbook()
   
-  addWorksheet(graphpad_wb,"GraphPad")
+  addWorksheet(Graphpadwb,"GraphPad")
   
   writeData(
-    graphpad_wb,
+    Graphpadwb,
     sheet="GraphPad",x=clean_df(data_gp)
   )
 
-  saveWorkbook(graphpad_wb,"GraphPad_Export.xlsx",overwrite=TRUE)
+  saveWorkbook(wb,"GraphPad_Export.xlsx",overwrite=TRUE)
   
   
 ```
@@ -260,11 +267,143 @@ data<-data|> mutate( across(where(is.character), ~na_if(., "NA")))
 #++++++++++++++++++++++++++++++++++++Seperator++++++++++++++++++++++++++++++++++++++
 
 #Creates a function to get the statistics 
-GroupStats<-function(data){
+ExportGroupStats<-function(data){
+  Defined_Grouping=c(ref_model,setdiff(unique(data$HMT_model),ref_model))
   
   
+  wb=createWorkbook()
   
+  #Style for wraping the text
+  wrap_style <- createStyle(wrapText=TRUE)
+  #Dynamically names the models
+  Modeling_Values<-data %>% 
+    filter((!str_detect(HMT_model,"CFF")),
+           Subject %in% c(round1,round2,round3)) %>% 
+    mutate(
+      Hb=coalesce(Hb,EM_Hb),
+      EMT_model=factor(HMT_model,levels=Defined_Grouping),
+      stat_group=case_when(
+        !is.na(Alb) & Alb=="A"~ paste(HMT_model, Hb,"A",sep="_"), #Albumin name assingment
+        HMT_model==ref_model ~paste(HMT_model), #If ref model, skip
+        TRUE ~ paste(HMT_model,Hb,sep="_")
+      ), 
+      stat_group=factor(stat_group), #Factoring by model (group) and HB (SubGroup)
+      #Dynamically assigning names
+      Round=case_when(
+        Subject %in% round1~ "Round 1",
+        Subject %in% round2~ "Round 2",
+        Subject %in% round3~ "Round 3",
+      )
+    )
+  
+  #Helper Function to compute and format tables
+  
+  calc_tables<-function(df_sub,vars,remove_outliers){
+    #Pivoting to longer format
+    df_long<- df_sub %>% 
+      select(stat_group, all_of(vars)) %>% 
+      pivot_longer(cols=all_of(vars),names_to = "Var", values_to = "Value") %>% 
+      filter(!is.na(Value))
+    
+    #Outlier Detection and removal
+    if(remove_outliers){
+      df_long <- df_long %>% 
+        group_by(stat_group,Var) %>% 
+        mutate(m=mean(Value,na.rm=TRUE), s=sd(Value, na.rm=TRUE)) %>% 
+        filter(abs(Value -m) <= SD *s) %>% 
+        select(-m,-s) %>% 
+        ungroup()
+    }
+    
+    #Caculate Mean / SD and MD/ IQR 
+    df_stats<-df_long %>% 
+      group_by(stat_group, Var) %>% 
+      summarise(
+        Mean_SD = paste0(round(mean(Value, na.rm=TRUE),2),"\n", round(sd(Value,na.rm=TRUE),2)),
+        
+        MD_IQR = paste0(round(median(Value, na.rm=TRUE),2),"\n",round(IQR(Value,na.rm=TRUE),2)), .groups="drop")
+    
+    #Reshape Mean / SD to wide
+    df_mean_sd<-df_stats %>% 
+      select(stat_group,Var, Mean_SD) %>% 
+      pivot_wider(names_from=Var,values_from=Mean_SD) %>% 
+      rename(` `=stat_group) #Blank header for the column of model names
+    
+    #Reshape Median / IQR to wide
+    df_mean_iqr<-df_stats %>% 
+      select(stat_group,Var, MD_IQR) %>% 
+      pivot_wider(names_from=Var,values_from=MD_IQR) %>% 
+      rename(` `=stat_group) #Blank header for the column of model names
+    
+    return(list(mean_sd=df_mean_sd, md_iqr= df_mean_iqr))
+  }
+  
+  #Creates the Excel sheets
+  
+  for (rd in c("Round 1","Round 2","Round 3")){
+    #Filters for the current round
+    df_rd<-Modeling_Values %>% filter(Round==rd)
+    
+    if(nrow(df_rd)==0) next #Skip sheets if there is no data
+    addWorksheet(wb,rd)
+    
+    #Generates Statistics Table
+    tbl_with<-calc_tables(df_rd,variables,remove_outliers=FALSE)
+    tbl_without<-calc_tables(df_rd,variables,remove_outliers=TRUE)
+    
+    #Writing Data to excel
+    
+    #Top Section: With outliers
+    writeData(wb,rd,rd,startCol = 1, startRow = 1)
+    
+    #Headers
+    writeData(wb,rd,"Mean/SD",startCol = 2,startRow = 2)
+    writeData(wb,rd,"MD/IQR",startCol=6+length(variables),startRow = 2)
+    
+    #Tables of Data
+    writeData(wb,rd,tbl_with$mean_sd,startCol=1,startRow = 3)
+    addStyle(wb,rd,wrap_style,
+             rows=3:(2+nrow(tbl_with$mean_sd)),
+             cols=1:ncol(tbl_with$mean_sd),
+             gridExpand = TRUE)
+    
+    writeData(wb,rd,tbl_with$md_iqr,startCol=5+length(variables),startRow=3)
+    addStyle(wb,rd,wrap_style,
+             rows=3:(2+nrow(tbl_with$md_iqr)),
+             cols=(5+length(variables)):(4+length(variables)+ncol(tbl_with$md_iqr)),
+             gridExpand = TRUE)
+    
+    #Bottom Section: Without Outliers
+    
+    #Cacualtes spacing for bottom row
+    row_offset<-3+nrow(tbl_with$mean_sd) +4
+    
+    writeData(wb,rd,"Without outliers Data",startCol=1,startRow = row_offset-1)
+    
+    #Headers
+    writeData(wb,rd,"Mean/SD",startCol = 2,startRow = row_offset)
+    writeData(wb,rd,"MD/IQR",startCol=6+length(variables),startRow = row_offset)
+    
+    #Tables of Data
+    writeData(wb,rd,tbl_without$mean_sd,startCol=1,startRow = row_offset+1)
+    addStyle(wb,rd,wrap_style,
+             rows=(row_offset+1):(row_offset+nrow(tbl_without$mean_sd)),
+             cols=1:ncol(tbl_without$mean_sd),
+             gridExpand = TRUE)
+    
+    
+    writeData(wb,rd,tbl_without$md_iqr,startCol=5+length(variables),startRow=row_offset+1)
+    
+    addStyle(wb,rd,wrap_style,
+             rows=(row_offset+1):(row_offset+nrow(tbl_without$mean_sd)),
+             cols=(5+length(variables)):(4+length(variables)+ncol(tbl_without$md_iqr)),
+             gridExpand = TRUE)
+  }
+  #Saves excel sheet
+  saveWorkbook(wb,"Teg_Subject_Statistics.xlsx",overwrite=TRUE)
 }
+
+
 
 #++++++++++++++++++++++++++++++++++++Seperator++++++++++++++++++++++++++++++++++++++
 
@@ -667,57 +806,8 @@ for (name in names(Master_Plots)){
 dev.off()
 ```
 
-```{r}
+# Function Testing
 
-#Variables of Interest
-variables= c("R(min)","K(min)","Angle(deg)","MA(mm)")
-
-#Reference Model
-ref_model="fWB"
-
-GroupStats<-function(data){
-  Defined_Grouping=c(ref_model,setdiff(unique(data$HMT_model),ref_model))
- 
-  
-  Modeling_Values<-data %>% 
-    filter((!str_detect(HMT_model, "CFF")),
-           Subject %in% c(round1,round2,round3)) %>% 
-    mutate(Hb=coalesce(Hb,EM_Hb),
-           #Hb=ifelse(HMT_model==ref_model," ",Hb),
-           EMT_model=factor(HMT_model,levels=Defined_Grouping)) %>% 
-    mutate(stat_group=case_when(
-      !is.na(Alb)& Alb=="A" ~paste(HMT_model,Hb,"A",sep="_"),
-      HMT_model==ref_model~paste(HMT_model),
-      TRUE~paste(HMT_model,Hb,sep="_")
-    ),
-    stat_group=factor(stat_group))
-    
-    Group_Statistics<-list()
-    
-    for (m in unique(Modeling_Values$stat_group)){
-      for (v in variables){
-        
-        values<-Modeling_Values %>% 
-          filter(stat_group==m) %>% 
-          pull(.data[[v]])
-        
-        Group_Statistics<-append(Group_Statistics,list(
-          data.frame(
-            Model=m,
-            Var=v,
-            Mean=mean(values,na.rm=FALSE),
-            SD=sd(values,na.rm=FALSE),
-            Med=median(values,na.rm=FALSE),
-            Range=max(values)-min(values)
-          )
-        ))
-        
-      }
-    }  
-      Group_Statistics<-do.call(rbind,Group_Statistics)
-      return(Group_Statistics)
-}
-TestStats<-GroupStats(Cleaned_df)
-
-TestStats
+```{r,evaluate=FALSE}
+ExportGroupStats(Cleaned_df)
 ```
