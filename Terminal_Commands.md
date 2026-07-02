@@ -47,3 +47,6 @@ The commands in this guide cover the standard workflow for cloning, updating, an
 
 - Pushing the commit to the branch (Pull Request)<br>
 ```git push origin branch-name```
+
+- Switching Branches: <br>
+```git switch <branch name>```
