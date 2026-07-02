@@ -1,0 +1,148 @@
+---
+title: "Rabbit_lowres_ScenarioA_Plotting"
+author: "Nikolai Vukov"
+date: "2026-06-30"
+output: html_document
+---
+
+```{r setup, include=FALSE,warning=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Libraries needed
+
+```{r,message=FALSE, warning=FALSE}}
+library(knitr)
+library(stringr)
+library(randomcoloR)
+```
+
+# Pre-Plotting Process
+
+```{r,include=FALSE}
+
+print("Running the Script")
+#Runs the script to read and retrieve the needed datasets
+ScriptSource<-source("Lowres_ReadingData_Script.R")
+opts_knit$set(root.dir=ScriptSource)
+
+#Getting system date
+date<- format(Sys.Date(),'_%Y_%m_%d')
+
+#Creating and defining the results path for rabbits
+
+#Creating the 'results' folder for rabbits of date
+results_Rabbits_folder<- file.path(lowres_folder,paste0("results/rabbit",date))
+
+#If the file doesn't exist, creates one
+if(!dir.exists(results_Rabbits_folder)){
+  dir.create(results_Rabbits_folder,recursive=TRUE, showWarnings = FALSE)
+}
+
+df_graphing<-read.csv(paste0(lowres_folder, "/analysis_ready_data/df_lowres_scenarioA.csv")) %>%
+ mutate(
+   #Converting time to Numerical Values
+   #Credit: Yuxin Wang
+  TIME=case_when(
+    Timepoint=="Baseline" ~ -2,
+    Timepoint=="EOS" ~ -0.167,
+    Timepoint=="EOR" ~ 0,
+    Timepoint=="1HR" ~ 1,
+    Timepoint=="3HR" ~ 3,
+    Timepoint=="6HR" ~ 6,
+    Timepoint=="24HR" ~ 24,
+    TRUE ~ NA),
+
+TIME_VIS= case_when(
+  Timepoint=="Baseline" ~ -2,
+    Timepoint=="EOS" ~ -1,
+    Timepoint=="EOR" ~ -0.6,
+    Timepoint=="1HR" ~ 0.4,
+    Timepoint=="3HR" ~ 1.4,
+    Timepoint=="6HR" ~ 2.4,
+    Timepoint=="24HR" ~ 6,
+    TRUE ~ NA),
+
+  #Cleaning up text
+Timepoint=case_when(
+  Timepoint=="Baseline" ~"BL",
+  Timepoint=="1HR" ~"1 hr",
+  Timepoint=="3HR" ~"3 hr",
+  Timepoint=="6HR" ~"6 hr",
+  Timepoint=="24HR" ~"24 hr",
+  TRUE ~Timepoint
+),
+
+#Combine to NAME, then apply needed text replacement
+METRIC=gsub("bpm","Heart rate", METRIC),
+NAME=paste0(METRIC,"\n(",UNITS,")"),
+NAME=str_replace_all(NAME,c(
+  "temp"         = "Temperature",
+  "X\\._Free_Hb" = "Free Hb",
+  "HGB"          = "Hb",
+  "CREA"         = "CR",
+  "CKHR_time"    ="R-Time",
+  "CKH_K"        ="K-Time",
+  "CKH_angle"    ="Angle",
+  "CKH_MA"       ="MA",
+  "HCT\\s*\\(mmHg\\)" = "Hct\n(%)"
+)),
+
+#Clean up IDS
+  ID=str_replace_all(ID,c("ID \\(" = "ARB ", "\\)" = ""))
+ )
+
+#Constant Variable Mapping
+default_mapping<-tibble(
+  model_name=c("df_FB","df_LR","df_SB"),
+  vec_breaks=c("FWB","LR","SWB"),
+  vec_labels=c("Fresh","LacRinger","Stored"),
+  vec_color=c("#BC3C29FF","#374e55","#0072B5FF")
+)
+
+#Additional Variable Mapping
+custom_mapping<- tibble(
+  model_name=c(),
+  vec_breaks=c(),
+  vec_labels=c(),
+  vec_color=c()
+)
+
+#Combines constant and additional models together
+master_mapping<-bind_rows(default_mapping,custom_mapping)
+
+#checks to see if any models are missing
+missing_models<-setdiff(model_results,master_mapping$model_name)
+
+if(length(missing_models)>0){
+cat("The following models are missing:", str(missing_models))
+}
+
+#Filtering and label generation
+active_models<-master_mapping %>% filter(model_name %in% names(model_results))
+
+df_graphing<-df_graphing %>%
+  filter(MODEL %in% active_models$vec_breaks)
+
+#Gets ncounts per grouping
+n_counts<-df_graphing %>% 
+  summarise(n=n_distinct(ID),.groups="drop")
+
+#Note for later:
+#Need to fix bottom code chunk, fails on the 'left_join' function.
+
+#Joins and generates final labels
+active_models<-active_models %>% 
+  left_join(n_counts,by=c("vec_breaks"="model_name")) %>% 
+  mutate(
+    n=replace_na(n,0),
+    vec_lab_n_all=paste0(vec_labels,"\n(c= ",n,")"),
+    vec_lab_n=str_replace_all(vec_lab_n_all,"\n"," ")
+  )
+
+#Extracts final vectors for plotting
+vec_breaks <-active_models$vec_breaks
+vec_color<-setNames(active_models$vec_color,active_models$vec_breaks)
+vec_lab_n<-setNames(active_models$vec_lab_n,active_models$vec_breaks)
+vec_lab_n_all<-setNames(active_models$vec_lab_n_all,active_models$vec_breaks)
+```

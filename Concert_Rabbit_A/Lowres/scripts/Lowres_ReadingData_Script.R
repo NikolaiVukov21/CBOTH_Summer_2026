@@ -6,11 +6,16 @@ if(!requireNamespace("readxl", quietly = TRUE)) install.packages ("readxl")
 if(!requireNamespace("tidyverse", quietly = TRUE)) install.packages ("tidyverse")
 if(!requireNamespace("purrr", quietly = TRUE)) install.packages ("purrr")
 if(!requireNamespace("rstudioapi", quietly = TRUE)) install.packages ("rstudioapi")
+if(!requireNamespace("knitr", quietly = TRUE)) install.packages ("knitr")
+if(!requireNamespace("stringr", quietly = TRUE)) install.packages ("stringr")
 
 library(readxl)
 library(tidyverse)
 library(purrr)
 library(rstudioapi)
+library(knitr)
+library(stringr)
+
 
 #Log File Name
 log_filename <- "Scenario A-Experimental Subject Log-UMB.xlsx"
