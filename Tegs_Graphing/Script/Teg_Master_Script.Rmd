@@ -1,0 +1,26 @@
+---
+title: "Tegs_Master_WorkBook"
+author: "Nikolai Vukov"
+date: "2026-07-09"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r,eval=FALSE}
+#Change to select round 1 subjects
+round1<-(1:3)
+#Change to Select round 2 subjects
+round2<-(5:8)
+#Change to Select round 3 subjects
+round3<-(9:12) 
+
+#Reference Model
+ref_model="fWB" 
+
+Target_Directory<-getwd()
+
+source("Tegs_Function_Script.R")
+```
