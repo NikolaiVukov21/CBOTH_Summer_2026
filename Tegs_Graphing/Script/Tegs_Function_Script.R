@@ -1,6 +1,12 @@
 
 print("Checking and Loading Packages")
-  
+
+
+                                                                              ##################################
+                                                                              #      Packages/ Libaries        #
+                                                                              ##################################
+
+
 #Checks for required packages, install them if missing
 required_packages<-c("agricolae", "dplyr", "ggplot2", "ggsignif", "knitr",
 "openxlsx", "patchwork", "readxl", "stringr", "tidyr",
@@ -20,6 +26,17 @@ print("Loading the Excel Sheet")
   #*Antonio Renaldo
   #*Last Updated: 06/16/2026*
   
+
+
+
+
+
+
+                                                                              ##################################
+                                                                              # Extracting & Cleaning Database #
+                                                                              #Establishing Output Folder Paths#
+                                                                              ##################################
+
   #---- Import----
   file_path <- file.choose()
   
@@ -186,8 +203,7 @@ print("Loading the Excel Sheet")
     sheet="GraphPad",x=clean_df(data_gp)
   )
   
-  Graphpad_Output_Path<-file.path(Results_Folder,"GraphPad_Export.xlsx")
-  saveWorkbook(wb,Graphpad_Output_Path,overwrite=TRUE)
+
   
   #Creates a unique result folder for each excel sheet
   
@@ -205,11 +221,21 @@ print("Loading the Excel Sheet")
   
   if(!dir.exists(Results_Folder)){
     dir.create(Results_Folder,recursive = TRUE, showWarnings = FALSE)
+    
+    
+    Graphpad_Output_Path<-file.path(Results_Folder,"GraphPad_Export.xlsx")
+  saveWorkbook(wb,Graphpad_Output_Path,overwrite=TRUE)  
+    
   }
 
 print("Database Loaded")
 print("Loading Custom Functions")
 
+
+
+                                                                              ##################################
+                                                                              #      Universal Functions       #
+                                                                              ##################################
 
   #Creating a dataframe (Exclusions are removed
   Cleaned_df<-read_excel(file_path,sheet="Cleaned_Data") %>% 
@@ -477,12 +503,25 @@ print("Loading Round Statistics")
       base_name_with<-paste0(gsub(" ","_",rd),"_With_Outliers")
       base_name_without<-paste0(gsub(" ","_",rd),"_Without_Outliers")
       
-      #Creating full File paths (Sending to Results_Folder)
-      png_path_with<-file.path(Results_Folder,paste0(base_name_with,".png"))
-      png_path_without<-file.path(Results_Folder,paste0(base_name_without,".png"))
+      #Creates seperate file paths for PNG and HTML
       
-      html_path_with<-file.path(Results_Folder,paste0(base_name_with,".html"))
-      html_path_without<-file.path(Results_Folder,paste0(base_name_without,".html"))
+      PNG_Folder<- file.path(Results_Folder,"PNG_Output")
+      HMTL_Folder<-file.path(Results_Folder,"HTML_Output")
+      
+      #Creating folder if it doesn't exists
+      
+      if(!dir.exists(PNG_Folder)){
+        dir.create(PNG_Folder,recursive = TRUE, showWarnings = FALSE)}
+        
+        if(!dir.exists(HMTL_Folder)){
+          dir.create(HMTL_Folder,recursive = TRUE, showWarnings = FALSE)}
+      
+      #Creating full File paths (Sending to Results_Folder)
+      png_path_with<-file.path(PNG_Folder,paste0(base_name_with,".png"))
+      png_path_without<-file.path(PNG_Folder,paste0(base_name_without,".png"))
+      
+      html_path_with<-file.path(HMTL_Folder,paste0(base_name_with,".html"))
+      html_path_without<-file.path(HMTL_Folder,paste0(base_name_without,".html"))
       
       #Saving as PNG
       gtsave(gt_table_with,filename=png_path_with,zoom=2,vwidth=1500,expand=10)
@@ -838,7 +877,11 @@ print("Loading Graph Plotter")
       return(list(page_1=page_1,page_2=page_2))
     }
   }
-
+  
+                                                                              ##################################
+                                                                              #             Round 1            #
+                                                                              ##################################
+  
 
 print("Loading Round 1 Data")
 
@@ -869,6 +912,13 @@ print("Loading Round 1 Data")
 
 
 print(Round1_OutTable)
+
+
+
+                                                                              ##################################
+                                                                              #             Round 2            #
+                                                                              ##################################
+
       
 print("Loading Round 2 Data")
 
@@ -900,6 +950,10 @@ print("Loading Round 2 Data")
 
 print(Round2_OutTable)
 
+                                                                              ##################################
+                                                                              #             Round 3            #
+                                                                              ##################################
+
 print("Loading Round 3 Data")
 
   #Picks only the subjects defined in Round 3: 9-12
@@ -928,6 +982,11 @@ print("Loading Round 3 Data")
   p2_3_page2<-plots_R3_clean$page_2
 
 print(Round3_OutTable)
+
+
+                                                                              ##################################
+                                                                              #   Saving Final Plots / Output  #
+                                                                              ##################################
 
 print("Saving Final Plots")
 
@@ -972,7 +1031,6 @@ print("Saving Final Plots")
   ExportGroupStats(Cleaned_df)
 
   
-print("Finished, Files saved to")
-Results_Folder
+cat("Finished, Files saved to:", Results_Folder, "\n")
 
   
