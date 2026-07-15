@@ -14,14 +14,14 @@ This project contains two primary scripts:
 `Teg_Master_Script` serves as the project's entry point and calls `Tegs_Function_Script`.
 
 Before running the script, the user only needs to update:
-- The subject IDs for each round.
-- The reference model listed in the Excel sheet.
+- The subject ID ranges for each round (`round1`, `round2`, `round3`)
+- The reference model string variable ('ref_model`) to match the naming convention used in the Excel sheet.
 
 When executed, the script prompts the user to select the Excel file to process.
 
 ### Function Script
 
-`Tegs_Function_Script` contains the project's ETL (<ins>E</ins>xtract, <ins>T</ins>ransform, <ins>L</ins>oad) pipeline. It performs the extraction, cleaning, transformation, analysis, and export of the TEG data.
+`Tegs_Function_Script` contains the project's ETL (<ins>E</ins>xtract, <ins>T</ins>ransform, <ins>L</ins>oad) pipeline. It performs the extraction, cleaning, transformation, analysis, and export of TEG data.
 
 The generated outputs are saved to an **Output Files** folder located alongside the project scripts.
 
@@ -39,25 +39,48 @@ This section loads all required packages and installs any missing dependencies b
 
 #### Extracting & Cleaning
 
-This is the <ins>E</ins>xtract portion of the pipeline, where the script reads the selected Excel workbook and imports the Original worksheet into R. The ```SAMPLEDESCRIPTION``` field is parsed into individual variables. After extraction, the dataset is cleaned and standarized by reordering variables, correcting negative values, handling missing hemoglobin values, and creating helper variables use for downstream and analyses. The clean date is then arranged into a consistent order, reshaped into a GraphPad compatiable formar, and exported both as a Processed_Data workshet within the orginal excel sheet. Lastly, the script automatically creates a dedicated output directory for the selected dataset, ensuring all generated files are orngaized in a consistent location for the rest of the pipeline.
+This is the **Extract** portion of the pipeline, where the script reads the selected Excel workbook and imports the `Original` worksheet into R. The ```SAMPLEDESCRIPTION``` field is parsed into individual variables. After extraction, the dataset is cleaned and standardized by reordering variables, correcting negative values, handling missing hemoglobin values, and creating helper variables use for downstream and analyses. 
+
+The clean date is then arranged into a consistent order, reshaped into a GraphPad compatible format, and exported both as a `Processed_Data` worksheet within the original excel sheet. Lastly, the script automatically creates a dedicated output directory for the selected dataset, ensuring all generated files are organized in a consistent location for the rest of the pipeline.
+
+>[!IMPORTANT]
+>**Data Pipeline Workflow Note:** The script outputs a `Processed_Data` tab for your review, but downstream analysis functions look for a worksheet named **`Cleaned_Data`** that contains an `Exclude_Instance` column for manual outlier tracking. Ensure this worksheet is present in your source Excel file before running this pipeline.
 
 ### Universal Functions
 
-This is the <ins>T</ins>ransform portion of the pipeline, where the cleaned dataframe goes through a collection of reusable functions. Each function performs a specific transformation, such as detecting albumin-treated samples, identifying outliers, calculating descriptive statistics, or generating publication reach visualizations before passing the processed data to the final stage of the pipeline. 
+This is the **Transform** portion of the pipeline, where the cleaned data frame goes through a collection of reusable functions. Each function performs a specific transformation, such as detecting albumin-treated samples, identifying outliers, calculating descriptive statistics, or generating publication-ready visualizations before passing the processed data to the final stage of the pipeline. 
 
 - #### ADetection()
 
-Determines whether a dataset contains albumin-treated (Alb="A") samples. The function returns a logical (TRUE/FALSE) value that is later used to automatically adjust statistical analyses, graph layouts, and output formatiing.
+Determines whether a dataset contains albumin-treated (`Alb="A"`) samples. The function returns a logical (`TRUE`/`FALSE`) value that is later used to automatically adjust statistical analyses, graph layouts, and output formatting.
 
 - #### ExportGroupStats()
 
-Calculates descriptive statistics for each experimental round and exports the results in multiple formats. The function first separates the data into analysis groups based on HMT model, hemoglobin concentration, and albumin treatment, while assigning a consistent factor order to ensure standardized tables and figures. The dataset is then divided into subsets according to the experimental round associated with each Subject ID. For each round, two versions of the data are analyzed: one containing all observations and another with statistical outliers removed. Finally, the function calculates the mean, standard deviation, median, and interquartile range for each analysis group before generating publication-ready Excel, PNG, and HTML summary tables.
+Calculates descriptive statistics for each experimental round and exports the results in multiple formats. The function first separates the data into analysis groups based on HMT model, hemoglobin concentration, and albumin treatment, while assigning a consistent factor order to ensure standardized tables and figures. The dataset is then divided into subsets according to the experimental round associated with each Subject ID. 
+
+For each round, two versions of the data are analyzed: one containing all observations and another with statistical outliers removed. Finally, the function calculates the mean, standard deviation, median, and interquartile range for each analysis group before generating publication-ready Excel, PNG, and HTML summary tables. The last step saves each HTML and PNG summary table to their respected folder within the `Output Files` directory , under either ```PNG_Output``` or ```HTML_Output```
 
 - #### DetectOutliers()
 
-Identifies statistical outliers using the 3 x IQR rule and returns both a cleaned dataset with outliers removed and a summary table listing every excluded observations. This function allows the pipeline to compare analyses with and without extreme values
+Identifies statistical outliers using the $3 \times \text{IQR}$ rule and returns both a cleaned dataset with outliers removed and a summary table listing every excluded observation. This function allows the pipeline to compare analyses with and without extreme values. Unlike the outlier detector in `ExportGroupStats()`, which removes outliers before calculating summary statistics, `DetectOutliers()` isolates and reports the detected outliers while also producing a cleaned version of the dataset. This provides a transparent record of every observation identified as an outlier.
 
 - #### generate_hmt_plots()
 
+Performs the statistical analysis and visualization of each round's separated data for the four primary TEG variables (`R(min)`, `K(min)`, `Angle(deg)`, and `MA(mm)`). The function first groups the data by HMT model, hemoglobin concentration, and albumin treatment while assigning a consistent factor order to ensure standardized figures. A one-way ANOVA followed by Fisher's LSD post-hoc test is then performed to generate two types of significance comparisons: reference model vs. experimental model comparisons (displayed as black asterisks) and within-model hemoglobin comparisons (displayed as red asterisks). These statistically significant differences are automatically overlaid onto each boxplot, producing publication-ready visualizations for every TEG variable.
 
+Using the `ADetection()` helper function, the pipeline automatically detects albumin-treated samples and separates them into independent comparison panels while maintaining consistent formatting across all figures. Depending on whether albumin-treated samples are present, the function dynamically generates either a single page of plots or a two-page layout, allowing side-by-side comparison of albumin-treated and non-albumin-treated samples.
 
+### Round 1–3 Processing
+This section filters the dataset into the corresponding experimental rounds based on each subject's assigned ID. For each round, the `DetectOutliers()` function is called to identify statistical outliers, returning both an outlier summary table and a cleaned data frame with outliers removed. The `generate_hmt_plots()` function is then used to generate publication-ready boxplots for both the original and cleaned datasets. The resulting plots are stored using the following naming convention:
+
+- "p_(1/2)_r_page(1/2)"
+>*where:*
+>- *r = Round number,*
+>- *The first (1/2) indicates whether the plots contain (1) the original dataset or (2) the outlier-filtered dataset.*
+>- *the second (1/2) represents the dynamically generated page number.*
+
+ > [!WARNING]
+> Currently, Round 3 filters out any model that contains "CFF" within its naming
+
+### Output Generation
+This is the **Load** stage of the ETL pipeline. Here, all plots generated throughout the analysis are collected into a master list and dynamically labeled according to their corresponding round and outlier status. The script then creates the required output file paths and compiles the plots into the ```RoundGraphs.pdf``` report, automatically skipping any pages that are `NULL` (e.g., when no albumin-treated samples are present). Finally, the completed ```Teg_Subject_Statistics.xlsx``` workbook containing the summary statistics for every round is saved to the experiment's results folder.
