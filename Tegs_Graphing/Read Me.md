@@ -15,8 +15,8 @@ This project contains two primary scripts:
 
 Before running the script, the user only needs to update:
 - The subject ID ranges for each round (`round1`, `round2`, `round3`)
-- The reference model string variable ('ref_model`) to match the naming convention used in the Excel sheet.
-
+- The reference model string variable ('ref_model`)
+  
 When executed, the script prompts the user to select the Excel file to process.
 
 ### Function Script
