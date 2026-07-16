@@ -1,0 +1,51 @@
+---
+title: "REDCap_Script"
+author: "Nikolai Vukov"
+date: "2026-07-16"
+output: html_document
+---
+
+# Background
+
+## Needed Libraries
+
+```{r}
+required_packages<-c("dplyr","readxl", "tidyr","tidyverse", "tools","purrr","rstudioapi")
+
+new_packages<-required_packages[!(required_packages %in% installed.packages()[,"Package"])]
+if(length(new_packages) > 0) {install.packages(new_packages)}
+
+invisible(lapply(required_packages,library,character.only = TRUE))
+```
+
+```{r}
+#Getting Active Directory
+director<-getwd()
+
+#Allows users to select the folder with all the excel sheets
+Folder_Path <- selectDirectory()
+
+#Catches / Selects all excel files from choosen folder
+excel_files<-list.files(Folder_Path,pattern="\\.xlsx?$",full.names=TRUE,recursive=FALSE)
+
+
+
+for (f in excel_files){
+  #Removes the ending '.xlsx' to get a clean file name
+  data_file<-sub("\\.xlsx?$","",f)
+  model_name<-sub(".*- A-","",data_file) #Dynamically names the new model
+  
+  #Avoids an excel if it's corrupted
+  df_result<-tryCatch({process_lowres_rabbitdata(data_file=data_file,model=model_name,folder_path=lowres_folder)},
+                      error=function(e){
+                        return(NULL)
+                      })
+  
+  
+  if(!is.null(df_result)){
+    var_name<-paste0("df_",model_name)
+    model_results[[var_name]]<-df_result
+  }
+  
+}
+```

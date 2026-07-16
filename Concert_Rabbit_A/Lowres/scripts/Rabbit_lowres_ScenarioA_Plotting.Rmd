@@ -14,7 +14,6 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r,message=FALSE, warning=FALSE}}
 library(knitr)
 library(stringr)
-library(randomcoloR)
 ```
 
 # Pre-Plotting Process
@@ -126,23 +125,24 @@ df_graphing<-df_graphing %>%
 
 #Gets ncounts per grouping
 n_counts<-df_graphing %>% 
-  summarise(n=n_distinct(ID),.groups="drop")
+  group_by(MODEL) %>% 
+  summarise(n=n_distinct(ID), .grouos="drop")
 
 #Note for later:
 #Need to fix bottom code chunk, fails on the 'left_join' function.
 
-#Joins and generates final labels
-active_models<-active_models %>% 
-  left_join(n_counts,by=c("vec_breaks"="model_name")) %>% 
+# Joins and generates final labels
+active_models <- active_models %>% 
+  left_join(n_counts, by = c("vec_breaks" = "MODEL")) %>% 
   mutate(
-    n=replace_na(n,0),
-    vec_lab_n_all=paste0(vec_labels,"\n(c= ",n,")"),
-    vec_lab_n=str_replace_all(vec_lab_n_all,"\n"," ")
+    n = replace_na(n, 0),
+    vec_lab_n_all = paste0(vec_labels, "\n(c= ", n, ")"),
+    vec_lab_n = str_replace_all(vec_lab_n_all, "\n", " ")
   )
 
-#Extracts final vectors for plotting
-vec_breaks <-active_models$vec_breaks
-vec_color<-setNames(active_models$vec_color,active_models$vec_breaks)
-vec_lab_n<-setNames(active_models$vec_lab_n,active_models$vec_breaks)
-vec_lab_n_all<-setNames(active_models$vec_lab_n_all,active_models$vec_breaks)
+# Extracts final vectors for plotting
+vec_breaks <- active_models$vec_breaks
+vec_color <- setNames(active_models$vec_color, active_models$vec_breaks)
+vec_lab_n <- setNames(active_models$vec_lab_n, active_models$vec_breaks)
+vec_lab_n_all <- setNames(active_models$vec_lab_n_all, active_models$vec_breaks)
 ```
