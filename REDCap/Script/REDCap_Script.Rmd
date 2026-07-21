@@ -1,0 +1,202 @@
+---
+title: "REDCap_Script"
+author: "Nikolai Vukov"
+date: "2026-07-16"
+output: html_document
+---
+
+# Background
+
+## Needed Libraries
+
+```{r}
+required_packages<-c("dplyr","readxl", "tidyr","tidyverse", "tools","purrr","rstudioapi")
+
+new_packages<-required_packages[!(required_packages %in% installed.packages()[,"Package"])]
+if(length(new_packages) > 0) {install.packages(new_packages)}
+
+invisible(lapply(required_packages,library,character.only = TRUE))
+```
+
+## Reading in the excel sheets
+
+```{r}
+#Getting Active Directory
+director<-getwd()
+
+#Allows users to select the folder with all the excel sheets
+Folder_Path <- selectDirectory()
+
+#Catches / Selects all excel files from choosen folder
+excel_files<-list.files(Folder_Path,pattern="\\.xlsx?$",full.names=TRUE,recursive=FALSE)
+```
+
+## Establishing needed functions
+
+```{r}
+process_lowres_rabbitdata<- function(file_path,arm){
+  
+  #Getting each excel sheet
+  sheets<-excel_sheets(file_path)
+  
+  #Trying to capture the excel entries to treat as blanks
+  nas_instnce<-c("", " ","\u00A0", "NA", "N/A", "Not available","unk","did not work", "didnt work", "this does nt seem right", "why????")
+  
+  #Mapping each sheets to it's variables
+  map_dfe(sheets,function(sheet_name){
+    
+    #Extracting information/ Meta data for "baseline_data"
+      #B column
+    meta_B<-suppressMessages(read_excel(file_path,sheet=sheet_name,range="B4:B8",col_names=c("val"),trim_ws=TRUE,na=nas_instnce,.name_repair = "minimal"))
+    
+      #F column
+    meta_F<-suppressMessages(read_excel(file_path,sheet=sheet_name,range="F4:F5",col_names=c("val"),trim_ws=TRUE,na=nas_instnce,.name_repair = "minimal"))
+    
+    #Retrieves baseline information from input excel sheet
+    subject_id_val<-as.character(meta_B$val[1])
+    rabbit_weight_val<- as.numeric(gsub("[^0-9","",meta_B$val[2]))
+    
+    transfusion_date_cld<-if(inherits(meta_B$val[3],"POSIXt")) as.character(as.Date(meta_B$val[3])) else as.character(eta_B$val[3]) 
+    
+    bld_volume_val<-as.numeric(meta_B$val[4])
+    transf_vol_val<-as.numeric(meta_B$val[5])
+    
+  #Handles Exclusion
+    exclude_raw<-tolower(trimws(as.character(meta_F$val[1])))
+    exclusion_reason_val<-trimws(as.character(meta_F$val[2]))
+    
+    is_excluded<-grepl("^(1|y|yes|t|true|exclude|excluded)$",exclude_raw)
+    has_reason<-!is.na(exclusion_reason_val) & exclusion_reason_val !=" "
+    
+    exclude_val<-ifelse(is_excluded | has_reason,1,0)
+    
+    #Scenario C extractions:
+    damp_ld_info<-NA;damp_gtt_info<- NA
+    damp_ld_5min_val <- NA; damp_ld_4_hrs_val <- NA
+    m_vol_5min_val <- NA; m_vol_4hr_val <- NA
+    braintissue_vol_5min_val <- NA; braintissue_vol_4hr_val <- NA 
+    total_damp_5min_val <- NA; total_damp_4hr_val <- NA
+    bld_vol_5min_val <- NA; bld_vol_4hr_val <- NA
+    
+    if (arm=="Scenario C"){
+      
+      #K Column
+      meta_K<-suppressMessages(read_excel(file_path,sheet=sheet_name,range="K5:K6",col_names=c("val"),trim_ws=TRUE,na=nas_instnce,.name_repair = "minimal"))
+      
+      #O-P Column
+      meta_OP<-suppressMessages(read_excel(file_path,sheet=sheet_name,range="O5:P7",col_names=c("val"),trim_ws=TRUE,na=nas_instnce,.name_repair = "minimal"))
+      
+      #S-T Column
+      meta_ST<-suppressMessages(read_excel(file_path,sheet=sheet_name,range="S5:T6",col_names=c("val"),trim_ws=TRUE,na=nas_instnce,.name_repair = "minimal"))
+      
+      #Gets variables of interest in Scenario C
+      damp_ld_info_val<-as.numeric(meta_K$val[1])
+      damp_gtt_info_val<-as.numeric(meta_K$val[2])
+
+      
+      damp_ld_5min_val<-as.numeric(meta_OP$val_o[1])
+      damp_ld_4_hrs_val<-as.numeric(meta_OP$val_p[1])
+      
+      braintissue_vol_5min_val<-as.numeric(meta_OP$val_o[2])
+      braintissue_vol_4hr_val<-as.numeric(meta_OP$val_p[2])
+      
+      total_damp_5min_val<-as.numeric(meta_OP$val_o[3])
+      total_damp_4hr_val<-as.numeric(meta_OP$val_p[3])
+      
+      m_vol_5min_val<-as.numeric(meta_ST$val_s[1])
+      m_vol_4hr_val<-as.numeric(meta_ST$val_t[1])
+      
+      bld_vol_5min_val<-as.numeric(meta_ST$val_s[2])
+      bld_vol_4hr_val<-as.numeric(meta_ST$val_t[2])
+    }
+    
+  #Longitudinal extract 
+  long_data<-suppressMessages(read_excel(file_path,sheet=sheet_name,skip=11,trim_ws=TRUE,na=nas_instance,.name_repair="unique"))
+  
+  long_data<-long_data %>% rename_with(tolower) %>% filter(!is.na(timepoint))
+  if(nrow(long_data)==0) return(NULL)
+  
+  #Builds final payload
+  
+  cleaned_data<-long_data %>% 
+    rename(time=any_of(c("clock time","time")), body_temp=any_of(c("temp","body_temp"))) %>% 
+    mutate(subject_id=subject_id_val,
+           
+    #ReDCap requires "_arm_#_ for each timepoint/event
+    redcap_event_name=case_when(
+      arm=="Scenario A"~paste0(timepoint,"_arm_1"),
+      arm=="Scenario B"~paste0(timepoint,"_arm_2"),
+      arm=="Scenario C"~paste0(timepoint,"_arm_3"),
+      TRUE~ timepoint
+    ),      
+    
+    #Imports baseline data
+    rabit_weight=ifelse(timepoint=="base_line",rabbit_weight_val,NA),
+    transfusion_date=ifelse(timepoint=="base_line",transfusion_date_cld,NA),
+    bld_volume=ifelse(timepoint=="base_line",bld_volume_val,NA),
+    transf_vol=ifelse(timepoint=="base_line",transf_vol_val,NA),
+    exclude=ifelse(timepoint=="base_line",exclude_val,NA),
+    exclusion_reason=ifelse(timepoint=="base_line",exclusion_reason_val,NA),
+    
+    
+    #Imports baseline_c data
+    damp_ld_info=ifelse(arm=="Scenario C" & timepoint=="base_line",damp_ld_info_val,NA),
+    damp_gtt_info=ifelse(arm=="Scenario C" & timepoint=="base_line",damp_gtt_info_val,NA),
+    damp_ld_5min=ifelse(arm=="Scenario C" & timepoint=="base_line",damp_ld_5min_val,NA),
+    damp_ld_4_hrs=ifelse(arm=="Scenario C" & timepoint=="base_line",damp_ld_4_hrs_val,NA),
+    braintissue_vol_5min=ifelse(arm=="Scenario C" & timepoint=="base_line",braintissue_vol_5min_val,NA),
+    braintissue_vol_4hr=ifelse(arm=="Scenario C" & timepoint=="base_line",braintissue_vol_4hr_val,NA),
+    total_damp_5min=ifelse(arm=="Scenario C" & timepoint=="base_line",total_damp_5min_val,NA),
+    total_damp_4hr=ifelse(arm=="Scenario C" & timepoint=="base_line",total_damp_4hr_val,NA),
+    m_vol_5min=ifelse(arm=="Scenario C" & timepoint=="base_line",m_vol_5min_val,NA),
+    m_vol_4hr=ifelse(arm=="Scenario C" & timepoint=="base_line",m_vol_4hr_val,NA),
+    bld_vol_5min=ifelse(arm=="Scenario C" & timepoint=="base_line",bld_vol_5min_val,NA),
+    bld_vol_4hr=ifelse(arm=="Scenario C" & timepoint=="base_line",bld_vol_4hr_val,NA)) %>% 
+    
+    #Selects baseline and baseline_c data only
+    select(subject_id,redcap_event_name,rabbit_weight,transfusion_date,bld_volume,transf_vol,exclude,exclusion_reason,
+    damp_ld_info,damp_gtt_info,damp_ld_5min,damp_ld_4_hrs,braintissue_vol_5min,braintissue_vol_4hr,total_damp_5min,total_damp_4hr,m_vol_5min,m_vol_4hr,bld_vol_5min,bld_vol_4hr,
+    
+    #Selects dynamically timeline data
+    any_of(c(
+    "time", "map", "bpm", "body_temp", 
+      "ph", "pc02", "po2", "lac",
+        "wbc", "rbc", "hgb", "hct", "plt",
+          "ggt", "ast", "alt", "amy", "ldh", "crea", "bun", "glu", "tg",
+            "r_min", "k_min", "angle_deg", "ma_mm"
+      ))
+    )
+  
+    return(cleaned_data)
+  })
+}
+
+#Combining Final REDCap Data
+final_redcap_data<-map_dfr(excel_files,function(file){
+
+  
+  #Dynamically selecting the arm
+  if(grepl("A",substr(file, start = 1, stop = 1,ignore.case=TRUE))){
+    current_arm="Scenario A"
+    }else if(grepl("B",substr(file, start = 1, stop = 1,ignore.case=TRUE))){
+    current_arm="Scenario B"
+    } else if (grepl("C",substr(file, start = 1, stop = 1,ignore.case=TRUE))){
+    current_arm="Scenario C"
+    }else NA 
+})
+
+  View(final_redcap_data)
+
+
+# Set where you want the final file to be saved
+output_filepath <- file.path(director, "REDCap_Ready_Import.csv")
+
+# Export to CSV, ensuring NAs are left completely blank
+write_csv(final_redcap_data, file = output_filepath, na = "")
+
+message("Export complete! File saved to: ", output_filepath)
+
+
+
+
+```

@@ -20,6 +20,7 @@ round3<-(9:12)
 #Reference Model
 ref_model="fWB" 
 
+#Gets the Working Directory
 Target_Directory<-getwd()
 
 source("Tegs_Function_Script.R")
