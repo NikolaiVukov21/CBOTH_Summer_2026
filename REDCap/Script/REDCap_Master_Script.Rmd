@@ -1,0 +1,34 @@
+---
+title: "REDCap_Master_Script"
+author: "Nikolai Vukov"
+date: "2026-07-23"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Background
+
+```{r}
+
+Directory<-getwd()
+
+#Select where the input digitized charts are stored
+PDF_File_Path<-" "
+
+#Initial setup script
+source("R_Setup_Script.R") #establishes API key for data upload:
+```
+
+# Excel
+
+```{r}
+#Select where the input excel sheets are stored
+Excel_File_Path<-"C:/Users/nvuko/CBOTH_Summer_2026/REDCap/Input Sheets"
+
+source("R_Script_Excel.R")
+```
+
+# PDF
