@@ -1,4 +1,4 @@
-# Rabbit_Summer2026
+# Rabbit Summer2026
 
 This Github was created for various projects performed during the Summer of 2026 for the CBOTH lab at the University of Maryland, Baltimore Campus.
 
@@ -15,10 +15,36 @@ Status:
 
 ## Concert:
 
+### Lowres:
+Status:
+- [ ] Not Started
+- [ ] In-Progress
+- [ ] Completed
+- [X] Abandoned - Switched to working on "RedCap" and "Manu" scripts
+
+Notes:
+The code is a recreation of Yuxin Wang's original concert code, the `script` is finished to be more scalable, but not the 'plotting' file
+
+### Manu:
+
+Overview:
+
+Status:
+- [ ] Not Started
+- [ ] In-Progress
+- [X] Completed
+
+Notes:
+The code is a recreation of Yuxin Wang's original Manu concert code
+
+## REDCap:
+
+Overview:
+
 Status:
 - [ ] Not Started
 - [X] In-Progress
 - [ ] Completed
 
 Notes:
-The code is a recreation of Yuxin Wang's original concert code, the `script` is finished to be more scalable, but not the 'plotting' file
+Excel Upload Script is completed, Working on PDF script as 7/28/2026
