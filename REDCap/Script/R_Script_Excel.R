@@ -13,18 +13,22 @@ if(length(new_packages) > 0) {install.packages(new_packages)}
 
 invisible(lapply(required_packages,library,character.only = TRUE))
 
+if(Excel_File_Path !=" "){
+  Excel_File_Path<-gsub("\\\\","/",Excel_File_Path,ignore.case=FALSE)
+}
 
-## Reading in the excel sheets
 
 
-#Allows users to select the folder with all the excel sheets
+  #Allows users to select the folder with all the excel sheets
 ifelse(Excel_File_Path==" ",Folder_Path <- selectDirectory(),Folder_Path<-Excel_File_Path)
 
-#Catches / Selects all excel files from choosen folder
+  #Catches / Selects all excel files from choosen folder
 excel_files<-list.files(Folder_Path,pattern="\\.xlsx?$",full.names=TRUE,recursive=FALSE)
  
+  #Gets parent directory
 Parent_Directory<-dirname(Directory)
 
+  #Final Results folder
 Results_Folder<-file.path(Parent_Directory,paste("Output Sheets"))
 
 if(!dir.exists(Results_Folder)){
@@ -381,8 +385,6 @@ output_filepath <- file.path(Results_Folder, paste("REDCap_Import_",date,".csv")
 
 #Exporting CSV file to path, ensures all "NA's" are blank
 write_csv(final_redcap_data, file=output_filepath, na = "")
-
-message("Export complete, File saved to: ", output_filepath)
 
 #Automated REDCap API upload
 

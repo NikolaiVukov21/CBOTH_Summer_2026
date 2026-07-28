@@ -10,7 +10,8 @@ output: html_document
 ## Needed Libraries
 
 ```{r}
-required_packages<-c("dplyr","readxl", "tidyr","tidyverse", "tools","purrr","rstudioapi","REDCapR")
+required_packages<-c("dplyr","pdftools", "tidyr","tidyverse", "tools","purrr","rstudioapi","REDCapR","stringr","magick","tesseract")
+
 
 new_packages<-required_packages[!(required_packages %in% installed.packages()[,"Package"])]
 if(length(new_packages) > 0) {install.packages(new_packages)}
@@ -21,18 +22,34 @@ invisible(lapply(required_packages,library,character.only = TRUE))
 ## Reading in the excel sheets
 
 ```{r}
-#Getting Active Directory
-director<-getwd()
+required_packages<-c("dplyr","readxl", "tidyr","tidyverse", "tools","purrr","rstudioapi","REDCapR")
 
-#Output Sheets
-#Output_Sheets<-
+new_packages<-required_packages[!(required_packages %in% installed.packages()[,"Package"])]
+if(length(new_packages) > 0) {install.packages(new_packages)}
+
+invisible(lapply(required_packages,library,character.only = TRUE))
+
+if(PDF_File_Path !=" "){
+  PDF_File_Path<-gsub("\\\\","/",PDF_File_Path,ignore.case=FALSE)
+}
+
 
 
 #Allows users to select the folder with all the excel sheets
-Folder_Path <- selectDirectory()
+ifelse(PDF_File_Path==" ",Folder_Path <- selectDirectory(),Folder_Path<-PDF_File_Path)
 
 #Catches / Selects all excel files from choosen folder
-excel_files<-list.files(Folder_Path,pattern="\\.xlsx?$",full.names=TRUE,recursive=FALSE)
+pdf_files<-list.files(Folder_Path,pattern="\\.xlsx?$",full.names=TRUE,recursive=FALSE)
+
+#Gets parent directory
+Parent_Directory<-dirname(Directory)
+
+#Final Results folder
+Results_Folder<-file.path(Parent_Directory,paste("Output Sheets"))
+
+if(!dir.exists(Results_Folder)){
+  dir.create(Results_Folder,recursive = TRUE, showWarnings = FALSE)
+}
 ```
 
 ## Establishing needed functions
@@ -40,113 +57,7 @@ excel_files<-list.files(Folder_Path,pattern="\\.xlsx?$",full.names=TRUE,recursiv
 ```{r}
 process_lowres_rabbitdata<- function(file_path,arm){
   
-  #Getting each excel sheet
-  sheets<-excel_sheets(file_path)
-  
-  #Trying to capture the excel entries to treat as blanks
-  nas_instnce<-c("", " ","\u00A0", "NA", "N/A", "Not available","unk","did not work", "didnt work", "this does nt seem right", "why????")
-  
-  #Mapping each sheets to it's variables
-  map_dfr(sheets,function(sheet_name){
-    
-    #Extracting information/ Meta data for "baseline_data"
-      #B column
-    meta_B<-suppressMessages(read_excel(file_path,sheet=sheet_name,range="B4:B8",col_names=c("val"),trim_ws=TRUE,na=nas_instnce,.name_repair = "minimal"))
-    
-      #F column
-    meta_F<-suppressMessages(read_excel(file_path,sheet=sheet_name,range="F4:F5",col_names=c("val"),trim_ws=TRUE,na=nas_instnce,.name_repair = "minimal"))
-    
-    #Retrieves baseline information from input excel sheet
-    subject_id_val<-as.character(meta_B$val[1])
-    rabbit_weight_val<- as.numeric(gsub("[^0-9.]","",meta_B$val[2]))
-    
-    #Had issues with date converting to the number of days after January 1,1900
-    date_raw<-meta_B$val[3]
-    
-    #Captures the different ways 'date' can be phased through
-    transfusion_date_cld<- if (is.na(date_raw)){
-      NA
-      
-      #Converts for the 1899 epoch
-    } else if (grepl("^[0-9]{5}$", as.character(date_raw))){
-      as.character(as.Date(as.numeric(date_raw),origin="1899-12-30"))
-      
-      #If read as an excel natively
-    } else if (inherits(date_raw,"POSIXt") || inherits(date_raw,"Date")){
-      as.character(as.Date(date_raw))
-      
-      #If already in date format
-    } else{
-      as.character(date_raw)
-    }
-    
-    #Formats Date for REDCap formatting
-    transfusion_date_cld<-format(as.Date(transfusion_date_cld),"%Y-%m-%d")
 
-    
-#Extracting baseline variables
-    bld_volume_val<-as.numeric(meta_B$val[4])
-    transf_vol_val<-as.numeric(meta_B$val[5])
-    
-  #Handles Exclusion
-    exclude_raw<-tolower(trimws(as.character(meta_F$val[1])))
-    exclusion_reason_val<-trimws(as.character(meta_F$val[2]))
-    
-    is_excluded<-grepl("^(1|y|yes|t|true|exclude|excluded)$",exclude_raw)
-    has_reason<-!is.na(exclusion_reason_val) & exclusion_reason_val !=" "
-    
-    exclude_val<-ifelse(is_excluded | has_reason,1,0)
-    
-    #Scenario C extractions:
-    damp_ld_info<-NA;damp_gtt_info<- NA
-    damp_ld_5min_val <- NA; damp_ld_4_hrs_val <- NA
-    m_vol_5min_val <- NA; m_vol_4hr_val <- NA
-    braintissue_vol_5min_val <- NA; braintissue_vol_4hr_val <- NA 
-    total_damp_5min_val <- NA; total_damp_4hr_val <- NA
-    bld_vol_5min_val <- NA; bld_vol_4hr_val <- NA
-    
-    if (arm=="Scenario C"){
-      
-      #K Column
-      meta_K<-suppressMessages(read_excel(file_path,sheet=sheet_name,range="K5:K6",col_names=c("val"),trim_ws=TRUE,na=nas_instnce,.name_repair = "minimal"))
-      
-      #O-P Column
-      meta_OP<-suppressMessages(read_excel(file_path,sheet=sheet_name,range="O5:P7",col_names=c("val_o","val_p"),trim_ws=TRUE,na=nas_instnce,.name_repair = "minimal"))
-      
-      #S-T Column
-      meta_ST<-suppressMessages(read_excel(file_path,sheet=sheet_name,range="S5:T6",col_names=c("val_s","val_t"),trim_ws=TRUE,na=nas_instnce,.name_repair = "minimal"))
-      
-      #Checks if the columns exists before extracting data
-      clean_extraction<- function(df,col_name,row_idx){
-        if(col_name %in% names(df) && nrow(df) >= row_idx){
-          return(as.numeric(df[[col_name]][row_idx]))
-        } else{
-          return(NA)
-        }
-      }
-      
-      #Gets variables of interest in Scenario C
-      damp_ld_info_val<-clean_extraction(meta_K,"val",1)
-      damp_gtt_info_val<-clean_extraction(meta_K,"val",2)
-
-
-      
-      damp_ld_5min_val<-clean_extraction(meta_OP,"val_o",1)
-      damp_ld_4_hrs_val<-clean_extraction(meta_OP,"val_p",1)
-      
-      braintissue_vol_5min_val<-clean_extraction(meta_OP,"val_o",2)
-      braintissue_vol_4hr_val<-clean_extraction(meta_OP,"val_p",2)
-      
-      total_damp_5min_val<-clean_extraction(meta_OP,"val_o",3)
-      total_damp_4hr_val<-clean_extraction(meta_OP,"val_p",3)
-      
-      
-      m_vol_5min_val<-clean_extraction(meta_ST,"val_s",1)
-      m_vol_4hr_val<-clean_extraction(meta_ST,"val_t",1)
-      
-      bld_vol_5min_val<-clean_extraction(meta_ST,"val_s",2)
-      bld_vol_4hr_val<-clean_extraction(meta_ST,"val_t",2)
-    }
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++       
 
@@ -276,7 +187,7 @@ long_data<- long_data %>%
 }
 
 #Combining Final REDCap Data
-final_redcap_data<-map_dfr(excel_files,function(file){
+final_redcap_data<-map_dfr(pdf_files,function(file){
 
   file_name<-basename(file)
   

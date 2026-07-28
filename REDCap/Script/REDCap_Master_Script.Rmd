@@ -11,12 +11,9 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Background
 
-```{r}
+```{r,warning=FALSE}
 
 Directory<-getwd()
-
-#Select where the input digitized charts are stored
-PDF_File_Path<-" "
 
 #Initial setup script
 source("R_Setup_Script.R") #establishes API key for data upload:
@@ -24,11 +21,21 @@ source("R_Setup_Script.R") #establishes API key for data upload:
 
 # Excel
 
-```{r}
+```{r,warning=FALSE,messages=FALSE}
 #Select where the input excel sheets are stored
-Excel_File_Path<-"C:/Users/nvuko/CBOTH_Summer_2026/REDCap/Input Sheets"
+Excel_File_Path<-r"(C:/Users/nvuko/CBOTH_Summer_2026/REDCap/Input Sheets/Excel Sheets)"
 
 source("R_Script_Excel.R")
 ```
 
 # PDF
+
+```{r,warning=FALSE}
+#Select where the input PDF sheets are stored
+PDF_File_Path<-r"(C:\Users\nvuko\CBOTH_Summer_2026\REDCap\Input Sheets\PDF's)"
+
+```
+
+```{r}
+
+```
