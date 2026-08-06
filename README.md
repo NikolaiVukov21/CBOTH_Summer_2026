@@ -15,7 +15,9 @@ Status:
 
 ## Concert:
 
-### Lowres:
+### Scenario A:
+
+#### Lowres:
 Status:
 - [ ] Not Started
 - [ ] In-Progress
@@ -25,7 +27,7 @@ Status:
 Notes:
 The code is a recreation of Yuxin Wang's original concert code, the `script` is finished to be more scalable, but not the 'plotting' file
 
-### Manu:
+#### Manu:
 
 Overview:
 
@@ -37,6 +39,10 @@ Status:
 Notes:
 The code is a recreation of Yuxin Wang's original Manu concert code
 
+### Scenario B:
+
+##
+
 ## REDCap:
 
 Overview:
@@ -47,4 +53,4 @@ Status:
 - [ ] Completed
 
 Notes:
-Excel Upload Script is completed, Working on PDF script as 7/28/2026
+Excel Upload Script is completed, Working on PDF script as 8/6/2026
