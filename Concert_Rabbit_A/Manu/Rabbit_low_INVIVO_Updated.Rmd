@@ -37,7 +37,7 @@ knitr::opts_knit$set(root.dir = mypath)
 #get system date
 date <- format(Sys.Date(), '_%Y_%m_%d')
 
-source("Lowres_ReadingData_INVIVO_Script_test.R")
+source("Lowres_ReadingData_INVIVO_Script.R")
 
 #Folders needed for output seperation
 results_dir <- file.path(mypath, "results", paste0("rabbit2_", date))
@@ -129,6 +129,7 @@ Style_Guide<- tribble(
   "WBA-pHb",       "WBA-pHb",    "#E18727",     TRUE
 )
 
+#When 
 
 df_rTx <- read.csv(paste0(mypath, "/Data/analysis_ready_data/df_INVIVO_scenarioA.csv")) %>%
   left_join(Time_lookup, by= "Timepoint") %>% 
@@ -185,7 +186,7 @@ Style_GuideStyle_Guide_NI <- Style_Guide %>%  filter(is_NI)
 
 vec_breaks_NI <- Style_GuideStyle_Guide_NI$MODEL
 vec_labels_NI <- Style_GuideStyle_Guide_NI$label
-vec_colors_NI <- setNames(Style_GuideStyle_Guide_NI$color, Style_GuideStyle_Guide_NI$MODEL)
+vec_colors_NI <- setNames(Style_GuideStyle_Guide_NI$color, Style_GuideStyle_Guide_NI$label)
 
 # Time vectors
 TIME_VIS    <- unique(df_rTx$TIME_VIS)
@@ -236,8 +237,8 @@ plot_func <- function(data, vec, file, facet_labels = NULL) {
         color = "black"
       ) +
       scale_x_continuous(
-      breaks = time_levels, 
-      labels = time_labels
+      breaks = TIME_VIS, 
+      labels = time_levels
        ) +
       scale_y_continuous(
         breaks = pretty_breaks(),
@@ -472,8 +473,8 @@ plot_func_facet <- function(data, vec, file, facet_labels = NULL, vjust_mult = 1
 ) +
     
     scale_x_continuous(
-      breaks = c(-2, -1, -0.6, 0.4, 1.4, 2.4, 6),
-      labels = c("BL", "EOS", "EOR", "1h", "3h", "6h", "24h"),
+      breaks = TIME_VIS, 
+      labels = time_levels,
       expand = expansion(add = c(0.18, 0.22))
     ) +
     
@@ -623,8 +624,8 @@ plot_func_facet_p <- function(data, vec, facet_labels = NULL, vjust_mult = 1.4,n
 ) +
     
     scale_x_continuous(
-      breaks = c(-2, -1, -0.6, 0.4, 1.4, 2.4, 6),
-      labels = c("BL", "EOS", "EOR", "1h", "3h", "6h", "24h"),
+      breaks = TIME_VIS, 
+      labels = time_levels,
       expand = expansion(add = c(0.18, 0.22))
     ) +
     
@@ -902,7 +903,9 @@ plot_func <- function(data, vec, file,title_text=NULL,ylab=NULL) {
       #geom_errorbar(aes(ymin=MEAN-SD, ymax=MEAN+SD), width=0.1, color = "black")+
       geom_errorbar(aes(ymin = MEAN - SD,ymax = MEAN + SD,color = factor(MODEL)),
                     width = 0.1,linewidth = 0.6) +
-      scale_x_continuous(breaks = c(-2, -1, -0.6, 0.4, 1.4, 2.4, 6), labels = c("BL","EOS", "EOR", "1h", "3h", "6h", "24h"))+
+      scale_x_continuous(breaks = TIME_VIS, 
+                         labels = time_levels,
+                         expand = expansion(add = c(0.18, 0.22)))+
       scale_y_continuous(breaks= pretty_breaks(), expand=expansion(mult=c(0.05,0.05)))+
       scale_color_manual(breaks=vec_breaks, values = vec_colors, labels = vec_labels) +
       labs(x="", y=ylab, color="",title=title_text)+
@@ -931,7 +934,9 @@ plot_func <- function(data, vec, file,title_text=NULL,ylab=NULL) {
          #geom_text(aes(x = TIME_VIS, y = Inf, label = N, color = MODEL, vjust = VJUST), size = 2, show.legend = FALSE) +
         #geom_errorbar(aes(ymin=MEAN-SD, ymax=MEAN+SD), width=0.1, color = "black")+
         geom_errorbar(aes(ymin = MEAN - SD,ymax = MEAN + SD,color = factor(MODEL)),width = 0.1,linewidth = 0.6) +
-        scale_x_continuous(breaks = c(-2, -1, -0.6, 0.4, 1.4, 2.4, 6), labels = c("BL","EOS", "EOR", "1h", "3h", "6h", "24h"))+
+          scale_x_continuous(breaks = TIME_VIS, 
+                             labels = time_levels,
+                             expand = expansion(add = c(0.18, 0.22)))+
         scale_y_continuous(breaks= pretty_breaks(), expand=expansion(mult=c(0.05,0.05)))+
         scale_color_manual(breaks=vec_breaks, values = vec_colors, labels = vec_labels) +
         labs(x="", y=ylab, color="", title=title_text) +
@@ -990,7 +995,7 @@ plot_TPP_relAUC <- function(metric, units){
                 scales = "free", render_empty = T, axes = "all",
                 independent = "all", switch = "y")+
     scale_color_manual(breaks = vec_breaks, labels = vec_labels, values= vec_colors) +
-    scale_x_discrete(breaks = vec_breaks, labels = vec_labels)+
+    scale_x_discrete(breaks = TIME_VIS, labels = time_levels, expand = expansion(add = c(0.18, 0.22)))+
     scale_y_continuous(breaks=pretty_breaks(), expand = expansion(mult = c(0.1,0.3)))+
     theme_minimal() +
     my_theme2()+
@@ -1132,12 +1137,7 @@ plot_ES_relAUC <- function(metric){
     my_theme2()+
     #scale_fill_manual(values = c("#0072B5FF","skyblue", vec_colors_NI))+
     scale_fill_manual(
-  breaks = c("TPP", "30% Margin", vec_labels_NI),
-  values = setNames(
-    c("#0072B5FF", "skyblue", vec_colors_NI),
-    c("TPP", "30% Margin", vec_labels_NI)
-  ),
-  labels = expression("TPP", "30% Margin", "WBA-EM", "WBA-pHb")
+    values = c("TPP" = "#0072B5FF", "30% Margin" = "skyblue", vec_colors_NI)
 )+
     
     scale_color_manual(values= c( "red"="red", "gold"="gold", "green3"="green3", "white"="white")) +
@@ -1224,7 +1224,7 @@ plot_TPP_tcross <- function(metric){
     geom_errorbar(data = filter(df_cross_stats_cleaned, METRIC == metric), aes(ymin=MEAN-SD, ymax=MEAN+SD), width=0.3, color = "black") +
     geom_text(data = filter(df_cross_stats_cleaned, METRIC == metric), aes(label = n), y = Inf, vjust = 1.5, color = "black", size = 2) +
     scale_color_manual(breaks = vec_breaks, labels = vec_labels, values= vec_colors) +
-    scale_x_discrete(breaks = vec_breaks, labels = vec_labels)+
+    scale_x_discrete(breaks = TIME_VIS, labels = time_levels,expand = expansion(add = c(0.18, 0.22)))+
     scale_y_continuous(breaks=pretty_breaks(), expand = expansion(mult = c(0.1,0.3)))+
     theme_minimal() +
     my_theme2() +
@@ -1308,13 +1308,13 @@ plot_ES_tcross <- function(metric){
     theme_minimal() +
     my_theme2()+
     
-    #+++++++++++++++++++++++++Optional: Make the labels scalable (Use NI_vec_labels names)++++++++++++++++++++++++++#
-    scale_fill_manual(values = c("#0072B5FF", vec_colors_NI),
-                      limits = c("TPP", vec_labels_NI))+
+    
+    scale_fill_manual(values = c("TPP"= "#0072B5FF", vec_colors_NI),
+                      limits = c("TPP", names(vec_colors_NI)))+
     scale_color_manual(values= c( "red"="red", "gold"="gold", "green3"="green3", "white"="white")) +
     scale_y_continuous(breaks=pretty_breaks(), expand = expansion(mult = c(0.4, 0.1))) +
     scale_x_discrete(labels = c("TPP","30% margin","20% margin",
-    "10% margin","WBA-EM","WBA-pHb"))+
+    "10% margin",names(vec_colors_NI)))+
     labs(title="Time to\n80% Recovery", x = "", y="Effect Size\n\u00A0") +
     guides(color = "none") +
     theme(legend.position = "none",
@@ -1614,9 +1614,9 @@ plot_func_single_metric_core <- function(data, metric_name, show_legend = FALSE)
       color = "black"
     ) +
     scale_x_continuous(
-      breaks = c(-2, -1, -0.6, 0.4, 1.4, 2.4, 6),
-      labels = c("BL", "EOS", "EOR", "1h", "3h", "6h", "24h"),
-      expand = expansion(add = c(0.08, 0.12))
+        breaks = TIME_VIS, 
+        labels = time_levels,
+        expand = expansion(add = c(0.18, 0.22))
     ) +
     scale_y_continuous(
       breaks = pretty_breaks(),
@@ -1984,7 +1984,7 @@ plot_func_CBC_blank_with_N <- function(data_stats, data_N, file = "CBC_blank_AE_
     
     scale_x_continuous(
       breaks = 1:7,
-      labels = time_labels,
+      labels = time_levels,
       limits = c(0.5, 7.5),
       expand = expansion(mult = c(0, 0))
     ) +
