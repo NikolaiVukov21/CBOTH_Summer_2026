@@ -21,7 +21,7 @@ library(tidyr)
 
 options(scipen=999)
 showtext_auto()
-showtext_opts(dpi = 800)
+showtext_opts(dpi = 600)
 font_add_google("Open Sans")
 
 # Getting color hexcodes
@@ -37,10 +37,10 @@ knitr::opts_knit$set(root.dir = mypath)
 #get system date
 date <- format(Sys.Date(), '_%Y_%m_%d')
 
-source("Lowres_ReadingData_INVIVO_Script.R")
+source("Lowres_ReadingData_INVIVO_Script_test.R")
 
 #Folders needed for output seperation
-results_dir <- file.path(mypath, "results", paste0("rabbit2", date))
+results_dir <- file.path(mypath, "results", paste0("rabbit2_", date))
 CSV_files<-file.path(results_dir,"CSV Files")
 Single_graphs<-file.path(results_dir,"Single Graphs")
 Combined_graphs<-file.path(results_dir,"Combined Graphs")
@@ -101,7 +101,101 @@ my_theme2 <- function() {
 }
 ```
 
-####Basic plot function
+
+
+#### Timepoints, Models used
+
+```{r}
+
+#TImepoint lookup
+Time_lookup <- tribble(
+  ~Timepoint,    ~TIME,     ~TIME_VIS,    ~Timepoint_Clean,
+  "Baseline",    -2,        -2,           "BL",
+  "EOS",         -0.167,    -1,           "EOS",
+  "EOR",          0,        -0.6,         "EOR",
+  "1HR",          1,         0.4,         "1 hr",
+  "3HR",          3,         1.4,         "3 hr",
+  "6HR",          6,         2.4,         "6 hr",
+  "24HR",         24,        6,           "24 hr"
+)
+
+#Style Guide
+Style_Guide<- tribble(
+  ~MODEL,         ~label,       ~color,         ~is_NI,
+  "FWB",           "fwb",        "#BC3C29FF",   FALSE,
+  "SWB",           "sWB",        "#0072B5FF",   FALSE,
+  "LR",            "LR",         "#374e55",     FALSE,
+  "EMv2_3_WBA",    "WBA-EM",     "#00AA55",     TRUE,
+  "WBA-pHb",       "WBA-pHb",    "#E18727",     TRUE
+)
+
+
+df_rTx <- read.csv(paste0(mypath, "/Data/analysis_ready_data/df_INVIVO_scenarioA.csv")) %>%
+  left_join(Time_lookup, by= "Timepoint") %>% 
+  mutate(Timepoint= coalesce(Timepoint_Clean, Timepoint)) %>%
+  mutate(
+
+METRIC=gsub("bpm","Heart rate", METRIC),
+NAME=paste0(METRIC,"\n(",UNITS,")"),
+NAME=str_replace_all(NAME,c(
+  "temp"         = "Temperature",
+  "%_Free_Hb"    = "Free Hb",  
+  "%_Free Hb"    = "Free Hb",
+  "Free_Hb"      = "Free Hb",
+  "HGB"          = "Hb",
+  "CREA"         = "CR",
+  "CKHR_time"    ="R.Time",
+  "CKH_K"        ="K.Time",
+  "R-Time"    ="R.Time",
+  "K-Time"        ="K.Time",
+  "CKH_angle"    ="Angle",
+  "CKH_MA"       ="MA",
+  "HCT\\s*\\(mmHg\\)" = "Hct\n(%)"
+)),
+
+#Clean up IDS
+  ID=str_replace_all(ID,c("ID \\(" = "ARB ", "\\)" = ""))
+ ) %>% 
+  mutate(MODEL = case_when(
+    MODEL %in% c("EMv2.0_WBA", "EMv3.0_WBA") ~ "EMv2_3_WBA",
+    MODEL %in% c("EMv4.14_SAC", "EMv4.15_SAC") ~ "SAC-EMv4.15",
+    TRUE ~ MODEL
+  )) %>%
+  filter(MODEL %in% Style_Guide$MODEL)
+
+#Retrieves N counts  
+Style_Guide <- Style_Guide %>%
+  rowwise() %>%
+  mutate(n_count = n_distinct(df_rTx$ID[df_rTx$MODEL == MODEL])) %>%
+  ungroup() %>%
+  mutate(
+    label_n_tall = paste0(label, "\n(n=", n_count, ")"),
+    label_n      = str_replace_all(label_n_tall, "\n", " ")
+  )
+
+vec_breaks <- Style_Guide$MODEL
+vec_labels <- Style_Guide$label
+
+vec_colors <- setNames(Style_Guide$color, Style_Guide$MODEL)
+vec_lab_n_tall <- Style_Guide$label_n_tall
+vec_lab_n <- Style_Guide$label_n
+
+#Extracts NI vector varaibles
+Style_GuideStyle_Guide_NI <- Style_Guide %>%  filter(is_NI)
+
+vec_breaks_NI <- Style_GuideStyle_Guide_NI$MODEL
+vec_labels_NI <- Style_GuideStyle_Guide_NI$label
+vec_colors_NI <- setNames(Style_GuideStyle_Guide_NI$color, Style_GuideStyle_Guide_NI$MODEL)
+
+# Time vectors
+TIME_VIS    <- unique(df_rTx$TIME_VIS)
+time_levels <- Time_lookup$Timepoint_Clean
+time_labels <- Time_lookup$Timepoint
+
+```
+
+
+#### Basic plot function
 
 ```{r}
 plot_func <- function(data, vec, file, facet_labels = NULL) {
@@ -142,9 +236,9 @@ plot_func <- function(data, vec, file, facet_labels = NULL) {
         color = "black"
       ) +
       scale_x_continuous(
-        breaks = c(-2, -1, -0.6, 0.4, 1.4, 2.4, 6),
-        labels = c("BL", "EOS", "EOR", "1 hr", "3 hr", "6 hr", "24 hr")
-      ) +
+      breaks = time_levels, 
+      labels = time_labels
+       ) +
       scale_y_continuous(
         breaks = pretty_breaks(),
         expand = expansion(mult = c(0.05, 0.4))
@@ -185,98 +279,29 @@ plot_func <- function(data, vec, file, facet_labels = NULL) {
 }
 ```
 
-#### Timepoints, Models used
-
-```{r}
-df_rTx <- read.csv(paste0(mypath, "/Data/analysis_ready_data/df_INVIVO_ScenarioA.csv")) %>%
-  mutate(TIME = case_when(
-    Timepoint == "Baseline" ~ -2,
-    Timepoint == "EOS" ~ -0.167,
-    Timepoint == "EOR" ~ -0,
-    Timepoint == "1HR" ~ 1,
-    Timepoint == "3HR" ~ 3,
-    Timepoint == "6HR" ~ 6,
-    Timepoint == "24HR" ~ 24,
-    T ~ NA)) %>%
-  mutate(TIME_VIS = case_when(
-    Timepoint == "Baseline" ~ -2,
-    Timepoint == "EOS" ~ -1,
-    Timepoint == "EOR" ~ -0.6,
-    Timepoint == "1HR" ~ 0.4,
-    Timepoint == "3HR" ~ 1.4,
-    Timepoint == "6HR" ~ 2.4,
-    Timepoint == "24HR" ~ 6,
-    T ~ NA)) %>%
-  mutate(Timepoint = case_when(
-    Timepoint == "Baseline" ~ "BL",
-    Timepoint == "1HR" ~ "1 hr",
-    Timepoint == "3HR" ~ "3 hr",
-    Timepoint == "6HR" ~ "6 hr",
-    Timepoint == "24HR" ~ "24 hr",
-    T~Timepoint)) %>%
-  mutate(METRIC = gsub("bpm","Heart rate", METRIC))%>%
-  mutate(NAME = paste0(METRIC, "\n(", UNITS, ")")) %>%
-  mutate(NAME = gsub("temp","Temperature",NAME)) %>%
-  mutate(NAME = gsub("X._Free_Hb","Free Hb",NAME)) %>%
-  mutate(NAME = gsub("Free_Hb","Free Hb",NAME)) %>%
-  mutate(ID = gsub("ID \\(","ARB ",ID)) %>%
-  mutate(ID = gsub("\\)","",ID)) %>%
-  #mutate(NAME = gsub("HGB","Hb",NAME)) %>%
-  mutate(NAME = gsub("CREA","CR",NAME))
-  #mutate(NAME = gsub("CKHR_time","R-Time",NAME)) %>%
-  #mutate(NAME = gsub("CKH_K","K-Time",NAME)) %>%
-  #mutate(NAME = gsub("CKH_angle","Angle",NAME)) %>%
-  #mutate(NAME = gsub("CKH_MA","MA",NAME)) %>%
-  #mutate(NAME = gsub("HCT\\s*\\(mmHg\\)","Hct\n(%)",NAME))
-
-#for INVIVO
-df_rTx <- df_rTx %>%  mutate(MODEL = if_else(MODEL == "EMv2.0_WBA" | MODEL == "EMv3.0_WBA", "EMv2_3_WBA", MODEL))
-vec_colors = c("#BC3C29FF", "#0072B5FF", "#374e55",
-               "#00AA55", "#E18727FF")
-vec_breaks = c("FWB",  "SWB", "LR",
-               "EMv2_3_WBA", "pHb_SAC")
-#vec_labels = c("Fresh",   "Stored",  "LacRinger",
-               #"WBA-EM₂/₃", "WBA-pHb")
-vec_labels = c("fWB",   "sWB",  "LR",
-               "WBA-EM", "WBA-pHb")
-
-# # for ISOTT
-# df_rTx <- df_rTx %>%  mutate(MODEL = if_else(MODEL == "EMv2.0_WBA" | MODEL == "EMv3.0_WBA", "EMv2_3_WBA", MODEL)) %>%
-#   mutate(MODEL = if_else(MODEL == "EMv4.14_SAC" | MODEL == "EMv4.15_SAC", "EMv4.14_15_SAC", MODEL))
-# vec_colors = c("#BC3C29FF", "#0072B5FF", "#374e55",
-#                "#00AA55", "#E18727FF")
-# vec_breaks = c("FWB",  "SWB", "LR",
-#                "EMv2_3_WBA", "EMv4.14_15_SAC")
-# #vec_labels = c("Fresh",   "Stored",  "LacRinger",
-#                #"WBA-EM₂/₃", "WBA-pHb")
-# vec_labels = c("fWB",   "sWB",  "LR",
-#                "WBA-EM", expression(SAC-EM[4.15]))
-
-num_list <- map_dbl(vec_breaks, ~ df_rTx %>% filter(MODEL == .x) %>% pull(ID) %>% n_distinct())
-vec_lab_n_tall <- paste0(vec_labels, "\n(n=", num_list, ")")
-vec_lab_n <- sapply(vec_lab_n_tall, function(s) gsub("\n", " ", s), USE.NAMES = FALSE)
-
-df_rTx <- df_rTx %>% filter(MODEL %in% vec_breaks)
-
-time_levels <- c("BL", "EOS", "EOR", "1 hr", "3 hr", "6 hr", "24 hr")
-time_labels <- c("BL", "EOS", "EOR", "1h", "3h", "6h", "24h")
-```
-
 #### Statistics for 'df_rtx' dateframe
 
-```{r,message=FALSE}
+```{r message=FALSE}
 
 df_rTx_stats <- df_rTx %>% 
-  group_by(GROUP,METRIC, NAME, MODEL, Timepoint, TIME_VIS) %>%
-  summarize(N = n(), 
-            MIN=min(VALUE, na.rm=T), MED=quantile(VALUE, probs=0.5, na.rm=T), MAX=max(VALUE, na.rm=T), 
-            MEAN=mean(VALUE, na.rm=T), SD=sd(VALUE, na.rm=T)) %>%
-  arrange(GROUP,METRIC, MODEL, Timepoint) 
+  group_by(GROUP, METRIC, NAME ,MODEL, Timepoint, TIME_VIS) %>% 
+  summarize(
+    N = n(),
+    MIN = min(VALUE, na.rm=TRUE),
+    MED = quantile(VALUE, probs=0.5, na.rm=TRUE),
+    MAX = max(VALUE, na.rm=TRUE),
+    MEAN = mean(VALUE, na.rm=TRUE),
+    SD = sd(VALUE, na.rm=TRUE),
+    .groups= "drop"
+  ) %>% 
+  arrange(GROUP,METRIC, NAME ,MODEL, Timepoint)
 
+df_primary_stats <- df_rTx_stats %>% 
+  filter(METRIC %in% c("MAP","LAC"),
+         Timepoint %in% c("BL","EOS","EOR")) %>% 
+  select(-TIME_VIS)
 
-df_primary_stats <- df_rTx_stats %>% filter(METRIC == "MAP" | METRIC == "LAC", Timepoint %in% c("Baseline", "EOS", "EOR")) %>% select(-TIME_VIS)
-
-write.csv(df_primary_stats, paste0(CSV_files,"/df_primary_stats.csv"), row.names=FALSE)
+write_csv(df_primary_stats, file.path(CSV_files,"df_primary_stats.csv"))
 
 ```
 
@@ -286,11 +311,10 @@ write.csv(df_primary_stats, paste0(CSV_files,"/df_primary_stats.csv"), row.names
 
 ```{r,warning=FALSE}
 library(patchwork)
-df_LAC_MAP_EOS <- df_rTx %>% filter(METRIC == "MAP" | METRIC == "LAC", Timepoint=="EOS") %>%
-  mutate(NAME = gsub("\n", " ", NAME))
+df_LAC_MAP_EOS <- df_rTx %>% filter(METRIC == "MAP" | METRIC == "LAC", Timepoint=="EOS") 
 
-df_LAC_MAP_EOS_stats <- df_primary_stats %>% filter(Timepoint=="EOS") %>%
-  mutate(NAME = gsub("\n", " ", NAME))
+df_LAC_MAP_EOS_stats <- df_primary_stats %>% filter(Timepoint=="EOS") 
+
 name_levels <- unique(df_LAC_MAP_EOS$NAME)
 
 plot_list <- lapply(name_levels, function(nm) {
@@ -592,18 +616,6 @@ plot_func_facet_p <- function(data, vec, facet_labels = NULL, vjust_mult = 1.4,n
     geom_point(size = 2) +
     geom_line(linewidth = 1) +
     
-    # geom_text(
-    #   aes(x = TIME_VIS, y = Inf, label = N, color = MODEL, vjust = VJUST),
-    #   size = 2,
-    #   show.legend = FALSE
-    # ) +
-    
-    # geom_errorbar(
-    #   aes(ymin = MEAN - SD, ymax = MEAN + SD),
-    #   width = 0.1,
-    #   color = "black"
-    # ) +
-    
     geom_errorbar(
   aes(ymin = MEAN - SD,ymax = MEAN + SD,color = factor(MODEL)),
   width = 0.1,
@@ -694,7 +706,7 @@ vec_combine <- c("pH\n(value)", "AST\n(U/L)", "ALT\n(U/L)", "CR\n(mg/dL)",
   "R.Time\n(min)", "K.Time\n(min)", "Angle\n(degree)", "MA\n(mm)")
 
 vec_combine_lab <- setNames(c("pH\n\u00A0","AST\n(U/L)","ALT\n(U/L)",
-    "CR\n(mg/dL)","R-Time\n(min)","K-Time\n(min)","Angle\n(degree)",
+    "CR\n(mg/dL)","R.Time\n(min)","K.Time\n(min)","Angle\n(degree)",
     "MA\n(mm)"),vec_combine)
 
 p <- plot_func_facet_p(
@@ -936,7 +948,9 @@ plot_func <- function(data, vec, file,title_text=NULL,ylab=NULL) {
 }
 
 plot_LAC <- plot_func(df_rel_change_stats, c("LAC\n(mmol/L)"), "LAC",ylab="LAC\n(mmol/L)\n\u00A0")
+
 plot_MAP <- plot_func(df_rel_change_stats, c("MAP\n(mmHg)"), "MAP",ylab="MAP\n(mmHg)\n\u00A0")
+
 plot_LAC_rel_change <- plot_func(df_rel_change_stats, c("LAC\n(mmol/L)\n%Change from EOS"), "LAC_change",title_text = "%Change from EOS",ylab="LAC\n(mmol/L)\n\u00A0")
 plot_MAP_rel_change <- plot_func(df_rel_change_stats, c("MAP\n(mmHg)\n%Change from EOS"), "MAP_change",title_text = "%Change from EOS",ylab="MAP\n(mmHg)\n\u00A0")
 
@@ -996,6 +1010,8 @@ plot_TPP_relAUC_LAC <- plot_TPP_relAUC("LAC", "(mmol•hr/L)")
 
 ```{r}
 
+#Need to automate "labels"
+
 df_wide <- df_rel_change_stats_cleaned %>%
   pivot_wider(id_cols    = c(METRIC, TIMERANGE),
               names_from = "MODEL",
@@ -1024,10 +1040,6 @@ df_margin30_rel_change <- df_TPP_rel_change %>%
       METRIC == "MAP" ~ ES - 0.3 * abs(ES),
       TRUE ~ ES),
     MEASURE = "30% Margin")
-
-vec_colors_NI = c("#00AA55","#E18727FF")
-vec_breaks_NI = c("EMv2_3_WBA","pHb_SAC")
-vec_labels_NI = c("WBA-EM","SAC-EM4.15")
 
 
 # Compute for NI models
@@ -1119,9 +1131,14 @@ plot_ES_relAUC <- function(metric){
     theme_minimal() +
     my_theme2()+
     #scale_fill_manual(values = c("#0072B5FF","skyblue", vec_colors_NI))+
-    scale_fill_manual(values = c("TPP" = "#0072B5FF","30% Margin" = "skyblue",
-    "WBA-EM" = vec_colors_NI[1],"SAC-EM4.15" = vec_colors_NI[2]),
-    labels = c("TPP","30% Margin","WBA-EM",expression(SAC-EM[4.15])))+
+    scale_fill_manual(
+  breaks = c("TPP", "30% Margin", vec_labels_NI),
+  values = setNames(
+    c("#0072B5FF", "skyblue", vec_colors_NI),
+    c("TPP", "30% Margin", vec_labels_NI)
+  ),
+  labels = expression("TPP", "30% Margin", "WBA-EM", "WBA-pHb")
+)+
     
     scale_color_manual(values= c( "red"="red", "gold"="gold", "green3"="green3", "white"="white")) +
     scale_y_continuous(breaks=pretty_breaks(), expand = expansion(mult = c(0.4, 0.4))) +
@@ -1141,7 +1158,7 @@ plot_ES_relAUC_LAC <- plot_ES_relAUC("LAC")
 
 #### Time-to-Recovery Analysis
 
-```{r}
+```{r,message=FALSE}
 df_change <- df_rTx %>% 
   filter(METRIC == "MAP" | METRIC == "LAC") %>%
   arrange(NAME, MODEL, ID, TIME) %>%
@@ -1222,7 +1239,7 @@ plot_TPP_tcross_MAP <- plot_TPP_tcross("MAP")
 plot_TPP_tcross_LAC <- plot_TPP_tcross("LAC")
 ```
 
-#### Effect Size Analysis (Recovery Time)
+#### \$\$ Effect Size Analysis (Recovery Time)
 
 ```{r}
 
@@ -1290,12 +1307,14 @@ plot_ES_tcross <- function(metric){
               position = position_dodge(width = 0.7)) +
     theme_minimal() +
     my_theme2()+
+    
+    #+++++++++++++++++++++++++Optional: Make the labels scalable (Use NI_vec_labels names)++++++++++++++++++++++++++#
     scale_fill_manual(values = c("#0072B5FF", vec_colors_NI),
                       limits = c("TPP", vec_labels_NI))+
     scale_color_manual(values= c( "red"="red", "gold"="gold", "green3"="green3", "white"="white")) +
     scale_y_continuous(breaks=pretty_breaks(), expand = expansion(mult = c(0.4, 0.1))) +
     scale_x_discrete(labels = c("TPP","30% margin","20% margin",
-    "10% margin","WBA-EM",expression(SAC-EM[4.15])))+
+    "10% margin","WBA-EM","WBA-pHb"))+
     labs(title="Time to\n80% Recovery", x = "", y="Effect Size\n\u00A0") +
     guides(color = "none") +
     theme(legend.position = "none",
@@ -1507,27 +1526,6 @@ ggsave(
 #### Creates seperate N_Count Graphs
 
 ```{r}
-check_N_consistency <- function(df) {
-  
-  df_check <- df %>%
-    group_by(GROUP, MODEL, Timepoint) %>%
-    summarise(
-      n_unique = n_distinct(N),
-      .groups = "drop"
-    ) %>%
-    filter(n_unique > 1)
-  
-  if (nrow(df_check) > 0) {
-    stop(
-      paste0(
-        "ERROR: Inconsistent N detected!\n",
-        "Some GROUP × MODEL × Timepoint have multiple N values.\n",
-        "Please check your data."
-      )
-    )
-  }
-}
-
 plot_func_N <- function(data, group_name) {
   
   library(dplyr)
@@ -1542,8 +1540,6 @@ plot_func_N <- function(data, group_name) {
       ),
       MODEL = factor(MODEL, levels = vec_breaks)
     )
-  
-  check_N_consistency(df_temp)
   
   df_temp_plot <- df_temp %>%
     distinct(GROUP, MODEL, Timepoint, N)
@@ -1576,10 +1572,12 @@ plot_func_N <- function(data, group_name) {
 df_rTx_stats_1 <- df_rTx_stats %>% filter(GROUP=="CBC" | METRIC=="pH"| METRIC=="AST"| METRIC=="ALT"| METRIC=="CREA"| GROUP=="TEG 5000"|METRIC=="MAP") %>% 
   mutate(GROUP = recode(GROUP, "TEG 5000" = "TEG"))
 
+
+#Since 'Teg' is a group of 4 variables, have to use the non-combined 'df_rTx_stats' for 'Teg'
 invisible(plot_func_N(df_rTx_stats_1,"CBC"))
 invisible(plot_func_N(df_rTx_stats_1,"ABG"))
 invisible(plot_func_N(df_rTx_stats_1,"CMP"))
-invisible(plot_func_N(df_rTx_stats_1,"TEG"))
+invisible(plot_func_N(df_rTx_stats,"TEG"))
 invisible(plot_func_N(df_rTx_stats_1,"MAP"))
 
 df_rTx_stats_2 <- df_rTx_stats %>% filter(METRIC=="LAC") %>% 
@@ -1668,8 +1666,6 @@ plot_func_N_core <- function(data, group_name, show_legend = FALSE) {
       ),
       MODEL = factor(MODEL, levels = vec_breaks)
     )
-  
-  check_N_consistency(df_temp)
   
   df_temp_plot <- df_temp %>%
     distinct(GROUP, MODEL, Timepoint, N)
@@ -1867,6 +1863,8 @@ plot_CBC_final <- plot_func_CBC_with_N(
 )
 ```
 
+#### Creates the "FACET" graphs
+
 ```{r,message=FALSE,warning=FALSE}
 plot_func_CBC_blank_with_N <- function(data_stats, data_N, file = "CBC_blank_AE_F_N") {
   
@@ -2053,10 +2051,6 @@ invisible(plot_func_CBC_blank_with_N(
 ```{r,message=FALSE,warning=FALSE}
 #Nikolai Vukov
 #7/25/2026
-
-time_levels <- c("BL", "EOS", "EOR", "1 hr", "3 hr", "6 hr", "24 hr")
-time_labels <- c("BL", "EOS", "EOR", "1h", "3h", "6h", "24h")
-
 Writes_Count_Tables<- function (wb,sheet_name, data_n){
   addWorksheet(wb,sheet_name)
   
@@ -2131,7 +2125,12 @@ wb<-createWorkbook()
 #Starts with "combined" sheet
   df_combined<-df_rTx_stats %>% 
    group_by(GROUP, METRIC, Timepoint) %>% 
-   summarise(Total_N=sum(N,na.rm=TRUE), .groups="drop") 
+   summarise(Total_N=sum(N,na.rm=TRUE), .groups="drop") %>% 
+    complete( 
+      nesting(GROUP,METRIC),
+      Timepoint=time_levels,
+      fill=list(Total_N=0)
+    )
 
   
   #Calls function to generate workbook 
@@ -2146,7 +2145,12 @@ wb<-createWorkbook()
     df_model<-df_rTx_stats %>% 
       filter(MODEL == mod) %>% 
       group_by(GROUP, METRIC, Timepoint) %>% 
-      summarise(Total_N=sum(N,na.rm=TRUE), .groups="drop")
+      summarise(Total_N=sum(N,na.rm=TRUE), .groups="drop") %>% 
+    complete( 
+      nesting(GROUP,METRIC),
+      Timepoint=time_levels,
+      fill=list(Total_N=0)
+    )
     
     #Writes each model as it's own sheet
     Writes_Count_Tables(wb,as.character(mod),df_model)
