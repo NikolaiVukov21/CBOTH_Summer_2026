@@ -1,0 +1,18 @@
+---
+title: "ANOVA_Master_Script"
+author: "Nikolai Vukov"
+date: "2026-08-25"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+
+## ANOVA Formatting
+```
+
+```{r}
+
+source("ANOVA_Formatter.r")
+```
