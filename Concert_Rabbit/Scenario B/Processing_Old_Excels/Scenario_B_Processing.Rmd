@@ -1,0 +1,407 @@
+---
+title: "Scenario_B_Processing"
+author: "Nikolai Vukov"
+date: "2026-08-04"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#Getting libaries
+
+```{r}
+required_packages<-c("dplyr","readxl", "tidyr","tidyverse","openxlsx","data.table","stringr")
+
+new_packages<-required_packages[!(required_packages %in% installed.packages()[,"Package"])]
+if(length(new_packages) > 0) {install.packages(new_packages)}
+
+invisible(lapply(required_packages,library,character.only = TRUE))
+```
+
+# Reading Data, sorting
+
+```{r}
+mypath<-getwd()
+
+
+files_Path<-r"(C:\Users\nvuko\CBOTH_Summer_2026\Concert_Rabbit\Scenario B\Processing_Old_Excels\Old_Excels)"
+
+if(files_Path !=" "){
+  Folder_Path<-gsub("\\\\","/",files_Path,ignore.case=FALSE)
+}else{
+  Folder_Path<-selectDirectory()
+} 
+```
+
+# Converitng Data
+
+## Helper Function
+```{r}
+
+#Normalize function
+ Normalize_Cell<- function(x){
+   if(is.na(x)) return(NA)
+   
+   
+   x_clean<- x %>% 
+   as.character() %>% 
+   trimws() %>% 
+   gsub("_","-") %>% 
+   gsub("\\s+"," ") %>% 
+   gsub("–","-") %>% 
+   gsub("^\\s+|\\s+$","") 
+   
+   return(x_clean)
+ }
+
+#Smart Matcher
+match_term<- function(val,dict){
+  if(is.na(val) || val=="") return(NA_character_)
+  
+  for (raw_term in names(dict)){
+    safe_term<-str_escape(raw_term)
+    pattern<-paste0("\\b",safe_term,"\\b")
+    
+    if (str_detect(tolower(val),regex(pattern,ignore_case=TRUE))){
+      return(dict[[raw_term]])
+    }
+  }
+  return(NA_character_)
+}
+rabbit_regex<-"(KC|B[-_ ]?LR|B[-_ ]?B|B[-_ ]?PRC|BEA|Rabbit)[-_ ]?[A-Za-z0-9]+"
+
+#Reggex Extractor for ID's
+extract_rabit<-function(val){
+  if(is.na(val))return(NA_character_)
+  match<-str_extract(val,regex(rabbit_regex,ignore_case=TRUE))
+  return(match)
+}
+```
+## Dictioaries:
+
+
+```{r}
+
+Variable_Dic <- c(
+  "MAP"="MAP", 
+  "bpm"="bpm", "temp"="temp", "RBC"="RBC", "Hb"="HGB", 
+  "HGB"="HGB", "Hct"="Hct", "PLT"="PLT", "WBC"="WBC", "X._Free_Hb"="X._Free_Hb", 
+  "LAC"="LAC", "pH"="pH", "pCO2"="pCO2", "pO2"="pO2", "AST"="AST", "ALT"="ALT", 
+  "LDH"="LDH", "CREA"="CREA", "BUN"="BUN", "AMY"="AMY", "TG"="TG", 
+  "GLU"="GLU", "GGT"="GGT", 
+  "R.Time"="R.Time", "CK R time"="R.Time","R"="R.Time",
+  "K.Time"="K.Time", "CK K time"="K.Time","K"="K.Time",
+  "MA.Min"="MA.Min", "CK MA"="MA.Min","MA"="MA.Min",
+  "Angle"="Angle","CK MA"="Angle","Angle"="Angle"
+)
+
+timepoint_dict <- c(
+  "Baseline"="BL", "BL"="BL", "End of Shock"="EOS", "EOS"="EOS", 
+  "End of Res"="EOR", "EOR"="EOR", "1st Bleed"="10%", "10%"="10%", 
+  "2nd Bleed"="7.5%", "7.5%"="7.5%", "3rd Bleed"="5%", "5%"="5%", 
+  "4th Bleed"="2.5%", "2.5%"="2.5%", "End of Bleed"="EOB", "EOB"="EOB", 
+  "24H Post Res"="24HR", "24HR"="24HR", "48H Post Res"="48HR", "48HR"="48HR", 
+  "72H Post Res"="72HR", "72HR"="72HR", "Pre-Death"="Pre-Death","1H Post Bleed"="1 HR"
+)
+
+Group_Dict <- c(
+  "MAP"="MAP", "Heart rate"="Heart rate", "Body temp"="Body temp", 
+  "CBC"="CBC", "% Free Hb"="% Free Hb", "ABG"="ABG", "CMP"="CMP", 
+  "TEG 5000"="TEG 5000", "Coag Panel"="Coag Panel", "Complement"="Complement", 
+  "Luminex: Cytokine Panel"="Luminex: Cytokine Panel", "Troponin"="Troponin"
+)
+
+Variable_Group_DF <- data.frame(
+  Standard_Variable = c("HGB", "PLT", "MAP", "LAC", "pH"),
+  Group = c("CBC", "CBC", "MAP", "ABG", "ABG"),
+  stringsAsFactors = FALSE
+)
+
+```
+
+# Extrading and processing
+```{r}
+
+#Extraction of complex sheet
+build_grid<-function(df){
+  
+  #Turns excel sheet into a 2D grid
+  df_matrix<-as.matrix(df)
+  grid<-data.frame(
+    row=as.vector(row(df_matrix)),
+    col=as.vector(col(df_matrix)),
+    raw_value=trimws(as.character(as.vector(df_matrix))),
+    stringsAsFactors = FALSE
+  ) %>% filter(!is.na(raw_value) & trimws(raw_value) !="")
+   
+return(grid)
+}
+
+#Takes each cell from the "build_Grid" function and classifies what they represent
+#Exp: "CBC" = Group, "bpm" = variable
+classify_cells<-function(grid){
+  
+  #Matches the raw value to each dictionary
+  #The hierchary of classification is as follows:
+  # Variable -> Group -> Timepoint -> Rabbit ID -> Numeric -> Unknown
+  grid %>% 
+    mutate(
+      std_sec=sapply(raw_value,match_term,dict=Group_Dict),
+      std_var=sapply(raw_value,match_term,dict=Variable_Dic),
+      std_tp=sapply(raw_value,match_term,dict=timepoint_dict),
+      rabbit_match=str_extract(raw_value,regex(rabbit_regex, ignore_case = TRUE)),
+      is_numeric = !is.na(suppressWarnings(as.numeric(raw_value))),
+      cell_type=case_when(
+       !is.na(std_var) ~ "Variable",
+       !is.na(std_sec) ~ "Group",
+       !is.na(std_tp)  ~ "Timepoint",
+       !is.na(rabbit_match) ~ "Rabbit",
+        is_numeric ~ "Numeric",
+        TRUE ~ "Unknown"
+        ),
+     standard_value = case_when(
+        cell_type == "Variable"  ~ std_var,
+        cell_type == "Group"     ~ std_sec,
+        cell_type == "Timepoint" ~ std_tp,
+        cell_type == "Rabbit"    ~ rabbit_match,
+        cell_type == "Numeric"   ~ raw_value,
+        TRUE ~ NA_character_
+      )
+      ) %>% 
+      select(row,col,raw_value,cell_type,standard_value)
+}
+
+
+#Figures how each excel sheet is laid out for dynamic searching
+#Does this by finding where the headers for 'variables' and 'timepoint' is located
+detect_layout <- function(grid){
+  
+  #Cacualates the average row / column position of each data type
+  num_center_row<-mean(grid$row[grid$cell_type=="Numeric"],na.rm = TRUE)
+  var_center_row<-mean(grid$row[grid$cell_type=="Variable"],na.rm = TRUE)
+  tp_center_col<- mean(grid$col[grid$cell_type=="Timepoint"],na.rm = TRUE)
+  num_center_col<- mean(grid$col[grid$cell_type=="Numeric"],na.rm = TRUE)
+  
+  #The possible direction of each varaible (from the sheets that were given) are:
+  #Varaible ="up" or "left"
+  #Timepoint = "left" or "up"
+  list(
+    variable_direction = ifelse(var_center_row < num_center_row, "up", "left"),
+    timepoint_direction = ifelse(tp_center_col < num_center_col, "left", "up")
+  )
+} 
+
+# Transform the classified cells into data / observations
+extract_observations<-function(grid,layout,filename){
+  
+  #First filters by numerical data for 'nums' and headers
+  nums<-grid %>% filter(cell_type=="Numeric")
+  headers<-grid %>% filter(cell_type != "Numeric" & cell_type != "Unknown")
+  
+  #Empty list used to collect observations that meet a specific confidence thresholds
+  obs_list<-list()
+  
+  #Reclursive count on how many observations are skipped
+  skipped_count<-0
+  
+  #Checks through each row, resets confidence leve to 0 for each observation
+  for(i in 1:nrow(nums)){
+    cell<-nums[i,]
+    confidence<-0
+    
+    #Checks for headers above or to the left first
+    headers_above<-headers %>%  filter(row<=cell$row & col <= cell$col +1)
+    headers_left<-headers %>% filter(row<=cell$row+1 & col <cell$col)
+    
+    #Finds the variable and time point using the determined layout 
+    var_pool<-if(layout$variable_direction == "up") headers_above else headers_left
+    tp_pool<-if (layout$timepoint_direction=="left") headers_left else headers_above
+    
+    #Finds the nearest or closet header using "Manhatten Distance"
+    vars<-var_pool %>% filter(cell_type=="Variable")
+    best_var<-if(nrow(vars)>0){
+      vars[which.min(abs(vars$row - cell$row)+ abs(vars$col-cell$col)),]
+    } else NULL
+    
+    tps<-tp_pool %>%filter(cell_type=="Timepoint")
+    best_tp<-if (nrow(tps)>0){
+      tps[which.min(abs(tps$row - cell$row)+ abs(tps$col - cell$col)),]
+    } else NULL
+    
+    #Looks for nearest Rabbit / Rabbit-ID using a similair method
+    rabbits<-headers_above %>%  filter(cell_type=="Rabbit")
+    best_rabbit<- if(nrow(rabbits)>0){
+      rabbits[which.min(abs(rabbits$row - cell$row)+ abs(rabbits$col-cell$col)),]
+    }
+    
+    
+    #Collectively builds the levels of confidence using support evidence
+    #Adds 5 to the confidence level for each supporting header (Variable, Timepoint, and Rabbit ID)
+if (!is.null(best_var)) confidence <- confidence+ 5
+    if (!is.null(best_tp)) confidence <- confidence+5
+    if (!is.null(best_rabbit)) confidence <- confidence+5
+    
+    #Only selects the variables that has atleast 2 supporting headers 
+    if (confidence >= 10) {
+      obs_list[[i]] <- data.frame(
+        Source_File=filename,
+        Subject_ID=ifelse(!is.null(best_rabbit), best_rabbit$standard_value, "Unknown"),
+        Timepoint=ifelse(!is.null(best_tp), best_tp$standard_value, "Unknown"),
+        Variable=ifelse(!is.null(best_var), best_var$standard_value, "Unknown"),
+        Value=as.numeric(cell$standard_value),
+        Parser_Confidence=confidence,
+        stringsAsFactors= FALSE
+      )
+      #Dynamically updates skipped count if any observation falls below this threshold
+    } else {
+      skipped_count <- skipped_count + 1
+    }
+  }
+  cat(sprintf("Numeric cells found: %d\n", nrow(nums)))
+  cat(sprintf("Observations extracted: %d\n", length(obs_list)))
+  cat(sprintf("Cells skipped (Low Confidence): %d\n", skipped_count))
+  cat("--------------------------------\n")
+  
+  if (length(obs_list) > 0) {
+    bind_rows(obs_list) %>%
+      left_join(Variable_Group_DF, by = c("Variable" = "Standard_Variable")) %>%
+      select(Source_File, Subject_ID, Group, Variable, Timepoint, Value, Parser_Confidence)
+  } else {
+    return(data.frame())
+  }
+}
+
+#Runs the entire process from start to end
+parse_excel_sheet <- function(df, filename = "Unknown_File") {
+  grid <- build_grid(df) #Builds the grid first
+  classified_grid <- classify_cells(grid) #Classifies what the grid represents
+  layout <- detect_layout(classified_grid) #Classifies the layout
+  
+  final_data <- extract_observations(classified_grid, layout, filename) #Returns the final sheet of information
+  return(final_data)
+}
+```
+
+
+# File Retrieval
+```{r}
+excel_files<-list.files(
+  path=Folder_Path, pattern="\\.xlsx?$",
+  full.names=TRUE,
+  recursive = TRUE
+)
+cat(sprintf("\nFound %d Excel files to process.\n", length(excel_files)))
+
+parsed_list<-lapply(excel_files,function(file_path){
+  
+  filename<-basename(file_path)
+  
+  df<-tryCatch({
+    read_excel(file_path,col_names=FALSE)
+  }, error=function(e){
+      message(sprintf("\nError reading %s. Skipping file.", filename))
+    return(NULL)
+  })
+  
+  if (is.null(df)|| nrow(df)==0) return(NULL)
+  
+  parsed_data<-tryCatch({
+    parse_excel_sheet(df,filename=filename)
+  },error=function(e){
+      message(sprintf("\nError parsing %s: %s", filename, e$message))
+    return(NULL)
+  })
+  
+ return(parsed_data) 
+})
+
+#Exports to master CSV
+
+master_dataset<-bind_rows(parsed_list)
+
+output_file<-file.path(mypath,"Master_Parsed_Results.csv")
+
+write.csv(master_dataset,output_file)
+
+
+
+```
+
+
+## Extract to long format
+```{r}
+#Defining orders/ levels
+tp_levels<- c("Baseline",
+"EOS",
+"EOR",
+"10%",
+"7.5%",
+"5%",
+"2.5%",
+"EOB",
+"1 HR",
+"24HR",
+"48HR",
+"72HR",
+"Pre-Death"
+)
+
+target_vars<-c('Timepoint',	'Clock Time',	'Measurement >','MAP',	'bpm',	'temp',	'RBC',	'HGB',	'HCT',	'PLT',	'WBC',	'Free Hb',	'% Free Hb',	'LAC',	'pH',	'pCO2',	'pO2',	'AST',	'ALT',	'LDH',	'CREA',	'BUN',	'AMY',	'TG',	'GLU',	'GGT',	'CKHR time',	'CKH K',	'CKH angle',	'CKH MA'
+)
+
+#Cleans up the master dataset
+#Pivots it to the wide format using the variables and value 
+wide_master<-master_dataset %>% 
+  mutate(
+    Timepoint = recode(Timepoint,
+      "BL" = "Baseline"
+    ),
+    Variable = recode(Variable,
+      "Hct"     = "HCT",
+      "R.Time"  = "CKHR time",
+      "K.Time"  = "CKH K",
+      "Angle"   = "CKH angle",
+      "MA.Min"  = "CKH MA"
+    )
+         ) %>% 
+  mutate(Timepoint=factor(Timepoint,levels=tp_levels)) %>% 
+  select(Subject_ID,Timepoint,Variable,Value) %>% 
+  group_by(Subject_ID,Timepoint,Variable) %>% 
+  summarise(Value=first(Value),.groups = "drop") %>% 
+  pivot_wider(
+    names_from=Variable,
+    values_from = Value
+  ) %>% 
+  complete(Subject_ID,Timepoint) %>% 
+  arrange(Subject_ID,Timepoint) %>% 
+  mutate(
+    `Clock Time`=NA_character_
+  ) %>% relocate(Timepoint, `Clock Time`)
+
+#Loops through every target variable, returning NA for any missing target variable 
+#ensures consistent structure
+for (var in target_vars){
+  if(!var %in% names(wide_master)){
+    wide_master[[var]]<-NA_character_
+  }
+}
+
+#Reorders the column so that 'Subject', 'Timepoint','Clock Time' and 'variable' appears first
+wide_master<-wide_master %>% 
+ select(Subject_ID,Timepoint, `Clock Time`, any_of(target_vars), everything())
+
+#Converts everything to character, replaces NA
+#Note to self: Caused issues with excel reading, temporarily fix in the Visualization project
+wide_master <- wide_master %>%
+  mutate(across(everything(), ~ ifelse(is.na(.), "", as.character(.))))
+
+#Spltis the dataset by Models / Subject ID
+list_of_models<-split(wide_master,wide_master$Subject_ID)
+
+#Writes output excel
+output_excel <- file.path(mypath, "Formatted_Master_Results.xlsx")
+write.xlsx(list_of_models, output_excel, rowNames = FALSE)
+
+```

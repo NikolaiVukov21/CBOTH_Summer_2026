@@ -1,0 +1,2667 @@
+"","Source_File","Subject_ID","Group","Variable","Timepoint","Value","Parser_Confidence"
+"1","B_Blood.xlsx","B_B11","MAP","MAP","BL",62,15
+"2","B_Blood.xlsx","B_B11","MAP","MAP","EOS",29,15
+"3","B_Blood.xlsx","B_B11","MAP","MAP","EOR",55,15
+"4","B_Blood.xlsx","B_B11","MAP","MAP","10%",55,15
+"5","B_Blood.xlsx","B_B11","MAP","MAP","7.5%",51,15
+"6","B_Blood.xlsx","B_B11","MAP","MAP","5%",58,15
+"7","B_Blood.xlsx","B_B11","MAP","MAP","2.5%",55,15
+"8","B_Blood.xlsx","B_B11","MAP","MAP","EOB",68,15
+"9","B_Blood.xlsx","B_B11","MAP","MAP","24HR",78,15
+"10","B_Blood.xlsx","B_B11","MAP","MAP","48HR",74,15
+"11","B_Blood.xlsx","B_B11","ABG","LAC","BL",0.6,15
+"12","B_Blood.xlsx","B_B11","ABG","LAC","EOS",10.1,15
+"13","B_Blood.xlsx","B_B11","ABG","LAC","EOR",9.1,15
+"14","B_Blood.xlsx","B_B11","ABG","LAC","10%",2.7,15
+"15","B_Blood.xlsx","B_B11","ABG","LAC","7.5%",1.4,15
+"16","B_Blood.xlsx","B_B11","ABG","LAC","5%",1.1,15
+"17","B_Blood.xlsx","B_B11","ABG","LAC","2.5%",0.7,15
+"18","B_Blood.xlsx","B_B11","ABG","LAC","EOB",0.8,15
+"19","B_Blood.xlsx","B_B11","ABG","LAC","24HR",1.5,15
+"20","B_Blood.xlsx","B_B11","ABG","LAC","48HR",0.4,15
+"21","B_Blood.xlsx","B_B11",NA,"AST","BL",82,15
+"22","B_Blood.xlsx","B_B11",NA,"AST","EOR",78,15
+"23","B_Blood.xlsx","B_B11",NA,"AST","EOB",113,15
+"24","B_Blood.xlsx","B_B11",NA,"AST","24HR",62,15
+"25","B_Blood.xlsx","B_B11",NA,"AST","48HR",33,15
+"26","B_Blood.xlsx","B_B11",NA,"ALT","BL",108,15
+"27","B_Blood.xlsx","B_B11",NA,"ALT","EOR",95,15
+"28","B_Blood.xlsx","B_B11",NA,"ALT","EOB",125,15
+"29","B_Blood.xlsx","B_B11",NA,"ALT","24HR",123,15
+"30","B_Blood.xlsx","B_B11",NA,"ALT","48HR",103,15
+"31","B_Blood.xlsx","B_B11",NA,"LDH","BL",164,15
+"32","B_Blood.xlsx","B_B11",NA,"LDH","EOR",124,15
+"33","B_Blood.xlsx","B_B11",NA,"LDH","EOB",202,15
+"34","B_Blood.xlsx","B_B11",NA,"LDH","24HR",116,15
+"35","B_Blood.xlsx","B_B11",NA,"LDH","48HR",59,15
+"36","B_Blood.xlsx","B_B11",NA,"CREA","BL",0.9,15
+"37","B_Blood.xlsx","B_B11",NA,"CREA","EOR",0.8,15
+"38","B_Blood.xlsx","B_B11",NA,"CREA","EOB",0.6,15
+"39","B_Blood.xlsx","B_B11",NA,"CREA","24HR",0.7,15
+"40","B_Blood.xlsx","B_B11",NA,"CREA","48HR",0.6,15
+"41","B_Blood.xlsx","B_B11",NA,"BUN","BL",13.21,15
+"42","B_Blood.xlsx","B_B11",NA,"BUN","EOR",21.13,15
+"43","B_Blood.xlsx","B_B11",NA,"BUN","EOB",23.79,15
+"44","B_Blood.xlsx","B_B11",NA,"BUN","24HR",14.05,15
+"45","B_Blood.xlsx","B_B11",NA,"BUN","48HR",15.9,15
+"46","B_Blood.xlsx","B_B11",NA,"AMY","BL",255,15
+"47","B_Blood.xlsx","B_B11",NA,"AMY","EOR",249,15
+"48","B_Blood.xlsx","B_B11",NA,"AMY","EOB",273,15
+"49","B_Blood.xlsx","B_B11",NA,"AMY","24HR",284,15
+"50","B_Blood.xlsx","B_B11",NA,"AMY","48HR",295,15
+"51","B_Blood.xlsx","B_B11",NA,"TG","BL",73.45,15
+"52","B_Blood.xlsx","B_B11",NA,"TG","EOR",160.55,15
+"53","B_Blood.xlsx","B_B11",NA,"TG","EOB",186.6,15
+"54","B_Blood.xlsx","B_B11",NA,"TG","24HR",183.01,15
+"55","B_Blood.xlsx","B_B11",NA,"TG","48HR",198.52,15
+"56","B_Blood.xlsx","B_B11",NA,"GGT","BL",7,15
+"57","B_Blood.xlsx","B_B11",NA,"GGT","EOR",7,15
+"58","B_Blood.xlsx","B_B11",NA,"GGT","EOB",9,15
+"59","B_Blood.xlsx","B_B11",NA,"GGT","24HR",9,15
+"60","B_Blood.xlsx","B_B11",NA,"GGT","48HR",10,15
+"61","B_Blood.xlsx","B_B11",NA,"GLU","BL",140.6,15
+"62","B_Blood.xlsx","B_B11",NA,"GLU","EOR",304.52,15
+"63","B_Blood.xlsx","B_B11",NA,"GLU","EOB",135.86,15
+"64","B_Blood.xlsx","B_B11",NA,"GLU","24HR",158.86,15
+"65","B_Blood.xlsx","B_B11",NA,"GLU","48HR",156.84,15
+"66","B_Blood.xlsx","B_B11",NA,"GLU","BL",79.9,15
+"67","B_Blood.xlsx","B_B11",NA,"GLU","EOR",14.1,15
+"68","B_Blood.xlsx","B_B11",NA,"GLU","EOB",21.1,15
+"69","B_Blood.xlsx","B_B11",NA,"GLU","24HR",9.4,15
+"70","B_Blood.xlsx","B_B11",NA,"GLU","48HR",39.3,15
+"71","B_Blood.xlsx","B_B11",NA,"GLU","BL",17.9,15
+"72","B_Blood.xlsx","B_B11",NA,"GLU","EOR",40.5,15
+"73","B_Blood.xlsx","B_B11",NA,"GLU","EOB",12.2,15
+"74","B_Blood.xlsx","B_B11",NA,"GLU","24HR",13.7,15
+"75","B_Blood.xlsx","B_B11",NA,"GLU","48HR",12.1,15
+"76","B_Blood.xlsx","B_B11",NA,"GLU","BL",4.17,15
+"77","B_Blood.xlsx","B_B11",NA,"GLU","EOR",0.6,15
+"78","B_Blood.xlsx","B_B11",NA,"GLU","EOB",3.3,15
+"79","B_Blood.xlsx","B_B11",NA,"GLU","24HR",4.97,15
+"80","B_Blood.xlsx","B_B11",NA,"GLU","48HR",4.71,15
+"81","B_Blood.xlsx","B_B11",NA,"RBC","BL",5.99,15
+"82","B_Blood.xlsx","B_B11",NA,"RBC","EOS",3.98,15
+"83","B_Blood.xlsx","B_B11",NA,"RBC","EOR",4.91,15
+"84","B_Blood.xlsx","B_B11",NA,"RBC","EOB",5.71,15
+"85","B_Blood.xlsx","B_B11",NA,"RBC","24HR",4.66,15
+"86","B_Blood.xlsx","B_B11",NA,"RBC","48HR",4.87,15
+"87","B_Blood.xlsx","B_B11","CBC","HGB","BL",12.1,15
+"88","B_Blood.xlsx","B_B11","CBC","HGB","EOS",8.2,15
+"89","B_Blood.xlsx","B_B11","CBC","HGB","EOR",9.7,15
+"90","B_Blood.xlsx","B_B11","CBC","HGB","EOB",11.8,15
+"91","B_Blood.xlsx","B_B11","CBC","HGB","24HR",9.5,15
+"92","B_Blood.xlsx","B_B11","CBC","HGB","48HR",10.2,15
+"93","B_Blood.xlsx","B_B11",NA,"Hct","BL",38.7,15
+"94","B_Blood.xlsx","B_B11",NA,"Hct","EOS",25.4,15
+"95","B_Blood.xlsx","B_B11",NA,"Hct","EOR",30,15
+"96","B_Blood.xlsx","B_B11",NA,"Hct","EOB",36.7,15
+"97","B_Blood.xlsx","B_B11",NA,"Hct","24HR",29.9,15
+"98","B_Blood.xlsx","B_B11",NA,"Hct","48HR",31.3,15
+"99","B_Blood.xlsx","B_B11","CBC","PLT","BL",168,15
+"100","B_Blood.xlsx","B_B11","CBC","PLT","EOS",183,15
+"101","B_Blood.xlsx","B_B11","CBC","PLT","EOR",179,15
+"102","B_Blood.xlsx","B_B11","CBC","PLT","EOB",167,15
+"103","B_Blood.xlsx","B_B11","CBC","PLT","24HR",312,15
+"104","B_Blood.xlsx","B_B11","CBC","PLT","48HR",425,15
+"105","B_Blood.xlsx","B_B11",NA,"R.Time","BL",17,15
+"106","B_Blood.xlsx","B_B11",NA,"R.Time","EOR",9.9,15
+"107","B_Blood.xlsx","B_B11",NA,"R.Time","EOB",17,15
+"108","B_Blood.xlsx","B_B11",NA,"K.Time","BL",1.9,15
+"109","B_Blood.xlsx","B_B11",NA,"Angle","BL",67.1,15
+"110","B_Blood.xlsx","B_B11",NA,"Angle","EOR",39,15
+"111","B_Blood.xlsx","B_B11",NA,"Angle","EOB",39,15
+"112","B_Blood.xlsx","B_B11",NA,"MA.Min","BL",67.8,15
+"113","B_Blood.xlsx","B_B11",NA,"MA.Min","EOR",40,15
+"114","B_Blood.xlsx","B_B11",NA,"MA.Min","EOB",40,15
+"115","B_Blood.xlsx","B_B16","MAP","MAP","BL",73,15
+"116","B_Blood.xlsx","B_B16","MAP","MAP","EOS",29,15
+"117","B_Blood.xlsx","B_B16","MAP","MAP","EOR",59,15
+"118","B_Blood.xlsx","B_B16","MAP","MAP","10%",61,15
+"119","B_Blood.xlsx","B_B16","MAP","MAP","7.5%",71,15
+"120","B_Blood.xlsx","B_B16","MAP","MAP","5%",68,15
+"121","B_Blood.xlsx","B_B16","MAP","MAP","2.5%",69,15
+"122","B_Blood.xlsx","B_B16","MAP","MAP","EOB",70,15
+"123","B_Blood.xlsx","B_B16","MAP","MAP","24HR",85,15
+"124","B_Blood.xlsx","B_B16","MAP","MAP","48HR",81,15
+"125","B_Blood.xlsx","B_B16","ABG","LAC","BL",2.2,15
+"126","B_Blood.xlsx","B_B16","ABG","LAC","EOS",6.8,15
+"127","B_Blood.xlsx","B_B16","ABG","LAC","EOR",6.5,15
+"128","B_Blood.xlsx","B_B16","ABG","LAC","10%",4.2,15
+"129","B_Blood.xlsx","B_B16","ABG","LAC","7.5%",2.4,15
+"130","B_Blood.xlsx","B_B16","ABG","LAC","5%",1.5,15
+"131","B_Blood.xlsx","B_B16","ABG","LAC","2.5%",0.8,15
+"132","B_Blood.xlsx","B_B16","ABG","LAC","EOB",0.8,15
+"133","B_Blood.xlsx","B_B16","ABG","LAC","24HR",1.1,15
+"134","B_Blood.xlsx","B_B16","ABG","LAC","48HR",7.6,15
+"135","B_Blood.xlsx","B_B16",NA,"AST","BL",54,15
+"136","B_Blood.xlsx","B_B16",NA,"AST","EOR",56,15
+"137","B_Blood.xlsx","B_B16",NA,"AST","EOB",153,15
+"138","B_Blood.xlsx","B_B16",NA,"AST","24HR",141,15
+"139","B_Blood.xlsx","B_B16",NA,"AST","48HR",33,15
+"140","B_Blood.xlsx","B_B16",NA,"ALT","BL",54,15
+"141","B_Blood.xlsx","B_B16",NA,"ALT","EOR",51,15
+"142","B_Blood.xlsx","B_B16",NA,"ALT","EOB",74,15
+"143","B_Blood.xlsx","B_B16",NA,"ALT","24HR",180,15
+"144","B_Blood.xlsx","B_B16",NA,"ALT","48HR",160,15
+"145","B_Blood.xlsx","B_B16",NA,"LDH","BL",87,15
+"146","B_Blood.xlsx","B_B16",NA,"LDH","EOR",149,15
+"147","B_Blood.xlsx","B_B16",NA,"LDH","EOB",306,15
+"148","B_Blood.xlsx","B_B16",NA,"LDH","24HR",259,15
+"149","B_Blood.xlsx","B_B16",NA,"LDH","48HR",60,15
+"150","B_Blood.xlsx","B_B16",NA,"CREA","BL",0.4,15
+"151","B_Blood.xlsx","B_B16",NA,"CREA","EOR",0.9,15
+"152","B_Blood.xlsx","B_B16",NA,"CREA","EOB",0.7,15
+"153","B_Blood.xlsx","B_B16",NA,"CREA","24HR",0.5,15
+"154","B_Blood.xlsx","B_B16",NA,"CREA","48HR",0.5,15
+"155","B_Blood.xlsx","B_B16",NA,"BUN","BL",13.06,15
+"156","B_Blood.xlsx","B_B16",NA,"BUN","EOR",19.95,15
+"157","B_Blood.xlsx","B_B16",NA,"BUN","EOB",24.31,15
+"158","B_Blood.xlsx","B_B16",NA,"BUN","24HR",18.25,15
+"159","B_Blood.xlsx","B_B16",NA,"BUN","48HR",14.86,15
+"160","B_Blood.xlsx","B_B16",NA,"AMY","BL",231,15
+"161","B_Blood.xlsx","B_B16",NA,"AMY","EOR",196,15
+"162","B_Blood.xlsx","B_B16",NA,"AMY","EOB",211,15
+"163","B_Blood.xlsx","B_B16",NA,"AMY","24HR",493,15
+"164","B_Blood.xlsx","B_B16",NA,"AMY","48HR",430,15
+"165","B_Blood.xlsx","B_B16",NA,"TG","BL",82.08,15
+"166","B_Blood.xlsx","B_B16",NA,"TG","EOR",105.08,15
+"167","B_Blood.xlsx","B_B16",NA,"TG","EOB",108.26,15
+"168","B_Blood.xlsx","B_B16",NA,"TG","24HR",192.97,15
+"169","B_Blood.xlsx","B_B16",NA,"TG","48HR",182.27,15
+"170","B_Blood.xlsx","B_B16",NA,"GGT","BL",8,15
+"171","B_Blood.xlsx","B_B16",NA,"GGT","EOR",8,15
+"172","B_Blood.xlsx","B_B16",NA,"GGT","EOB",8,15
+"173","B_Blood.xlsx","B_B16",NA,"GGT","24HR",8,15
+"174","B_Blood.xlsx","B_B16",NA,"GGT","48HR",8,15
+"175","B_Blood.xlsx","B_B16",NA,"GLU","BL",137.55,15
+"176","B_Blood.xlsx","B_B16",NA,"GLU","EOR",267.16,15
+"177","B_Blood.xlsx","B_B16",NA,"GLU","EOB",124.03,15
+"178","B_Blood.xlsx","B_B16",NA,"GLU","24HR",147.48,15
+"179","B_Blood.xlsx","B_B16",NA,"GLU","48HR",158.54,15
+"180","B_Blood.xlsx","B_B16",NA,"GLU","BL",127.9,15
+"181","B_Blood.xlsx","B_B16",NA,"GLU","EOR",8.4,15
+"182","B_Blood.xlsx","B_B16",NA,"GLU","EOB",9.5,15
+"183","B_Blood.xlsx","B_B16",NA,"GLU","24HR",103.8,15
+"184","B_Blood.xlsx","B_B16",NA,"GLU","48HR",139.4,15
+"185","B_Blood.xlsx","B_B16",NA,"GLU","BL",28.4,15
+"186","B_Blood.xlsx","B_B16",NA,"GLU","EOR",40.4,15
+"187","B_Blood.xlsx","B_B16",NA,"GLU","EOB",22.2,15
+"188","B_Blood.xlsx","B_B16",NA,"GLU","24HR",13.3,15
+"189","B_Blood.xlsx","B_B16",NA,"GLU","48HR",11.5,15
+"190","B_Blood.xlsx","B_B16",NA,"GLU","BL",27.9,15
+"191","B_Blood.xlsx","B_B16",NA,"GLU","48HR",31,15
+"192","B_Blood.xlsx","B_B16",NA,"GLU","BL",2.05,15
+"193","B_Blood.xlsx","B_B16",NA,"GLU","EOR",0.72,15
+"194","B_Blood.xlsx","B_B16",NA,"GLU","EOB",4.66,15
+"195","B_Blood.xlsx","B_B16",NA,"GLU","24HR",7.18,15
+"196","B_Blood.xlsx","B_B16",NA,"GLU","48HR",3.95,15
+"197","B_Blood.xlsx","B_B16",NA,"RBC","BL",5.98,15
+"198","B_Blood.xlsx","B_B16",NA,"RBC","EOS",3.82,15
+"199","B_Blood.xlsx","B_B16",NA,"RBC","EOR",4.48,15
+"200","B_Blood.xlsx","B_B16",NA,"RBC","EOB",4.67,15
+"201","B_Blood.xlsx","B_B16",NA,"RBC","24HR",4.79,15
+"202","B_Blood.xlsx","B_B16",NA,"RBC","48HR",4.82,15
+"203","B_Blood.xlsx","B_B16","CBC","HGB","BL",12.7,15
+"204","B_Blood.xlsx","B_B16","CBC","HGB","EOS",8.3,15
+"205","B_Blood.xlsx","B_B16","CBC","HGB","EOR",9.6,15
+"206","B_Blood.xlsx","B_B16","CBC","HGB","EOB",9.9,15
+"207","B_Blood.xlsx","B_B16","CBC","HGB","24HR",10,15
+"208","B_Blood.xlsx","B_B16","CBC","HGB","48HR",10.6,15
+"209","B_Blood.xlsx","B_B16",NA,"Hct","BL",39.9,15
+"210","B_Blood.xlsx","B_B16",NA,"Hct","EOS",25.1,15
+"211","B_Blood.xlsx","B_B16",NA,"Hct","EOR",29.6,15
+"212","B_Blood.xlsx","B_B16",NA,"Hct","EOB",31,15
+"213","B_Blood.xlsx","B_B16",NA,"Hct","24HR",32,15
+"214","B_Blood.xlsx","B_B16",NA,"Hct","48HR",32.2,15
+"215","B_Blood.xlsx","B_B16","CBC","PLT","BL",174,15
+"216","B_Blood.xlsx","B_B16","CBC","PLT","EOS",182,15
+"217","B_Blood.xlsx","B_B16","CBC","PLT","EOR",170,15
+"218","B_Blood.xlsx","B_B16","CBC","PLT","EOB",202,15
+"219","B_Blood.xlsx","B_B16","CBC","PLT","24HR",252,15
+"220","B_Blood.xlsx","B_B16","CBC","PLT","48HR",340,15
+"221","B_Blood.xlsx","B_B16",NA,"R.Time","BL",16.5,15
+"222","B_Blood.xlsx","B_B16",NA,"K.Time","BL",3.3,15
+"223","B_Blood.xlsx","B_B16",NA,"Angle","BL",54.4,15
+"224","B_Blood.xlsx","B_B16",NA,"MA.Min","BL",61.9,15
+"225","B_Blood.xlsx","B_B17","MAP","MAP","BL",69,15
+"226","B_Blood.xlsx","B_B17","MAP","MAP","EOS",36,15
+"227","B_Blood.xlsx","B_B17","MAP","MAP","EOR",68,15
+"228","B_Blood.xlsx","B_B17","MAP","MAP","10%",58,15
+"229","B_Blood.xlsx","B_B17","MAP","MAP","7.5%",57,15
+"230","B_Blood.xlsx","B_B17","MAP","MAP","5%",53,15
+"231","B_Blood.xlsx","B_B17","MAP","MAP","2.5%",70,15
+"232","B_Blood.xlsx","B_B17","MAP","MAP","EOB",77,15
+"233","B_Blood.xlsx","B_B17","MAP","MAP","24HR",66,15
+"234","B_Blood.xlsx","B_B17","MAP","MAP","48HR",65,15
+"235","B_Blood.xlsx","B_B17","ABG","LAC","BL",1.2,15
+"236","B_Blood.xlsx","B_B17","ABG","LAC","EOS",17,15
+"237","B_Blood.xlsx","B_B17","ABG","LAC","EOR",17,15
+"238","B_Blood.xlsx","B_B17","ABG","LAC","10%",10.3,15
+"239","B_Blood.xlsx","B_B17","ABG","LAC","7.5%",5.1,15
+"240","B_Blood.xlsx","B_B17","ABG","LAC","5%",3,15
+"241","B_Blood.xlsx","B_B17","ABG","LAC","2.5%",3.1,15
+"242","B_Blood.xlsx","B_B17","ABG","LAC","EOB",3.1,15
+"243","B_Blood.xlsx","B_B17","ABG","LAC","24HR",1.3,15
+"244","B_Blood.xlsx","B_B17","ABG","LAC","48HR",1.4,15
+"245","B_Blood.xlsx","B_B17",NA,"AST","BL",232,15
+"246","B_Blood.xlsx","B_B17",NA,"AST","EOR",650,15
+"247","B_Blood.xlsx","B_B17",NA,"AST","EOB",650,15
+"248","B_Blood.xlsx","B_B17",NA,"AST","24HR",650,15
+"249","B_Blood.xlsx","B_B17",NA,"AST","48HR",650,15
+"250","B_Blood.xlsx","B_B17",NA,"ALT","BL",135,15
+"251","B_Blood.xlsx","B_B17",NA,"ALT","EOR",407,15
+"252","B_Blood.xlsx","B_B17",NA,"ALT","EOB",650,15
+"253","B_Blood.xlsx","B_B17",NA,"ALT","24HR",650,15
+"254","B_Blood.xlsx","B_B17",NA,"ALT","48HR",650,15
+"255","B_Blood.xlsx","B_B17",NA,"LDH","BL",125,15
+"256","B_Blood.xlsx","B_B17",NA,"LDH","EOR",933,15
+"257","B_Blood.xlsx","B_B17",NA,"LDH","EOB",878,15
+"258","B_Blood.xlsx","B_B17",NA,"LDH","24HR",1200,15
+"259","B_Blood.xlsx","B_B17",NA,"LDH","48HR",672,15
+"260","B_Blood.xlsx","B_B17",NA,"CREA","BL",0.4,15
+"261","B_Blood.xlsx","B_B17",NA,"CREA","EOR",0.6,15
+"262","B_Blood.xlsx","B_B17",NA,"CREA","EOB",0.6,15
+"263","B_Blood.xlsx","B_B17",NA,"CREA","24HR",0.1,15
+"264","B_Blood.xlsx","B_B17",NA,"CREA","48HR",0.5,15
+"265","B_Blood.xlsx","B_B17",NA,"BUN","BL",11.19,15
+"266","B_Blood.xlsx","B_B17",NA,"BUN","EOR",23.41,15
+"267","B_Blood.xlsx","B_B17",NA,"BUN","EOB",27.14,15
+"268","B_Blood.xlsx","B_B17",NA,"BUN","24HR",40.38,15
+"269","B_Blood.xlsx","B_B17",NA,"BUN","48HR",25.73,15
+"270","B_Blood.xlsx","B_B17",NA,"AMY","BL",185,15
+"271","B_Blood.xlsx","B_B17",NA,"AMY","EOR",246,15
+"272","B_Blood.xlsx","B_B17",NA,"AMY","EOB",227,15
+"273","B_Blood.xlsx","B_B17",NA,"AMY","24HR",360,15
+"274","B_Blood.xlsx","B_B17",NA,"AMY","48HR",800,15
+"275","B_Blood.xlsx","B_B17",NA,"TG","BL",148.37,15
+"276","B_Blood.xlsx","B_B17",NA,"TG","EOR",97.1,15
+"277","B_Blood.xlsx","B_B17",NA,"TG","EOB",129.51,15
+"278","B_Blood.xlsx","B_B17",NA,"TG","24HR",228.54,15
+"279","B_Blood.xlsx","B_B17",NA,"TG","48HR",384.12,15
+"280","B_Blood.xlsx","B_B17",NA,"GGT","BL",10,15
+"281","B_Blood.xlsx","B_B17",NA,"GGT","EOR",10,15
+"282","B_Blood.xlsx","B_B17",NA,"GGT","EOB",13,15
+"283","B_Blood.xlsx","B_B17",NA,"GGT","24HR",26,15
+"284","B_Blood.xlsx","B_B17",NA,"GGT","48HR",27,15
+"285","B_Blood.xlsx","B_B17",NA,"GLU","BL",122.41,15
+"286","B_Blood.xlsx","B_B17",NA,"GLU","EOR",223.17,15
+"287","B_Blood.xlsx","B_B17",NA,"GLU","EOB",161.33,15
+"288","B_Blood.xlsx","B_B17",NA,"GLU","24HR",152.18,15
+"289","B_Blood.xlsx","B_B17",NA,"GLU","48HR",134.19,15
+"290","B_Blood.xlsx","B_B17",NA,"GLU","BL",8.8,15
+"291","B_Blood.xlsx","B_B17",NA,"GLU","EOR",127.6,15
+"292","B_Blood.xlsx","B_B17",NA,"GLU","EOB",10,15
+"293","B_Blood.xlsx","B_B17",NA,"GLU","24HR",135.5,15
+"294","B_Blood.xlsx","B_B17",NA,"GLU","48HR",139.9,15
+"295","B_Blood.xlsx","B_B17",NA,"GLU","BL",25.7,15
+"296","B_Blood.xlsx","B_B17",NA,"GLU","EOR",45.8,15
+"297","B_Blood.xlsx","B_B17",NA,"GLU","EOB",22.9,15
+"298","B_Blood.xlsx","B_B17",NA,"GLU","24HR",17.9,15
+"299","B_Blood.xlsx","B_B17",NA,"GLU","48HR",13.5,15
+"300","B_Blood.xlsx","B_B17",NA,"GLU","EOB",28,15
+"301","B_Blood.xlsx","B_B17",NA,"GLU","24HR",15.9,15
+"302","B_Blood.xlsx","B_B17",NA,"GLU","48HR",22.1,15
+"303","B_Blood.xlsx","B_B17",NA,"GLU","BL",5.15,15
+"304","B_Blood.xlsx","B_B17",NA,"GLU","EOB",1.66,15
+"305","B_Blood.xlsx","B_B17",NA,"GLU","24HR",1.52,15
+"306","B_Blood.xlsx","B_B17",NA,"GLU","48HR",3.32,15
+"307","B_Blood.xlsx","B_B17",NA,"RBC","BL",6.82,15
+"308","B_Blood.xlsx","B_B17",NA,"RBC","EOS",5.18,15
+"309","B_Blood.xlsx","B_B17",NA,"RBC","EOR",6.01,15
+"310","B_Blood.xlsx","B_B17",NA,"RBC","EOB",5.93,15
+"311","B_Blood.xlsx","B_B17",NA,"RBC","24HR",6.57,15
+"312","B_Blood.xlsx","B_B17",NA,"RBC","48HR",5.91,15
+"313","B_Blood.xlsx","B_B17","CBC","HGB","BL",13.3,15
+"314","B_Blood.xlsx","B_B17","CBC","HGB","EOS",10.1,15
+"315","B_Blood.xlsx","B_B17","CBC","HGB","EOR",11.3,15
+"316","B_Blood.xlsx","B_B17","CBC","HGB","EOB",11.1,15
+"317","B_Blood.xlsx","B_B17","CBC","HGB","24HR",12.5,15
+"318","B_Blood.xlsx","B_B17","CBC","HGB","48HR",10.9,15
+"319","B_Blood.xlsx","B_B17",NA,"Hct","BL",40.8,15
+"320","B_Blood.xlsx","B_B17",NA,"Hct","EOS",30.8,15
+"321","B_Blood.xlsx","B_B17",NA,"Hct","EOR",36.1,15
+"322","B_Blood.xlsx","B_B17",NA,"Hct","EOB",35.5,15
+"323","B_Blood.xlsx","B_B17",NA,"Hct","24HR",39.2,15
+"324","B_Blood.xlsx","B_B17",NA,"Hct","48HR",34.9,15
+"325","B_Blood.xlsx","B_B17","CBC","PLT","BL",173,15
+"326","B_Blood.xlsx","B_B17","CBC","PLT","EOS",175,15
+"327","B_Blood.xlsx","B_B17","CBC","PLT","EOR",257,15
+"328","B_Blood.xlsx","B_B17","CBC","PLT","EOB",206,15
+"329","B_Blood.xlsx","B_B17","CBC","PLT","24HR",239,15
+"330","B_Blood.xlsx","B_B17","CBC","PLT","48HR",257,15
+"331","B_Blood.xlsx","B_B17",NA,"R.Time","BL",17,15
+"332","B_Blood.xlsx","B_B17",NA,"R.Time","EOB",17,15
+"333","B_Blood.xlsx","B_B17",NA,"R.Time","24HR",17,15
+"334","B_Blood.xlsx","B_B17",NA,"R.Time","48HR",17,15
+"335","B_Blood.xlsx","B_B17",NA,"K.Time","EOB",3,15
+"336","B_Blood.xlsx","B_B17",NA,"K.Time","24HR",4.7,15
+"337","B_Blood.xlsx","B_B17",NA,"K.Time","48HR",5,15
+"338","B_Blood.xlsx","B_B17",NA,"Angle","BL",39,15
+"339","B_Blood.xlsx","B_B17",NA,"Angle","EOB",57.6,15
+"340","B_Blood.xlsx","B_B17",NA,"Angle","24HR",47.2,15
+"341","B_Blood.xlsx","B_B17",NA,"Angle","48HR",39,15
+"342","B_Blood.xlsx","B_B17",NA,"MA.Min","BL",40,15
+"343","B_Blood.xlsx","B_B17",NA,"MA.Min","EOB",63.3,15
+"344","B_Blood.xlsx","B_B21","MAP","MAP","BL",73,15
+"345","B_Blood.xlsx","B_B21","MAP","MAP","EOS",40,15
+"346","B_Blood.xlsx","B_B21","MAP","MAP","EOR",59,15
+"347","B_Blood.xlsx","B_B21","MAP","MAP","10%",51,15
+"348","B_Blood.xlsx","B_B21","MAP","MAP","7.5%",71,15
+"349","B_Blood.xlsx","B_B21","MAP","MAP","5%",68,15
+"350","B_Blood.xlsx","B_B21","MAP","MAP","2.5%",69,15
+"351","B_Blood.xlsx","B_B21","MAP","MAP","EOB",68,15
+"352","B_Blood.xlsx","B_B21","MAP","MAP","24HR",62,15
+"353","B_Blood.xlsx","B_B21","ABG","LAC","BL",1.1,15
+"354","B_Blood.xlsx","B_B21","ABG","LAC","EOS",10.9,15
+"355","B_Blood.xlsx","B_B21","ABG","LAC","EOR",9.9,15
+"356","B_Blood.xlsx","B_B21","ABG","LAC","10%",3.9,15
+"357","B_Blood.xlsx","B_B21","ABG","LAC","7.5%",2.9,15
+"358","B_Blood.xlsx","B_B21","ABG","LAC","5%",2.6,15
+"359","B_Blood.xlsx","B_B21","ABG","LAC","EOB",3.2,15
+"360","B_Blood.xlsx","B_B21","ABG","LAC","24HR",1,15
+"361","B_Blood.xlsx","B_B21",NA,"AST","BL",21,15
+"362","B_Blood.xlsx","B_B21",NA,"AST","EOS",111,15
+"363","B_Blood.xlsx","B_B21",NA,"AST","EOR",67,15
+"364","B_Blood.xlsx","B_B21",NA,"AST","EOB",86,15
+"365","B_Blood.xlsx","B_B21",NA,"AST","24HR",20,15
+"366","B_Blood.xlsx","B_B21",NA,"ALT","BL",44,15
+"367","B_Blood.xlsx","B_B21",NA,"ALT","EOS",69,15
+"368","B_Blood.xlsx","B_B21",NA,"ALT","EOR",66,15
+"369","B_Blood.xlsx","B_B21",NA,"ALT","EOB",91,15
+"370","B_Blood.xlsx","B_B21",NA,"ALT","24HR",93,15
+"371","B_Blood.xlsx","B_B21",NA,"LDH","BL",234,15
+"372","B_Blood.xlsx","B_B21",NA,"LDH","EOS",281,15
+"373","B_Blood.xlsx","B_B21",NA,"LDH","EOR",258,15
+"374","B_Blood.xlsx","B_B21",NA,"LDH","EOB",306,15
+"375","B_Blood.xlsx","B_B21",NA,"LDH","24HR",59,15
+"376","B_Blood.xlsx","B_B21",NA,"CREA","BL",0.6,15
+"377","B_Blood.xlsx","B_B21",NA,"CREA","EOS",1,15
+"378","B_Blood.xlsx","B_B21",NA,"CREA","EOR",1,15
+"379","B_Blood.xlsx","B_B21",NA,"CREA","EOB",0.8,15
+"380","B_Blood.xlsx","B_B21",NA,"CREA","24HR",0.5,15
+"381","B_Blood.xlsx","B_B21",NA,"BUN","BL",12.73,15
+"382","B_Blood.xlsx","B_B21",NA,"BUN","EOS",15.62,15
+"383","B_Blood.xlsx","B_B21",NA,"BUN","EOR",13.35,15
+"384","B_Blood.xlsx","B_B21",NA,"BUN","EOB",16.43,15
+"385","B_Blood.xlsx","B_B21",NA,"BUN","24HR",10.06,15
+"386","B_Blood.xlsx","B_B21",NA,"AMY","BL",175,15
+"387","B_Blood.xlsx","B_B21",NA,"AMY","EOS",179,15
+"388","B_Blood.xlsx","B_B21",NA,"AMY","EOR",157,15
+"389","B_Blood.xlsx","B_B21",NA,"AMY","EOB",199,15
+"390","B_Blood.xlsx","B_B21",NA,"AMY","24HR",213,15
+"391","B_Blood.xlsx","B_B21",NA,"TG","BL",130.13,15
+"392","B_Blood.xlsx","B_B21",NA,"TG","EOS",140.85,15
+"393","B_Blood.xlsx","B_B21",NA,"TG","EOR",135.32,15
+"394","B_Blood.xlsx","B_B21",NA,"TG","EOB",181.86,15
+"395","B_Blood.xlsx","B_B21",NA,"TG","24HR",315,15
+"396","B_Blood.xlsx","B_B21",NA,"GGT","BL",8,15
+"397","B_Blood.xlsx","B_B21",NA,"GGT","EOS",2,15
+"398","B_Blood.xlsx","B_B21",NA,"GGT","EOR",4,15
+"399","B_Blood.xlsx","B_B21",NA,"GGT","EOB",6,15
+"400","B_Blood.xlsx","B_B21",NA,"GGT","24HR",7,15
+"401","B_Blood.xlsx","B_B21",NA,"GLU","BL",204.05,15
+"402","B_Blood.xlsx","B_B21",NA,"GLU","EOS",351.33,15
+"403","B_Blood.xlsx","B_B21",NA,"GLU","EOR",296.67,15
+"404","B_Blood.xlsx","B_B21",NA,"GLU","EOB",166.64,15
+"405","B_Blood.xlsx","B_B21",NA,"GLU","24HR",149.99,15
+"406","B_Blood.xlsx","B_B21",NA,"GLU","BL",53.8,15
+"407","B_Blood.xlsx","B_B21",NA,"GLU","EOS",129.4,15
+"408","B_Blood.xlsx","B_B21",NA,"GLU","EOR",131.8,15
+"409","B_Blood.xlsx","B_B21",NA,"GLU","EOB",140.3,15
+"410","B_Blood.xlsx","B_B21",NA,"GLU","24HR",138.6,15
+"411","B_Blood.xlsx","B_B21",NA,"GLU","BL",24.9,15
+"412","B_Blood.xlsx","B_B21",NA,"GLU","EOS",19.2,15
+"413","B_Blood.xlsx","B_B21",NA,"GLU","EOR",24.4,15
+"414","B_Blood.xlsx","B_B21",NA,"GLU","EOB",17.8,15
+"415","B_Blood.xlsx","B_B21",NA,"GLU","24HR",12.6,15
+"416","B_Blood.xlsx","B_B21",NA,"GLU","BL",31.9,15
+"417","B_Blood.xlsx","B_B21",NA,"GLU","EOS",19.7,15
+"418","B_Blood.xlsx","B_B21",NA,"GLU","EOR",45.5,15
+"419","B_Blood.xlsx","B_B21",NA,"GLU","EOB",21.1,15
+"420","B_Blood.xlsx","B_B21",NA,"GLU","24HR",22.4,15
+"421","B_Blood.xlsx","B_B21",NA,"GLU","BL",1.53,15
+"422","B_Blood.xlsx","B_B21",NA,"GLU","EOS",2.41,15
+"423","B_Blood.xlsx","B_B21",NA,"GLU","EOR",2.99,15
+"424","B_Blood.xlsx","B_B21",NA,"GLU","EOB",3.51,15
+"425","B_Blood.xlsx","B_B21",NA,"GLU","24HR",4.74,15
+"426","B_Blood.xlsx","B_B21",NA,"RBC","BL",5.29,15
+"427","B_Blood.xlsx","B_B21",NA,"RBC","EOS",3.59,15
+"428","B_Blood.xlsx","B_B21",NA,"RBC","EOR",4.34,15
+"429","B_Blood.xlsx","B_B21",NA,"RBC","EOB",4.54,15
+"430","B_Blood.xlsx","B_B21",NA,"RBC","24HR",4.31,15
+"431","B_Blood.xlsx","B_B21","CBC","HGB","BL",11.5,15
+"432","B_Blood.xlsx","B_B21","CBC","HGB","EOS",7.8,15
+"433","B_Blood.xlsx","B_B21","CBC","HGB","EOR",9.4,15
+"434","B_Blood.xlsx","B_B21","CBC","HGB","EOB",9.8,15
+"435","B_Blood.xlsx","B_B21","CBC","HGB","24HR",9.3,15
+"436","B_Blood.xlsx","B_B21",NA,"Hct","BL",34.5,15
+"437","B_Blood.xlsx","B_B21",NA,"Hct","EOS",22.9,15
+"438","B_Blood.xlsx","B_B21",NA,"Hct","EOR",28.1,15
+"439","B_Blood.xlsx","B_B21",NA,"Hct","EOB",29.2,15
+"440","B_Blood.xlsx","B_B21",NA,"Hct","24HR",27.6,15
+"441","B_Blood.xlsx","B_B21","CBC","PLT","BL",262,15
+"442","B_Blood.xlsx","B_B21","CBC","PLT","EOS",206,15
+"443","B_Blood.xlsx","B_B21","CBC","PLT","EOR",179,15
+"444","B_Blood.xlsx","B_B21","CBC","PLT","EOB",223,15
+"445","B_Blood.xlsx","B_B21","CBC","PLT","24HR",275,15
+"446","B_Blood.xlsx","B_B21","CBC","PLT","BL",145,15
+"447","B_Blood.xlsx","B_B21","CBC","PLT","24HR",132,15
+"448","B_Blood.xlsx","B_B21",NA,"K.Time","BL",2,15
+"449","B_Blood.xlsx","B_B21",NA,"K.Time","EOS",1.2,15
+"450","B_Blood.xlsx","B_B21",NA,"K.Time","EOR",1.6,15
+"451","B_Blood.xlsx","B_B21",NA,"K.Time","24HR",1.9,15
+"452","B_Blood.xlsx","B_B21",NA,"Angle","BL",37.9,15
+"453","B_Blood.xlsx","B_B21",NA,"Angle","EOS",73,15
+"454","B_Blood.xlsx","B_B21",NA,"Angle","EOR",67.9,15
+"455","B_Blood.xlsx","B_B21",NA,"Angle","24HR",67.2,15
+"456","B_Blood.xlsx","B_B21",NA,"MA.Min","BL",60.5,15
+"457","B_Blood.xlsx","B_B21",NA,"MA.Min","EOS",67.9,15
+"458","B_Blood.xlsx","B_B21",NA,"MA.Min","EOR",69,15
+"459","B_Blood.xlsx","B_B21",NA,"MA.Min","EOB",65.4,15
+"460","B_Blood.xlsx","B_B21",NA,"MA.Min","24HR",77.1,15
+"461","B_Blood.xlsx","B_B22","MAP","MAP","BL",75,15
+"462","B_Blood.xlsx","B_B22","MAP","MAP","EOS",52,15
+"463","B_Blood.xlsx","B_B22","MAP","MAP","EOR",70,15
+"464","B_Blood.xlsx","B_B22","MAP","MAP","10%",54,15
+"465","B_Blood.xlsx","B_B22","MAP","MAP","7.5%",65,15
+"466","B_Blood.xlsx","B_B22","MAP","MAP","5%",62,15
+"467","B_Blood.xlsx","B_B22","MAP","MAP","2.5%",59,15
+"468","B_Blood.xlsx","B_B22","MAP","MAP","EOB",70,15
+"469","B_Blood.xlsx","B_B22","MAP","MAP","24HR",62,15
+"470","B_Blood.xlsx","B_B22","ABG","LAC","BL",1,15
+"471","B_Blood.xlsx","B_B22","ABG","LAC","EOS",17,15
+"472","B_Blood.xlsx","B_B22","ABG","LAC","EOR",16,15
+"473","B_Blood.xlsx","B_B22","ABG","LAC","10%",7.4,15
+"474","B_Blood.xlsx","B_B22","ABG","LAC","7.5%",3.3,15
+"475","B_Blood.xlsx","B_B22","ABG","LAC","5%",1.6,15
+"476","B_Blood.xlsx","B_B22","ABG","LAC","EOB",3.7,15
+"477","B_Blood.xlsx","B_B22","ABG","LAC","24HR",5.1,15
+"478","B_Blood.xlsx","B_B22",NA,"AST","BL",22,15
+"479","B_Blood.xlsx","B_B22",NA,"AST","EOS",45,15
+"480","B_Blood.xlsx","B_B22",NA,"AST","EOR",42,15
+"481","B_Blood.xlsx","B_B22",NA,"AST","EOB",68,15
+"482","B_Blood.xlsx","B_B22",NA,"AST","24HR",83,15
+"483","B_Blood.xlsx","B_B22",NA,"ALT","BL",48,15
+"484","B_Blood.xlsx","B_B22",NA,"ALT","EOS",52,15
+"485","B_Blood.xlsx","B_B22",NA,"ALT","EOR",55,15
+"486","B_Blood.xlsx","B_B22",NA,"ALT","EOB",66,15
+"487","B_Blood.xlsx","B_B22",NA,"ALT","24HR",121,15
+"488","B_Blood.xlsx","B_B22",NA,"LDH","BL",115,15
+"489","B_Blood.xlsx","B_B22",NA,"LDH","EOS",177,15
+"490","B_Blood.xlsx","B_B22",NA,"LDH","EOR",148,15
+"491","B_Blood.xlsx","B_B22",NA,"LDH","EOB",243,15
+"492","B_Blood.xlsx","B_B22",NA,"LDH","24HR",73,15
+"493","B_Blood.xlsx","B_B22",NA,"CREA","BL",0.7,15
+"494","B_Blood.xlsx","B_B22",NA,"CREA","EOS",1.1,15
+"495","B_Blood.xlsx","B_B22",NA,"CREA","EOR",1,15
+"496","B_Blood.xlsx","B_B22",NA,"CREA","EOB",0.7,15
+"497","B_Blood.xlsx","B_B22",NA,"CREA","24HR",0.6,15
+"498","B_Blood.xlsx","B_B22",NA,"BUN","BL",12.11,15
+"499","B_Blood.xlsx","B_B22",NA,"BUN","EOS",17.21,15
+"500","B_Blood.xlsx","B_B22",NA,"BUN","EOR",16.42,15
+"501","B_Blood.xlsx","B_B22",NA,"BUN","EOB",16.83,15
+"502","B_Blood.xlsx","B_B22",NA,"BUN","24HR",10.61,15
+"503","B_Blood.xlsx","B_B22",NA,"AMY","BL",314,15
+"504","B_Blood.xlsx","B_B22",NA,"AMY","EOS",287,15
+"505","B_Blood.xlsx","B_B22",NA,"AMY","EOR",315,15
+"506","B_Blood.xlsx","B_B22",NA,"AMY","EOB",299,15
+"507","B_Blood.xlsx","B_B22",NA,"AMY","24HR",477,15
+"508","B_Blood.xlsx","B_B22",NA,"TG","BL",152.02,15
+"509","B_Blood.xlsx","B_B22",NA,"TG","EOS",133.88,15
+"510","B_Blood.xlsx","B_B22",NA,"TG","EOR",159.1,15
+"511","B_Blood.xlsx","B_B22",NA,"TG","EOB",237.76,15
+"512","B_Blood.xlsx","B_B22",NA,"TG","24HR",324.13,15
+"513","B_Blood.xlsx","B_B22",NA,"GGT","BL",8,15
+"514","B_Blood.xlsx","B_B22",NA,"GGT","EOS",2,15
+"515","B_Blood.xlsx","B_B22",NA,"GGT","EOR",4,15
+"516","B_Blood.xlsx","B_B22",NA,"GGT","EOB",5,15
+"517","B_Blood.xlsx","B_B22",NA,"GGT","24HR",2,15
+"518","B_Blood.xlsx","B_B22",NA,"GLU","BL",175.17,15
+"519","B_Blood.xlsx","B_B22",NA,"GLU","EOS",383.38,15
+"520","B_Blood.xlsx","B_B22",NA,"GLU","EOR",382.49,15
+"521","B_Blood.xlsx","B_B22",NA,"GLU","EOB",143.8,15
+"522","B_Blood.xlsx","B_B22",NA,"GLU","24HR",158.04,15
+"523","B_Blood.xlsx","B_B22",NA,"GLU","BL",140.9,15
+"524","B_Blood.xlsx","B_B22",NA,"GLU","EOS",141.9,15
+"525","B_Blood.xlsx","B_B22",NA,"GLU","EOR",139.6,15
+"526","B_Blood.xlsx","B_B22",NA,"GLU","EOB",131.4,15
+"527","B_Blood.xlsx","B_B22",NA,"GLU","24HR",89.3,15
+"528","B_Blood.xlsx","B_B22",NA,"GLU","BL",17,15
+"529","B_Blood.xlsx","B_B22",NA,"GLU","EOS",13.4,15
+"530","B_Blood.xlsx","B_B22",NA,"GLU","EOR",15.1,15
+"531","B_Blood.xlsx","B_B22",NA,"GLU","EOB",16.8,15
+"532","B_Blood.xlsx","B_B22",NA,"GLU","24HR",14.1,15
+"533","B_Blood.xlsx","B_B22",NA,"GLU","BL",19.8,15
+"534","B_Blood.xlsx","B_B22",NA,"GLU","EOS",81.5,15
+"535","B_Blood.xlsx","B_B22",NA,"GLU","24HR",26.9,15
+"536","B_Blood.xlsx","B_B22",NA,"GLU","BL",1.22,15
+"537","B_Blood.xlsx","B_B22",NA,"GLU","EOS",4.22,15
+"538","B_Blood.xlsx","B_B22",NA,"GLU","EOR",4.81,15
+"539","B_Blood.xlsx","B_B22",NA,"GLU","EOB",6.38,15
+"540","B_Blood.xlsx","B_B22",NA,"GLU","24HR",5.91,15
+"541","B_Blood.xlsx","B_B22",NA,"RBC","BL",6.11,15
+"542","B_Blood.xlsx","B_B22",NA,"RBC","EOS",3.76,15
+"543","B_Blood.xlsx","B_B22",NA,"RBC","EOR",4.92,15
+"544","B_Blood.xlsx","B_B22",NA,"RBC","EOB",4.6,15
+"545","B_Blood.xlsx","B_B22",NA,"RBC","24HR",5.11,15
+"546","B_Blood.xlsx","B_B22","CBC","HGB","BL",12.6,15
+"547","B_Blood.xlsx","B_B22","CBC","HGB","EOS",8.1,15
+"548","B_Blood.xlsx","B_B22","CBC","HGB","EOR",10.6,15
+"549","B_Blood.xlsx","B_B22","CBC","HGB","EOB",9.9,15
+"550","B_Blood.xlsx","B_B22","CBC","HGB","24HR",10.6,15
+"551","B_Blood.xlsx","B_B22",NA,"Hct","BL",38.5,15
+"552","B_Blood.xlsx","B_B22",NA,"Hct","EOS",23.4,15
+"553","B_Blood.xlsx","B_B22",NA,"Hct","EOR",30.9,15
+"554","B_Blood.xlsx","B_B22",NA,"Hct","EOB",28.8,15
+"555","B_Blood.xlsx","B_B22",NA,"Hct","24HR",32.1,15
+"556","B_Blood.xlsx","B_B22","CBC","PLT","BL",261,15
+"557","B_Blood.xlsx","B_B22","CBC","PLT","EOS",212,15
+"558","B_Blood.xlsx","B_B22","CBC","PLT","EOR",193,15
+"559","B_Blood.xlsx","B_B22","CBC","PLT","EOB",178,15
+"560","B_Blood.xlsx","B_B22","CBC","PLT","24HR",253,15
+"561","B_Blood.xlsx","B_B22","CBC","PLT","BL",124,15
+"562","B_Blood.xlsx","B_B22","CBC","PLT","24HR",100,15
+"563","B_Blood.xlsx","B_B22",NA,"K.Time","BL",0.9,15
+"564","B_Blood.xlsx","B_B22",NA,"K.Time","EOS",2,15
+"565","B_Blood.xlsx","B_B22",NA,"K.Time","EOR",1.8,15
+"566","B_Blood.xlsx","B_B22",NA,"K.Time","24HR",1.5,15
+"567","B_Blood.xlsx","B_B22",NA,"Angle","BL",75.5,15
+"568","B_Blood.xlsx","B_B22",NA,"Angle","EOS",63.4,15
+"569","B_Blood.xlsx","B_B22",NA,"Angle","EOR",64.9,15
+"570","B_Blood.xlsx","B_B22",NA,"Angle","24HR",70.8,15
+"571","B_Blood.xlsx","B_B22",NA,"MA.Min","BL",68.8,15
+"572","B_Blood.xlsx","B_B22",NA,"MA.Min","EOS",67.4,15
+"573","B_Blood.xlsx","B_B22",NA,"MA.Min","EOR",70.8,15
+"574","B_Blood.xlsx","B_B22",NA,"MA.Min","EOB",73.4,15
+"575","B_Blood.xlsx","B_B22",NA,"MA.Min","24HR",76.6,15
+"576","B_Blood.xlsx","B_B24","MAP","MAP","BL",77,15
+"577","B_Blood.xlsx","B_B24","MAP","MAP","EOS",25,15
+"578","B_Blood.xlsx","B_B24","MAP","MAP","EOR",59,15
+"579","B_Blood.xlsx","B_B24","MAP","MAP","10%",58,15
+"580","B_Blood.xlsx","B_B24","MAP","MAP","7.5%",68,15
+"581","B_Blood.xlsx","B_B24","MAP","MAP","5%",62,15
+"582","B_Blood.xlsx","B_B24","MAP","MAP","2.5%",67,15
+"583","B_Blood.xlsx","B_B24","MAP","MAP","EOB",61,15
+"584","B_Blood.xlsx","B_B24","MAP","MAP","24HR",67,15
+"585","B_Blood.xlsx","B_B24","ABG","LAC","BL",1.3,15
+"586","B_Blood.xlsx","B_B24","ABG","LAC","EOS",14.6,15
+"587","B_Blood.xlsx","B_B24","ABG","LAC","EOR",12.9,15
+"588","B_Blood.xlsx","B_B24","ABG","LAC","10%",4.9,15
+"589","B_Blood.xlsx","B_B24","ABG","LAC","7.5%",3.8,15
+"590","B_Blood.xlsx","B_B24","ABG","LAC","5%",2.1,15
+"591","B_Blood.xlsx","B_B24","ABG","LAC","EOB",2,15
+"592","B_Blood.xlsx","B_B24","ABG","LAC","24HR",0.4,15
+"593","B_Blood.xlsx","B_B24",NA,"AST","BL",6,15
+"594","B_Blood.xlsx","B_B24",NA,"AST","EOS",71,15
+"595","B_Blood.xlsx","B_B24",NA,"AST","EOR",63,15
+"596","B_Blood.xlsx","B_B24",NA,"AST","EOB",211,15
+"597","B_Blood.xlsx","B_B24",NA,"AST","24HR",207,15
+"598","B_Blood.xlsx","B_B24",NA,"ALT","BL",32,15
+"599","B_Blood.xlsx","B_B24",NA,"ALT","EOS",42,15
+"600","B_Blood.xlsx","B_B24",NA,"ALT","EOR",45,15
+"601","B_Blood.xlsx","B_B24",NA,"ALT","EOB",85,15
+"602","B_Blood.xlsx","B_B24",NA,"ALT","24HR",146,15
+"603","B_Blood.xlsx","B_B24",NA,"LDH","BL",103,15
+"604","B_Blood.xlsx","B_B24",NA,"LDH","EOS",215,15
+"605","B_Blood.xlsx","B_B24",NA,"LDH","EOR",166,15
+"606","B_Blood.xlsx","B_B24",NA,"LDH","EOB",280,15
+"607","B_Blood.xlsx","B_B24",NA,"LDH","24HR",189,15
+"608","B_Blood.xlsx","B_B24",NA,"CREA","BL",0.7,15
+"609","B_Blood.xlsx","B_B24",NA,"CREA","EOS",1.3,15
+"610","B_Blood.xlsx","B_B24",NA,"CREA","EOR",1,15
+"611","B_Blood.xlsx","B_B24",NA,"CREA","EOB",0.7,15
+"612","B_Blood.xlsx","B_B24",NA,"CREA","24HR",0.7,15
+"613","B_Blood.xlsx","B_B24",NA,"BUN","BL",16.03,15
+"614","B_Blood.xlsx","B_B24",NA,"BUN","EOS",19.32,15
+"615","B_Blood.xlsx","B_B24",NA,"BUN","EOR",19.08,15
+"616","B_Blood.xlsx","B_B24",NA,"BUN","EOB",17.84,15
+"617","B_Blood.xlsx","B_B24",NA,"BUN","24HR",17.87,15
+"618","B_Blood.xlsx","B_B24",NA,"AMY","BL",274,15
+"619","B_Blood.xlsx","B_B24",NA,"AMY","EOS",257,15
+"620","B_Blood.xlsx","B_B24",NA,"AMY","EOR",276,15
+"621","B_Blood.xlsx","B_B24",NA,"AMY","EOB",352,15
+"622","B_Blood.xlsx","B_B24",NA,"AMY","24HR",339,15
+"623","B_Blood.xlsx","B_B24",NA,"TG","BL",73.63,15
+"624","B_Blood.xlsx","B_B24",NA,"TG","EOS",191.47,15
+"625","B_Blood.xlsx","B_B24",NA,"TG","EOR",166.27,15
+"626","B_Blood.xlsx","B_B24",NA,"TG","EOB",223.43,15
+"627","B_Blood.xlsx","B_B24",NA,"TG","24HR",180.57,15
+"628","B_Blood.xlsx","B_B24",NA,"GGT","BL",4,15
+"629","B_Blood.xlsx","B_B24",NA,"GGT","EOS",2,15
+"630","B_Blood.xlsx","B_B24",NA,"GGT","EOR",2,15
+"631","B_Blood.xlsx","B_B24",NA,"GGT","EOB",2,15
+"632","B_Blood.xlsx","B_B24",NA,"GGT","24HR",3,15
+"633","B_Blood.xlsx","B_B24",NA,"GLU","BL",154.2,15
+"634","B_Blood.xlsx","B_B24",NA,"GLU","EOS",453.88,15
+"635","B_Blood.xlsx","B_B24",NA,"GLU","EOR",480.85,15
+"636","B_Blood.xlsx","B_B24",NA,"GLU","EOB",165.69,15
+"637","B_Blood.xlsx","B_B24",NA,"GLU","24HR",164.66,15
+"638","B_Blood.xlsx","B_B24",NA,"GLU","BL",126.7,15
+"639","B_Blood.xlsx","B_B24",NA,"GLU","EOS",139.9,15
+"640","B_Blood.xlsx","B_B24",NA,"GLU","EOR",101.6,15
+"641","B_Blood.xlsx","B_B24",NA,"GLU","EOB",140.9,15
+"642","B_Blood.xlsx","B_B24",NA,"GLU","24HR",140.6,15
+"643","B_Blood.xlsx","B_B24",NA,"GLU","BL",18,15
+"644","B_Blood.xlsx","B_B24",NA,"GLU","EOS",15.7,15
+"645","B_Blood.xlsx","B_B24",NA,"GLU","EOR",18.9,15
+"646","B_Blood.xlsx","B_B24",NA,"GLU","EOB",23.5,15
+"647","B_Blood.xlsx","B_B24",NA,"GLU","24HR",13.7,15
+"648","B_Blood.xlsx","B_B24",NA,"GLU","BL",20.8,15
+"649","B_Blood.xlsx","B_B24",NA,"GLU","EOS",16.5,15
+"650","B_Blood.xlsx","B_B24",NA,"GLU","EOR",26,15
+"651","B_Blood.xlsx","B_B24",NA,"GLU","EOB",20.9,15
+"652","B_Blood.xlsx","B_B24",NA,"GLU","24HR",20.3,15
+"653","B_Blood.xlsx","B_B24",NA,"GLU","BL",1.12,15
+"654","B_Blood.xlsx","B_B24",NA,"GLU","EOS",1.37,15
+"655","B_Blood.xlsx","B_B24",NA,"GLU","EOR",1.83,15
+"656","B_Blood.xlsx","B_B24",NA,"GLU","EOB",2.24,15
+"657","B_Blood.xlsx","B_B24",NA,"GLU","24HR",3.32,15
+"658","B_Blood.xlsx","B_B24",NA,"RBC","BL",5.52,15
+"659","B_Blood.xlsx","B_B24",NA,"RBC","EOS",3.1,15
+"660","B_Blood.xlsx","B_B24",NA,"RBC","EOR",4.05,15
+"661","B_Blood.xlsx","B_B24",NA,"RBC","EOB",4.9,15
+"662","B_Blood.xlsx","B_B24",NA,"RBC","24HR",4.77,15
+"663","B_Blood.xlsx","B_B24","CBC","HGB","BL",12.3,15
+"664","B_Blood.xlsx","B_B24","CBC","HGB","EOS",7,15
+"665","B_Blood.xlsx","B_B24","CBC","HGB","EOR",9.2,15
+"666","B_Blood.xlsx","B_B24","CBC","HGB","EOB",11,15
+"667","B_Blood.xlsx","B_B24","CBC","HGB","24HR",10.8,15
+"668","B_Blood.xlsx","B_B24",NA,"Hct","BL",38.1,15
+"669","B_Blood.xlsx","B_B24",NA,"Hct","EOS",21.3,15
+"670","B_Blood.xlsx","B_B24",NA,"Hct","EOR",27.9,15
+"671","B_Blood.xlsx","B_B24",NA,"Hct","EOB",33.6,15
+"672","B_Blood.xlsx","B_B24",NA,"Hct","24HR",32.6,15
+"673","B_Blood.xlsx","B_B24","CBC","PLT","BL",250,15
+"674","B_Blood.xlsx","B_B24","CBC","PLT","EOS",152,15
+"675","B_Blood.xlsx","B_B24","CBC","PLT","EOR",132,15
+"676","B_Blood.xlsx","B_B24","CBC","PLT","EOB",163,15
+"677","B_Blood.xlsx","B_B24","CBC","PLT","24HR",217,15
+"678","B_Blood.xlsx","B_B24","CBC","PLT","BL",59,15
+"679","B_Blood.xlsx","B_B24","CBC","PLT","24HR",54,15
+"680","B_Blood.xlsx","B_B24",NA,"K.Time","BL",1.3,15
+"681","B_Blood.xlsx","B_B24",NA,"K.Time","EOS",1.7,15
+"682","B_Blood.xlsx","B_B24",NA,"K.Time","EOR",2,15
+"683","B_Blood.xlsx","B_B24",NA,"K.Time","24HR",3.2,15
+"684","B_Blood.xlsx","B_B24",NA,"Angle","BL",69.2,15
+"685","B_Blood.xlsx","B_B24",NA,"Angle","EOS",66.2,15
+"686","B_Blood.xlsx","B_B24",NA,"Angle","EOR",39.2,15
+"687","B_Blood.xlsx","B_B24",NA,"Angle","24HR",57.6,15
+"688","B_Blood.xlsx","B_B24",NA,"MA.Min","BL",64.1,15
+"689","B_Blood.xlsx","B_B24",NA,"MA.Min","EOS",63.6,15
+"690","B_Blood.xlsx","B_B24",NA,"MA.Min","EOR",65.2,15
+"691","B_Blood.xlsx","B_B24",NA,"MA.Min","EOB",66.2,15
+"692","B_Blood.xlsx","B_B24",NA,"MA.Min","24HR",74.1,15
+"693","B_Blood.xlsx","B_B26","MAP","MAP","BL",78,15
+"694","B_Blood.xlsx","B_B26","MAP","MAP","EOS",32,15
+"695","B_Blood.xlsx","B_B26","MAP","MAP","EOR",59,15
+"696","B_Blood.xlsx","B_B26","MAP","MAP","10%",62,15
+"697","B_Blood.xlsx","B_B26","MAP","MAP","7.5%",60,15
+"698","B_Blood.xlsx","B_B26","MAP","MAP","5%",54,15
+"699","B_Blood.xlsx","B_B26","MAP","MAP","2.5%",69,15
+"700","B_Blood.xlsx","B_B26","MAP","MAP","EOB",74,15
+"701","B_Blood.xlsx","B_B26","MAP","MAP","24HR",77,15
+"702","B_Blood.xlsx","B_B26","ABG","LAC","BL",1.7,15
+"703","B_Blood.xlsx","B_B26","ABG","LAC","EOS",7.9,15
+"704","B_Blood.xlsx","B_B26","ABG","LAC","EOR",6.9,15
+"705","B_Blood.xlsx","B_B26","ABG","LAC","10%",3,15
+"706","B_Blood.xlsx","B_B26","ABG","LAC","7.5%",2.4,15
+"707","B_Blood.xlsx","B_B26","ABG","LAC","5%",2,15
+"708","B_Blood.xlsx","B_B26","ABG","LAC","EOB",2.4,15
+"709","B_Blood.xlsx","B_B26","ABG","LAC","24HR",1.4,15
+"710","B_Blood.xlsx","B_B26",NA,"AST","BL",11,15
+"711","B_Blood.xlsx","B_B26",NA,"AST","EOS",48,15
+"712","B_Blood.xlsx","B_B26",NA,"AST","EOR",41,15
+"713","B_Blood.xlsx","B_B26",NA,"AST","EOB",63,15
+"714","B_Blood.xlsx","B_B26",NA,"AST","24HR",31,15
+"715","B_Blood.xlsx","B_B26",NA,"ALT","BL",42,15
+"716","B_Blood.xlsx","B_B26",NA,"ALT","EOS",54,15
+"717","B_Blood.xlsx","B_B26",NA,"ALT","EOR",54,15
+"718","B_Blood.xlsx","B_B26",NA,"ALT","EOB",75,15
+"719","B_Blood.xlsx","B_B26",NA,"ALT","24HR",86,15
+"720","B_Blood.xlsx","B_B26",NA,"LDH","BL",124,15
+"721","B_Blood.xlsx","B_B26",NA,"LDH","EOS",161,15
+"722","B_Blood.xlsx","B_B26",NA,"LDH","EOR",124,15
+"723","B_Blood.xlsx","B_B26",NA,"LDH","EOB",172,15
+"724","B_Blood.xlsx","B_B26",NA,"LDH","24HR",64,15
+"725","B_Blood.xlsx","B_B26",NA,"CREA","BL",0.6,15
+"726","B_Blood.xlsx","B_B26",NA,"CREA","EOS",0.7,15
+"727","B_Blood.xlsx","B_B26",NA,"CREA","EOR",0.7,15
+"728","B_Blood.xlsx","B_B26",NA,"CREA","EOB",0.5,15
+"729","B_Blood.xlsx","B_B26",NA,"CREA","24HR",0.4,15
+"730","B_Blood.xlsx","B_B26",NA,"BUN","BL",17.83,15
+"731","B_Blood.xlsx","B_B26",NA,"BUN","EOS",20.4,15
+"732","B_Blood.xlsx","B_B26",NA,"BUN","EOR",19.46,15
+"733","B_Blood.xlsx","B_B26",NA,"BUN","EOB",16.58,15
+"734","B_Blood.xlsx","B_B26",NA,"BUN","24HR",13.32,15
+"735","B_Blood.xlsx","B_B26",NA,"AMY","BL",296,15
+"736","B_Blood.xlsx","B_B26",NA,"AMY","EOS",246,15
+"737","B_Blood.xlsx","B_B26",NA,"AMY","EOR",242,15
+"738","B_Blood.xlsx","B_B26",NA,"AMY","EOB",301,15
+"739","B_Blood.xlsx","B_B26",NA,"AMY","24HR",280,15
+"740","B_Blood.xlsx","B_B26",NA,"TG","BL",50.38,15
+"741","B_Blood.xlsx","B_B26",NA,"TG","EOS",131.91,15
+"742","B_Blood.xlsx","B_B26",NA,"TG","EOR",136.18,15
+"743","B_Blood.xlsx","B_B26",NA,"TG","EOB",186.52,15
+"744","B_Blood.xlsx","B_B26",NA,"TG","24HR",94.32,15
+"745","B_Blood.xlsx","B_B26",NA,"GGT","BL",5,15
+"746","B_Blood.xlsx","B_B26",NA,"GGT","EOS",2,15
+"747","B_Blood.xlsx","B_B26",NA,"GGT","EOR",2,15
+"748","B_Blood.xlsx","B_B26",NA,"GGT","EOB",4,15
+"749","B_Blood.xlsx","B_B26",NA,"GGT","24HR",5,15
+"750","B_Blood.xlsx","B_B26",NA,"GLU","BL",84.21,15
+"751","B_Blood.xlsx","B_B26",NA,"GLU","EOS",388.95,15
+"752","B_Blood.xlsx","B_B26",NA,"GLU","EOR",379.27,15
+"753","B_Blood.xlsx","B_B26",NA,"GLU","EOB",170.33,15
+"754","B_Blood.xlsx","B_B26",NA,"GLU","24HR",164.6,15
+"755","B_Blood.xlsx","B_B26",NA,"GLU","BL",116.9,15
+"756","B_Blood.xlsx","B_B26",NA,"GLU","EOS",119.6,15
+"757","B_Blood.xlsx","B_B26",NA,"GLU","EOR",126.4,15
+"758","B_Blood.xlsx","B_B26",NA,"GLU","EOB",128.2,15
+"759","B_Blood.xlsx","B_B26",NA,"GLU","24HR",125.9,15
+"760","B_Blood.xlsx","B_B26",NA,"GLU","BL",12.6,15
+"761","B_Blood.xlsx","B_B26",NA,"GLU","EOS",9.4,15
+"762","B_Blood.xlsx","B_B26",NA,"GLU","EOR",7.9,15
+"763","B_Blood.xlsx","B_B26",NA,"GLU","EOB",9.6,15
+"764","B_Blood.xlsx","B_B26",NA,"GLU","24HR",8.8,15
+"765","B_Blood.xlsx","B_B26",NA,"GLU","BL",24.5,15
+"766","B_Blood.xlsx","B_B26",NA,"GLU","EOR",29.8,15
+"767","B_Blood.xlsx","B_B26",NA,"GLU","EOB",17.7,15
+"768","B_Blood.xlsx","B_B26",NA,"GLU","24HR",56,15
+"769","B_Blood.xlsx","B_B26",NA,"GLU","BL",1.65,15
+"770","B_Blood.xlsx","B_B26",NA,"GLU","EOS",4.2,15
+"771","B_Blood.xlsx","B_B26",NA,"GLU","EOR",3.17,15
+"772","B_Blood.xlsx","B_B26",NA,"GLU","EOB",5.91,15
+"773","B_Blood.xlsx","B_B26",NA,"GLU","24HR",6.55,15
+"774","B_Blood.xlsx","B_B26",NA,"RBC","BL",5.92,15
+"775","B_Blood.xlsx","B_B26",NA,"RBC","EOS",3.14,15
+"776","B_Blood.xlsx","B_B26",NA,"RBC","EOR",3.87,15
+"777","B_Blood.xlsx","B_B26",NA,"RBC","EOB",4.26,15
+"778","B_Blood.xlsx","B_B26",NA,"RBC","24HR",4.54,15
+"779","B_Blood.xlsx","B_B26","CBC","HGB","BL",12.3,15
+"780","B_Blood.xlsx","B_B26","CBC","HGB","EOS",6.7,15
+"781","B_Blood.xlsx","B_B26","CBC","HGB","EOR",8.2,15
+"782","B_Blood.xlsx","B_B26","CBC","HGB","EOB",9,15
+"783","B_Blood.xlsx","B_B26","CBC","HGB","24HR",9.8,15
+"784","B_Blood.xlsx","B_B26",NA,"Hct","BL",38,15
+"785","B_Blood.xlsx","B_B26",NA,"Hct","EOS",20,15
+"786","B_Blood.xlsx","B_B26",NA,"Hct","EOR",24.8,15
+"787","B_Blood.xlsx","B_B26",NA,"Hct","EOB",27,15
+"788","B_Blood.xlsx","B_B26",NA,"Hct","24HR",28.8,15
+"789","B_Blood.xlsx","B_B26","CBC","PLT","BL",237,15
+"790","B_Blood.xlsx","B_B26","CBC","PLT","EOS",230,15
+"791","B_Blood.xlsx","B_B26","CBC","PLT","EOR",228,15
+"792","B_Blood.xlsx","B_B26","CBC","PLT","EOB",226,15
+"793","B_Blood.xlsx","B_B26","CBC","PLT","24HR",296,15
+"794","B_Blood.xlsx","B_B26","CBC","PLT","BL",149,15
+"795","B_Blood.xlsx","B_B26","CBC","PLT","24HR",86,15
+"796","B_Blood.xlsx","B_B26",NA,"K.Time","BL",1.3,15
+"797","B_Blood.xlsx","B_B26",NA,"K.Time","EOS",1.2,15
+"798","B_Blood.xlsx","B_B26",NA,"K.Time","EOR",1.4,15
+"799","B_Blood.xlsx","B_B26",NA,"K.Time","24HR",1.5,15
+"800","B_Blood.xlsx","B_B26",NA,"Angle","BL",70.3,15
+"801","B_Blood.xlsx","B_B26",NA,"Angle","EOS",73.1,15
+"802","B_Blood.xlsx","B_B26",NA,"Angle","EOR",71.1,15
+"803","B_Blood.xlsx","B_B26",NA,"Angle","24HR",50.9,15
+"804","B_Blood.xlsx","B_B26",NA,"MA.Min","BL",67.5,15
+"805","B_Blood.xlsx","B_B26",NA,"MA.Min","EOS",69.9,15
+"806","B_Blood.xlsx","B_B26",NA,"MA.Min","EOR",73,15
+"807","B_Blood.xlsx","B_B26",NA,"MA.Min","EOB",75.1,15
+"808","B_Blood.xlsx","B_B26",NA,"MA.Min","24HR",74.9,15
+"809","B_Blood.xlsx","B_B27","MAP","MAP","BL",77,15
+"810","B_Blood.xlsx","B_B27","MAP","MAP","EOS",70,15
+"811","B_Blood.xlsx","B_B27","MAP","MAP","EOR",70,15
+"812","B_Blood.xlsx","B_B27","MAP","MAP","10%",78,15
+"813","B_Blood.xlsx","B_B27","MAP","MAP","7.5%",84,15
+"814","B_Blood.xlsx","B_B27","MAP","MAP","5%",82,15
+"815","B_Blood.xlsx","B_B27","MAP","MAP","2.5%",73,15
+"816","B_Blood.xlsx","B_B27","MAP","MAP","EOB",79,15
+"817","B_Blood.xlsx","B_B27","MAP","MAP","24HR",70,15
+"818","B_Blood.xlsx","B_B27","ABG","LAC","BL",0.6,15
+"819","B_Blood.xlsx","B_B27","ABG","LAC","EOS",10.9,15
+"820","B_Blood.xlsx","B_B27","ABG","LAC","EOR",9.8,15
+"821","B_Blood.xlsx","B_B27","ABG","LAC","10%",2.7,15
+"822","B_Blood.xlsx","B_B27","ABG","LAC","7.5%",1.4,15
+"823","B_Blood.xlsx","B_B27","ABG","LAC","5%",0.8,15
+"824","B_Blood.xlsx","B_B27","ABG","LAC","EOB",0.7,15
+"825","B_Blood.xlsx","B_B27","ABG","LAC","24HR",1.3,15
+"826","B_Blood.xlsx","B_B27",NA,"AST","BL",14,15
+"827","B_Blood.xlsx","B_B27",NA,"AST","EOS",79,15
+"828","B_Blood.xlsx","B_B27",NA,"AST","EOR",72,15
+"829","B_Blood.xlsx","B_B27",NA,"AST","EOB",138,15
+"830","B_Blood.xlsx","B_B27",NA,"AST","24HR",35,15
+"831","B_Blood.xlsx","B_B27",NA,"ALT","BL",30,15
+"832","B_Blood.xlsx","B_B27",NA,"ALT","EOS",48,15
+"833","B_Blood.xlsx","B_B27",NA,"ALT","EOR",51,15
+"834","B_Blood.xlsx","B_B27",NA,"ALT","EOB",70,15
+"835","B_Blood.xlsx","B_B27",NA,"ALT","24HR",80,15
+"836","B_Blood.xlsx","B_B27",NA,"LDH","BL",76,15
+"837","B_Blood.xlsx","B_B27",NA,"LDH","EOS",243,15
+"838","B_Blood.xlsx","B_B27",NA,"LDH","EOR",228,15
+"839","B_Blood.xlsx","B_B27",NA,"LDH","EOB",152,15
+"840","B_Blood.xlsx","B_B27",NA,"LDH","24HR",67,15
+"841","B_Blood.xlsx","B_B27",NA,"CREA","BL",0.7,15
+"842","B_Blood.xlsx","B_B27",NA,"CREA","EOS",1.2,15
+"843","B_Blood.xlsx","B_B27",NA,"CREA","EOR",1.1,15
+"844","B_Blood.xlsx","B_B27",NA,"CREA","EOB",0.7,15
+"845","B_Blood.xlsx","B_B27",NA,"CREA","24HR",0.6,15
+"846","B_Blood.xlsx","B_B27",NA,"BUN","BL",15.51,15
+"847","B_Blood.xlsx","B_B27",NA,"BUN","EOS",17.75,15
+"848","B_Blood.xlsx","B_B27",NA,"BUN","EOR",16.87,15
+"849","B_Blood.xlsx","B_B27",NA,"BUN","EOB",17.24,15
+"850","B_Blood.xlsx","B_B27",NA,"BUN","24HR",10.91,15
+"851","B_Blood.xlsx","B_B27",NA,"AMY","BL",396,15
+"852","B_Blood.xlsx","B_B27",NA,"AMY","EOS",234,15
+"853","B_Blood.xlsx","B_B27",NA,"AMY","EOR",277,15
+"854","B_Blood.xlsx","B_B27",NA,"AMY","EOB",283,15
+"855","B_Blood.xlsx","B_B27",NA,"AMY","24HR",315,15
+"856","B_Blood.xlsx","B_B27",NA,"TG","BL",66.89,15
+"857","B_Blood.xlsx","B_B27",NA,"TG","EOS",152.5,15
+"858","B_Blood.xlsx","B_B27",NA,"TG","EOR",152.93,15
+"859","B_Blood.xlsx","B_B27",NA,"TG","EOB",126.46,15
+"860","B_Blood.xlsx","B_B27",NA,"TG","24HR",88.34,15
+"861","B_Blood.xlsx","B_B27",NA,"GGT","BL",3,15
+"862","B_Blood.xlsx","B_B27",NA,"GGT","EOS",2,15
+"863","B_Blood.xlsx","B_B27",NA,"GGT","EOR",2,15
+"864","B_Blood.xlsx","B_B27",NA,"GGT","EOB",2,15
+"865","B_Blood.xlsx","B_B27",NA,"GGT","24HR",2,15
+"866","B_Blood.xlsx","B_B27",NA,"GLU","BL",225.38,15
+"867","B_Blood.xlsx","B_B27",NA,"GLU","EOS",474.82,15
+"868","B_Blood.xlsx","B_B27",NA,"GLU","EOR",442.64,15
+"869","B_Blood.xlsx","B_B27",NA,"GLU","EOB",152.72,15
+"870","B_Blood.xlsx","B_B27",NA,"GLU","24HR",142.8,15
+"871","B_Blood.xlsx","B_B27",NA,"GLU","BL",125.2,15
+"872","B_Blood.xlsx","B_B27",NA,"GLU","EOS",11.8,15
+"873","B_Blood.xlsx","B_B27",NA,"GLU","EOR",137.9,15
+"874","B_Blood.xlsx","B_B27",NA,"GLU","EOB",139.3,15
+"875","B_Blood.xlsx","B_B27",NA,"GLU","24HR",138.4,15
+"876","B_Blood.xlsx","B_B27",NA,"GLU","BL",17.7,15
+"877","B_Blood.xlsx","B_B27",NA,"GLU","EOS",13.3,15
+"878","B_Blood.xlsx","B_B27",NA,"GLU","EOR",13.2,15
+"879","B_Blood.xlsx","B_B27",NA,"GLU","EOB",10.3,15
+"880","B_Blood.xlsx","B_B27",NA,"GLU","24HR",12.5,15
+"881","B_Blood.xlsx","B_B27",NA,"GLU","BL",28.2,15
+"882","B_Blood.xlsx","B_B27",NA,"GLU","EOB",19.4,15
+"883","B_Blood.xlsx","B_B27",NA,"GLU","24HR",25.1,15
+"884","B_Blood.xlsx","B_B27",NA,"GLU","BL",1.92,15
+"885","B_Blood.xlsx","B_B27",NA,"GLU","EOS",3.14,15
+"886","B_Blood.xlsx","B_B27",NA,"GLU","EOR",4.28,15
+"887","B_Blood.xlsx","B_B27",NA,"GLU","EOB",3.14,15
+"888","B_Blood.xlsx","B_B27",NA,"GLU","24HR",4.99,15
+"889","B_Blood.xlsx","B_B27",NA,"RBC","BL",6.24,15
+"890","B_Blood.xlsx","B_B27",NA,"RBC","EOS",3.77,15
+"891","B_Blood.xlsx","B_B27",NA,"RBC","EOR",4.65,15
+"892","B_Blood.xlsx","B_B27",NA,"RBC","EOB",4.57,15
+"893","B_Blood.xlsx","B_B27",NA,"RBC","24HR",5.73,15
+"894","B_Blood.xlsx","B_B27","CBC","HGB","BL",13.4,15
+"895","B_Blood.xlsx","B_B27","CBC","HGB","EOS",8,15
+"896","B_Blood.xlsx","B_B27","CBC","HGB","EOR",9.9,15
+"897","B_Blood.xlsx","B_B27","CBC","HGB","EOB",9.9,15
+"898","B_Blood.xlsx","B_B27","CBC","HGB","24HR",12.2,15
+"899","B_Blood.xlsx","B_B27",NA,"Hct","BL",41,15
+"900","B_Blood.xlsx","B_B27",NA,"Hct","EOS",24.5,15
+"901","B_Blood.xlsx","B_B27",NA,"Hct","EOR",30.2,15
+"902","B_Blood.xlsx","B_B27",NA,"Hct","EOB",29.4,15
+"903","B_Blood.xlsx","B_B27",NA,"Hct","24HR",37.4,15
+"904","B_Blood.xlsx","B_B27","CBC","PLT","BL",319,15
+"905","B_Blood.xlsx","B_B27","CBC","PLT","EOS",218,15
+"906","B_Blood.xlsx","B_B27","CBC","PLT","EOR",223,15
+"907","B_Blood.xlsx","B_B27","CBC","PLT","EOB",207,15
+"908","B_Blood.xlsx","B_B27","CBC","PLT","24HR",232,15
+"909","B_Blood.xlsx","B_B27","CBC","PLT","BL",103,15
+"910","B_Blood.xlsx","B_B27","CBC","PLT","24HR",49,15
+"911","B_Blood.xlsx","B_B27",NA,"K.Time","BL",1.2,15
+"912","B_Blood.xlsx","B_B27",NA,"K.Time","EOS",1.5,15
+"913","B_Blood.xlsx","B_B27",NA,"K.Time","EOR",2.6,15
+"914","B_Blood.xlsx","B_B27",NA,"K.Time","24HR",1.3,15
+"915","B_Blood.xlsx","B_B27",NA,"Angle","BL",69.7,15
+"916","B_Blood.xlsx","B_B27",NA,"Angle","EOS",69.3,15
+"917","B_Blood.xlsx","B_B27",NA,"Angle","EOR",38.8,15
+"918","B_Blood.xlsx","B_B27",NA,"Angle","24HR",72.4,15
+"919","B_Blood.xlsx","B_B27",NA,"MA.Min","BL",65,15
+"920","B_Blood.xlsx","B_B27",NA,"MA.Min","EOS",69.5,15
+"921","B_Blood.xlsx","B_B27",NA,"MA.Min","EOR",73.1,15
+"922","B_Blood.xlsx","B_B27",NA,"MA.Min","EOB",73.2,15
+"923","B_Blood.xlsx","B_B27",NA,"MA.Min","24HR",75.6,15
+"924","B_Blood.xlsx","B_B28","MAP","MAP","BL",80,15
+"925","B_Blood.xlsx","B_B28","MAP","MAP","EOS",48,15
+"926","B_Blood.xlsx","B_B28","MAP","MAP","EOR",77,15
+"927","B_Blood.xlsx","B_B28","MAP","MAP","10%",78,15
+"928","B_Blood.xlsx","B_B28","MAP","MAP","7.5%",84,15
+"929","B_Blood.xlsx","B_B28","MAP","MAP","5%",87,15
+"930","B_Blood.xlsx","B_B28","MAP","MAP","2.5%",86,15
+"931","B_Blood.xlsx","B_B28","MAP","MAP","EOB",88,15
+"932","B_Blood.xlsx","B_B28","MAP","MAP","24HR",65,15
+"933","B_Blood.xlsx","B_B28","ABG","LAC","BL",2.1,15
+"934","B_Blood.xlsx","B_B28","ABG","LAC","EOS",19,15
+"935","B_Blood.xlsx","B_B28","ABG","LAC","EOR",15,15
+"936","B_Blood.xlsx","B_B28","ABG","LAC","10%",6.3,15
+"937","B_Blood.xlsx","B_B28","ABG","LAC","7.5%",2.9,15
+"938","B_Blood.xlsx","B_B28","ABG","LAC","5%",1.5,15
+"939","B_Blood.xlsx","B_B28","ABG","LAC","EOB",1.7,15
+"940","B_Blood.xlsx","B_B28","ABG","LAC","24HR",1.1,15
+"941","B_Blood.xlsx","B_B28",NA,"AST","BL",31,15
+"942","B_Blood.xlsx","B_B28",NA,"AST","EOS",147,15
+"943","B_Blood.xlsx","B_B28",NA,"AST","EOR",128,15
+"944","B_Blood.xlsx","B_B28",NA,"AST","EOB",278,15
+"945","B_Blood.xlsx","B_B28",NA,"AST","24HR",474,15
+"946","B_Blood.xlsx","B_B28",NA,"ALT","BL",49,15
+"947","B_Blood.xlsx","B_B28",NA,"ALT","EOS",93,15
+"948","B_Blood.xlsx","B_B28",NA,"ALT","EOR",97,15
+"949","B_Blood.xlsx","B_B28",NA,"ALT","EOB",156,15
+"950","B_Blood.xlsx","B_B28",NA,"ALT","24HR",349,15
+"951","B_Blood.xlsx","B_B28",NA,"LDH","EOS",149,15
+"952","B_Blood.xlsx","B_B28",NA,"LDH","EOR",254,15
+"953","B_Blood.xlsx","B_B28",NA,"LDH","EOB",267,15
+"954","B_Blood.xlsx","B_B28",NA,"LDH","24HR",414,15
+"955","B_Blood.xlsx","B_B28",NA,"CREA","BL",349,15
+"956","B_Blood.xlsx","B_B28",NA,"CREA","EOS",0.8,15
+"957","B_Blood.xlsx","B_B28",NA,"CREA","EOR",1.5,15
+"958","B_Blood.xlsx","B_B28",NA,"CREA","EOB",1.4,15
+"959","B_Blood.xlsx","B_B28",NA,"CREA","24HR",1,15
+"960","B_Blood.xlsx","B_B28",NA,"BUN","BL",0.7,15
+"961","B_Blood.xlsx","B_B28",NA,"BUN","EOS",16.57,15
+"962","B_Blood.xlsx","B_B28",NA,"BUN","EOR",21.57,15
+"963","B_Blood.xlsx","B_B28",NA,"BUN","EOB",21.28,15
+"964","B_Blood.xlsx","B_B28",NA,"BUN","24HR",21.9,15
+"965","B_Blood.xlsx","B_B28",NA,"AMY","BL",17.49,15
+"966","B_Blood.xlsx","B_B28",NA,"AMY","EOS",220,15
+"967","B_Blood.xlsx","B_B28",NA,"AMY","EOR",194,15
+"968","B_Blood.xlsx","B_B28",NA,"AMY","EOB",219,15
+"969","B_Blood.xlsx","B_B28",NA,"AMY","24HR",220,15
+"970","B_Blood.xlsx","B_B28",NA,"TG","BL",254,15
+"971","B_Blood.xlsx","B_B28",NA,"TG","EOS",70.89,15
+"972","B_Blood.xlsx","B_B28",NA,"TG","EOR",191.69,15
+"973","B_Blood.xlsx","B_B28",NA,"TG","EOB",191.53,15
+"974","B_Blood.xlsx","B_B28",NA,"TG","24HR",164.2,15
+"975","B_Blood.xlsx","B_B28",NA,"GGT","BL",185.16,15
+"976","B_Blood.xlsx","B_B28",NA,"GGT","EOS",3,15
+"977","B_Blood.xlsx","B_B28",NA,"GGT","EOR",2,15
+"978","B_Blood.xlsx","B_B28",NA,"GGT","EOB",3,15
+"979","B_Blood.xlsx","B_B28",NA,"GGT","24HR",2,15
+"980","B_Blood.xlsx","B_B28",NA,"GLU","BL",2,15
+"981","B_Blood.xlsx","B_B28",NA,"GLU","EOS",195.01,15
+"982","B_Blood.xlsx","B_B28",NA,"GLU","EOR",388.12,15
+"983","B_Blood.xlsx","B_B28",NA,"GLU","EOB",388.54,15
+"984","B_Blood.xlsx","B_B28",NA,"GLU","24HR",156.61,15
+"985","B_Blood.xlsx","B_B28",NA,"GLU","BL",149.02,15
+"986","B_Blood.xlsx","B_B28",NA,"GLU","EOS",125.6,15
+"987","B_Blood.xlsx","B_B28",NA,"GLU","EOR",9.1,15
+"988","B_Blood.xlsx","B_B28",NA,"GLU","EOB",141.3,15
+"989","B_Blood.xlsx","B_B28",NA,"GLU","24HR",136.9,15
+"990","B_Blood.xlsx","B_B28",NA,"GLU","BL",88.2,15
+"991","B_Blood.xlsx","B_B28",NA,"GLU","EOS",13.3,15
+"992","B_Blood.xlsx","B_B28",NA,"GLU","EOR",14.7,15
+"993","B_Blood.xlsx","B_B28",NA,"GLU","EOB",16,15
+"994","B_Blood.xlsx","B_B28",NA,"GLU","24HR",10.2,15
+"995","B_Blood.xlsx","B_B28",NA,"GLU","BL",13.4,15
+"996","B_Blood.xlsx","B_B28",NA,"GLU","EOS",25.2,15
+"997","B_Blood.xlsx","B_B28",NA,"GLU","24HR",20,15
+"998","B_Blood.xlsx","B_B28",NA,"GLU","BL",83.5,15
+"999","B_Blood.xlsx","B_B28",NA,"GLU","EOS",1.69,15
+"1000","B_Blood.xlsx","B_B28",NA,"GLU","EOR",3.4,15
+"1001","B_Blood.xlsx","B_B28",NA,"GLU","EOB",4.33,15
+"1002","B_Blood.xlsx","B_B28",NA,"GLU","24HR",3.91,15
+"1003","B_Blood.xlsx","B_B28",NA,"RBC","BL",4.5,15
+"1004","B_Blood.xlsx","B_B28",NA,"RBC","EOS",5.64,15
+"1005","B_Blood.xlsx","B_B28",NA,"RBC","EOR",3.26,15
+"1006","B_Blood.xlsx","B_B28",NA,"RBC","EOB",4.56,15
+"1007","B_Blood.xlsx","B_B28",NA,"RBC","24HR",6.19,15
+"1008","B_Blood.xlsx","B_B28","CBC","HGB","BL",4.45,15
+"1009","B_Blood.xlsx","B_B28","CBC","HGB","EOS",11.9,15
+"1010","B_Blood.xlsx","B_B28","CBC","HGB","EOR",7.1,15
+"1011","B_Blood.xlsx","B_B28","CBC","HGB","EOB",9.6,15
+"1012","B_Blood.xlsx","B_B28","CBC","HGB","24HR",12.8,15
+"1013","B_Blood.xlsx","B_B28",NA,"Hct","BL",9.4,15
+"1014","B_Blood.xlsx","B_B28",NA,"Hct","EOS",36.2,15
+"1015","B_Blood.xlsx","B_B28",NA,"Hct","EOR",20.8,15
+"1016","B_Blood.xlsx","B_B28",NA,"Hct","EOB",29.2,15
+"1017","B_Blood.xlsx","B_B28",NA,"Hct","24HR",39.3,15
+"1018","B_Blood.xlsx","B_B28","CBC","PLT","BL",28.5,15
+"1019","B_Blood.xlsx","B_B28","CBC","PLT","EOS",268,15
+"1020","B_Blood.xlsx","B_B28","CBC","PLT","EOR",159,15
+"1021","B_Blood.xlsx","B_B28","CBC","PLT","EOB",158,15
+"1022","B_Blood.xlsx","B_B28","CBC","PLT","24HR",187,15
+"1023","B_Blood.xlsx","B_B28","CBC","PLT","BL",218,15
+"1024","B_Blood.xlsx","B_B28","CBC","PLT","24HR",130,15
+"1025","B_Blood.xlsx","B_B28",NA,"K.Time","EOS",0.8,15
+"1026","B_Blood.xlsx","B_B28",NA,"K.Time","EOR",1.6,15
+"1027","B_Blood.xlsx","B_B28",NA,"K.Time","24HR",3.7,15
+"1028","B_Blood.xlsx","B_B28",NA,"K.Time","48HR",1.7,15
+"1029","B_Blood.xlsx","B_B28",NA,"Angle","EOS",76.8,15
+"1030","B_Blood.xlsx","B_B28",NA,"Angle","EOR",67.2,15
+"1031","B_Blood.xlsx","B_B28",NA,"Angle","24HR",51.1,15
+"1032","B_Blood.xlsx","B_B28",NA,"Angle","48HR",69.4,15
+"1033","B_Blood.xlsx","B_B28",NA,"MA.Min","EOS",65.2,15
+"1034","B_Blood.xlsx","B_B28",NA,"MA.Min","EOR",65.7,15
+"1035","B_Blood.xlsx","B_B28",NA,"MA.Min","EOB",67.1,15
+"1036","B_Blood.xlsx","B_B28",NA,"MA.Min","24HR",71.4,15
+"1037","B_Blood.xlsx","B_B28",NA,"MA.Min","48HR",74.5,15
+"1038","B_Blood.xlsx","B_B29","MAP","MAP","BL",75,15
+"1039","B_Blood.xlsx","B_B29","MAP","MAP","EOS",43,15
+"1040","B_Blood.xlsx","B_B29","MAP","MAP","EOR",68,15
+"1041","B_Blood.xlsx","B_B29","MAP","MAP","10%",53,15
+"1042","B_Blood.xlsx","B_B29","MAP","MAP","7.5%",64,15
+"1043","B_Blood.xlsx","B_B29","MAP","MAP","5%",64,15
+"1044","B_Blood.xlsx","B_B29","MAP","MAP","2.5%",70,15
+"1045","B_Blood.xlsx","B_B29","MAP","MAP","EOB",55,15
+"1046","B_Blood.xlsx","B_B29","MAP","MAP","24HR",68,15
+"1047","B_Blood.xlsx","B_B29","ABG","LAC","BL",1.2,15
+"1048","B_Blood.xlsx","B_B29","ABG","LAC","EOS",15,15
+"1049","B_Blood.xlsx","B_B29","ABG","LAC","EOR",12,15
+"1050","B_Blood.xlsx","B_B29","ABG","LAC","10%",9.7,15
+"1051","B_Blood.xlsx","B_B29","ABG","LAC","7.5%",4,15
+"1052","B_Blood.xlsx","B_B29","ABG","LAC","5%",4.3,15
+"1053","B_Blood.xlsx","B_B29","ABG","LAC","EOB",3.9,15
+"1054","B_Blood.xlsx","B_B29","ABG","LAC","24HR",2.1,15
+"1055","B_Blood.xlsx","B_B29",NA,"AST","BL",14,15
+"1056","B_Blood.xlsx","B_B29",NA,"AST","EOS",72,15
+"1057","B_Blood.xlsx","B_B29",NA,"AST","EOR",34,15
+"1058","B_Blood.xlsx","B_B29",NA,"AST","EOB",185,15
+"1059","B_Blood.xlsx","B_B29",NA,"AST","24HR",257,15
+"1060","B_Blood.xlsx","B_B29",NA,"ALT","BL",32,15
+"1061","B_Blood.xlsx","B_B29",NA,"ALT","EOS",60,15
+"1062","B_Blood.xlsx","B_B29",NA,"ALT","EOR",58,15
+"1063","B_Blood.xlsx","B_B29",NA,"ALT","EOB",82,15
+"1064","B_Blood.xlsx","B_B29",NA,"ALT","24HR",166,15
+"1065","B_Blood.xlsx","B_B29",NA,"LDH","EOS",89,15
+"1066","B_Blood.xlsx","B_B29",NA,"LDH","EOR",178,15
+"1067","B_Blood.xlsx","B_B29",NA,"LDH","EOB",151,15
+"1068","B_Blood.xlsx","B_B29",NA,"LDH","24HR",438,15
+"1069","B_Blood.xlsx","B_B29",NA,"CREA","BL",138,15
+"1070","B_Blood.xlsx","B_B29",NA,"CREA","EOS",0.8,15
+"1071","B_Blood.xlsx","B_B29",NA,"CREA","EOR",1,15
+"1072","B_Blood.xlsx","B_B29",NA,"CREA","EOB",1,15
+"1073","B_Blood.xlsx","B_B29",NA,"CREA","24HR",0.8,15
+"1074","B_Blood.xlsx","B_B29",NA,"BUN","BL",0.8,15
+"1075","B_Blood.xlsx","B_B29",NA,"BUN","EOS",13.92,15
+"1076","B_Blood.xlsx","B_B29",NA,"BUN","EOR",19.16,15
+"1077","B_Blood.xlsx","B_B29",NA,"BUN","EOB",19.19,15
+"1078","B_Blood.xlsx","B_B29",NA,"BUN","24HR",22.51,15
+"1079","B_Blood.xlsx","B_B29",NA,"AMY","BL",28.47,15
+"1080","B_Blood.xlsx","B_B29",NA,"AMY","EOS",302,15
+"1081","B_Blood.xlsx","B_B29",NA,"AMY","EOR",263,15
+"1082","B_Blood.xlsx","B_B29",NA,"AMY","EOB",268,15
+"1083","B_Blood.xlsx","B_B29",NA,"AMY","24HR",283,15
+"1084","B_Blood.xlsx","B_B29",NA,"TG","BL",219,15
+"1085","B_Blood.xlsx","B_B29",NA,"TG","EOS",114.92,15
+"1086","B_Blood.xlsx","B_B29",NA,"TG","EOR",136.97,15
+"1087","B_Blood.xlsx","B_B29",NA,"TG","EOB",143.87,15
+"1088","B_Blood.xlsx","B_B29",NA,"TG","24HR",278.37,15
+"1089","B_Blood.xlsx","B_B29",NA,"GGT","BL",139.65,15
+"1090","B_Blood.xlsx","B_B29",NA,"GGT","EOS",6,15
+"1091","B_Blood.xlsx","B_B29",NA,"GGT","EOR",2,15
+"1092","B_Blood.xlsx","B_B29",NA,"GGT","EOB",2,15
+"1093","B_Blood.xlsx","B_B29",NA,"GGT","24HR",2,15
+"1094","B_Blood.xlsx","B_B29",NA,"GLU","BL",2,15
+"1095","B_Blood.xlsx","B_B29",NA,"GLU","EOS",149.14,15
+"1096","B_Blood.xlsx","B_B29",NA,"GLU","EOR",402.93,15
+"1097","B_Blood.xlsx","B_B29",NA,"GLU","EOB",392.86,15
+"1098","B_Blood.xlsx","B_B29",NA,"GLU","24HR",177.01,15
+"1099","B_Blood.xlsx","B_B29",NA,"GLU","BL",204.01,15
+"1100","B_Blood.xlsx","B_B29",NA,"GLU","EOS",10.3,15
+"1101","B_Blood.xlsx","B_B29",NA,"GLU","EOR",131.6,15
+"1102","B_Blood.xlsx","B_B29",NA,"GLU","EOB",95.9,15
+"1103","B_Blood.xlsx","B_B29",NA,"GLU","24HR",121,15
+"1104","B_Blood.xlsx","B_B29",NA,"GLU","BL",100.6,15
+"1105","B_Blood.xlsx","B_B29",NA,"GLU","EOS",15.9,15
+"1106","B_Blood.xlsx","B_B29",NA,"GLU","EOR",14.9,15
+"1107","B_Blood.xlsx","B_B29",NA,"GLU","EOB",15.2,15
+"1108","B_Blood.xlsx","B_B29",NA,"GLU","24HR",13.9,15
+"1109","B_Blood.xlsx","B_B29",NA,"GLU","BL",11.9,15
+"1110","B_Blood.xlsx","B_B29",NA,"GLU","EOS",27.2,15
+"1111","B_Blood.xlsx","B_B29",NA,"GLU","24HR",27.3,15
+"1112","B_Blood.xlsx","B_B29",NA,"GLU","BL",25.3,15
+"1113","B_Blood.xlsx","B_B29",NA,"GLU","EOS",2.11,15
+"1114","B_Blood.xlsx","B_B29",NA,"GLU","EOR",4.11,15
+"1115","B_Blood.xlsx","B_B29",NA,"GLU","EOB",4.83,15
+"1116","B_Blood.xlsx","B_B29",NA,"GLU","24HR",4.71,15
+"1117","B_Blood.xlsx","B_B29",NA,"RBC","BL",11.67,15
+"1118","B_Blood.xlsx","B_B29",NA,"RBC","EOS",6.19,15
+"1119","B_Blood.xlsx","B_B29",NA,"RBC","EOR",3.88,15
+"1120","B_Blood.xlsx","B_B29",NA,"RBC","EOB",4.98,15
+"1121","B_Blood.xlsx","B_B29",NA,"RBC","24HR",5.35,15
+"1122","B_Blood.xlsx","B_B29","CBC","HGB","BL",5.26,15
+"1123","B_Blood.xlsx","B_B29","CBC","HGB","EOS",13,15
+"1124","B_Blood.xlsx","B_B29","CBC","HGB","EOR",8,15
+"1125","B_Blood.xlsx","B_B29","CBC","HGB","EOB",10.3,15
+"1126","B_Blood.xlsx","B_B29","CBC","HGB","24HR",10.9,15
+"1127","B_Blood.xlsx","B_B29",NA,"Hct","BL",10.7,15
+"1128","B_Blood.xlsx","B_B29",NA,"Hct","EOS",38.7,15
+"1129","B_Blood.xlsx","B_B29",NA,"Hct","EOR",24.2,15
+"1130","B_Blood.xlsx","B_B29",NA,"Hct","EOB",31.3,15
+"1131","B_Blood.xlsx","B_B29",NA,"Hct","24HR",33.3,15
+"1132","B_Blood.xlsx","B_B29","CBC","PLT","BL",32.5,15
+"1133","B_Blood.xlsx","B_B29","CBC","PLT","EOS",370,15
+"1134","B_Blood.xlsx","B_B29","CBC","PLT","EOR",236,15
+"1135","B_Blood.xlsx","B_B29","CBC","PLT","EOB",219,15
+"1136","B_Blood.xlsx","B_B29","CBC","PLT","24HR",239,15
+"1137","B_Blood.xlsx","B_B29","CBC","PLT","BL",275,15
+"1138","B_Blood.xlsx","B_B29","CBC","PLT","24HR",83,15
+"1139","B_Blood.xlsx","B_B29",NA,"K.Time","EOS",1.1,15
+"1140","B_Blood.xlsx","B_B29",NA,"K.Time","EOR",2.1,15
+"1141","B_Blood.xlsx","B_B29",NA,"K.Time","24HR",1.7,15
+"1142","B_Blood.xlsx","B_B29",NA,"K.Time","48HR",2.8,15
+"1143","B_Blood.xlsx","B_B29",NA,"Angle","EOS",72.2,15
+"1144","B_Blood.xlsx","B_B29",NA,"Angle","EOR",70,15
+"1145","B_Blood.xlsx","B_B29",NA,"Angle","24HR",67.2,15
+"1146","B_Blood.xlsx","B_B29",NA,"Angle","48HR",59.7,15
+"1147","B_Blood.xlsx","B_B29",NA,"MA.Min","EOS",66.2,15
+"1148","B_Blood.xlsx","B_B29",NA,"MA.Min","EOR",75,15
+"1149","B_Blood.xlsx","B_B29",NA,"MA.Min","EOB",74.9,15
+"1150","B_Blood.xlsx","B_B29",NA,"MA.Min","24HR",72,15
+"1151","B_Blood.xlsx","B_B29",NA,"MA.Min","48HR",77.2,15
+"1152","Sc. B_B11&13.xlsx","B-B11","CBC","HGB","BL",12.1,15
+"1153","Sc. B_B11&13.xlsx","B-B11","CBC","HGB","EOS",8.2,15
+"1154","Sc. B_B11&13.xlsx","B-B11","CBC","HGB","EOR",9.7,15
+"1155","Sc. B_B11&13.xlsx","B-B11","CBC","HGB","EOB",11.8,15
+"1156","Sc. B_B11&13.xlsx","B-B11","CBC","HGB","24HR",9.5,15
+"1157","Sc. B_B11&13.xlsx","B-B11","CBC","HGB","48HR",10.2,15
+"1158","Sc. B_B11&13.xlsx","B-B11","ABG","pH","BL",7.489,15
+"1159","Sc. B_B11&13.xlsx","B-B11","ABG","pH","EOS",7.322,15
+"1160","Sc. B_B11&13.xlsx","B-B11","ABG","pH","EOR",7.312,15
+"1161","Sc. B_B11&13.xlsx","B-B11","ABG","pH","10%",7.479,15
+"1162","Sc. B_B11&13.xlsx","B-B11","ABG","pH","7.5%",7.52,15
+"1163","Sc. B_B11&13.xlsx","B-B11","ABG","pH","5%",7.523,15
+"1164","Sc. B_B11&13.xlsx","B-B11","ABG","pH","2.5%",7.476,15
+"1165","Sc. B_B11&13.xlsx","B-B11","ABG","pH","EOB",7.493,15
+"1166","Sc. B_B11&13.xlsx","B-B11","ABG","pH","24HR",7.469,15
+"1167","Sc. B_B11&13.xlsx","B-B11","ABG","pH","48HR",7.475,15
+"1168","Sc. B_B11&13.xlsx","B-B11",NA,"AST","BL",82,15
+"1169","Sc. B_B11&13.xlsx","B-B11",NA,"AST","EOR",78,15
+"1170","Sc. B_B11&13.xlsx","B-B11",NA,"AST","EOB",113,15
+"1171","Sc. B_B11&13.xlsx","B-B11",NA,"AST","24HR",62,15
+"1172","Sc. B_B11&13.xlsx","B-B11",NA,"AST","48HR",33,15
+"1173","Sc. B_B11&13.xlsx","B-B11",NA,"AST","BL",79.9,15
+"1174","Sc. B_B11&13.xlsx","B-B11",NA,"AST","EOR",14.1,15
+"1175","Sc. B_B11&13.xlsx","B-B11",NA,"AST","EOB",21.1,15
+"1176","Sc. B_B11&13.xlsx","B-B11",NA,"AST","24HR",9.4,15
+"1177","Sc. B_B11&13.xlsx","B-B11",NA,"AST","48HR",39.3,15
+"1178","Sc. B_B11&13.xlsx","B-B11",NA,"R.Time","EOR",9.9,15
+"1179","Sc. B_B11&13.xlsx","B-B13","CBC","HGB","BL",9.1,15
+"1180","Sc. B_B11&13.xlsx","B-B13","CBC","HGB","EOS",5.5,15
+"1181","Sc. B_B11&13.xlsx","B-B13","CBC","HGB","EOR",6.9,15
+"1182","Sc. B_B11&13.xlsx","B-B13","CBC","HGB","EOB",7.4,15
+"1183","Sc. B_B11&13.xlsx","B-B13","CBC","HGB","24HR",8.1,15
+"1184","Sc. B_B11&13.xlsx","B-B13","CBC","HGB","48HR",8.4,15
+"1185","Sc. B_B11&13.xlsx","B-B13","ABG","pH","BL",7.8,15
+"1186","Sc. B_B11&13.xlsx","B-B13","ABG","pH","EOS",7.301,15
+"1187","Sc. B_B11&13.xlsx","B-B13","ABG","pH","EOR",7.262,15
+"1188","Sc. B_B11&13.xlsx","B-B13","ABG","pH","10%",7.452,15
+"1189","Sc. B_B11&13.xlsx","B-B13","ABG","pH","7.5%",7.473,15
+"1190","Sc. B_B11&13.xlsx","B-B13","ABG","pH","5%",7.472,15
+"1191","Sc. B_B11&13.xlsx","B-B13","ABG","pH","2.5%",7.499,15
+"1192","Sc. B_B11&13.xlsx","B-B13","ABG","pH","EOB",7.498,15
+"1193","Sc. B_B11&13.xlsx","B-B13","ABG","pH","24HR",7.385,15
+"1194","Sc. B_B11&13.xlsx","B-B13","ABG","pH","48HR",7.397,15
+"1195","Sc. B_B11&13.xlsx","B-B13",NA,"AST","BL",95,15
+"1196","Sc. B_B11&13.xlsx","B-B13",NA,"AST","EOR",82,15
+"1197","Sc. B_B11&13.xlsx","B-B13",NA,"AST","EOB",108,15
+"1198","Sc. B_B11&13.xlsx","B-B13",NA,"AST","24HR",37,15
+"1199","Sc. B_B11&13.xlsx","B-B13",NA,"AST","48HR",7,15
+"1200","Sc. B_B11&13.xlsx","B-B13",NA,"AST","BL",9.5,15
+"1201","Sc. B_B11&13.xlsx","B-B13",NA,"AST","EOR",9.8,15
+"1202","Sc. B_B11&13.xlsx","B-B13",NA,"AST","EOB",12.1,15
+"1203","Sc. B_B11&13.xlsx","B-B13",NA,"AST","24HR",9.5,15
+"1204","Sc. B_B11&13.xlsx","B-B13",NA,"AST","48HR",21.4,15
+"1205","Sc. B_B11&13.xlsx","B-B11",NA,"Hct","BL",38.7,15
+"1206","Sc. B_B11&13.xlsx","B-B11",NA,"Hct","EOS",25.4,15
+"1207","Sc. B_B11&13.xlsx","B-B11",NA,"Hct","EOR",30,15
+"1208","Sc. B_B11&13.xlsx","B-B11",NA,"Hct","EOB",36.7,15
+"1209","Sc. B_B11&13.xlsx","B-B11",NA,"Hct","24HR",29.9,15
+"1210","Sc. B_B11&13.xlsx","B-B11",NA,"Hct","48HR",31.3,15
+"1211","Sc. B_B11&13.xlsx","B-B11",NA,"pCO2","BL",39.3,15
+"1212","Sc. B_B11&13.xlsx","B-B11",NA,"pCO2","EOS",36.1,15
+"1213","Sc. B_B11&13.xlsx","B-B11",NA,"pCO2","EOR",39.4,15
+"1214","Sc. B_B11&13.xlsx","B-B11",NA,"pCO2","10%",38.9,15
+"1215","Sc. B_B11&13.xlsx","B-B11",NA,"pCO2","7.5%",37.2,15
+"1216","Sc. B_B11&13.xlsx","B-B11",NA,"pCO2","5%",37.5,15
+"1217","Sc. B_B11&13.xlsx","B-B11",NA,"pCO2","2.5%",37.6,15
+"1218","Sc. B_B11&13.xlsx","B-B11",NA,"pCO2","EOB",37.6,15
+"1219","Sc. B_B11&13.xlsx","B-B11",NA,"pCO2","24HR",39.7,15
+"1220","Sc. B_B11&13.xlsx","B-B11",NA,"pCO2","48HR",35.3,15
+"1221","Sc. B_B11&13.xlsx","B-B11",NA,"ALT","BL",108,15
+"1222","Sc. B_B11&13.xlsx","B-B11",NA,"ALT","EOR",95,15
+"1223","Sc. B_B11&13.xlsx","B-B11",NA,"ALT","EOB",125,15
+"1224","Sc. B_B11&13.xlsx","B-B11",NA,"ALT","24HR",123,15
+"1225","Sc. B_B11&13.xlsx","B-B11",NA,"ALT","48HR",103,15
+"1226","Sc. B_B11&13.xlsx","B-B11",NA,"ALT","BL",17.9,15
+"1227","Sc. B_B11&13.xlsx","B-B11",NA,"ALT","EOR",40.5,15
+"1228","Sc. B_B11&13.xlsx","B-B11",NA,"ALT","EOB",12.2,15
+"1229","Sc. B_B11&13.xlsx","B-B11",NA,"ALT","24HR",13.7,15
+"1230","Sc. B_B11&13.xlsx","B-B11",NA,"ALT","48HR",12.1,15
+"1231","Sc. B_B11&13.xlsx","B-B13",NA,"Hct","BL",27.2,15
+"1232","Sc. B_B11&13.xlsx","B-B13",NA,"Hct","EOS",16.3,15
+"1233","Sc. B_B11&13.xlsx","B-B13",NA,"Hct","EOR",20.8,15
+"1234","Sc. B_B11&13.xlsx","B-B13",NA,"Hct","EOB",22.6,15
+"1235","Sc. B_B11&13.xlsx","B-B13",NA,"Hct","24HR",23.4,15
+"1236","Sc. B_B11&13.xlsx","B-B13",NA,"Hct","48HR",26,15
+"1237","Sc. B_B11&13.xlsx","B-B13",NA,"pCO2","BL",12.3,15
+"1238","Sc. B_B11&13.xlsx","B-B13",NA,"pCO2","EOS",38.1,15
+"1239","Sc. B_B11&13.xlsx","B-B13",NA,"pCO2","EOR",47.1,15
+"1240","Sc. B_B11&13.xlsx","B-B13",NA,"pCO2","10%",39.7,15
+"1241","Sc. B_B11&13.xlsx","B-B13",NA,"pCO2","7.5%",37.2,15
+"1242","Sc. B_B11&13.xlsx","B-B13",NA,"pCO2","5%",35.5,15
+"1243","Sc. B_B11&13.xlsx","B-B13",NA,"pCO2","2.5%",34.6,15
+"1244","Sc. B_B11&13.xlsx","B-B13",NA,"pCO2","EOB",37.9,15
+"1245","Sc. B_B11&13.xlsx","B-B13",NA,"pCO2","24HR",49.8,15
+"1246","Sc. B_B11&13.xlsx","B-B13",NA,"pCO2","48HR",49.9,15
+"1247","Sc. B_B11&13.xlsx","B-B13",NA,"ALT","BL",65,15
+"1248","Sc. B_B11&13.xlsx","B-B13",NA,"ALT","EOR",57,15
+"1249","Sc. B_B11&13.xlsx","B-B13",NA,"ALT","EOB",80,15
+"1250","Sc. B_B11&13.xlsx","B-B13",NA,"ALT","24HR",76,15
+"1251","Sc. B_B11&13.xlsx","B-B13",NA,"ALT","48HR",48,15
+"1252","Sc. B_B11&13.xlsx","B-B13",NA,"ALT","BL",17,15
+"1253","Sc. B_B11&13.xlsx","B-B13",NA,"ALT","EOR",20.8,15
+"1254","Sc. B_B11&13.xlsx","B-B13",NA,"ALT","EOB",13.9,15
+"1255","Sc. B_B11&13.xlsx","B-B13",NA,"ALT","24HR",14.6,15
+"1256","Sc. B_B11&13.xlsx","B-B13",NA,"ALT","48HR",9.5,15
+"1257","Sc. B_B11&13.xlsx","B-B11",NA,"WBC","BL",4.6,15
+"1258","Sc. B_B11&13.xlsx","B-B11",NA,"WBC","EOS",3.9,15
+"1259","Sc. B_B11&13.xlsx","B-B11",NA,"WBC","EOR",4.8,15
+"1260","Sc. B_B11&13.xlsx","B-B11",NA,"WBC","EOB",6.2,15
+"1261","Sc. B_B11&13.xlsx","B-B11",NA,"WBC","24HR",6.5,15
+"1262","Sc. B_B11&13.xlsx","B-B11",NA,"WBC","48HR",6.7,15
+"1263","Sc. B_B11&13.xlsx","B-B11",NA,"pO2","BL",75.1,15
+"1264","Sc. B_B11&13.xlsx","B-B11",NA,"pO2","EOS",88.6,15
+"1265","Sc. B_B11&13.xlsx","B-B11",NA,"pO2","EOR",91.6,15
+"1266","Sc. B_B11&13.xlsx","B-B11",NA,"pO2","10%",86.5,15
+"1267","Sc. B_B11&13.xlsx","B-B11",NA,"pO2","7.5%",83.4,15
+"1268","Sc. B_B11&13.xlsx","B-B11",NA,"pO2","5%",85.3,15
+"1269","Sc. B_B11&13.xlsx","B-B11",NA,"pO2","2.5%",90,15
+"1270","Sc. B_B11&13.xlsx","B-B11",NA,"pO2","EOB",89.8,15
+"1271","Sc. B_B11&13.xlsx","B-B11",NA,"pO2","24HR",84,15
+"1272","Sc. B_B11&13.xlsx","B-B11",NA,"pO2","48HR",90.2,15
+"1273","Sc. B_B11&13.xlsx","B-B11",NA,"LDH","BL",164,15
+"1274","Sc. B_B11&13.xlsx","B-B11",NA,"LDH","EOR",124,15
+"1275","Sc. B_B11&13.xlsx","B-B11",NA,"LDH","EOB",202,15
+"1276","Sc. B_B11&13.xlsx","B-B11",NA,"LDH","24HR",116,15
+"1277","Sc. B_B11&13.xlsx","B-B11",NA,"LDH","48HR",59,15
+"1278","Sc. B_B11&13.xlsx","B-B11",NA,"Angle","EOR",39,15
+"1279","Sc. B_B11&13.xlsx","B-B13",NA,"WBC","BL",7,15
+"1280","Sc. B_B11&13.xlsx","B-B13",NA,"WBC","EOS",7.3,15
+"1281","Sc. B_B11&13.xlsx","B-B13",NA,"WBC","EOR",7.1,15
+"1282","Sc. B_B11&13.xlsx","B-B13",NA,"WBC","EOB",7.3,15
+"1283","Sc. B_B11&13.xlsx","B-B13",NA,"WBC","24HR",7.5,15
+"1284","Sc. B_B11&13.xlsx","B-B13",NA,"WBC","48HR",7.5,15
+"1285","Sc. B_B11&13.xlsx","B-B13",NA,"pO2","BL",205,15
+"1286","Sc. B_B11&13.xlsx","B-B13",NA,"pO2","EOS",102,15
+"1287","Sc. B_B11&13.xlsx","B-B13",NA,"pO2","EOR",92.6,15
+"1288","Sc. B_B11&13.xlsx","B-B13",NA,"pO2","10%",100,15
+"1289","Sc. B_B11&13.xlsx","B-B13",NA,"pO2","7.5%",94.6,15
+"1290","Sc. B_B11&13.xlsx","B-B13",NA,"pO2","5%",87.8,15
+"1291","Sc. B_B11&13.xlsx","B-B13",NA,"pO2","2.5%",82.5,15
+"1292","Sc. B_B11&13.xlsx","B-B13",NA,"pO2","EOB",78.1,15
+"1293","Sc. B_B11&13.xlsx","B-B13",NA,"pO2","24HR",31.6,15
+"1294","Sc. B_B11&13.xlsx","B-B13",NA,"pO2","48HR",31,15
+"1295","Sc. B_B11&13.xlsx","B-B13",NA,"LDH","BL",147,15
+"1296","Sc. B_B11&13.xlsx","B-B13",NA,"LDH","EOR",174,15
+"1297","Sc. B_B11&13.xlsx","B-B13",NA,"LDH","EOB",150,15
+"1298","Sc. B_B11&13.xlsx","B-B13",NA,"LDH","24HR",84,15
+"1299","Sc. B_B11&13.xlsx","B-B13",NA,"LDH","48HR",23,15
+"1300","Sc. B_B11&13.xlsx","B-B11","CBC","PLT","BL",168,15
+"1301","Sc. B_B11&13.xlsx","B-B11","CBC","PLT","EOS",183,15
+"1302","Sc. B_B11&13.xlsx","B-B11","CBC","PLT","EOR",179,15
+"1303","Sc. B_B11&13.xlsx","B-B11","CBC","PLT","EOB",167,15
+"1304","Sc. B_B11&13.xlsx","B-B11","CBC","PLT","24HR",312,15
+"1305","Sc. B_B11&13.xlsx","B-B11","CBC","PLT","48HR",425,15
+"1306","Sc. B_B11&13.xlsx","B-B11","ABG","LAC","BL",0.6,15
+"1307","Sc. B_B11&13.xlsx","B-B11","ABG","LAC","EOS",10.1,15
+"1308","Sc. B_B11&13.xlsx","B-B11","ABG","LAC","EOR",9.1,15
+"1309","Sc. B_B11&13.xlsx","B-B11","ABG","LAC","10%",2.7,15
+"1310","Sc. B_B11&13.xlsx","B-B11","ABG","LAC","7.5%",1.4,15
+"1311","Sc. B_B11&13.xlsx","B-B11","ABG","LAC","5%",1.1,15
+"1312","Sc. B_B11&13.xlsx","B-B11","ABG","LAC","2.5%",0.7,15
+"1313","Sc. B_B11&13.xlsx","B-B11","ABG","LAC","EOB",0.8,15
+"1314","Sc. B_B11&13.xlsx","B-B11","ABG","LAC","24HR",1.5,15
+"1315","Sc. B_B11&13.xlsx","B-B11","ABG","LAC","48HR",0.4,15
+"1316","Sc. B_B11&13.xlsx","B-B11",NA,"CREA","BL",0.9,15
+"1317","Sc. B_B11&13.xlsx","B-B11",NA,"CREA","EOR",0.8,15
+"1318","Sc. B_B11&13.xlsx","B-B11",NA,"CREA","EOB",0.6,15
+"1319","Sc. B_B11&13.xlsx","B-B11",NA,"CREA","24HR",0.7,15
+"1320","Sc. B_B11&13.xlsx","B-B11",NA,"CREA","48HR",0.6,15
+"1321","Sc. B_B11&13.xlsx","B-B11",NA,"CREA","BL",4.17,15
+"1322","Sc. B_B11&13.xlsx","B-B11",NA,"CREA","EOR",0.6,15
+"1323","Sc. B_B11&13.xlsx","B-B11",NA,"CREA","EOB",3.3,15
+"1324","Sc. B_B11&13.xlsx","B-B11",NA,"CREA","24HR",4.97,15
+"1325","Sc. B_B11&13.xlsx","B-B11",NA,"CREA","48HR",4.71,15
+"1326","Sc. B_B11&13.xlsx","B-B13","CBC","PLT","BL",165,15
+"1327","Sc. B_B11&13.xlsx","B-B13","CBC","PLT","EOS",158,15
+"1328","Sc. B_B11&13.xlsx","B-B13","CBC","PLT","EOR",167,15
+"1329","Sc. B_B11&13.xlsx","B-B13","CBC","PLT","EOB",177,15
+"1330","Sc. B_B11&13.xlsx","B-B13","CBC","PLT","24HR",247,15
+"1331","Sc. B_B11&13.xlsx","B-B13","CBC","PLT","48HR",344,15
+"1332","Sc. B_B11&13.xlsx","B-B13","ABG","LAC","BL",5.2,15
+"1333","Sc. B_B11&13.xlsx","B-B13","ABG","LAC","EOS",12.5,15
+"1334","Sc. B_B11&13.xlsx","B-B13","ABG","LAC","EOR",12.9,15
+"1335","Sc. B_B11&13.xlsx","B-B13","ABG","LAC","10%",7.2,15
+"1336","Sc. B_B11&13.xlsx","B-B13","ABG","LAC","7.5%",4.1,15
+"1337","Sc. B_B11&13.xlsx","B-B13","ABG","LAC","5%",3.3,15
+"1338","Sc. B_B11&13.xlsx","B-B13","ABG","LAC","2.5%",2.1,15
+"1339","Sc. B_B11&13.xlsx","B-B13","ABG","LAC","EOB",2.4,15
+"1340","Sc. B_B11&13.xlsx","B-B13","ABG","LAC","24HR",1.6,15
+"1341","Sc. B_B11&13.xlsx","B-B13","ABG","LAC","48HR",1.2,15
+"1342","Sc. B_B11&13.xlsx","B-B13",NA,"CREA","BL",0.5,15
+"1343","Sc. B_B11&13.xlsx","B-B13",NA,"CREA","EOR",0.5,15
+"1344","Sc. B_B11&13.xlsx","B-B13",NA,"CREA","EOB",0.5,15
+"1345","Sc. B_B11&13.xlsx","B-B13",NA,"CREA","24HR",0.4,15
+"1346","Sc. B_B11&13.xlsx","B-B13",NA,"CREA","48HR",0.4,15
+"1347","Sc. B_B11&13.xlsx","B-B13",NA,"CREA","BL",4.49,15
+"1348","Sc. B_B11&13.xlsx","B-B13",NA,"CREA","EOR",0.19,15
+"1349","Sc. B_B11&13.xlsx","B-B13",NA,"CREA","EOB",4.01,15
+"1350","Sc. B_B11&13.xlsx","B-B13",NA,"CREA","24HR",5.34,15
+"1351","Sc. B_B11&13.xlsx","B-B13",NA,"CREA","48HR",4.12,15
+"1352","Sc. B_B11&13.xlsx","B-B11",NA,"RBC","BL",5.99,15
+"1353","Sc. B_B11&13.xlsx","B-B11",NA,"RBC","EOS",3.98,15
+"1354","Sc. B_B11&13.xlsx","B-B11",NA,"RBC","EOR",4.71,15
+"1355","Sc. B_B11&13.xlsx","B-B11",NA,"RBC","EOB",5.71,15
+"1356","Sc. B_B11&13.xlsx","B-B11",NA,"RBC","24HR",4.66,15
+"1357","Sc. B_B11&13.xlsx","B-B11",NA,"RBC","48HR",4.87,15
+"1358","Sc. B_B11&13.xlsx","B-B11",NA,"BUN","BL",13.21,15
+"1359","Sc. B_B11&13.xlsx","B-B11",NA,"BUN","EOR",21.13,15
+"1360","Sc. B_B11&13.xlsx","B-B11",NA,"BUN","EOB",23.79,15
+"1361","Sc. B_B11&13.xlsx","B-B11",NA,"BUN","24HR",14.05,15
+"1362","Sc. B_B11&13.xlsx","B-B11",NA,"BUN","48HR",15.9,15
+"1363","Sc. B_B11&13.xlsx","B-B13",NA,"RBC","BL",4.09,15
+"1364","Sc. B_B11&13.xlsx","B-B13",NA,"RBC","EOS",2.46,15
+"1365","Sc. B_B11&13.xlsx","B-B13",NA,"RBC","EOR",3.11,15
+"1366","Sc. B_B11&13.xlsx","B-B13",NA,"RBC","EOB",3.39,15
+"1367","Sc. B_B11&13.xlsx","B-B13",NA,"RBC","24HR",3.51,15
+"1368","Sc. B_B11&13.xlsx","B-B13",NA,"RBC","48HR",3.76,15
+"1369","Sc. B_B11&13.xlsx","B-B11","MAP","MAP","BL",62,15
+"1370","Sc. B_B11&13.xlsx","B-B11","MAP","MAP","EOS",29,15
+"1371","Sc. B_B11&13.xlsx","B-B11","MAP","MAP","EOR",55,15
+"1372","Sc. B_B11&13.xlsx","B-B11","MAP","MAP","10%",55,15
+"1373","Sc. B_B11&13.xlsx","B-B11","MAP","MAP","7.5%",51,15
+"1374","Sc. B_B11&13.xlsx","B-B11","MAP","MAP","5%",58,15
+"1375","Sc. B_B11&13.xlsx","B-B11","MAP","MAP","2.5%",55,15
+"1376","Sc. B_B11&13.xlsx","B-B11","MAP","MAP","EOB",68,15
+"1377","Sc. B_B11&13.xlsx","B-B11","MAP","MAP","24HR",78,15
+"1378","Sc. B_B11&13.xlsx","B-B11","MAP","MAP","48HR",74,15
+"1379","Sc. B_B11&13.xlsx","B-B13",NA,"BUN","BL",13.21,15
+"1380","Sc. B_B11&13.xlsx","B-B13",NA,"BUN","EOR",19.19,15
+"1381","Sc. B_B11&13.xlsx","B-B13",NA,"BUN","EOB",15.57,15
+"1382","Sc. B_B11&13.xlsx","B-B13",NA,"BUN","24HR",11.68,15
+"1383","Sc. B_B11&13.xlsx","B-B13",NA,"BUN","48HR",9.08,15
+"1384","Sc. B_B11&13.xlsx","B-B13","MAP","MAP","BL",65,15
+"1385","Sc. B_B11&13.xlsx","B-B13","MAP","MAP","EOS",35,15
+"1386","Sc. B_B11&13.xlsx","B-B13","MAP","MAP","EOR",74,15
+"1387","Sc. B_B11&13.xlsx","B-B13","MAP","MAP","10%",64,15
+"1388","Sc. B_B11&13.xlsx","B-B13","MAP","MAP","7.5%",49,15
+"1389","Sc. B_B11&13.xlsx","B-B13","MAP","MAP","5%",47,15
+"1390","Sc. B_B11&13.xlsx","B-B13","MAP","MAP","2.5%",71,15
+"1391","Sc. B_B11&13.xlsx","B-B13","MAP","MAP","EOB",60,15
+"1392","Sc. B_B11&13.xlsx","B-B13","MAP","MAP","24HR",76,15
+"1393","Sc. B_B11&13.xlsx","B-B13","MAP","MAP","48HR",62,15
+"1394","Sc. B_B11&13.xlsx","B-B11",NA,"AMY","BL",255,15
+"1395","Sc. B_B11&13.xlsx","B-B11",NA,"AMY","EOR",249,15
+"1396","Sc. B_B11&13.xlsx","B-B11",NA,"AMY","EOB",273,15
+"1397","Sc. B_B11&13.xlsx","B-B11",NA,"AMY","24HR",284,15
+"1398","Sc. B_B11&13.xlsx","B-B11",NA,"AMY","48HR",295,15
+"1399","Sc. B_B11&13.xlsx","B-B13",NA,"AMY","BL",275,15
+"1400","Sc. B_B11&13.xlsx","B-B13",NA,"AMY","EOR",228,15
+"1401","Sc. B_B11&13.xlsx","B-B13",NA,"AMY","EOB",250,15
+"1402","Sc. B_B11&13.xlsx","B-B13",NA,"AMY","24HR",432,15
+"1403","Sc. B_B11&13.xlsx","B-B13",NA,"AMY","48HR",295,15
+"1404","Sc. B_B11&13.xlsx","B-B11",NA,"TG","BL",73.45,15
+"1405","Sc. B_B11&13.xlsx","B-B11",NA,"TG","EOR",160.55,15
+"1406","Sc. B_B11&13.xlsx","B-B11",NA,"TG","EOB",186.6,15
+"1407","Sc. B_B11&13.xlsx","B-B11",NA,"TG","24HR",183.01,15
+"1408","Sc. B_B11&13.xlsx","B-B11",NA,"TG","48HR",198.52,15
+"1409","Sc. B_B11&13.xlsx","B-B13",NA,"TG","BL",195.57,15
+"1410","Sc. B_B11&13.xlsx","B-B13",NA,"TG","EOR",245.6,15
+"1411","Sc. B_B11&13.xlsx","B-B13",NA,"TG","EOB",333.2,15
+"1412","Sc. B_B11&13.xlsx","B-B13",NA,"TG","24HR",404.5,15
+"1413","Sc. B_B11&13.xlsx","B-B13",NA,"TG","48HR",127.75,15
+"1414","Sc. B_B11&13.xlsx","B-B11",NA,"GGT","BL",7,15
+"1415","Sc. B_B11&13.xlsx","B-B11",NA,"GGT","EOR",7,15
+"1416","Sc. B_B11&13.xlsx","B-B11",NA,"GGT","EOB",9,15
+"1417","Sc. B_B11&13.xlsx","B-B11",NA,"GGT","24HR",9,15
+"1418","Sc. B_B11&13.xlsx","B-B11",NA,"GGT","48HR",10,15
+"1419","Sc. B_B11&13.xlsx","B-B13",NA,"GGT","BL",9,15
+"1420","Sc. B_B11&13.xlsx","B-B13",NA,"GGT","EOR",8,15
+"1421","Sc. B_B11&13.xlsx","B-B13",NA,"GGT","EOB",10,15
+"1422","Sc. B_B11&13.xlsx","B-B13",NA,"GGT","24HR",12,15
+"1423","Sc. B_B11&13.xlsx","B-B13",NA,"GGT","48HR",10,15
+"1424","Sc. B_B11&13.xlsx","B-B11",NA,"GLU","BL",140.6,15
+"1425","Sc. B_B11&13.xlsx","B-B11",NA,"GLU","EOR",304.52,15
+"1426","Sc. B_B11&13.xlsx","B-B11",NA,"GLU","EOB",135.86,15
+"1427","Sc. B_B11&13.xlsx","B-B11",NA,"GLU","24HR",158.86,15
+"1428","Sc. B_B11&13.xlsx","B-B11",NA,"GLU","48HR",156.84,15
+"1429","Sc. B_B11&13.xlsx","B-B13",NA,"GLU","BL",148.81,15
+"1430","Sc. B_B11&13.xlsx","B-B13",NA,"GLU","EOR",267.67,15
+"1431","Sc. B_B11&13.xlsx","B-B13",NA,"GLU","EOB",145.51,15
+"1432","Sc. B_B11&13.xlsx","B-B13",NA,"GLU","24HR",142.53,15
+"1433","Sc. B_B11&13.xlsx","B-B13",NA,"GLU","48HR",123.97,15
+"1434","Sc. B_B16-17.xlsx","B-B16","CBC","HGB","BL",12.7,15
+"1435","Sc. B_B16-17.xlsx","B-B16","CBC","HGB","EOS",8.3,15
+"1436","Sc. B_B16-17.xlsx","B-B16","CBC","HGB","EOR",9.6,15
+"1437","Sc. B_B16-17.xlsx","B-B16","CBC","HGB","EOB",9.9,15
+"1438","Sc. B_B16-17.xlsx","B-B16","CBC","HGB","24HR",10,15
+"1439","Sc. B_B16-17.xlsx","B-B16","CBC","HGB","48HR",10.6,15
+"1440","Sc. B_B16-17.xlsx","B-B16","ABG","pH","BL",7.434,15
+"1441","Sc. B_B16-17.xlsx","B-B16","ABG","pH","EOS",7.396,15
+"1442","Sc. B_B16-17.xlsx","B-B16","ABG","pH","EOR",7.304,15
+"1443","Sc. B_B16-17.xlsx","B-B16","ABG","pH","10%",7.489,15
+"1444","Sc. B_B16-17.xlsx","B-B16","ABG","pH","7.5%",7.501,15
+"1445","Sc. B_B16-17.xlsx","B-B16","ABG","pH","5%",7.476,15
+"1446","Sc. B_B16-17.xlsx","B-B16","ABG","pH","2.5%",7.48,15
+"1447","Sc. B_B16-17.xlsx","B-B16","ABG","pH","EOB",7.491,15
+"1448","Sc. B_B16-17.xlsx","B-B16","ABG","pH","24HR",7.478,15
+"1449","Sc. B_B16-17.xlsx","B-B16","ABG","pH","48HR",7.262,15
+"1450","Sc. B_B16-17.xlsx","B-B16",NA,"AST","BL",54,15
+"1451","Sc. B_B16-17.xlsx","B-B16",NA,"AST","EOR",56,15
+"1452","Sc. B_B16-17.xlsx","B-B16",NA,"AST","EOB",153,15
+"1453","Sc. B_B16-17.xlsx","B-B16",NA,"AST","24HR",141,15
+"1454","Sc. B_B16-17.xlsx","B-B16",NA,"AST","48HR",33,15
+"1455","Sc. B_B16-17.xlsx","B-B16",NA,"AST","BL",127.9,15
+"1456","Sc. B_B16-17.xlsx","B-B16",NA,"AST","EOR",8.4,15
+"1457","Sc. B_B16-17.xlsx","B-B16",NA,"AST","EOB",9.5,15
+"1458","Sc. B_B16-17.xlsx","B-B16",NA,"AST","24HR",103.8,15
+"1459","Sc. B_B16-17.xlsx","B-B16",NA,"AST","48HR",139.4,15
+"1460","Sc. B_B16-17.xlsx","B-B17","CBC","HGB","BL",13.3,15
+"1461","Sc. B_B16-17.xlsx","B-B17","CBC","HGB","EOS",10.1,15
+"1462","Sc. B_B16-17.xlsx","B-B17","CBC","HGB","EOR",11.3,15
+"1463","Sc. B_B16-17.xlsx","B-B17","CBC","HGB","EOB",11.1,15
+"1464","Sc. B_B16-17.xlsx","B-B17","CBC","HGB","24HR",12.5,15
+"1465","Sc. B_B16-17.xlsx","B-B17","CBC","HGB","48HR",10.9,15
+"1466","Sc. B_B16-17.xlsx","B-B17","ABG","pH","BL",7.445,15
+"1467","Sc. B_B16-17.xlsx","B-B17","ABG","pH","EOS",7.192,15
+"1468","Sc. B_B16-17.xlsx","B-B17","ABG","pH","EOR",7.085,15
+"1469","Sc. B_B16-17.xlsx","B-B17","ABG","pH","10%",7.358,15
+"1470","Sc. B_B16-17.xlsx","B-B17","ABG","pH","7.5%",7.403,15
+"1471","Sc. B_B16-17.xlsx","B-B17","ABG","pH","5%",7.428,15
+"1472","Sc. B_B16-17.xlsx","B-B17","ABG","pH","2.5%",7.435,15
+"1473","Sc. B_B16-17.xlsx","B-B17","ABG","pH","EOB",7.43,15
+"1474","Sc. B_B16-17.xlsx","B-B17","ABG","pH","24HR",7.462,15
+"1475","Sc. B_B16-17.xlsx","B-B17","ABG","pH","48HR",7.46,15
+"1476","Sc. B_B16-17.xlsx","B-B17",NA,"AST","BL",232,15
+"1477","Sc. B_B16-17.xlsx","B-B17",NA,"AST","EOR",650,15
+"1478","Sc. B_B16-17.xlsx","B-B17",NA,"AST","EOB",650,15
+"1479","Sc. B_B16-17.xlsx","B-B17",NA,"AST","24HR",650,15
+"1480","Sc. B_B16-17.xlsx","B-B17",NA,"AST","48HR",650,15
+"1481","Sc. B_B16-17.xlsx","B-B17",NA,"AST","BL",8.8,15
+"1482","Sc. B_B16-17.xlsx","B-B17",NA,"AST","EOR",127.6,15
+"1483","Sc. B_B16-17.xlsx","B-B17",NA,"AST","EOB",10,15
+"1484","Sc. B_B16-17.xlsx","B-B17",NA,"AST","24HR",135.5,15
+"1485","Sc. B_B16-17.xlsx","B-B17",NA,"AST","48HR",139.9,15
+"1486","Sc. B_B16-17.xlsx","B-B16",NA,"Hct","BL",39.9,15
+"1487","Sc. B_B16-17.xlsx","B-B16",NA,"Hct","EOS",25.1,15
+"1488","Sc. B_B16-17.xlsx","B-B16",NA,"Hct","EOR",29.6,15
+"1489","Sc. B_B16-17.xlsx","B-B16",NA,"Hct","EOB",31,15
+"1490","Sc. B_B16-17.xlsx","B-B16",NA,"Hct","24HR",32,15
+"1491","Sc. B_B16-17.xlsx","B-B16",NA,"Hct","48HR",32.2,15
+"1492","Sc. B_B16-17.xlsx","B-B16",NA,"pCO2","BL",34.6,15
+"1493","Sc. B_B16-17.xlsx","B-B16",NA,"pCO2","EOS",34.7,15
+"1494","Sc. B_B16-17.xlsx","B-B16",NA,"pCO2","EOR",42.6,15
+"1495","Sc. B_B16-17.xlsx","B-B16",NA,"pCO2","10%",36.7,15
+"1496","Sc. B_B16-17.xlsx","B-B16",NA,"pCO2","7.5%",34.2,15
+"1497","Sc. B_B16-17.xlsx","B-B16",NA,"pCO2","5%",37.4,15
+"1498","Sc. B_B16-17.xlsx","B-B16",NA,"pCO2","2.5%",34.5,15
+"1499","Sc. B_B16-17.xlsx","B-B16",NA,"pCO2","EOB",35.3,15
+"1500","Sc. B_B16-17.xlsx","B-B16",NA,"pCO2","24HR",37.7,15
+"1501","Sc. B_B16-17.xlsx","B-B16",NA,"pCO2","48HR",55.3,15
+"1502","Sc. B_B16-17.xlsx","B-B16",NA,"ALT","BL",54,15
+"1503","Sc. B_B16-17.xlsx","B-B16",NA,"ALT","EOR",51,15
+"1504","Sc. B_B16-17.xlsx","B-B16",NA,"ALT","EOB",74,15
+"1505","Sc. B_B16-17.xlsx","B-B16",NA,"ALT","24HR",180,15
+"1506","Sc. B_B16-17.xlsx","B-B16",NA,"ALT","48HR",160,15
+"1507","Sc. B_B16-17.xlsx","B-B16",NA,"ALT","BL",28.4,15
+"1508","Sc. B_B16-17.xlsx","B-B16",NA,"ALT","EOR",40.4,15
+"1509","Sc. B_B16-17.xlsx","B-B16",NA,"ALT","EOB",22.2,15
+"1510","Sc. B_B16-17.xlsx","B-B16",NA,"ALT","24HR",13.3,15
+"1511","Sc. B_B16-17.xlsx","B-B16",NA,"ALT","48HR",11.5,15
+"1512","Sc. B_B16-17.xlsx","B-B17",NA,"Hct","BL",40.8,15
+"1513","Sc. B_B16-17.xlsx","B-B17",NA,"Hct","EOS",30.8,15
+"1514","Sc. B_B16-17.xlsx","B-B17",NA,"Hct","EOR",36.1,15
+"1515","Sc. B_B16-17.xlsx","B-B17",NA,"Hct","EOB",35.5,15
+"1516","Sc. B_B16-17.xlsx","B-B17",NA,"Hct","24HR",39.2,15
+"1517","Sc. B_B16-17.xlsx","B-B17",NA,"Hct","48HR",34.9,15
+"1518","Sc. B_B16-17.xlsx","B-B17",NA,"pCO2","BL",29.1,15
+"1519","Sc. B_B16-17.xlsx","B-B17",NA,"pCO2","EOS",9,15
+"1520","Sc. B_B16-17.xlsx","B-B17",NA,"pCO2","EOR",20,15
+"1521","Sc. B_B16-17.xlsx","B-B17",NA,"pCO2","10%",18.8,15
+"1522","Sc. B_B16-17.xlsx","B-B17",NA,"pCO2","7.5%",20.8,15
+"1523","Sc. B_B16-17.xlsx","B-B17",NA,"pCO2","5%",20.7,15
+"1524","Sc. B_B16-17.xlsx","B-B17",NA,"pCO2","2.5%",23.5,15
+"1525","Sc. B_B16-17.xlsx","B-B17",NA,"pCO2","EOB",24.7,15
+"1526","Sc. B_B16-17.xlsx","B-B17",NA,"pCO2","24HR",27.7,15
+"1527","Sc. B_B16-17.xlsx","B-B17",NA,"pCO2","48HR",32.8,15
+"1528","Sc. B_B16-17.xlsx","B-B17",NA,"ALT","BL",135,15
+"1529","Sc. B_B16-17.xlsx","B-B17",NA,"ALT","EOR",407,15
+"1530","Sc. B_B16-17.xlsx","B-B17",NA,"ALT","EOB",650,15
+"1531","Sc. B_B16-17.xlsx","B-B17",NA,"ALT","24HR",650,15
+"1532","Sc. B_B16-17.xlsx","B-B17",NA,"ALT","48HR",650,15
+"1533","Sc. B_B16-17.xlsx","B-B17",NA,"ALT","BL",25.7,15
+"1534","Sc. B_B16-17.xlsx","B-B17",NA,"ALT","EOR",45.8,15
+"1535","Sc. B_B16-17.xlsx","B-B17",NA,"ALT","EOB",22.9,15
+"1536","Sc. B_B16-17.xlsx","B-B17",NA,"ALT","24HR",17.9,15
+"1537","Sc. B_B16-17.xlsx","B-B17",NA,"ALT","48HR",13.5,15
+"1538","Sc. B_B16-17.xlsx","B-B16",NA,"WBC","BL",5.8,15
+"1539","Sc. B_B16-17.xlsx","B-B16",NA,"WBC","EOS",4,15
+"1540","Sc. B_B16-17.xlsx","B-B16",NA,"WBC","EOR",5,15
+"1541","Sc. B_B16-17.xlsx","B-B16",NA,"WBC","EOB",6.6,15
+"1542","Sc. B_B16-17.xlsx","B-B16",NA,"WBC","24HR",7.8,15
+"1543","Sc. B_B16-17.xlsx","B-B16",NA,"WBC","48HR",7.6,15
+"1544","Sc. B_B16-17.xlsx","B-B16",NA,"pO2","BL",74.4,15
+"1545","Sc. B_B16-17.xlsx","B-B16",NA,"pO2","EOS",92.6,15
+"1546","Sc. B_B16-17.xlsx","B-B16",NA,"pO2","EOR",81.1,15
+"1547","Sc. B_B16-17.xlsx","B-B16",NA,"pO2","10%",108,15
+"1548","Sc. B_B16-17.xlsx","B-B16",NA,"pO2","7.5%",102,15
+"1549","Sc. B_B16-17.xlsx","B-B16",NA,"pO2","5%",88.8,15
+"1550","Sc. B_B16-17.xlsx","B-B16",NA,"pO2","2.5%",94.6,15
+"1551","Sc. B_B16-17.xlsx","B-B16",NA,"pO2","EOB",88.8,15
+"1552","Sc. B_B16-17.xlsx","B-B16",NA,"pO2","24HR",74.2,15
+"1553","Sc. B_B16-17.xlsx","B-B16",NA,"pO2","48HR",34.7,15
+"1554","Sc. B_B16-17.xlsx","B-B16",NA,"LDH","BL",87,15
+"1555","Sc. B_B16-17.xlsx","B-B16",NA,"LDH","EOR",149,15
+"1556","Sc. B_B16-17.xlsx","B-B16",NA,"LDH","EOB",306,15
+"1557","Sc. B_B16-17.xlsx","B-B16",NA,"LDH","24HR",259,15
+"1558","Sc. B_B16-17.xlsx","B-B16",NA,"LDH","48HR",60,15
+"1559","Sc. B_B16-17.xlsx","B-B16",NA,"LDH","BL",27.9,15
+"1560","Sc. B_B16-17.xlsx","B-B16",NA,"LDH","48HR",31,15
+"1561","Sc. B_B16-17.xlsx","B-B17",NA,"WBC","BL",5.6,15
+"1562","Sc. B_B16-17.xlsx","B-B17",NA,"WBC","EOS",3.3,15
+"1563","Sc. B_B16-17.xlsx","B-B17",NA,"WBC","EOR",7.1,15
+"1564","Sc. B_B16-17.xlsx","B-B17",NA,"WBC","EOB",5.3,15
+"1565","Sc. B_B16-17.xlsx","B-B17",NA,"WBC","24HR",5.4,15
+"1566","Sc. B_B16-17.xlsx","B-B17",NA,"WBC","48HR",6.3,15
+"1567","Sc. B_B16-17.xlsx","B-B17",NA,"pO2","BL",85.9,15
+"1568","Sc. B_B16-17.xlsx","B-B17",NA,"pO2","EOS",118,15
+"1569","Sc. B_B16-17.xlsx","B-B17",NA,"pO2","EOR",118,15
+"1570","Sc. B_B16-17.xlsx","B-B17",NA,"pO2","10%",113,15
+"1571","Sc. B_B16-17.xlsx","B-B17",NA,"pO2","7.5%",109,15
+"1572","Sc. B_B16-17.xlsx","B-B17",NA,"pO2","5%",102,15
+"1573","Sc. B_B16-17.xlsx","B-B17",NA,"pO2","2.5%",101,15
+"1574","Sc. B_B16-17.xlsx","B-B17",NA,"pO2","EOB",102,15
+"1575","Sc. B_B16-17.xlsx","B-B17",NA,"pO2","24HR",91.2,15
+"1576","Sc. B_B16-17.xlsx","B-B17",NA,"pO2","48HR",84.9,15
+"1577","Sc. B_B16-17.xlsx","B-B17",NA,"LDH","BL",125,15
+"1578","Sc. B_B16-17.xlsx","B-B17",NA,"LDH","EOR",933,15
+"1579","Sc. B_B16-17.xlsx","B-B17",NA,"LDH","EOB",878,15
+"1580","Sc. B_B16-17.xlsx","B-B17",NA,"LDH","24HR",1200,15
+"1581","Sc. B_B16-17.xlsx","B-B17",NA,"LDH","48HR",672,15
+"1582","Sc. B_B16-17.xlsx","B-B17",NA,"LDH","EOB",28,15
+"1583","Sc. B_B16-17.xlsx","B-B17",NA,"LDH","24HR",15.9,15
+"1584","Sc. B_B16-17.xlsx","B-B17",NA,"LDH","48HR",22.1,15
+"1585","Sc. B_B16-17.xlsx","B-B16","CBC","PLT","BL",174,15
+"1586","Sc. B_B16-17.xlsx","B-B16","CBC","PLT","EOS",182,15
+"1587","Sc. B_B16-17.xlsx","B-B16","CBC","PLT","EOR",170,15
+"1588","Sc. B_B16-17.xlsx","B-B16","CBC","PLT","EOB",202,15
+"1589","Sc. B_B16-17.xlsx","B-B16","CBC","PLT","24HR",252,15
+"1590","Sc. B_B16-17.xlsx","B-B16","CBC","PLT","48HR",340,15
+"1591","Sc. B_B16-17.xlsx","B-B16","ABG","LAC","BL",2.2,15
+"1592","Sc. B_B16-17.xlsx","B-B16","ABG","LAC","EOS",6.8,15
+"1593","Sc. B_B16-17.xlsx","B-B16","ABG","LAC","EOR",6.5,15
+"1594","Sc. B_B16-17.xlsx","B-B16","ABG","LAC","10%",4.2,15
+"1595","Sc. B_B16-17.xlsx","B-B16","ABG","LAC","7.5%",2.4,15
+"1596","Sc. B_B16-17.xlsx","B-B16","ABG","LAC","5%",1.5,15
+"1597","Sc. B_B16-17.xlsx","B-B16","ABG","LAC","2.5%",0.8,15
+"1598","Sc. B_B16-17.xlsx","B-B16","ABG","LAC","EOB",0.8,15
+"1599","Sc. B_B16-17.xlsx","B-B16","ABG","LAC","24HR",1.1,15
+"1600","Sc. B_B16-17.xlsx","B-B16","ABG","LAC","48HR",7.6,15
+"1601","Sc. B_B16-17.xlsx","B-B16",NA,"CREA","BL",0.4,15
+"1602","Sc. B_B16-17.xlsx","B-B16",NA,"CREA","EOR",0.9,15
+"1603","Sc. B_B16-17.xlsx","B-B16",NA,"CREA","EOB",0.7,15
+"1604","Sc. B_B16-17.xlsx","B-B16",NA,"CREA","24HR",0.5,15
+"1605","Sc. B_B16-17.xlsx","B-B16",NA,"CREA","48HR",0.5,15
+"1606","Sc. B_B16-17.xlsx","B-B16",NA,"CREA","BL",2.05,15
+"1607","Sc. B_B16-17.xlsx","B-B16",NA,"CREA","EOR",0.72,15
+"1608","Sc. B_B16-17.xlsx","B-B16",NA,"CREA","EOB",4.66,15
+"1609","Sc. B_B16-17.xlsx","B-B16",NA,"CREA","24HR",7.18,15
+"1610","Sc. B_B16-17.xlsx","B-B16",NA,"CREA","48HR",3.95,15
+"1611","Sc. B_B16-17.xlsx","B-B17","CBC","PLT","BL",173,15
+"1612","Sc. B_B16-17.xlsx","B-B17","CBC","PLT","EOS",175,15
+"1613","Sc. B_B16-17.xlsx","B-B17","CBC","PLT","EOR",257,15
+"1614","Sc. B_B16-17.xlsx","B-B17","CBC","PLT","EOB",206,15
+"1615","Sc. B_B16-17.xlsx","B-B17","CBC","PLT","24HR",239,15
+"1616","Sc. B_B16-17.xlsx","B-B17","CBC","PLT","48HR",257,15
+"1617","Sc. B_B16-17.xlsx","B-B17","ABG","LAC","BL",1.2,15
+"1618","Sc. B_B16-17.xlsx","B-B17","ABG","LAC","EOS",17,15
+"1619","Sc. B_B16-17.xlsx","B-B17","ABG","LAC","EOR",17,15
+"1620","Sc. B_B16-17.xlsx","B-B17","ABG","LAC","10%",10.3,15
+"1621","Sc. B_B16-17.xlsx","B-B17","ABG","LAC","7.5%",5.1,15
+"1622","Sc. B_B16-17.xlsx","B-B17","ABG","LAC","5%",3,15
+"1623","Sc. B_B16-17.xlsx","B-B17","ABG","LAC","2.5%",3.1,15
+"1624","Sc. B_B16-17.xlsx","B-B17","ABG","LAC","EOB",3.1,15
+"1625","Sc. B_B16-17.xlsx","B-B17","ABG","LAC","24HR",1.3,15
+"1626","Sc. B_B16-17.xlsx","B-B17","ABG","LAC","48HR",1.4,15
+"1627","Sc. B_B16-17.xlsx","B-B17",NA,"CREA","BL",0.4,15
+"1628","Sc. B_B16-17.xlsx","B-B17",NA,"CREA","EOR",0.6,15
+"1629","Sc. B_B16-17.xlsx","B-B17",NA,"CREA","EOB",0.6,15
+"1630","Sc. B_B16-17.xlsx","B-B17",NA,"CREA","24HR",0.1,15
+"1631","Sc. B_B16-17.xlsx","B-B17",NA,"CREA","48HR",0.5,15
+"1632","Sc. B_B16-17.xlsx","B-B17",NA,"CREA","BL",5.15,15
+"1633","Sc. B_B16-17.xlsx","B-B17",NA,"CREA","EOB",1.66,15
+"1634","Sc. B_B16-17.xlsx","B-B17",NA,"CREA","24HR",1.52,15
+"1635","Sc. B_B16-17.xlsx","B-B17",NA,"CREA","48HR",3.32,15
+"1636","Sc. B_B16-17.xlsx","B-B16",NA,"RBC","BL",5.98,15
+"1637","Sc. B_B16-17.xlsx","B-B16",NA,"RBC","EOS",3.82,15
+"1638","Sc. B_B16-17.xlsx","B-B16",NA,"RBC","EOR",4.48,15
+"1639","Sc. B_B16-17.xlsx","B-B16",NA,"RBC","EOB",4.67,15
+"1640","Sc. B_B16-17.xlsx","B-B16",NA,"RBC","24HR",4.79,15
+"1641","Sc. B_B16-17.xlsx","B-B16",NA,"RBC","48HR",4.82,15
+"1642","Sc. B_B16-17.xlsx","B-B16",NA,"BUN","BL",13.06,15
+"1643","Sc. B_B16-17.xlsx","B-B16",NA,"BUN","EOR",19.95,15
+"1644","Sc. B_B16-17.xlsx","B-B16",NA,"BUN","EOB",24.31,15
+"1645","Sc. B_B16-17.xlsx","B-B16",NA,"BUN","24HR",18.25,15
+"1646","Sc. B_B16-17.xlsx","B-B16",NA,"BUN","48HR",14.86,15
+"1647","Sc. B_B16-17.xlsx","B-B17",NA,"RBC","BL",6.82,15
+"1648","Sc. B_B16-17.xlsx","B-B17",NA,"RBC","EOS",5.18,15
+"1649","Sc. B_B16-17.xlsx","B-B17",NA,"RBC","EOR",6.01,15
+"1650","Sc. B_B16-17.xlsx","B-B17",NA,"RBC","EOB",5.93,15
+"1651","Sc. B_B16-17.xlsx","B-B17",NA,"RBC","24HR",6.57,15
+"1652","Sc. B_B16-17.xlsx","B-B17",NA,"RBC","48HR",5.91,15
+"1653","Sc. B_B16-17.xlsx","B-B16","MAP","MAP","BL",73,15
+"1654","Sc. B_B16-17.xlsx","B-B16","MAP","MAP","EOS",29,15
+"1655","Sc. B_B16-17.xlsx","B-B16","MAP","MAP","EOR",59,15
+"1656","Sc. B_B16-17.xlsx","B-B16","MAP","MAP","10%",61,15
+"1657","Sc. B_B16-17.xlsx","B-B16","MAP","MAP","7.5%",71,15
+"1658","Sc. B_B16-17.xlsx","B-B16","MAP","MAP","5%",68,15
+"1659","Sc. B_B16-17.xlsx","B-B16","MAP","MAP","2.5%",69,15
+"1660","Sc. B_B16-17.xlsx","B-B16","MAP","MAP","EOB",70,15
+"1661","Sc. B_B16-17.xlsx","B-B16","MAP","MAP","24HR",85,15
+"1662","Sc. B_B16-17.xlsx","B-B16","MAP","MAP","48HR",81,15
+"1663","Sc. B_B16-17.xlsx","B-B17",NA,"BUN","BL",11.19,15
+"1664","Sc. B_B16-17.xlsx","B-B17",NA,"BUN","EOR",23.41,15
+"1665","Sc. B_B16-17.xlsx","B-B17",NA,"BUN","EOB",27.14,15
+"1666","Sc. B_B16-17.xlsx","B-B17",NA,"BUN","24HR",40.38,15
+"1667","Sc. B_B16-17.xlsx","B-B17",NA,"BUN","48HR",25.73,15
+"1668","Sc. B_B16-17.xlsx","B-B17","MAP","MAP","BL",69,15
+"1669","Sc. B_B16-17.xlsx","B-B17","MAP","MAP","EOS",36,15
+"1670","Sc. B_B16-17.xlsx","B-B17","MAP","MAP","EOR",68,15
+"1671","Sc. B_B16-17.xlsx","B-B17","MAP","MAP","10%",58,15
+"1672","Sc. B_B16-17.xlsx","B-B17","MAP","MAP","7.5%",57,15
+"1673","Sc. B_B16-17.xlsx","B-B17","MAP","MAP","5%",53,15
+"1674","Sc. B_B16-17.xlsx","B-B17","MAP","MAP","2.5%",70,15
+"1675","Sc. B_B16-17.xlsx","B-B17","MAP","MAP","EOB",77,15
+"1676","Sc. B_B16-17.xlsx","B-B17","MAP","MAP","24HR",66,15
+"1677","Sc. B_B16-17.xlsx","B-B17","MAP","MAP","48HR",65,15
+"1678","Sc. B_B16-17.xlsx","B-B16",NA,"AMY","BL",231,15
+"1679","Sc. B_B16-17.xlsx","B-B16",NA,"AMY","EOR",196,15
+"1680","Sc. B_B16-17.xlsx","B-B16",NA,"AMY","EOB",211,15
+"1681","Sc. B_B16-17.xlsx","B-B16",NA,"AMY","24HR",493,15
+"1682","Sc. B_B16-17.xlsx","B-B16",NA,"AMY","48HR",430,15
+"1683","Sc. B_B16-17.xlsx","B-B17",NA,"AMY","BL",185,15
+"1684","Sc. B_B16-17.xlsx","B-B17",NA,"AMY","EOR",246,15
+"1685","Sc. B_B16-17.xlsx","B-B17",NA,"AMY","EOB",227,15
+"1686","Sc. B_B16-17.xlsx","B-B17",NA,"AMY","24HR",360,15
+"1687","Sc. B_B16-17.xlsx","B-B17",NA,"AMY","48HR",800,15
+"1688","Sc. B_B16-17.xlsx","B-B16",NA,"TG","BL",82.08,15
+"1689","Sc. B_B16-17.xlsx","B-B16",NA,"TG","EOR",105.08,15
+"1690","Sc. B_B16-17.xlsx","B-B16",NA,"TG","EOB",108.26,15
+"1691","Sc. B_B16-17.xlsx","B-B16",NA,"TG","24HR",192.97,15
+"1692","Sc. B_B16-17.xlsx","B-B16",NA,"TG","48HR",182.27,15
+"1693","Sc. B_B16-17.xlsx","B-B17",NA,"TG","BL",148.37,15
+"1694","Sc. B_B16-17.xlsx","B-B17",NA,"TG","EOR",97.1,15
+"1695","Sc. B_B16-17.xlsx","B-B17",NA,"TG","EOB",129.51,15
+"1696","Sc. B_B16-17.xlsx","B-B17",NA,"TG","24HR",228.54,15
+"1697","Sc. B_B16-17.xlsx","B-B17",NA,"TG","48HR",384.12,15
+"1698","Sc. B_B16-17.xlsx","B-B16",NA,"GGT","BL",8,15
+"1699","Sc. B_B16-17.xlsx","B-B16",NA,"GGT","EOR",8,15
+"1700","Sc. B_B16-17.xlsx","B-B16",NA,"GGT","EOB",8,15
+"1701","Sc. B_B16-17.xlsx","B-B16",NA,"GGT","24HR",8,15
+"1702","Sc. B_B16-17.xlsx","B-B16",NA,"GGT","48HR",8,15
+"1703","Sc. B_B16-17.xlsx","B-B17",NA,"GGT","BL",10,15
+"1704","Sc. B_B16-17.xlsx","B-B17",NA,"GGT","EOR",10,15
+"1705","Sc. B_B16-17.xlsx","B-B17",NA,"GGT","EOB",13,15
+"1706","Sc. B_B16-17.xlsx","B-B17",NA,"GGT","24HR",26,15
+"1707","Sc. B_B16-17.xlsx","B-B17",NA,"GGT","48HR",27,15
+"1708","Sc. B_B16-17.xlsx","B-B16",NA,"GLU","BL",137.55,15
+"1709","Sc. B_B16-17.xlsx","B-B16",NA,"GLU","EOR",267.16,15
+"1710","Sc. B_B16-17.xlsx","B-B16",NA,"GLU","EOB",124.03,15
+"1711","Sc. B_B16-17.xlsx","B-B16",NA,"GLU","24HR",147.48,15
+"1712","Sc. B_B16-17.xlsx","B-B16",NA,"GLU","48HR",158.54,15
+"1713","Sc. B_B16-17.xlsx","B-B17",NA,"GLU","BL",122.41,15
+"1714","Sc. B_B16-17.xlsx","B-B17",NA,"GLU","EOR",223.17,15
+"1715","Sc. B_B16-17.xlsx","B-B17",NA,"GLU","EOB",161.33,15
+"1716","Sc. B_B16-17.xlsx","B-B17",NA,"GLU","24HR",152.18,15
+"1717","Sc. B_B16-17.xlsx","B-B17",NA,"GLU","48HR",134.19,15
+"1718","Sc. B_B18-19.xlsx","B-B18","CBC","HGB","BL",13,15
+"1719","Sc. B_B18-19.xlsx","B-B18","CBC","HGB","EOS",7.4,15
+"1720","Sc. B_B18-19.xlsx","B-B18","CBC","HGB","EOR",9.9,15
+"1721","Sc. B_B18-19.xlsx","B-B18","CBC","HGB","EOB",11,15
+"1722","Sc. B_B18-19.xlsx","B-B18","CBC","HGB","24HR",12.2,15
+"1723","Sc. B_B18-19.xlsx","B-B19","ABG","pH","BL",7.474,15
+"1724","Sc. B_B18-19.xlsx","B-B19","ABG","pH","EOS",7.37,15
+"1725","Sc. B_B18-19.xlsx","B-B19","ABG","pH","EOR",7.354,15
+"1726","Sc. B_B18-19.xlsx","B-B19","ABG","pH","10%",7.377,15
+"1727","Sc. B_B18-19.xlsx","B-B19","ABG","pH","7.5%",7.457,15
+"1728","Sc. B_B18-19.xlsx","B-B19","ABG","pH","5%",7.483,15
+"1729","Sc. B_B18-19.xlsx","B-B19","ABG","pH","2.5%",7.521,15
+"1730","Sc. B_B18-19.xlsx","B-B19","ABG","pH","EOB",7.508,15
+"1731","Sc. B_B18-19.xlsx","B-B19","ABG","pH","24HR",7.515,15
+"1732","Sc. B_B18-19.xlsx","B-B19","ABG","pH","48HR",7.46,15
+"1733","Sc. B_B18-19.xlsx","B-B19",NA,"AST","BL",66,15
+"1734","Sc. B_B18-19.xlsx","B-B19",NA,"AST","EOR",98,15
+"1735","Sc. B_B18-19.xlsx","B-B19",NA,"AST","EOB",304,15
+"1736","Sc. B_B18-19.xlsx","B-B19",NA,"AST","24HR",413,15
+"1737","Sc. B_B18-19.xlsx","B-B19",NA,"AST","48HR",389,15
+"1738","Sc. B_B18-19.xlsx","B-B19",NA,"AST","BL",15.1,15
+"1739","Sc. B_B18-19.xlsx","B-B19",NA,"AST","EOR",140.8,15
+"1740","Sc. B_B18-19.xlsx","B-B19",NA,"AST","EOB",143.1,15
+"1741","Sc. B_B18-19.xlsx","B-B19",NA,"AST","24HR",137,15
+"1742","Sc. B_B18-19.xlsx","B-B19",NA,"AST","48HR",140.9,15
+"1743","Sc. B_B18-19.xlsx","B-B18",NA,"Hct","BL",38,15
+"1744","Sc. B_B18-19.xlsx","B-B18",NA,"Hct","EOS",21.6,15
+"1745","Sc. B_B18-19.xlsx","B-B18",NA,"Hct","EOR",38.5,15
+"1746","Sc. B_B18-19.xlsx","B-B18",NA,"Hct","EOB",31.7,15
+"1747","Sc. B_B18-19.xlsx","B-B18",NA,"Hct","24HR",34.6,15
+"1748","Sc. B_B18-19.xlsx","B-B19",NA,"pCO2","BL",38.2,15
+"1749","Sc. B_B18-19.xlsx","B-B19",NA,"pCO2","EOS",31.5,15
+"1750","Sc. B_B18-19.xlsx","B-B19",NA,"pCO2","EOR",34,15
+"1751","Sc. B_B18-19.xlsx","B-B19",NA,"pCO2","10%",36.4,15
+"1752","Sc. B_B18-19.xlsx","B-B19",NA,"pCO2","7.5%",37.4,15
+"1753","Sc. B_B18-19.xlsx","B-B19",NA,"pCO2","5%",39.6,15
+"1754","Sc. B_B18-19.xlsx","B-B19",NA,"pCO2","2.5%",37.4,15
+"1755","Sc. B_B18-19.xlsx","B-B19",NA,"pCO2","EOB",38.5,15
+"1756","Sc. B_B18-19.xlsx","B-B19",NA,"pCO2","24HR",34,15
+"1757","Sc. B_B18-19.xlsx","B-B19",NA,"pCO2","48HR",37.7,15
+"1758","Sc. B_B18-19.xlsx","B-B19",NA,"ALT","BL",62,15
+"1759","Sc. B_B18-19.xlsx","B-B19",NA,"ALT","EOR",62,15
+"1760","Sc. B_B18-19.xlsx","B-B19",NA,"ALT","EOB",151,15
+"1761","Sc. B_B18-19.xlsx","B-B19",NA,"ALT","24HR",258,15
+"1762","Sc. B_B18-19.xlsx","B-B19",NA,"ALT","48HR",286,15
+"1763","Sc. B_B18-19.xlsx","B-B19",NA,"ALT","BL",16.4,15
+"1764","Sc. B_B18-19.xlsx","B-B19",NA,"ALT","EOR",12.1,15
+"1765","Sc. B_B18-19.xlsx","B-B19",NA,"ALT","EOB",11.1,15
+"1766","Sc. B_B18-19.xlsx","B-B19",NA,"ALT","24HR",8.7,15
+"1767","Sc. B_B18-19.xlsx","B-B19",NA,"ALT","48HR",8.8,15
+"1768","Sc. B_B18-19.xlsx","B-B18",NA,"WBC","BL",9.3,15
+"1769","Sc. B_B18-19.xlsx","B-B18",NA,"WBC","EOS",6.9,15
+"1770","Sc. B_B18-19.xlsx","B-B18",NA,"WBC","EOR",8.3,15
+"1771","Sc. B_B18-19.xlsx","B-B18",NA,"WBC","EOB",8.8,15
+"1772","Sc. B_B18-19.xlsx","B-B18",NA,"WBC","24HR",6.6,15
+"1773","Sc. B_B18-19.xlsx","B-B19",NA,"pO2","BL",87.3,15
+"1774","Sc. B_B18-19.xlsx","B-B19",NA,"pO2","EOS",98.4,15
+"1775","Sc. B_B18-19.xlsx","B-B19",NA,"pO2","EOR",67.1,15
+"1776","Sc. B_B18-19.xlsx","B-B19",NA,"pO2","10%",108,15
+"1777","Sc. B_B18-19.xlsx","B-B19",NA,"pO2","7.5%",92.8,15
+"1778","Sc. B_B18-19.xlsx","B-B19",NA,"pO2","5%",88.3,15
+"1779","Sc. B_B18-19.xlsx","B-B19",NA,"pO2","2.5%",97,15
+"1780","Sc. B_B18-19.xlsx","B-B19",NA,"pO2","EOB",85.4,15
+"1781","Sc. B_B18-19.xlsx","B-B19",NA,"pO2","24HR",89.1,15
+"1782","Sc. B_B18-19.xlsx","B-B19",NA,"pO2","48HR",82.9,15
+"1783","Sc. B_B18-19.xlsx","B-B19",NA,"LDH","BL",348,15
+"1784","Sc. B_B18-19.xlsx","B-B19",NA,"LDH","EOR",291,15
+"1785","Sc. B_B18-19.xlsx","B-B19",NA,"LDH","EOB",826,15
+"1786","Sc. B_B18-19.xlsx","B-B19",NA,"LDH","24HR",686,15
+"1787","Sc. B_B18-19.xlsx","B-B19",NA,"LDH","48HR",671,15
+"1788","Sc. B_B18-19.xlsx","B-B19",NA,"LDH","EOR",27.4,15
+"1789","Sc. B_B18-19.xlsx","B-B19",NA,"LDH","EOB",79.2,15
+"1790","Sc. B_B18-19.xlsx","B-B19",NA,"LDH","24HR",17.8,15
+"1791","Sc. B_B18-19.xlsx","B-B19",NA,"LDH","48HR",21.1,15
+"1792","Sc. B_B18-19.xlsx","B-B18","CBC","PLT","BL",196,15
+"1793","Sc. B_B18-19.xlsx","B-B18","CBC","PLT","EOS",170,15
+"1794","Sc. B_B18-19.xlsx","B-B18","CBC","PLT","EOR",112,15
+"1795","Sc. B_B18-19.xlsx","B-B18","CBC","PLT","EOB",103,15
+"1796","Sc. B_B18-19.xlsx","B-B18","CBC","PLT","24HR",151,15
+"1797","Sc. B_B18-19.xlsx","B-B19","ABG","LAC","BL",1,15
+"1798","Sc. B_B18-19.xlsx","B-B19","ABG","LAC","EOS",16,15
+"1799","Sc. B_B18-19.xlsx","B-B19","ABG","LAC","EOR",13,15
+"1800","Sc. B_B18-19.xlsx","B-B19","ABG","LAC","10%",8.7,15
+"1801","Sc. B_B18-19.xlsx","B-B19","ABG","LAC","7.5%",4.3,15
+"1802","Sc. B_B18-19.xlsx","B-B19","ABG","LAC","5%",2.9,15
+"1803","Sc. B_B18-19.xlsx","B-B19","ABG","LAC","2.5%",2.1,15
+"1804","Sc. B_B18-19.xlsx","B-B19","ABG","LAC","EOB",2.6,15
+"1805","Sc. B_B18-19.xlsx","B-B19","ABG","LAC","24HR",2.1,15
+"1806","Sc. B_B18-19.xlsx","B-B19","ABG","LAC","48HR",2.1,15
+"1807","Sc. B_B18-19.xlsx","B-B19",NA,"CREA","BL",0.2,15
+"1808","Sc. B_B18-19.xlsx","B-B19",NA,"CREA","EOR",0.4,15
+"1809","Sc. B_B18-19.xlsx","B-B19",NA,"CREA","EOB",0.1,15
+"1810","Sc. B_B18-19.xlsx","B-B19",NA,"CREA","24HR",0.5,15
+"1811","Sc. B_B18-19.xlsx","B-B19",NA,"CREA","48HR",0.8,15
+"1812","Sc. B_B18-19.xlsx","B-B19",NA,"CREA","BL",2.57,15
+"1813","Sc. B_B18-19.xlsx","B-B19",NA,"CREA","EOR",1.31,15
+"1814","Sc. B_B18-19.xlsx","B-B19",NA,"CREA","EOB",2.62,15
+"1815","Sc. B_B18-19.xlsx","B-B19",NA,"CREA","24HR",2.82,15
+"1816","Sc. B_B18-19.xlsx","B-B19",NA,"CREA","48HR",4.4,15
+"1817","Sc. B_B18-19.xlsx","B-B18",NA,"RBC","BL",5.82,15
+"1818","Sc. B_B18-19.xlsx","B-B18",NA,"RBC","EOS",3.39,15
+"1819","Sc. B_B18-19.xlsx","B-B18",NA,"RBC","EOR",4.46,15
+"1820","Sc. B_B18-19.xlsx","B-B18",NA,"RBC","EOB",4.96,15
+"1821","Sc. B_B18-19.xlsx","B-B18",NA,"RBC","24HR",5.37,15
+"1822","Sc. B_B18-19.xlsx","B-B19",NA,"BUN","BL",11.61,15
+"1823","Sc. B_B18-19.xlsx","B-B19",NA,"BUN","EOR",23.41,15
+"1824","Sc. B_B18-19.xlsx","B-B19",NA,"BUN","EOB",15.87,15
+"1825","Sc. B_B18-19.xlsx","B-B19",NA,"BUN","24HR",23.1,15
+"1826","Sc. B_B18-19.xlsx","B-B19",NA,"BUN","48HR",26.01,15
+"1827","Sc. B_B18-19.xlsx","B-B19","MAP","MAP","EOS",62,15
+"1828","Sc. B_B18-19.xlsx","B-B19","MAP","MAP","EOR",97,15
+"1829","Sc. B_B18-19.xlsx","B-B19","MAP","MAP","10%",76,15
+"1830","Sc. B_B18-19.xlsx","B-B19","MAP","MAP","7.5%",94,15
+"1831","Sc. B_B18-19.xlsx","B-B19","MAP","MAP","5%",80,15
+"1832","Sc. B_B18-19.xlsx","B-B19","MAP","MAP","2.5%",89,15
+"1833","Sc. B_B18-19.xlsx","B-B19","MAP","MAP","EOB",82,15
+"1834","Sc. B_B18-19.xlsx","B-B19","MAP","MAP","24HR",90,15
+"1835","Sc. B_B18-19.xlsx","B-B19","MAP","MAP","48HR",76,15
+"1836","Sc. B_B18-19.xlsx","B-B19",NA,"AMY","BL",238,15
+"1837","Sc. B_B18-19.xlsx","B-B19",NA,"AMY","EOR",218,15
+"1838","Sc. B_B18-19.xlsx","B-B19",NA,"AMY","EOB",236,15
+"1839","Sc. B_B18-19.xlsx","B-B19",NA,"AMY","24HR",347,15
+"1840","Sc. B_B18-19.xlsx","B-B19",NA,"AMY","48HR",455,15
+"1841","Sc. B_B18-19.xlsx","B-B19",NA,"TG","BL",128.81,15
+"1842","Sc. B_B18-19.xlsx","B-B19",NA,"TG","EOR",277.95,15
+"1843","Sc. B_B18-19.xlsx","B-B19",NA,"TG","EOB",221.79,15
+"1844","Sc. B_B18-19.xlsx","B-B19",NA,"TG","24HR",456.33,15
+"1845","Sc. B_B18-19.xlsx","B-B19",NA,"TG","48HR",609,15
+"1846","Sc. B_B18-19.xlsx","B-B19",NA,"GGT","BL",8,15
+"1847","Sc. B_B18-19.xlsx","B-B19",NA,"GGT","EOR",7,15
+"1848","Sc. B_B18-19.xlsx","B-B19",NA,"GGT","EOB",6,15
+"1849","Sc. B_B18-19.xlsx","B-B19",NA,"GGT","24HR",5,15
+"1850","Sc. B_B18-19.xlsx","B-B19",NA,"GGT","48HR",6,15
+"1851","Sc. B_B18-19.xlsx","B-B19",NA,"GLU","BL",153.1,15
+"1852","Sc. B_B18-19.xlsx","B-B19",NA,"GLU","EOR",397.07,15
+"1853","Sc. B_B18-19.xlsx","B-B19",NA,"GLU","EOB",146.86,15
+"1854","Sc. B_B18-19.xlsx","B-B19",NA,"GLU","24HR",189.47,15
+"1855","Sc. B_B18-19.xlsx","B-B19",NA,"GLU","48HR",161.43,15
+"1856","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 1",NA,"AST","BL",65,15
+"1857","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 1",NA,"AST","EOR",41,15
+"1858","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 1",NA,"AST","EOB",76,15
+"1859","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 1",NA,"ALT","BL",66,15
+"1860","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 1",NA,"ALT","EOR",43,15
+"1861","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 1",NA,"ALT","EOB",56,15
+"1862","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 1",NA,"LDH","BL",71,15
+"1863","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 1",NA,"LDH","EOR",79,15
+"1864","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 1",NA,"LDH","EOB",112,15
+"1865","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 1",NA,"CREA","BL",0.3,15
+"1866","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 1",NA,"CREA","EOR",0.9,15
+"1867","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 1",NA,"CREA","EOB",1.1,15
+"1868","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 1",NA,"BUN","BL",14.05,15
+"1869","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 1",NA,"BUN","EOR",19.72,15
+"1870","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 1",NA,"BUN","EOB",31.58,15
+"1871","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 1",NA,"AMY","BL",200,15
+"1872","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 1",NA,"AMY","EOR",121,15
+"1873","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 1",NA,"AMY","EOB",130,15
+"1874","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 1",NA,"TG","BL",152.55,15
+"1875","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 1",NA,"TG","EOR",136.13,15
+"1876","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 1",NA,"TG","EOB",110.38,15
+"1877","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 1",NA,"GGT","BL",9,15
+"1878","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 1",NA,"GGT","EOR",5,15
+"1879","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 1",NA,"GGT","EOB",6,15
+"1880","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 1",NA,"GLU","BL",132.29,15
+"1881","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 1",NA,"GLU","EOR",316.26,15
+"1882","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 1",NA,"GLU","EOB",387.84,15
+"1883","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 1","ABG","LAC","BL",1.7,15
+"1884","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 1","ABG","LAC","EOS",11.3,15
+"1885","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 1","ABG","LAC","EOR",13.1,15
+"1886","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 1","ABG","LAC","10%",7.3,15
+"1887","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 1","ABG","LAC","7.5%",6.6,15
+"1888","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 1","ABG","LAC","5%",10,15
+"1889","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 1","ABG","LAC","2.5%",13.2,15
+"1890","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 1","ABG","LAC","EOB",15,15
+"1891","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 2",NA,"AST","BL",85,15
+"1892","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 2",NA,"AST","EOR",73,15
+"1893","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 2",NA,"AST","EOB",132,15
+"1894","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 2",NA,"AST","24HR",650,15
+"1895","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 2",NA,"ALT","BL",90,15
+"1896","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 2",NA,"ALT","EOR",54,15
+"1897","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 2",NA,"ALT","EOB",71,15
+"1898","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 2",NA,"ALT","24HR",327,15
+"1899","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 2",NA,"LDH","BL",67,15
+"1900","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 2",NA,"LDH","EOR",88,15
+"1901","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 2",NA,"LDH","EOB",191,15
+"1902","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 2",NA,"LDH","24HR",756,15
+"1903","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 2",NA,"CREA","BL",0.5,15
+"1904","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 2",NA,"CREA","EOR",0.9,15
+"1905","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 2",NA,"CREA","EOB",0.8,15
+"1906","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 2",NA,"CREA","24HR",0.1,15
+"1907","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 2",NA,"BUN","BL",16.49,15
+"1908","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 2",NA,"BUN","EOR",21.08,15
+"1909","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 2",NA,"BUN","EOB",33.35,15
+"1910","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 2",NA,"BUN","24HR",57.74,15
+"1911","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 2",NA,"AMY","BL",289,15
+"1912","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 2",NA,"AMY","EOR",169,15
+"1913","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 2",NA,"AMY","EOB",212,15
+"1914","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 2",NA,"AMY","24HR",348,15
+"1915","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 2",NA,"TG","BL",64.57,15
+"1916","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 2",NA,"TG","EOR",67.9,15
+"1917","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 2",NA,"TG","EOB",82.86,15
+"1918","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 2",NA,"TG","24HR",609,15
+"1919","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 2",NA,"GGT","BL",12,15
+"1920","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 2",NA,"GGT","EOR",5,15
+"1921","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 2",NA,"GGT","EOB",7,15
+"1922","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 2",NA,"GGT","24HR",9,15
+"1923","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 2",NA,"GLU","BL",140.44,15
+"1924","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 2",NA,"GLU","EOR",232.03,15
+"1925","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 2",NA,"GLU","EOB",256,15
+"1926","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 2",NA,"GLU","24HR",76.11,15
+"1927","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 2","ABG","LAC","BL",0.8,15
+"1928","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 2","ABG","LAC","EOS",7.6,15
+"1929","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 2","ABG","LAC","EOR",9.8,15
+"1930","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 2","ABG","LAC","10%",4.4,15
+"1931","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 2","ABG","LAC","7.5%",7.7,15
+"1932","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 2","ABG","LAC","5%",5.8,15
+"1933","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 2","ABG","LAC","2.5%",7.4,15
+"1934","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 2","ABG","LAC","EOB",7.4,15
+"1935","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 2","ABG","LAC","24HR",20,15
+"1936","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 3",NA,"AST","BL",73,15
+"1937","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 3",NA,"AST","EOR",125,15
+"1938","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 3",NA,"AST","EOB",445,15
+"1939","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 3",NA,"AST","24HR",650,15
+"1940","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 3",NA,"AST","48HR",650,15
+"1941","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 3",NA,"ALT","BL",116,15
+"1942","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 3",NA,"ALT","EOR",71,15
+"1943","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 3",NA,"ALT","EOB",149,15
+"1944","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 3",NA,"ALT","24HR",381,15
+"1945","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 3",NA,"ALT","48HR",650,15
+"1946","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 3",NA,"LDH","BL",158,15
+"1947","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 3",NA,"LDH","EOR",157,15
+"1948","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 3",NA,"LDH","EOB",380,15
+"1949","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 3",NA,"LDH","24HR",683,15
+"1950","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 3",NA,"LDH","48HR",1025,15
+"1951","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 3",NA,"CREA","BL",0.5,15
+"1952","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 3",NA,"CREA","EOR",0.5,15
+"1953","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 3",NA,"CREA","EOB",0.4,15
+"1954","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 3",NA,"CREA","24HR",0.6,15
+"1955","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 3",NA,"CREA","48HR",0.7,15
+"1956","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 3",NA,"BUN","BL",13.93,15
+"1957","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 3",NA,"BUN","EOR",17.84,15
+"1958","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 3",NA,"BUN","EOB",24.98,15
+"1959","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 3",NA,"BUN","24HR",22.31,15
+"1960","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 3",NA,"BUN","48HR",42.87,15
+"1961","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 3",NA,"AMY","BL",197,15
+"1962","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 3",NA,"AMY","EOR",100,15
+"1963","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 3",NA,"AMY","EOB",143,15
+"1964","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 3",NA,"AMY","24HR",153,15
+"1965","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 3",NA,"AMY","48HR",306,15
+"1966","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 3",NA,"TG","BL",63.1,15
+"1967","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 3",NA,"TG","EOR",49.55,15
+"1968","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 3",NA,"TG","EOB",85.43,15
+"1969","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 3",NA,"TG","24HR",490.78,15
+"1970","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 3",NA,"TG","48HR",609,15
+"1971","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 3",NA,"GGT","BL",15,15
+"1972","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 3",NA,"GGT","EOR",8,15
+"1973","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 3",NA,"GGT","EOB",12,15
+"1974","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 3",NA,"GGT","24HR",13,15
+"1975","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 3",NA,"GGT","48HR",22,15
+"1976","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 3",NA,"GLU","BL",145.07,15
+"1977","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 3",NA,"GLU","EOR",180.85,15
+"1978","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 3",NA,"GLU","EOB",197.94,15
+"1979","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 3",NA,"GLU","24HR",136.69,15
+"1980","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 3",NA,"GLU","48HR",118.91,15
+"1981","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 3","ABG","LAC","BL",1.1,15
+"1982","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 3","ABG","LAC","EOS",6.3,15
+"1983","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 3","ABG","LAC","EOR",9.4,15
+"1984","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 3","ABG","LAC","10%",3.6,15
+"1985","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 3","ABG","LAC","7.5%",3.8,15
+"1986","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 3","ABG","LAC","5%",5.8,15
+"1987","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 3","ABG","LAC","2.5%",9.4,15
+"1988","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 3","ABG","LAC","EOB",11.3,15
+"1989","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 3","ABG","LAC","24HR",2.5,15
+"1990","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 3","ABG","LAC","48HR",2.1,15
+"1991","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4",NA,"AST","BL",43,15
+"1992","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4",NA,"AST","EOR",25,15
+"1993","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4",NA,"AST","EOB",50,15
+"1994","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4",NA,"AST","24HR",211,15
+"1995","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4",NA,"AST","48HR",291,15
+"1996","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4",NA,"ALT","BL",50,15
+"1997","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4",NA,"ALT","EOR",28,15
+"1998","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4",NA,"ALT","EOB",52,15
+"1999","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4",NA,"ALT","24HR",140,15
+"2000","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4",NA,"ALT","48HR",207,15
+"2001","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4",NA,"LDH","BL",91,15
+"2002","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4",NA,"LDH","EOR",67,15
+"2003","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4",NA,"LDH","EOB",156,15
+"2004","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4",NA,"LDH","24HR",325,15
+"2005","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4",NA,"LDH","48HR",453,15
+"2006","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4",NA,"CREA","BL",0.5,15
+"2007","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4",NA,"CREA","EOR",0.5,15
+"2008","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4",NA,"CREA","EOB",0.5,15
+"2009","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4",NA,"CREA","24HR",0.3,15
+"2010","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4",NA,"CREA","48HR",0.5,15
+"2011","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4",NA,"BUN","BL",13.96,15
+"2012","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4",NA,"BUN","EOR",16.86,15
+"2013","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4",NA,"BUN","EOB",22.37,15
+"2014","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4",NA,"BUN","24HR",25.35,15
+"2015","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4",NA,"BUN","48HR",25.23,15
+"2016","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4",NA,"AMY","BL",178,15
+"2017","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4",NA,"AMY","EOR",110,15
+"2018","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4",NA,"AMY","EOB",145,15
+"2019","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4",NA,"AMY","24HR",446,15
+"2020","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4",NA,"AMY","48HR",539,15
+"2021","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4",NA,"TG","BL",77.59,15
+"2022","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4",NA,"TG","EOR",117.4,15
+"2023","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4",NA,"TG","EOB",138.83,15
+"2024","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4",NA,"TG","24HR",609,15
+"2025","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4",NA,"TG","48HR",609,15
+"2026","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4",NA,"GGT","BL",15,15
+"2027","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4",NA,"GGT","EOR",10,15
+"2028","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4",NA,"GGT","EOB",9,15
+"2029","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4",NA,"GGT","24HR",9,15
+"2030","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4",NA,"GGT","48HR",12,15
+"2031","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4",NA,"GLU","BL",125.71,15
+"2032","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4",NA,"GLU","EOR",218.86,15
+"2033","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4",NA,"GLU","EOB",266.04,15
+"2034","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4",NA,"GLU","24HR",132.74,15
+"2035","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4",NA,"GLU","48HR",128.75,15
+"2036","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4","ABG","LAC","BL",1.1,15
+"2037","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4","ABG","LAC","EOS",3,15
+"2038","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4","ABG","LAC","EOR",4.7,15
+"2039","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4","ABG","LAC","10%",1.8,15
+"2040","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4","ABG","LAC","7.5%",3.1,15
+"2041","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4","ABG","LAC","5%",4,15
+"2042","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4","ABG","LAC","2.5%",3.8,15
+"2043","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4","ABG","LAC","EOB",4.6,15
+"2044","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4","ABG","LAC","24HR",1.3,15
+"2045","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4","ABG","LAC","48HR",2.3,15
+"2046","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5",NA,"AST","BL",75,15
+"2047","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5",NA,"AST","EOR",36,15
+"2048","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5",NA,"AST","EOB",65,15
+"2049","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5",NA,"AST","24HR",268,15
+"2050","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5",NA,"AST","48HR",99,15
+"2051","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5",NA,"ALT","BL",98,15
+"2052","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5",NA,"ALT","EOR",55,15
+"2053","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5",NA,"ALT","EOB",74,15
+"2054","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5",NA,"ALT","24HR",236,15
+"2055","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5",NA,"ALT","48HR",281,15
+"2056","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5",NA,"LDH","BL",112,15
+"2057","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5",NA,"LDH","EOR",72,15
+"2058","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5",NA,"LDH","EOB",110,15
+"2059","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5",NA,"LDH","24HR",378,15
+"2060","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5",NA,"LDH","48HR",149,15
+"2061","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5",NA,"CREA","BL",0.5,15
+"2062","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5",NA,"CREA","EOR",0.5,15
+"2063","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5",NA,"CREA","EOB",0.6,15
+"2064","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5",NA,"CREA","24HR",0.3,15
+"2065","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5",NA,"CREA","48HR",0.5,15
+"2066","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5",NA,"BUN","BL",10.03,15
+"2067","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5",NA,"BUN","EOR",12.6,15
+"2068","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5",NA,"BUN","EOB",17.07,15
+"2069","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5",NA,"BUN","24HR",16.79,15
+"2070","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5",NA,"BUN","48HR",11.55,15
+"2071","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5",NA,"AMY","BL",214,15
+"2072","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5",NA,"AMY","EOR",142,15
+"2073","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5",NA,"AMY","EOB",211,15
+"2074","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5",NA,"AMY","24HR",367,15
+"2075","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5",NA,"AMY","48HR",327,15
+"2076","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5",NA,"TG","BL",129.45,15
+"2077","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5",NA,"TG","EOR",118.88,15
+"2078","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5",NA,"TG","EOB",248.65,15
+"2079","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5",NA,"TG","24HR",609,15
+"2080","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5",NA,"TG","48HR",609,15
+"2081","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5",NA,"GGT","BL",11,15
+"2082","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5",NA,"GGT","EOR",5,15
+"2083","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5",NA,"GGT","EOB",5,15
+"2084","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5",NA,"GGT","24HR",5,15
+"2085","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5",NA,"GGT","48HR",8,15
+"2086","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5",NA,"GLU","BL",157.03,15
+"2087","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5",NA,"GLU","EOR",213.15,15
+"2088","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5",NA,"GLU","EOB",154.12,15
+"2089","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5",NA,"GLU","24HR",138.13,15
+"2090","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5",NA,"GLU","48HR",122.12,15
+"2091","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5","ABG","LAC","BL",1.5,15
+"2092","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5","ABG","LAC","EOS",5.3,15
+"2093","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5","ABG","LAC","EOR",8.1,15
+"2094","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5","ABG","LAC","10%",3.4,15
+"2095","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5","ABG","LAC","7.5%",3.1,15
+"2096","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5","ABG","LAC","5%",3.1,15
+"2097","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5","ABG","LAC","2.5%",6.5,15
+"2098","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5","ABG","LAC","EOB",5.8,15
+"2099","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5","ABG","LAC","24HR",2.5,15
+"2100","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5","ABG","LAC","48HR",1,15
+"2101","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6",NA,"AST","BL",38,15
+"2102","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6",NA,"AST","EOR",40,15
+"2103","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6",NA,"AST","EOB",70,15
+"2104","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6",NA,"AST","24HR",323,15
+"2105","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6",NA,"AST","48HR",347,15
+"2106","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6",NA,"ALT","BL",69,15
+"2107","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6",NA,"ALT","EOR",54,15
+"2108","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6",NA,"ALT","EOB",62,15
+"2109","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6",NA,"ALT","24HR",234,15
+"2110","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6",NA,"ALT","48HR",338,15
+"2111","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6",NA,"LDH","BL",203,15
+"2112","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6",NA,"LDH","EOR",111,15
+"2113","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6",NA,"LDH","EOB",44,15
+"2114","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6",NA,"LDH","24HR",527,15
+"2115","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6",NA,"LDH","48HR",612,15
+"2116","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6",NA,"CREA","BL",0.5,15
+"2117","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6",NA,"CREA","EOR",0.6,15
+"2118","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6",NA,"CREA","EOB",0.5,15
+"2119","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6",NA,"CREA","24HR",1.1,15
+"2120","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6",NA,"CREA","48HR",0.4,15
+"2121","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6",NA,"BUN","BL",15.53,15
+"2122","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6",NA,"BUN","EOR",20.42,15
+"2123","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6",NA,"BUN","EOB",24.76,15
+"2124","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6",NA,"BUN","24HR",40.36,15
+"2125","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6",NA,"BUN","48HR",18.99,15
+"2126","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6",NA,"AMY","BL",213,15
+"2127","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6",NA,"AMY","EOR",149,15
+"2128","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6",NA,"AMY","EOB",209,15
+"2129","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6",NA,"AMY","24HR",431,15
+"2130","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6",NA,"AMY","48HR",1092,15
+"2131","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6",NA,"TG","BL",107.67,15
+"2132","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6",NA,"TG","EOR",145.79,15
+"2133","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6",NA,"TG","EOB",236.15,15
+"2134","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6",NA,"TG","24HR",609,15
+"2135","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6",NA,"TG","48HR",609,15
+"2136","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6",NA,"GGT","BL",11,15
+"2137","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6",NA,"GGT","EOR",7,15
+"2138","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6",NA,"GGT","EOB",9,15
+"2139","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6",NA,"GGT","24HR",7,15
+"2140","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6",NA,"GGT","48HR",7,15
+"2141","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6",NA,"GLU","BL",141.25,15
+"2142","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6",NA,"GLU","EOR",297.9,15
+"2143","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6",NA,"GLU","EOB",237.48,15
+"2144","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6",NA,"GLU","24HR",154.04,15
+"2145","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6",NA,"GLU","48HR",123.93,15
+"2146","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6","ABG","LAC","BL",2.9,15
+"2147","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6","ABG","LAC","EOS",9,15
+"2148","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6","ABG","LAC","EOR",11.1,15
+"2149","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6","ABG","LAC","10%",7.5,15
+"2150","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6","ABG","LAC","7.5%",6.9,15
+"2151","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6","ABG","LAC","5%",6.8,15
+"2152","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6","ABG","LAC","2.5%",5.7,15
+"2153","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6","ABG","LAC","EOB",6.3,15
+"2154","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6","ABG","LAC","24HR",1,15
+"2155","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6","ABG","LAC","48HR",3,15
+"2156","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 7",NA,"AST","BL",209,15
+"2157","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 7",NA,"AST","EOR",163,15
+"2158","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 7",NA,"AST","EOB",202,15
+"2159","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 7",NA,"AST","24HR",388,15
+"2160","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 7",NA,"ALT","BL",152,15
+"2161","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 7",NA,"ALT","EOR",103,15
+"2162","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 7",NA,"ALT","EOB",143,15
+"2163","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 7",NA,"ALT","24HR",280,15
+"2164","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 7",NA,"LDH","BL",289,15
+"2165","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 7",NA,"LDH","EOR",168,15
+"2166","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 7",NA,"LDH","EOB",301,15
+"2167","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 7",NA,"LDH","24HR",462,15
+"2168","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 7",NA,"CREA","BL",0.6,15
+"2169","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 7",NA,"CREA","EOR",0.2,15
+"2170","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 7",NA,"CREA","EOB",0.5,15
+"2171","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 7",NA,"CREA","24HR",0.8,15
+"2172","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 7",NA,"BUN","BL",12.06,15
+"2173","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 7",NA,"BUN","EOR",17.65,15
+"2174","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 7",NA,"BUN","EOB",23.59,15
+"2175","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 7",NA,"BUN","24HR",34.16,15
+"2176","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 7",NA,"AMY","BL",208,15
+"2177","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 7",NA,"AMY","EOR",125,15
+"2178","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 7",NA,"AMY","EOB",170,15
+"2179","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 7",NA,"AMY","24HR",273,15
+"2180","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 7",NA,"TG","BL",107.59,15
+"2181","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 7",NA,"TG","EOR",108.57,15
+"2182","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 7",NA,"TG","EOB",150.31,15
+"2183","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 7",NA,"TG","24HR",609,15
+"2184","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 7",NA,"GGT","BL",13,15
+"2185","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 7",NA,"GGT","EOR",7,15
+"2186","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 7",NA,"GGT","EOB",9,15
+"2187","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 7",NA,"GGT","24HR",9,15
+"2188","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 7",NA,"GLU","BL",140.32,15
+"2189","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 7",NA,"GLU","EOR",247.82,15
+"2190","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 7",NA,"GLU","EOB",251.12,15
+"2191","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 7",NA,"GLU","24HR",159.58,15
+"2192","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 7","ABG","LAC","BL",1.5,15
+"2193","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 7","ABG","LAC","EOS",7.3,15
+"2194","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 7","ABG","LAC","EOR",9.1,15
+"2195","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 7","ABG","LAC","10%",3.1,15
+"2196","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 7","ABG","LAC","7.5%",6.2,15
+"2197","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 7","ABG","LAC","5%",3.8,15
+"2198","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 7","ABG","LAC","2.5%",3.5,15
+"2199","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 7","ABG","LAC","EOB",5.6,15
+"2200","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 7","ABG","LAC","24HR",1.1,15
+"2201","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 7","ABG","LAC","48HR",0.8,15
+"2202","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8",NA,"AST","BL",156,15
+"2203","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8",NA,"AST","EOR",86,15
+"2204","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8",NA,"AST","EOB",159,15
+"2205","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8",NA,"AST","24HR",201,15
+"2206","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8",NA,"AST","48HR",446,15
+"2207","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8",NA,"ALT","BL",154,15
+"2208","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8",NA,"ALT","EOR",96,15
+"2209","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8",NA,"ALT","EOB",124,15
+"2210","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8",NA,"ALT","24HR",206,15
+"2211","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8",NA,"ALT","48HR",340,15
+"2212","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8",NA,"LDH","BL",232,15
+"2213","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8",NA,"LDH","EOR",106,15
+"2214","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8",NA,"LDH","EOB",263,15
+"2215","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8",NA,"LDH","24HR",231,15
+"2216","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8",NA,"LDH","48HR",584,15
+"2217","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8",NA,"CREA","BL",0.1,15
+"2218","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8",NA,"CREA","EOR",0.8,15
+"2219","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8",NA,"CREA","EOB",0.8,15
+"2220","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8",NA,"CREA","24HR",0.7,15
+"2221","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8",NA,"CREA","48HR",0.5,15
+"2222","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8",NA,"BUN","BL",9.37,15
+"2223","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8",NA,"BUN","EOR",11.91,15
+"2224","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8",NA,"BUN","EOB",23.65,15
+"2225","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8",NA,"BUN","24HR",13.94,15
+"2226","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8",NA,"BUN","48HR",23.61,15
+"2227","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8",NA,"AMY","BL",275,15
+"2228","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8",NA,"AMY","EOR",235,15
+"2229","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8",NA,"AMY","EOB",260,15
+"2230","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8",NA,"AMY","24HR",409,15
+"2231","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8",NA,"AMY","48HR",422,15
+"2232","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8",NA,"TG","BL",190.42,15
+"2233","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8",NA,"TG","EOR",165.21,15
+"2234","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8",NA,"TG","EOB",227.37,15
+"2235","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8",NA,"TG","24HR",503.84,15
+"2236","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8",NA,"TG","48HR",609,15
+"2237","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8",NA,"GGT","BL",8,15
+"2238","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8",NA,"GGT","EOR",7,15
+"2239","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8",NA,"GGT","EOB",6,15
+"2240","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8",NA,"GGT","24HR",7,15
+"2241","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8",NA,"GGT","48HR",8,15
+"2242","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8",NA,"GLU","BL",154.85,15
+"2243","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8",NA,"GLU","EOR",209.12,15
+"2244","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8",NA,"GLU","EOB",258.28,15
+"2245","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8",NA,"GLU","24HR",146.15,15
+"2246","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8",NA,"GLU","48HR",131.35,15
+"2247","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8","ABG","LAC","BL",1.6,15
+"2248","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8","ABG","LAC","EOS",8.9,15
+"2249","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8","ABG","LAC","EOR",11,15
+"2250","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8","ABG","LAC","10%",7.7,15
+"2251","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8","ABG","LAC","7.5%",4.8,15
+"2252","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8","ABG","LAC","5%",3.1,15
+"2253","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8","ABG","LAC","2.5%",3.2,15
+"2254","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8","ABG","LAC","EOB",5.2,15
+"2255","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8","ABG","LAC","24HR",1.1,15
+"2256","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8","ABG","LAC","48HR",4.7,15
+"2257","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9",NA,"AST","BL",50,15
+"2258","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9",NA,"AST","EOR",37,15
+"2259","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9",NA,"AST","EOB",60,15
+"2260","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9",NA,"AST","24HR",291,15
+"2261","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9",NA,"AST","48HR",162,15
+"2262","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9",NA,"ALT","BL",99,15
+"2263","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9",NA,"ALT","EOR",69,15
+"2264","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9",NA,"ALT","EOB",81,15
+"2265","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9",NA,"ALT","24HR",210,15
+"2266","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9",NA,"ALT","48HR",293,15
+"2267","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9",NA,"LDH","BL",142,15
+"2268","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9",NA,"LDH","EOR",91,15
+"2269","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9",NA,"LDH","EOB",259,15
+"2270","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9",NA,"LDH","24HR",452,15
+"2271","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9",NA,"LDH","48HR",254,15
+"2272","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9",NA,"CREA","BL",0.4,15
+"2273","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9",NA,"CREA","EOR",0.6,15
+"2274","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9",NA,"CREA","EOB",0.4,15
+"2275","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9",NA,"CREA","24HR",0.7,15
+"2276","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9",NA,"CREA","48HR",0.4,15
+"2277","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9",NA,"BUN","BL",10.74,15
+"2278","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9",NA,"BUN","EOR",15.56,15
+"2279","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9",NA,"BUN","EOB",23.77,15
+"2280","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9",NA,"BUN","24HR",21.83,15
+"2281","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9",NA,"BUN","48HR",14.64,15
+"2282","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9",NA,"AMY","BL",277,15
+"2283","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9",NA,"AMY","EOR",150,15
+"2284","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9",NA,"AMY","EOB",189,15
+"2285","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9",NA,"AMY","24HR",355,15
+"2286","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9",NA,"AMY","48HR",319,15
+"2287","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9",NA,"TG","BL",96.14,15
+"2288","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9",NA,"TG","EOR",101.75,15
+"2289","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9",NA,"TG","EOB",211.24,15
+"2290","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9",NA,"TG","24HR",609,15
+"2291","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9",NA,"TG","48HR",609,15
+"2292","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9",NA,"GGT","BL",10,15
+"2293","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9",NA,"GGT","EOR",7,15
+"2294","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9",NA,"GGT","EOB",6,15
+"2295","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9",NA,"GGT","24HR",6,15
+"2296","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9",NA,"GGT","48HR",7,15
+"2297","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9",NA,"GLU","BL",143.05,15
+"2298","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9",NA,"GLU","EOR",234.74,15
+"2299","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9",NA,"GLU","EOB",217.77,15
+"2300","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9",NA,"GLU","24HR",140.05,15
+"2301","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9",NA,"GLU","48HR",141.21,15
+"2302","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9","ABG","LAC","BL",0.6,15
+"2303","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9","ABG","LAC","EOS",4.9,15
+"2304","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9","ABG","LAC","EOR",6.9,15
+"2305","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9","ABG","LAC","10%",2.1,15
+"2306","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9","ABG","LAC","7.5%",3,15
+"2307","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9","ABG","LAC","5%",3.6,15
+"2308","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9","ABG","LAC","2.5%",2.3,15
+"2309","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9","ABG","LAC","EOB",4,15
+"2310","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9","ABG","LAC","24HR",1.5,15
+"2311","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9","ABG","LAC","48HR",1.1,15
+"2312","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10",NA,"AST","BL",37,15
+"2313","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10",NA,"AST","EOR",31,15
+"2314","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10",NA,"AST","EOB",39,15
+"2315","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10",NA,"AST","24HR",20,15
+"2316","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10",NA,"AST","48HR",5,15
+"2317","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10",NA,"ALT","BL",97,15
+"2318","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10",NA,"ALT","EOR",35,15
+"2319","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10",NA,"ALT","EOB",44,15
+"2320","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10",NA,"ALT","24HR",58,15
+"2321","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10",NA,"ALT","48HR",70,15
+"2322","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10",NA,"LDH","BL",53,15
+"2323","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10",NA,"LDH","EOR",72,15
+"2324","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10",NA,"LDH","EOB",81,15
+"2325","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10",NA,"LDH","24HR",52,15
+"2326","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10",NA,"LDH","48HR",52,15
+"2327","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10",NA,"CREA","BL",0.4,15
+"2328","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10",NA,"CREA","EOR",0.3,15
+"2329","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10",NA,"CREA","EOB",0.7,15
+"2330","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10",NA,"CREA","24HR",0.3,15
+"2331","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10",NA,"CREA","48HR",0.4,15
+"2332","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10",NA,"BUN","BL",9.19,15
+"2333","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10",NA,"BUN","EOR",9.42,15
+"2334","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10",NA,"BUN","EOB",11.26,15
+"2335","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10",NA,"BUN","24HR",10.63,15
+"2336","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10",NA,"BUN","48HR",7.12,15
+"2337","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10",NA,"AMY","BL",230,15
+"2338","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10",NA,"AMY","EOR",146,15
+"2339","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10",NA,"AMY","EOB",187,15
+"2340","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10",NA,"AMY","24HR",247,15
+"2341","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10",NA,"AMY","48HR",205,15
+"2342","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10",NA,"TG","BL",75.09,15
+"2343","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10",NA,"TG","EOR",118.09,15
+"2344","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10",NA,"TG","EOB",244.88,15
+"2345","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10",NA,"TG","24HR",522.93,15
+"2346","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10",NA,"TG","48HR",234.55,15
+"2347","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10",NA,"GGT","BL",10,15
+"2348","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10",NA,"GGT","EOR",5,15
+"2349","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10",NA,"GGT","EOB",6,15
+"2350","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10",NA,"GGT","24HR",8,15
+"2351","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10",NA,"GGT","48HR",6,15
+"2352","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10",NA,"GLU","BL",131.48,15
+"2353","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10",NA,"GLU","EOR",173.56,15
+"2354","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10",NA,"GLU","EOB",154.13,15
+"2355","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10",NA,"GLU","24HR",142.81,15
+"2356","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10",NA,"GLU","48HR",132.97,15
+"2357","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10","ABG","LAC","BL",2,15
+"2358","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10","ABG","LAC","EOS",2.6,15
+"2359","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10","ABG","LAC","EOR",5.2,15
+"2360","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10","ABG","LAC","10%",2.6,15
+"2361","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10","ABG","LAC","7.5%",2.1,15
+"2362","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10","ABG","LAC","5%",2.7,15
+"2363","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10","ABG","LAC","2.5%",1.8,15
+"2364","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10","ABG","LAC","EOB",2,15
+"2365","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10","ABG","LAC","24HR",1.4,15
+"2366","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10","ABG","LAC","48HR",1.1,15
+"2367","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 1",NA,"GGT","BL",5.9,15
+"2368","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 1",NA,"GLU","BL",0.477,15
+"2369","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 1","ABG","pH","BL",51.8,15
+"2370","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 1","MAP","MAP","BL",75,15
+"2371","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 1","MAP","MAP","EOS",37,15
+"2372","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 1","MAP","MAP","EOR",39,15
+"2373","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 1","MAP","MAP","10%",47,15
+"2374","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 1","MAP","MAP","7.5%",57,15
+"2375","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10","MAP","MAP","5%",46,15
+"2376","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10","MAP","MAP","2.5%",43,15
+"2377","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10","MAP","MAP","EOB",47,15
+"2378","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 2","MAP","MAP","BL",78,15
+"2379","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 2","MAP","MAP","EOS",61,15
+"2380","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 2","MAP","MAP","EOR",69,15
+"2381","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 2","MAP","MAP","10%",50,15
+"2382","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 2","MAP","MAP","7.5%",42,15
+"2383","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10","MAP","MAP","5%",48,15
+"2384","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10","MAP","MAP","2.5%",55,15
+"2385","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10","MAP","MAP","EOB",53,15
+"2386","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10","MAP","MAP","24HR",55,15
+"2387","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 7",NA,"GGT","BL",7.1,15
+"2388","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 7",NA,"GLU","BL",0.47,15
+"2389","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 7","ABG","pH","BL",75.5,15
+"2390","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 3","MAP","MAP","BL",78,15
+"2391","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 3","MAP","MAP","EOS",56,15
+"2392","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 3","MAP","MAP","EOR",57,15
+"2393","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 3","MAP","MAP","10%",63,15
+"2394","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 3","MAP","MAP","7.5%",68,15
+"2395","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10","MAP","MAP","5%",67,15
+"2396","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10","MAP","MAP","2.5%",32,15
+"2397","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10","MAP","MAP","EOB",60,15
+"2398","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10","MAP","MAP","24HR",41,15
+"2399","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10","MAP","MAP","48HR",41,15
+"2400","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4","MAP","MAP","BL",74,15
+"2401","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4","MAP","MAP","EOS",53,15
+"2402","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4","MAP","MAP","EOR",51,15
+"2403","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4","MAP","MAP","10%",41,15
+"2404","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4","MAP","MAP","7.5%",42,15
+"2405","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4","MAP","MAP","5%",39,15
+"2406","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4","MAP","MAP","2.5%",39,15
+"2407","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4","MAP","MAP","EOB",40,15
+"2408","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4","MAP","MAP","24HR",62,15
+"2409","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 4","MAP","MAP","48HR",58,15
+"2410","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5","MAP","MAP","BL",86,15
+"2411","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5","MAP","MAP","EOS",31,15
+"2412","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5","MAP","MAP","EOR",53,15
+"2413","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5","MAP","MAP","10%",36,15
+"2414","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5","MAP","MAP","7.5%",48,15
+"2415","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5","MAP","MAP","5%",58,15
+"2416","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5","MAP","MAP","2.5%",44,15
+"2417","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5","MAP","MAP","EOB",48,15
+"2418","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5","MAP","MAP","24HR",62,15
+"2419","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 5","MAP","MAP","48HR",58,15
+"2420","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10",NA,"GGT","BL",8.3,15
+"2421","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10",NA,"GGT","EOR",10.7,15
+"2422","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10",NA,"GGT","EOB",10.5,15
+"2423","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10",NA,"GGT","24HR",4,15
+"2424","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10",NA,"GLU","BL",0.442,15
+"2425","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10",NA,"GLU","EOR",0.358,15
+"2426","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10",NA,"GLU","EOB",0.387,15
+"2427","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10",NA,"GLU","24HR",0.4,15
+"2428","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10","ABG","pH","BL",27.5,15
+"2429","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10","ABG","pH","EOR",30.2,15
+"2430","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10","ABG","pH","EOB",63.2,15
+"2431","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10","ABG","pH","24HR",27.8,15
+"2432","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10","ABG","pH","24HR",526,15
+"2433","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6","MAP","MAP","BL",78,15
+"2434","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6","MAP","MAP","EOS",56,15
+"2435","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6","MAP","MAP","EOR",46,15
+"2436","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6","MAP","MAP","10%",57,15
+"2437","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6","MAP","MAP","7.5%",61,15
+"2438","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6","MAP","MAP","5%",59,15
+"2439","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6","MAP","MAP","2.5%",46,15
+"2440","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6","MAP","MAP","EOB",46,15
+"2441","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6","MAP","MAP","24HR",59,15
+"2442","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 6","MAP","MAP","48HR",63,15
+"2443","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 11",NA,"GGT","BL",5.5,15
+"2444","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 11",NA,"GGT","EOR",9.5,15
+"2445","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 11",NA,"GGT","EOB",8.5,15
+"2446","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 11",NA,"GGT","24HR",32,15
+"2447","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 11",NA,"GLU","BL",0.444,15
+"2448","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 11",NA,"GLU","EOR",0.372,15
+"2449","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 11",NA,"GLU","EOB",0.373,15
+"2450","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 11",NA,"GLU","24HR",0.366,15
+"2451","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 11","ABG","pH","BL",23.4,15
+"2452","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 11","ABG","pH","EOR",24.5,15
+"2453","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 11","ABG","pH","EOB",74.8,15
+"2454","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 11","ABG","pH","24HR",27.6,15
+"2455","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 11","ABG","pH","BL",547.8,15
+"2456","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 11","ABG","pH","24HR",552.2,15
+"2457","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 7","MAP","MAP","BL",88,15
+"2458","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 7","MAP","MAP","EOS",57,15
+"2459","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 7","MAP","MAP","EOR",52,15
+"2460","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 7","MAP","MAP","10%",79,15
+"2461","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 7","MAP","MAP","7.5%",50,15
+"2462","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 7","MAP","MAP","5%",77,15
+"2463","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 7","MAP","MAP","2.5%",49,15
+"2464","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 7","MAP","MAP","EOB",68,15
+"2465","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 7","MAP","MAP","24HR",59,15
+"2466","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 7","MAP","MAP","48HR",73,15
+"2467","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 12",NA,"GGT","BL",7.4,15
+"2468","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 12",NA,"GGT","EOR",12.4,15
+"2469","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 12",NA,"GGT","EOB",8.7,15
+"2470","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 12",NA,"GGT","24HR",31.3,15
+"2471","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 12",NA,"GLU","BL",0.459,15
+"2472","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 12",NA,"GLU","EOR",0.384,15
+"2473","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 12",NA,"GLU","EOB",0.382,15
+"2474","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 12",NA,"GLU","24HR",0.388,15
+"2475","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 12","ABG","pH","BL",31.4,15
+"2476","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 12","ABG","pH","EOR",77.5,15
+"2477","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 12","ABG","pH","24HR",120.5,15
+"2478","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8","MAP","MAP","BL",85,15
+"2479","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8","MAP","MAP","EOS",29,15
+"2480","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8","MAP","MAP","EOR",51,15
+"2481","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8","MAP","MAP","10%",41,15
+"2482","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8","MAP","MAP","7.5%",52,15
+"2483","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8","MAP","MAP","5%",41,15
+"2484","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8","MAP","MAP","2.5%",45,15
+"2485","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8","MAP","MAP","EOB",50,15
+"2486","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8","MAP","MAP","24HR",58,15
+"2487","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 8","MAP","MAP","48HR",53,15
+"2488","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 13",NA,"GGT","BL",8.5,15
+"2489","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 13",NA,"GGT","EOR",13.6,15
+"2490","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 13",NA,"GGT","EOB",12.3,15
+"2491","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 13",NA,"GGT","24HR",4,15
+"2492","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 13",NA,"GLU","48HR",20.7,15
+"2493","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 13",NA,"GLU","BL",0.448,15
+"2494","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 13",NA,"GLU","EOR",0.346,15
+"2495","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 13",NA,"GLU","EOB",0.353,15
+"2496","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 13",NA,"GLU","24HR",0.408,15
+"2497","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 13",NA,"GLU","48HR",0.613,15
+"2498","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 13","ABG","pH","BL",22.9,15
+"2499","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 13","ABG","pH","EOR",43.5,15
+"2500","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 13","ABG","pH","EOB",90.5,15
+"2501","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 13","ABG","pH","24HR",21.2,15
+"2502","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 13","ABG","pH","48HR",4,15
+"2503","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 13","ABG","pH","24HR",571.2,15
+"2504","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9","MAP","MAP","BL",85,15
+"2505","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9","MAP","MAP","EOS",52,15
+"2506","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9","MAP","MAP","EOR",66,15
+"2507","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9","MAP","MAP","10%",38,15
+"2508","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9","MAP","MAP","7.5%",39,15
+"2509","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9","MAP","MAP","5%",44,15
+"2510","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9","MAP","MAP","2.5%",64,15
+"2511","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9","MAP","MAP","EOB",42,15
+"2512","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9","MAP","MAP","24HR",67,15
+"2513","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 9","MAP","MAP","48HR",88,15
+"2514","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10","MAP","MAP","BL",63,15
+"2515","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10","MAP","MAP","EOS",52,15
+"2516","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10","MAP","MAP","EOR",71,15
+"2517","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10","MAP","MAP","10%",47,15
+"2518","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10","MAP","MAP","7.5%",53,15
+"2519","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10","MAP","MAP","5%",57,15
+"2520","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10","MAP","MAP","2.5%",61,15
+"2521","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10","MAP","MAP","EOB",58,15
+"2522","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10","MAP","MAP","24HR",58,15
+"2523","Sc. B_LR CMP, CBC, ABG, Coag data.xlsx","B_LR 10","MAP","MAP","48HR",65,15
+"2524","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13","CBC","HGB","BL",11.1,15
+"2525","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13","CBC","HGB","EOS",6.5,15
+"2526","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13","CBC","HGB","EOR",5.2,15
+"2527","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13","CBC","HGB","EOB",4.3,15
+"2528","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13","CBC","HGB","24HR",4.1,15
+"2529","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13","CBC","HGB","48HR",4.1,15
+"2530","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13","ABG","pH","BL",7.496,15
+"2531","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13","ABG","pH","EOS",7.407,15
+"2532","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13","ABG","pH","EOR",7.361,15
+"2533","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13","ABG","pH","10%",7.461,15
+"2534","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13","ABG","pH","7.5%",7.461,15
+"2535","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13","ABG","pH","5%",7.453,15
+"2536","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13","ABG","pH","2.5%",7.474,15
+"2537","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13","ABG","pH","EOB",7.449,15
+"2538","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13","ABG","pH","24HR",7.515,15
+"2539","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13","ABG","pH","48HR",7.491,15
+"2540","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"AST","BL",51,15
+"2541","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"AST","EOR",63,15
+"2542","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"AST","EOB",80,15
+"2543","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"AST","24HR",431,15
+"2544","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"AST","48HR",473,15
+"2545","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"AST","BL",140.9,15
+"2546","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"AST","EOR",122.8,15
+"2547","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"AST","EOB",18.7,15
+"2548","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"AST","24HR",121.3,15
+"2549","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"AST","48HR",140.4,15
+"2550","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"Hct","BL",34.1,15
+"2551","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"Hct","EOS",19.8,15
+"2552","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"Hct","EOR",15.5,15
+"2553","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"Hct","EOB",12.6,15
+"2554","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"Hct","24HR",11,15
+"2555","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"Hct","48HR",11.3,15
+"2556","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"pCO2","BL",36,15
+"2557","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"pCO2","EOS",40.7,15
+"2558","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"pCO2","EOR",43.8,15
+"2559","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"pCO2","10%",40.9,15
+"2560","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"pCO2","7.5%",37,15
+"2561","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"pCO2","5%",29.6,15
+"2562","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"pCO2","2.5%",30.2,15
+"2563","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"pCO2","EOB",34.2,15
+"2564","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"pCO2","24HR",29,15
+"2565","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"pCO2","48HR",30.1,15
+"2566","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"ALT","BL",54,15
+"2567","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"ALT","EOR",37,15
+"2568","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"ALT","EOB",43,15
+"2569","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"ALT","24HR",180,15
+"2570","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"ALT","48HR",320,15
+"2571","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"ALT","BL",15,15
+"2572","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"ALT","EOR",15.2,15
+"2573","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"ALT","24HR",9.2,15
+"2574","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"ALT","48HR",9.7,15
+"2575","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"WBC","BL",7.8,15
+"2576","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"WBC","EOS",5.5,15
+"2577","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"WBC","EOR",5.9,15
+"2578","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"WBC","EOB",4.8,15
+"2579","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"WBC","24HR",4.5,15
+"2580","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"WBC","48HR",5.1,15
+"2581","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"pO2","BL",90.4,15
+"2582","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"pO2","EOS",104,15
+"2583","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"pO2","EOR",102,15
+"2584","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"pO2","10%",102,15
+"2585","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"pO2","7.5%",106,15
+"2586","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"pO2","5%",184,15
+"2587","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"pO2","2.5%",146,15
+"2588","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"pO2","EOB",104,15
+"2589","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"pO2","24HR",95.6,15
+"2590","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"pO2","48HR",96.5,15
+"2591","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"LDH","BL",327,15
+"2592","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"LDH","EOR",208,15
+"2593","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"LDH","EOB",101,15
+"2594","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"LDH","24HR",915,15
+"2595","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"LDH","48HR",525,15
+"2596","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"LDH","BL",17,15
+"2597","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"LDH","EOR",14.1,15
+"2598","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"LDH","24HR",17,15
+"2599","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"LDH","48HR",19.7,15
+"2600","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13","CBC","PLT","BL",292,15
+"2601","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13","CBC","PLT","EOS",217,15
+"2602","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13","CBC","PLT","EOR",173,15
+"2603","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13","CBC","PLT","EOB",171,15
+"2604","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13","CBC","PLT","24HR",192,15
+"2605","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13","CBC","PLT","48HR",268,15
+"2606","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13","ABG","LAC","BL",3.4,15
+"2607","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13","ABG","LAC","EOS",12.7,15
+"2608","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13","ABG","LAC","EOR",13.3,15
+"2609","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13","ABG","LAC","10%",6.9,15
+"2610","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13","ABG","LAC","7.5%",5.4,15
+"2611","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13","ABG","LAC","5%",7.5,15
+"2612","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13","ABG","LAC","2.5%",10,15
+"2613","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13","ABG","LAC","EOB",10.8,15
+"2614","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13","ABG","LAC","24HR",4.8,15
+"2615","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13","ABG","LAC","48HR",5.4,15
+"2616","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"CREA","BL",0.3,15
+"2617","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"CREA","EOR",0.5,15
+"2618","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"CREA","EOB",0.3,15
+"2619","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"CREA","24HR",0.3,15
+"2620","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"CREA","48HR",0.1,15
+"2621","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"CREA","BL",4,15
+"2622","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"CREA","EOR",1.7,15
+"2623","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"CREA","EOB",0.54,15
+"2624","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"CREA","24HR",3.09,15
+"2625","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"CREA","48HR",4.95,15
+"2626","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"RBC","BL",5.5,15
+"2627","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"RBC","EOS",3.23,15
+"2628","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"RBC","EOR",2.54,15
+"2629","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"RBC","EOB",2.08,15
+"2630","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"RBC","24HR",1.84,15
+"2631","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"RBC","48HR",1.82,15
+"2632","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"BUN","BL",14.33,15
+"2633","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"BUN","EOR",17.52,15
+"2634","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"BUN","EOB",15.03,15
+"2635","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"BUN","24HR",25.98,15
+"2636","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"BUN","48HR",62.36,15
+"2637","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13","MAP","MAP","BL",87,15
+"2638","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13","MAP","MAP","EOS",34,15
+"2639","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13","MAP","MAP","EOR",43,15
+"2640","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13","MAP","MAP","10%",50,15
+"2641","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13","MAP","MAP","7.5%",64,15
+"2642","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13","MAP","MAP","5%",54,15
+"2643","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13","MAP","MAP","2.5%",61,15
+"2644","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13","MAP","MAP","EOB",57,15
+"2645","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13","MAP","MAP","24HR",51,15
+"2646","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13","MAP","MAP","48HR",55,15
+"2647","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"AMY","BL",241,15
+"2648","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"AMY","EOR",160,15
+"2649","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"AMY","EOB",215,15
+"2650","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"AMY","24HR",272,15
+"2651","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"AMY","48HR",404,15
+"2652","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"TG","BL",273.61,15
+"2653","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"TG","EOR",241.52,15
+"2654","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"TG","EOB",482.1,15
+"2655","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"TG","24HR",609,15
+"2656","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"TG","48HR",609,15
+"2657","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"GGT","BL",6,15
+"2658","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"GGT","EOR",5,15
+"2659","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"GGT","EOB",6,15
+"2660","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"GGT","24HR",8,15
+"2661","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"GGT","48HR",8,15
+"2662","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"GLU","BL",151.53,15
+"2663","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"GLU","EOR",255.22,15
+"2664","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"GLU","EOB",155.87,15
+"2665","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"GLU","24HR",166.43,15
+"2666","Sc. B_LR12-13 (11 is excluded).xlsx","B-LR13",NA,"GLU","48HR",224.93,15

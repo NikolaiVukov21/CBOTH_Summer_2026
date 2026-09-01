@@ -34,12 +34,70 @@ Results_Folder<-file.path(Parent_Directory,paste("Output Sheets"))
 if(!dir.exists(Results_Folder)){
   dir.create(Results_Folder,recursive = TRUE, showWarnings = FALSE)
 }
+
+  #Finding The data range of the input folders
+  find_long_data_range<-function(file_path, sheet_name, na_strings=nas_instance){
+    
+    #Establishing clean and valid headers for later comparision
+    clean_header<-function(x) gsub("[^a-z0-9]","",tolower(trimws(as.character(x))))
+    valid_headers<-c("timepoint","event")
+    
+    #'Walks' the vector, returning the index of the last value
+    
+    last_contiguous<-function(vals, start){
+      last<-start
+      i<-start+1
+      while(i<=length(vals) && !is.na(vals[i]) && trimws(vals[i])!=""){
+        last<-i
+        i<-i+1
+      }
+      last
+    }
+    
+    #Pulls all of column A and looks for the valid header role
+    col_a<-suppressMessages(read_excel(
+      file_path,sheet=sheet_name,
+      range=cell_limits(c(1,1),c(NA,1)),
+      col_names= FALSE, col_types="text",na=na_strings, .name_repair="minimal"
+    ))[[1]]
+    
+    header_row<- which(vapply(col_a,clean_header,character(1)) %in% valid_headers)[1]
+    if(is.na(header_row)){
+      stop(paste0("Could not find a Timepoint/Event header in column A of sheet '",sheet_name,"'"))
+    }
+    
+    last_row<-last_contiguous(col_a,header_row)
+    
+    #reads across the header row to find where the variable columns stop
+    
+    header_vals<- suppressMessages(read_excel(file_path, sheet=sheet_name,
+                                    range=cell_limits(c(header_row,1),c(header_row,NA)),
+                                    col_names=FALSE,col_types="text",na=na_strings, .name_repair="minimal"))
+    
+    header_vals<- as.character(unlist(header_vals[1, ]))
+    last_cols<-last_contiguous(header_vals, 1)
+    cell_limits(c(header_row,1 ),c(last_row,last_cols))
+  }
+
                                                                               ##################################
                                                                               #         Excel Cleaning         #
                                                                               #           Extracting           #
                                                                               ##################################
 
-
+  normalize_Clock_time<- function(x){
+    if(inherits(x,"POSIXct")){
+      return(format(x,"%H:%M"))
+    }
+    
+    x<-toupper(trimws(as.character(x)))
+    
+    parsed<-suppressWarnings(parse_date_time(
+      x, orders=c("HM","IMp","HMW","UMSp")
+    )
+    )
+    
+    format(parsed, "%H:%M")
+  }
 
 
 process_lowres_rabbitdata<- function(file_path,arm){
@@ -47,7 +105,11 @@ process_lowres_rabbitdata<- function(file_path,arm){
   #Getting each excel sheet
   sheets<-excel_sheets(file_path)
   
-  #Trying to capture the excel entries to treat as blanks
+  #Excluding the template sheet
+  sheets <- sheets[!grepl("template",sheets,ignore.case = TRUE)]
+
+  
+  #Trying to capture these excel entries to treat as blanks
   nas_instnce<-c("", " ","\u00A0", "NA", "N/A", "Not available","unk","did not work", "didnt work", "this does nt seem right", "why????")
   
   #Mapping each sheets to it's variables
@@ -55,7 +117,7 @@ process_lowres_rabbitdata<- function(file_path,arm){
     
     #Extracting information/ Meta data for "baseline_data"
     #B column
-    meta_B<-suppressMessages(read_excel(file_path,sheet=sheet_name,range="B4:B8",col_names=c("val"),trim_ws=TRUE,na=nas_instnce,.name_repair = "minimal"))
+    meta_B<-suppressMessages(read_excel(file_path,sheet=sheet_name,range="B4:B9",col_names=c("val"),trim_ws=TRUE,na=nas_instnce,.name_repair = "minimal"))
     
     #F column
     meta_F<-suppressMessages(read_excel(file_path,sheet=sheet_name,range="F4:F5",col_names=c("val"),trim_ws=TRUE,na=nas_instnce,.name_repair = "minimal"))
@@ -67,30 +129,34 @@ process_lowres_rabbitdata<- function(file_path,arm){
     #Had issues with date converting to the number of days after January 1,1900
     date_raw<-meta_B$val[3]
     
-    #Captures the different ways 'date' can be phased through
-    transfusion_date_cld<- if (is.na(date_raw)){
-      NA
+    #Converts transfusion date into REDCap's Format (YYYY-MM-DD) 
+    transfusion_date_cld<- if(is.na(date_raw)){NA_character_
       
-      #Converts for the 1899 epoch
-    } else if (grepl("^[0-9]{5}$", as.character(date_raw))){
-      as.character(as.Date(as.numeric(date_raw),origin="1899-12-30"))
+    }else if (inherits(date_raw,"POSIXt") || inherits(date_raw,"Date")){
+      format(as.Date(date_raw),"%Y-%m-%d")
       
-      #If read as an excel natively
-    } else if (inherits(date_raw,"POSIXt") || inherits(date_raw,"Date")){
-      as.character(as.Date(date_raw))
-      
-      #If already in date format
+    }else if (grepl("^[0-9]{5}",as.character(date_raw))){
+     format(as.Date(as.numeric(date_raw),
+                    origin="1899-12-30"),
+                             "%Y-%m-%d") 
     } else{
-      as.character(date_raw)
+      parsed_date<-suppressWarnings(parse_date_time(as.character(date_raw),
+                                                    orders=c("ymd","mdy","dmy","ymd HMS","mdy HMS","dmy HMS"),quiet=TRUE
+        )
+      )
+      
+     if(is.na(parsed_date)){
+      warning("Could not parse transfusion date: ", as.character(date_raw))
+      NA_character_
+     } else{
+       format(parsed_date,"%Y-%m-%d")
+     }
     }
-    
-    #Formats Date for REDCap formatting
-    transfusion_date_cld<-format(as.Date(transfusion_date_cld),"%Y-%m-%d")
-    
     
     #Extracting baseline variables
     bld_volume_val<-as.numeric(meta_B$val[4])
     transf_vol_val<-as.numeric(meta_B$val[5])
+    Tele_ID<-as.numeric(meta_B$val[6])
     
     #Handles Exclusion
     exclude_raw<-tolower(trimws(as.character(meta_F$val[1])))
@@ -155,13 +221,7 @@ process_lowres_rabbitdata<- function(file_path,arm){
     #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++       
     
     
-    if(arm=="Scenario A"){
-      ranges="A13:BA20"
-    } else if(arm=="Scenario C"){  
-      ranges="A14:BA24"
-    }else{
-      ranges="A13:BA25"
-    }
+    ranges<-find_long_data_range(file_path,sheet_name,na_strings=nas_instnce)
     
     
     long_data <- suppressMessages(read_excel(
@@ -172,6 +232,7 @@ process_lowres_rabbitdata<- function(file_path,arm){
       na=nas_instnce, #Na's
       .name_repair="unique"
     ))
+    
     
     #Convers all headers to lowercase
     names(long_data)<- tolower(gsub("\\.","",names(long_data)))
@@ -193,29 +254,59 @@ process_lowres_rabbitdata<- function(file_path,arm){
         angle_deg=any_of(c("angle","angledeg","degree","ckh angle")),
         ma_mm=any_of(c("ma","mamm","ckh ma")),
         
+        #Catches COAG columns
+        aptt= any_of(c("APTT","appt")),
+        pt= any_of(c("pt","PT")),
+        tt= any_of(c("tt","TT")),
+        fib= any_of(c("fib","FIB")),
         
         #Additional catches
         pc02 = any_of(c("pco2", "pc02")),
         hgb = any_of(c("hb", "hgb", "hemoglobin"))
       ) %>% filter(!is.na(timepoint)) %>% 
       
+      mutate(across(c(-timepoint,-time), ~ as.integer(as.numeric(.)))
+      ) %>%
+      
       #Fixing dynamica naming of timepoints
       mutate(timepoint=as.character(timepoint),
              timepoint=tolower(timepoint),
              timepoint=gsub("hr","h",timepoint),
              timepoint=gsub(" ","",timepoint),
-             timepoint=case_when(
-               grepl("^0\\.1", timepoint) ~ "10",
-               grepl("7\\.499.*e-2|0\\.075", timepoint) ~ "750",
-               grepl("^0\\.05", timepoint) ~ "5",
-               grepl("2\\.500.*e-2|0\\.025", timepoint) ~ "250",
-               TRUE ~ timepoint
-             )
-      )
+             tp_num=suppressWarnings(as.numeric(gsub("%","",timepoint))) #Creates a temporarily numeric column
+      ) %>% 
+      
+      #Had an issue where 10% is defined as 'First Bleed' in one procedure, but then 'Third Bleed' in another
+      mutate(
+        is_format_2 = any(tp_num==20 | tp_num == 0.2,na.rm=TRUE), 
+        
+        timepoint=case_when(
+          
+          #Format 2 logic: 10% is the third bleed
+          is_format_2 & near(tp_num,20) ~ "first_bleed",
+          is_format_2 & near(tp_num,0.2) ~ "first_bleed",
+          is_format_2 & near(tp_num,15) ~ "second_bleed",
+          is_format_2 & near(tp_num,0.15) ~ "second_bleed",
+          is_format_2 & near(tp_num,10) ~ "third_bleed",
+          is_format_2 & near(tp_num,0.1) ~ "third_bleed",
+          
+          #Format 1 logic: 10% is the First bleed
+          !is_format_2 & near(tp_num,10) ~ "first_bleed",
+          !is_format_2 & near(tp_num,0.1) ~ "first_bleed",
+          !is_format_2 & near(tp_num,7.5) ~ "second_bleed",
+          !is_format_2 & near(tp_num,0.075) ~ "second_bleed",
+          !is_format_2 & near(tp_num,5.0) ~ "third_bleed",
+          !is_format_2 & near(tp_num,0.05) ~ "third_bleed",
+          !is_format_2 & near(tp_num,2.5) ~ "fourth_bleed",
+          !is_format_2 & near(tp_num,0.025) ~ "fourth_bleed",
+          
+          TRUE ~ timepoint
+        )
+      ) %>%
+      select(-tp_num,-is_format_2) #removes temp columns
     
     #Safety check
     if(nrow(long_data)==0) return(NULL)
-    
     
     
     #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++    
@@ -243,6 +334,7 @@ process_lowres_rabbitdata<- function(file_path,arm){
              transfusion_date=ifelse(timepoint=="baseline",transfusion_date_cld,NA),
              bld_volume=ifelse(timepoint=="baseline",bld_volume_val,NA),
              transf_vol=ifelse(timepoint=="baseline",transf_vol_val,NA),
+             telemetry_id=ifelse(timepoint=="baseline",Tele_ID,NA),
              exclude=ifelse(timepoint=="baseline",exclude_val,NA),
              exclusion_reason=ifelse(timepoint=="baseline",exclusion_reason_val,NA),
              
@@ -264,7 +356,7 @@ process_lowres_rabbitdata<- function(file_path,arm){
              bld_vol_4hr=ifelse(arm=="Scenario C" & timepoint=="baseline",bld_vol_4hr_val,NA)) %>% 
       
       #Selects baseline and baseline_c data only
-      select(subject_id,redcap_event_name,rabbit_weight,transfusion_date,bld_volume,transf_vol,exclude,exclusion_reason,
+      select(subject_id,redcap_event_name,rabbit_weight,transfusion_date,bld_volume,transf_vol,telemetry_id,exclude,exclusion_reason,
              damp_ld_info,damp_gtt_info,damp_ld_5min,damp_ld_4_hrs,braintissue_vol_5min,braintissue_vol_4hr,total_damp_5min,total_damp_4hr,m_vol_5min,m_vol_4hr,bld_vol_5min,bld_vol_4hr,
              
              #Selects dynamically timeline data
@@ -273,12 +365,15 @@ process_lowres_rabbitdata<- function(file_path,arm){
                "ph", "pc02", "po2", "lac",
                "wbc", "rbc", "hgb", "hct", "plt",
                "ggt", "ast", "alt", "amy", "ldh", "crea", "bun", "glu", "tg",
-               "r_min", "k_min", "angle_deg", "ma_mm"
+               "r_min", "k_min", "angle_deg", "ma_mm",
+               "aptt","pt","tt","fib"
              ))
       )
     
+    
+    
     cleaned_data <-cleaned_data %>%
-      mutate(time=format(time,"%H:%M"))
+      mutate(time=normalize_Clock_time(time))
     
     
     return(cleaned_data)
@@ -343,27 +438,29 @@ final_redcap_data<- final_redcap_data %>%
     #Baseline Instruments Checks first 
     baseline_data_complete=ifelse(
       grepl("baseline",redcap_event_name),
-      ifelse(rowSums(!is.na(select(.,any_of(c("rabbit_weight", "transfusion_date", "bld_volume", "transf_vol", "exclude")))))>0,2,0), 
+      ifelse(rowSums(!is.na(select(.,any_of(c("rabbit_weight", "transfusion_date", "bld_volume", "transf_vol", "exclude")))))>0,1,0), 
       NA
     ),
     
     baseline_data_c_dbb1_complete=ifelse(
       grepl("baseline",redcap_event_name) & grepl("arm_3",redcap_event_name),
-      ifelse(rowSums(!is.na(select(.,any_of(c("damp_ld_info", "damp_gtt_info", "damp_ld_5min", "damp_ld_4_hrs", "braintissue_vol_5min", "braintissue_vol_4hr", "total_damp_5min", "total_damp_4hr", "m_vol_5min", "m_vol_4hr", "bld_vol_5min", "bld_vol_4hr")))))>0,2,0), 
+      ifelse(rowSums(!is.na(select(.,any_of(c("damp_ld_info", "damp_gtt_info", "damp_ld_5min", "damp_ld_4_hrs", "braintissue_vol_5min", "braintissue_vol_4hr", "total_damp_5min", "total_damp_4hr", "m_vol_5min", "m_vol_4hr", "bld_vol_5min", "bld_vol_4hr")))))>0,1,0), 
       NA
     ),
     
+    #Code to mark a section as incomplete (0) or complete (2) in REDCap
+    #Returns 0 if a variable is empty, 2 if all variables have a value
+    clinical_vitals_complete=ifelse(rowSums(!is.na(select(.,any_of(c("time", "map", "bpm", "body_temp")))))>0,1,0),
     
-    #Timeline Instruments
-    clinical_vitals_complete=ifelse(rowSums(!is.na(select(.,any_of(c("time", "map", "bpm", "body_temp")))))>0,2,0),
+    abg_complete=ifelse(rowSums(!is.na(select(.,any_of(c("ph", "pc02", "po2", "lac")))))>0,1,0),
     
-    abg_complete=ifelse(rowSums(!is.na(select(.,any_of(c("ph", "pc02", "po2", "lac")))))>0,2,0),
+    cbc_complete=ifelse(rowSums(!is.na(select(.,any_of(c("wbc", "rbc", "hgb", "hct", "plt")))))>0,1,0),
     
-    cbc_complete=ifelse(rowSums(!is.na(select(.,any_of(c("wbc", "rbc", "hgb", "hct", "plt")))))>0,2,0),
+    cmp_complete=ifelse(rowSums(!is.na(select(.,any_of(c("ggt", "ast", "alt", "amy", "ldh", "crea", "bun", "glu", "tg")))))>0,1,0),
     
-    cmp_complete=ifelse(rowSums(!is.na(select(.,any_of(c("ggt", "ast", "alt", "amy", "ldh", "crea", "bun", "glu", "tg")))))>0,2,0),
+    coagteg_complete=ifelse(rowSums(!is.na(select(.,any_of(c("r_min", "k_min", "angle_deg", "ma_mm")))))>0,1,0),
     
-    coagteg_complete=ifelse(rowSums(!is.na(select(.,any_of(c("r_min", "k_min", "angle_deg", "ma_mm")))))>0,2,0)
+    coag_complete=ifelse(rowSums(!is.na(select(.,any_of(c("aptt", "pt", "tt", "fib")))))>0,1,0)
   )
 
 
@@ -404,7 +501,7 @@ if(api_token==""){
     redcap_uri=redcap_url,
     token=api_token
   )
-  
+
   message(upload_result$outcome_message)
 }
 
