@@ -245,7 +245,7 @@
 * *Direct API Integration:* Uses a locally stored environment variable (REDCAP\_API\_TOKEN) to:
 * Authenticate and securely push the structured dataframe directly to the university's REDCap server:
 
-  * (\[https://umbredcap.umaryland.edu/api/](https://umbredcap.umaryland.edu/api/))
+  * (\[https://umbredcap.umaryland.edu/](https://umbredcap.umaryland.edu/api/))
 
     * eliminating the need for manual data entry.
 
