@@ -1,16 +1,15 @@
 
 #Checking and loading needed libraries
-if(!requireNamespace("readxl", quietly = TRUE)) install.packages ("readxl")
-if(!requireNamespace("tidyverse", quietly = TRUE)) install.packages ("tidyverse")
-if(!requireNamespace("purrr", quietly = TRUE)) install.packages ("purrr")
-if(!requireNamespace("rstudioapi", quietly = TRUE)) install.packages ("rstudioapi")
-if(!requireNamespace("lubridate", quietly = TRUE)) install.packages ("lubridate")
+required_packages<-c('cowplot','dplyr',	'ggbeeswarm',	'ggh4x',	'ggplot2',	'ggpp',	'ggpubr',	'ggtext',	'grid',	'gtable',	'lubridate',	'openxlsx',	'patchwork',	'pracma',	'purrr',	'readxl',	'rstudioapi',	'scales',	'showtext',	'tidyr',	'tidyverse'
+,'patchwork')
 
-library(readxl)
-library(tidyverse)
-library(purrr)
-library(rstudioapi)
-library(lubridate)
+new_packages<-required_packages[!(required_packages %in% installed.packages()[,"Package"])]
+if(length(new_packages) > 0) {install.packages(new_packages)}
+
+invisible(lapply(required_packages,library,character.only = TRUE))
+
+
+
 options(scipen=999)
 
 #Log File Name

@@ -14,7 +14,7 @@ if(Sys.getenv("REDCAP_API_TOKEN")!=""){
   
   #Prompts for key
 } else{
-  new_key<-rstudioapi::askForPassword("First-time setup: Please enter your API key")
+  new_key<-askForPassword("First-time setup: Please enter your API key")
   
   #If the key is saved, save it to the private local file:
   if(!is.null(new_key) && new_key!=""){

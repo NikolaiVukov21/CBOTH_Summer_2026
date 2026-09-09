@@ -262,7 +262,7 @@ match_term <- function(val, dict){
   return(NA_character_)
 }
 
-rabbit_regex <- "(KC|B[-_ ]?LR|B[-_ ]?B|B[-_ ]?PRC|BEA|Rabbit)[-_ ]?[A-Za-z0-9]+"
+rabbit_regex <- "(KC|B[-_ ]?LR|B[-_ ]?B|B[-_ ]?PRC|BEA|Rabbit|Model)[-_ ]?[0-9]+"
 
 #Regex Extractor for IDs
 extract_rabit <- function(val){
@@ -963,7 +963,8 @@ date_rows <- raw_master_dataset %>%
 
 possible_pairs_master <- bind_rows(possible_pairs_master, time_rows, date_rows) %>% 
   mutate(Subject_ID= extract_rabit(Source_File),
-         Subject_ID=ifelse(is.na(Subject_ID), Source_File, Subject_ID)
+         Subject_ID=ifelse(is.na(Subject_ID), str_remove(Source_File, "(?i)(_.*)?\\.pdf$"), Subject_ID),
+         Subject_ID=str_replace(Subject_ID,"_"," ")
          ) %>% 
   relocate(Subject_ID,Source_File, page,page_type,Standardized_Variable) %>% 
   arrange(Source_File, page, desc(Standardized_Variable == "Date"), desc(Standardized_Variable == "Time"),Variable_Y)
@@ -1042,7 +1043,7 @@ event_mapping<- possible_pairs_master %>%
  wide_master <- wide_master %>% 
    select(Subject_ID, Timepoint, `Clock Time`, `Measurement >`, any_of(target_vars)) %>%
    arrange(Subject_ID) %>%
-   mutate(across(everything(), ~ ifelse(is.na(.), "", as.character(.))))
+   mutate(across(everything(), ~ ifelse(is.na(.), "", as.character(.)))) 
  
 
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1078,6 +1079,10 @@ bold_center<- createStyle(textDecoration = "bold",halign="center",valign="center
 header_fill <- createStyle(textDecoration = "bold",halign="center",valign="center", fgFill="#c0e4f5", border="bottom", fontSize=11, fontName = "Calibri",borderStyle="medium")
 style_num<- createStyle(fontName= "Aptos Narrow", numFmt="Number", halign="center")
 
+#Stles for anomalies
+outlier_style <- createStyle(fgFill = "#FFC7CE") 
+sandwich_style <- createStyle(fgFill = "#FFF6B3", )
+
 #For Testing
 #area_effected<- createStyle(halign="center",valign="center",fgFill="#8B0000")
 
@@ -1094,7 +1099,7 @@ for (subj in names(list_of_models)){
   df<- list_of_models[[subj]]
   export_df <- df %>% select(-Subject_ID) #ID is already in headers
   
-  num_cols <- setdiff(1:ncol(export_df), c(1, 3))
+  num_cols <- setdiff(1:ncol(export_df), 1:3)
   export_df[num_cols] <- lapply(export_df[num_cols], as.numeric)
   
   #Writes Top header
@@ -1174,9 +1179,87 @@ for (subj in names(list_of_models)){
     addStyle(wb, sheet_name, header_fill, rows=14, cols=1:ncol(export_df), gridExpand= TRUE)
     
     addStyle(wb,sheet_name,style_num, rows= 15:(14+nrow(export_df)),cols=num_cols, gridExpand=TRUE)
-    addStyle(wb,sheet_name,style_meta, rows= 15:(14+nrow(export_df)),cols=c(1, 3), gridExpand=TRUE)
+    addStyle(wb,sheet_name,style_meta, rows= 15:(14+nrow(export_df)),cols= 1:3, gridExpand=TRUE)
   
     
+    
+#Outlier and Anomaly detection
+  #Extreme outlier detection
+    for (c in num_cols){
+      vals <- as.numeric(export_df[[c]])
+      valid_vals <- vals[!is.na(vals)]
+      
+      #Requiring at least 3 points to determine what "normal" looks like for that variable and model
+      if(length(valid_vals) >= 3){
+        
+        #Using MAD (Median Absolute Deviation) because it's resistant to extreme outliers
+        med <- median(valid_vals, na.rm= TRUE)
+        mad_val <- mad(valid_vals, na.rm= TRUE)
+        
+        #if MAD is 0 (more than 50% of deviation is identical to the med), fallbacks to a 50% deviation limit
+        
+        #Extreme Anomalies
+        if (mad_val >0){
+          upper_bound <- med + (6* mad_val)
+          lower_bound <- med - (6* mad_val)
+        } else
+          upper_bound <- Inf
+          lower_bound <- -Inf
+          
+          
+          
+        outlier_idx <- which (vals > upper_bound | vals < lower_bound)
+        if(length(outlier_idx) >0){
+          
+          #used +14 rows accounts for the header rows above the data
+          addStyle(wb, sheet_name, outlier_style, rows = 14 + outlier_idx, cols=c, gridExpand = FALSE, stack= TRUE)
+        }
+      }
+    }
+    
+ #Missing & "Sandwich" Missing detection
+  for (r in 1:nrow(export_df)){
+    for (c in num_cols){
+      if(is.na(export_df[r,c])){
+       is_horizontal_sandwich <- FALSE
+       
+       #Checks if the timepoints above and below are filled 
+       if((c-1) %in% num_cols && (c+1) %in% num_cols){
+         if(!is.na(export_df[r,c-1]) && !is.na(export_df[r,c+1])){
+           is_horizontal_sandwich <- TRUE
+         }
+       }
+      
+       #Applies style only if it's a vertical sandwich
+       if(is_horizontal_sandwich){
+         addStyle(wb, sheet_name, sandwich_style, rows = 14+r, cols=c, gridExpand = FALSE, stack= TRUE)
+       }
+      }
+    }
+    
+    
+    col_idx <- 4
+    
+    for(i in seq_along(runs$lengths)){
+      group_len <- runs$lengths[i]
+      group_cols <- col_idx:(col_idx+group_len -1)
+      
+      group_vals <- export_df[r, group_cols]
+      num_missing <- sum(is.na(group_vals))
+      
+      if(num_missing > 0 && num_missing < group_len){
+        
+        missing_cols <- group_cols[is.na(group_vals)]
+        
+        for (mc in missing_cols){
+          addStyle(wb, sheet_name, sandwich_style, rows=14+r, cols=mc, gridExpand = FALSE, stack= TRUE)
+        }
+      }
+      
+      #Advances the starting column index for next group
+      col_idx <- col_idx+group_len
+    }
+  }
 }
 
 #Saves the finished workbook
