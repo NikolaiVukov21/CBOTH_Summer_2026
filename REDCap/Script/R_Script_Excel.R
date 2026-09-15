@@ -4,8 +4,6 @@
                                                                               ##################################
 
 
-
-
 required_packages<-c("dplyr","readxl", "tidyr","tidyverse", "tools","purrr","rstudioapi","REDCapR")
 
 new_packages<-required_packages[!(required_packages %in% installed.packages()[,"Package"])]
@@ -22,8 +20,14 @@ if(Excel_File_Path !=" "){
   #Allows users to select the folder with all the excel sheets
 ifelse(Excel_File_Path==" ",Folder_Path <- selectDirectory(),Folder_Path<-Excel_File_Path)
 
-  #Catches / Selects all excel files from choosen folder
-excel_files<-list.files(Folder_Path,pattern="\\.xlsx?$",full.names=TRUE,recursive=FALSE)
+  #Catches / Selects all excel files from chosen folder or a specififc file
+if(dir.exists(Folder_Path)){
+  excel_files <- list.files(Folder_Path, pattern = "\\.xlsx?$", full.names = TRUE, recursive = FALSE)
+} else if (file.exists(Folder_Path) && grepl("\\.xlsx?$", Folder_Path, ignore.case = TRUE)){
+  excel_files <- Folder_Path
+} else{
+  stop("The provided path is neither a valid folder nor an excel file. Please check the 'Excel_File_Path'.")
+}
  
   #Gets parent directory
 Parent_Directory<-dirname(Directory)
@@ -119,6 +123,9 @@ process_lowres_rabbitdata<- function(file_path,arm){
     #B column
     meta_B<-suppressMessages(read_excel(file_path,sheet=sheet_name,range="B4:B9",col_names=c("val"),trim_ws=TRUE,na=nas_instnce,.name_repair = "minimal"))
     
+    #C column
+    meta_C<-suppressMessages(read_excel(file_path,sheet=sheet_name,range="C7:C8",col_names=c("val"),trim_ws=TRUE,na=nas_instnce,.name_repair = "minimal"))
+    
     #F column
     meta_F<-suppressMessages(read_excel(file_path,sheet=sheet_name,range="F4:F5",col_names=c("val"),trim_ws=TRUE,na=nas_instnce,.name_repair = "minimal"))
     
@@ -154,10 +161,15 @@ process_lowres_rabbitdata<- function(file_path,arm){
     }
     
     #Extracting baseline variables
-    bld_volume_val<-as.numeric(meta_B$val[4])
-    transf_vol_val<-as.numeric(meta_B$val[5])
+      #bld_volume_val<-as.numeric(meta_B$val[4])
+      #transf_vol_val<-as.numeric(meta_B$val[5])
     Tele_ID<-as.numeric(meta_B$val[6])
     
+    if(!is.null(meta_C$val[1])){
+    tbvr_val <- as.numeric(gsub("%","",meta_C$val[1]))
+    }else{
+      tbvr_val <- NA
+    }
     #Handles Exclusion
     exclude_raw<-tolower(trimws(as.character(meta_F$val[1])))
     exclusion_reason_val<-trimws(as.character(meta_F$val[2]))
@@ -332,8 +344,9 @@ process_lowres_rabbitdata<- function(file_path,arm){
              #Imports baseline data
              rabbit_weight=ifelse(timepoint=="baseline",rabbit_weight_val,NA),
              transfusion_date=ifelse(timepoint=="baseline",transfusion_date_cld,NA),
-             bld_volume=ifelse(timepoint=="baseline",bld_volume_val,NA),
-             transf_vol=ifelse(timepoint=="baseline",transf_vol_val,NA),
+              #bld_volume=ifelse(timepoint=="baseline",bld_volume_val,NA),
+              #transf_vol=ifelse(timepoint=="baseline",transf_vol_val,NA),
+             tbvr=ifelse(timepoint=="baseline",tbvr_val,NA),
              telemetry_id=ifelse(timepoint=="baseline",Tele_ID,NA),
              exclude=ifelse(timepoint=="baseline",exclude_val,NA),
              exclusion_reason=ifelse(timepoint=="baseline",exclusion_reason_val,NA),
@@ -356,7 +369,9 @@ process_lowres_rabbitdata<- function(file_path,arm){
              bld_vol_4hr=ifelse(arm=="Scenario C" & timepoint=="baseline",bld_vol_4hr_val,NA)) %>% 
       
       #Selects baseline and baseline_c data only
-      select(subject_id,redcap_event_name,rabbit_weight,transfusion_date,bld_volume,transf_vol,telemetry_id,exclude,exclusion_reason,
+      select(subject_id,redcap_event_name,rabbit_weight,transfusion_date,
+              #bld_volume,transf_vol,
+             tbvr,telemetry_id,exclude,exclusion_reason,
              damp_ld_info,damp_gtt_info,damp_ld_5min,damp_ld_4_hrs,braintissue_vol_5min,braintissue_vol_4hr,total_damp_5min,total_damp_4hr,m_vol_5min,m_vol_4hr,bld_vol_5min,bld_vol_4hr,
              
              #Selects dynamically timeline data
@@ -402,7 +417,7 @@ final_redcap_data<-map_dfr(excel_files,function(file){
     message("Processing: ",file_name,"-> Assigned to:",current_arm)
     return(process_lowres_rabbitdata(file_path = file, arm = current_arm))
   }else{
-    warning("Skipped: Could not determine Arm from Filename: ",file_name, " (Prefix found: '", Scenario_sheet, "')")
+    warning("Skipped: Could not determine Arm from Filename: ",file_name, " (Prefix found: '", scenario_sheet, "')")
     return(NULL)
   }
 })
@@ -438,32 +453,65 @@ final_redcap_data<- final_redcap_data %>%
     #Baseline Instruments Checks first 
     baseline_data_complete=ifelse(
       grepl("baseline",redcap_event_name),
-      ifelse(rowSums(!is.na(select(.,any_of(c("rabbit_weight", "transfusion_date", "bld_volume", "transf_vol", "exclude")))))>0,1,0), 
+      ifelse(rowSums(!is.na(select(.,any_of(c("rabbit_weight", "transfusion_date", 
+                                                #"bld_volume", "transf_vol", 
+                                              "exclude")))))==0,
+                      NA_real_,
+      ifelse(rowSums(is.na(select(.,any_of(c("rabbit_weight", "transfusion_date", 
+                                                     #"bld_volume", "transf_vol", 
+                                                     "exclude")))))==0,1,0
+         )
+        ), 
       NA
     ),
     
     baseline_data_c_dbb1_complete=ifelse(
       grepl("baseline",redcap_event_name) & grepl("arm_3",redcap_event_name),
-      ifelse(rowSums(!is.na(select(.,any_of(c("damp_ld_info", "damp_gtt_info", "damp_ld_5min", "damp_ld_4_hrs", "braintissue_vol_5min", "braintissue_vol_4hr", "total_damp_5min", "total_damp_4hr", "m_vol_5min", "m_vol_4hr", "bld_vol_5min", "bld_vol_4hr")))))>0,1,0), 
+      ifelse(rowSums(!is.na(select(.,any_of(c("damp_ld_info", "damp_gtt_info", "damp_ld_5min", "damp_ld_4_hrs", "braintissue_vol_5min", "braintissue_vol_4hr", "total_damp_5min", "total_damp_4hr", "m_vol_5min", "m_vol_4hr", "bld_vol_5min", "bld_vol_4hr")))))==0,
+                       NA_real_,
+             ifelse(rowSums(is.na(select(.,any_of(c("damp_ld_info", "damp_gtt_info", "damp_ld_5min", "damp_ld_4_hrs", "braintissue_vol_5min", "braintissue_vol_4hr", "total_damp_5min", "total_damp_4hr", "m_vol_5min", "m_vol_4hr", "bld_vol_5min", "bld_vol_4hr")))))==0,1,0       
+             )
+            ), 
       NA
     ),
     
     #Code to mark a section as incomplete (0) or complete (2) in REDCap
     #Returns 0 if a variable is empty, 2 if all variables have a value
-    clinical_vitals_complete=ifelse(rowSums(!is.na(select(.,any_of(c("time", "map", "bpm", "body_temp")))))>0,1,0),
+    clinical_vitals_complete=ifelse(rowSums(!is.na(select(.,any_of(c("time", "map", "bpm", "body_temp","tbvr","telemetry_id"))))) == 0,
+                                    NA_real_,
+                             ifelse(rowSums(is.na(select(.,any_of(c("time", "map", "bpm", "body_temp","tbvr","telemetry_id"))))) == 0,1,0
+    )
+   ),
+   
+    abg_complete=ifelse(rowSums(!is.na(select(.,any_of(c("ph", "pc02", "po2", "lac")))))==0,
+                 NA_real_,
+                 ifelse(rowSums(is.na(select(.,any_of(c("ph", "pc02", "po2", "lac")))))==0,1,0
+     )                  
+    ),
     
-    abg_complete=ifelse(rowSums(!is.na(select(.,any_of(c("ph", "pc02", "po2", "lac")))))>0,1,0),
+    cbc_complete=ifelse(rowSums(!is.na(select(.,any_of(c("wbc", "rbc", "hgb", "hct", "plt")))))==0,
+                        NA_real_,
+                 ifelse(rowSums(is.na(select(.,any_of(c("wbc", "rbc", "hgb", "hct", "plt")))))==0,1,0
+     )
+    ),
     
-    cbc_complete=ifelse(rowSums(!is.na(select(.,any_of(c("wbc", "rbc", "hgb", "hct", "plt")))))>0,1,0),
-    
-    cmp_complete=ifelse(rowSums(!is.na(select(.,any_of(c("ggt", "ast", "alt", "amy", "ldh", "crea", "bun", "glu", "tg")))))>0,1,0),
-    
-    coagteg_complete=ifelse(rowSums(!is.na(select(.,any_of(c("r_min", "k_min", "angle_deg", "ma_mm")))))>0,1,0),
-    
-    coag_complete=ifelse(rowSums(!is.na(select(.,any_of(c("aptt", "pt", "tt", "fib")))))>0,1,0)
-  )
-
-
+    cmp_complete=ifelse(rowSums(!is.na(select(.,any_of(c("ggt", "ast", "alt", "amy", "ldh", "crea", "bun", "glu", "tg")))))==0,
+                        NA_real_,
+                 ifelse(rowSums(is.na(select(.,any_of(c("ggt", "ast", "alt", "amy", "ldh", "crea", "bun", "glu", "tg")))))==0,1,0
+      )
+     ),
+   
+    teg_complete=ifelse(rowSums(!is.na(select(.,any_of(c("r_min", "k_min", "angle_deg", "ma_mm")))))==0,
+                        NA_real_,
+                 ifelse(rowSums(is.na(select(.,any_of(c("r_min", "k_min", "angle_deg", "ma_mm")))))==0,1,0
+      )
+     ),
+    coag_complete=ifelse(rowSums(!is.na(select(.,any_of(c("aptt", "pt", "tt", "fib"))))) ==0,
+                         NA_real_,
+                  ifelse(rowSums(is.na(select(.,any_of(c("aptt", "pt", "tt", "fib"))))) ==0,1,0
+      )
+     )
+    )
 
 
 
