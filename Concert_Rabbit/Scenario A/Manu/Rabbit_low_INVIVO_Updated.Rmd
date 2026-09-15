@@ -20,11 +20,11 @@ font_add_google("Open Sans")
 
 #get system date
 date <- format(Sys.Date(), '_%Y_%m_%d')
-time <- format(Sys.time(), '_%H')
+time <- format(Sys.time(), '_%H%M')
 
 #Folders needed for output seperation
-results_dir <- file.path(mypath, "results", paste0("rabbit_", date))
-results_Hour_dir <- file.path(results_dir,paste0("results", "H" ,time))
+results_dir <- file.path(mypath, "results", paste0("rabbit", date))
+results_Hour_dir <- file.path(results_dir,paste0("results",date,time))
 CSV_files<-file.path(results_Hour_dir,"CSV Files")
 Single_graphs<-file.path(results_Hour_dir,"Single Graphs")
 Combined_graphs<-file.path(results_Hour_dir,"Combined Graphs")
@@ -316,6 +316,289 @@ write_csv(df_primary_stats, file.path(CSV_files,"df_primary_stats.csv"))
 
 ### Graphing/ Plotting
 
+#### 'MANU' Plots
+
+```{r,warning=FALSE}
+
+plot_func_facet_p <- function(data, vec, facet_labels = NULL, vjust_mult = 1,n) {
+  
+  df_temp <- data %>%
+    filter(NAME %in% vec) %>%
+    mutate(
+      NAME_F = factor(NAME, levels = vec),
+      model_index = as.numeric(factor(MODEL, levels = vec_breaks)),
+      VJUST = vjust_mult * model_index
+    )
+  
+  p <- ggplot(df_temp, aes(x = TIME_VIS, y = MEAN, color = factor(MODEL))) +
+    
+    ggh4x::facet_wrap2(
+      ~NAME_F,
+      ncol = n,
+      scales = "free_y",
+      strip.position = "left",
+      labeller = if (is.null(facet_labels)) label_value else as_labeller(facet_labels),
+      strip = ggh4x::strip_vanilla(size = "constant")
+    ) +
+    
+    geom_point(size = 2) +
+    geom_line(linewidth = 1) +
+    
+    geom_errorbar(
+  aes(ymin = MEAN - SD,ymax = MEAN + SD,color = factor(MODEL)),
+  width = 0.3,
+  linewidth = 0.6
+) +
+    
+    scale_x_continuous(
+      breaks = TIME_VIS, 
+      labels = time_levels,
+      expand = expansion(add = c(0.18, 0.22))
+    ) +
+    
+    scale_y_continuous(
+      breaks = pretty_breaks(),
+      expand = expansion(mult = c(0.05, 0.05))
+    ) +
+    
+    scale_color_manual(
+      breaks = vec_breaks,
+      values = vec_colors,
+      labels = vec_labels
+    ) +
+    
+    labs(x = "", y = "", color = "") +
+    coord_cartesian(clip = "off") +
+    theme_minimal() +
+    my_theme() +
+    theme(
+      axis.text.x = element_markdown(
+        hjust = 1, vjust = 1.2, size = 11, color = "black",angle=65),
+      strip.text.y.left = element_text(
+        size = 11,
+        face = "bold",
+        angle = 90,
+        lineheight = 1,
+        margin= margin(r=2)),
+      legend.position = "top",
+      legend.justification = "center",
+  legend.direction = "horizontal",
+  legend.box = "horizontal",
+  legend.box.just = "center",
+      panel.spacing.x = unit(0.8, "lines"),
+      panel.border = element_rect(
+        color = "black", fill = NA, linewidth = 0.9
+      ),
+      axis.line = element_line(color = "black"),
+      panel.grid.minor = element_blank(),
+      plot.margin = margin(12, 16, 12, 1)
+    )
+  
+  return(p)
+}
+
+add_facet_letters <- function(p,
+                              labels = LETTERS,
+                              x_off = unit(0, "lines"),
+                              y_off = unit(0.18, "lines"),
+                              fontsize = 24) {
+  
+  g <- ggplotGrob(p)
+  
+  panel_id <- grep("^panel", g$layout$name)
+  panel_layout <- g$layout[panel_id, ]
+  
+  n_panels <- nrow(panel_layout)
+  labs <- labels[seq_len(n_panels)]
+  
+
+  for (i in seq_len(n_panels)) {
+    
+    #Caculates the index to avoid unit subsetting
+    idx_x <- (i-1) %% length(x_off) + 1
+    idx_y <- (i-1) %% length(y_off) + 1
+    
+    g <- gtable::gtable_add_grob(
+      g,
+      grobs = grid::textGrob(
+        labs[i],
+        
+        # Safety recycled index
+        x = unit(0, "npc") - x_off[idx_x],
+        y = unit(1, "npc") + y_off[idx_y],
+        just = c("center", "center"),
+        gp = grid::gpar(fontsize = fontsize, fontface = "bold")
+      ),
+      t = panel_layout$t[i],
+      l = panel_layout$l[i],
+      clip = "off",
+      name = paste0("facet-letter-", i)
+    )
+  }
+  
+  return(g)
+}
+
+vec_combine <- c("pH\n(value)", "AST\n(U/L)", "ALT\n(U/L)", "CR\n(mg/dL)",
+  "R.Time\n(min)", "K.Time\n(min)", "Angle\n(degree)", "MA\n(mm)")
+
+vec_combine_lab <- setNames(c("pH\n\u00A0","AST\n(U/L)","ALT\n(U/L)",
+    "CR\n(mg/dL)","R-Time\n(min)","K-Time\n(min)","Angle\n(degree)",
+    "MA\n(mm)"),vec_combine)
+
+p <- plot_func_facet_p(
+  data = df_rTx_stats,
+  vec = vec_combine,
+  facet_labels = vec_combine_lab,
+  vjust_mult = 1.4,
+  n=4
+)
+
+g <- add_facet_letters(
+  p,
+  labels = LETTERS,
+  x_off = unit(c(1.95,2.05,2.20,1.85), "lines"),
+  y_off = unit(-0.05, "lines"),
+  fontsize = 20
+)
+
+ggsave(
+  paste0(Combined_graphs, "/WBC_MANU_Combine", date, ".png"),
+  g,
+  width = 12,
+  height = 5.5,
+  units = "in",
+  dpi = 600,
+  bg = "white"
+)
+
+
+vec_vitals <- c("Free Hb\n(%)", "Free Hb\n(uM)", "Heart rate\n(bpm)", "Temperature\n(°C)")
+
+vec_vitals_lab <- setNames(c("Free Hb\n(%)", "Free Hb\n(uM)", "Heart rate\n(bpm)", "Temperature\n(°C)"),vec_vitals)
+
+p <- plot_func_facet_p(data = df_rTx_stats,vec = vec_vitals,facet_labels = vec_vitals_lab,vjust_mult = 1.4,n=2)
+
+g <- add_facet_letters(p,
+  labels = LETTERS,
+  x_off = unit(c(2,2.1), "lines"),
+  y_off = unit(-0.05, "lines"),fontsize = 20)
+
+ggsave(
+  paste0(Combined_graphs, "/WBC_MANU_vitals", date, ".png"),
+  g,width = 11,height = 6,units = "in",dpi = 600,bg = "white")
+
+
+
+vec_ABG <- c("pH\n(value)", "pCO2\n(mmHg)",  "pO2\n(mmHg)")
+
+vec_ABG_lab <- setNames(c("pH\n(value)", "pCO2\n(mmHg)",  "pO2\n(mmHg)"),vec_ABG)
+
+p <- plot_func_facet_p(data = df_rTx_stats,vec = vec_ABG,facet_labels = vec_ABG_lab,vjust_mult = 1.4,n=3)
+
+g <- add_facet_letters(p,
+     labels = LETTERS,
+     x_off = unit(c(1.75,1.85,2.05), "lines"),
+     y_off = unit(-0.05, "lines"),fontsize = 20)
+
+ggsave(
+  paste0(Combined_graphs, "/WBC_MANU_ABG", date, ".png"),
+  g,width = 12,height = 5.5,units = "in",dpi = 600,bg = "white")
+
+
+
+vec_TEG <- c("R.Time\n(min)", "K.Time\n(min)", "Angle\n(degree)", "MA\n(mm)")
+vec_TEG_lab <- setNames(c("R-Time\n(min)", "K-Time\n(min)", "Angle\n(degree)", "MA\n(mm)"),vec_TEG)
+
+p <- plot_func_facet_p(data = df_rTx_stats,vec = vec_TEG,facet_labels = vec_TEG_lab,vjust_mult = 1.4,n=2)
+
+g <- add_facet_letters(p,
+     labels = LETTERS,
+     x_off = unit(c(1.55,1.75), "lines"),
+     y_off = unit(-0.05, "lines"),fontsize = 20)
+
+ggsave(
+  paste0(Combined_graphs, "/WBC_MANU_TEG", date, ".png"),
+  g,width = 11,height = 6,units = "in",dpi = 600,bg = "white")
+
+
+vec_CMP <- c("BUN\n(mg/dL)", "AST\n(U/L)", "LDH\n(U/L)", "CR\n(mg/dL)", "ALT\n(U/L)", "AMY\n(U/L)", "GLU\n(mg/dL)", "GGT\n(U/L)", "TG\n(mg/dL)")
+
+vec_CMP_lab <- setNames(c("BUN\n(mg/dL)", "AST\n(U/L)", "LDH\n(U/L)", "CR\n(mg/dL)", "ALT\n(U/L)", "AMY\n(U/L)", "GLU\n(mg/dL)", "GGT\n(U/L)", "TG\n(mg/dL)"),vec_CMP)
+
+p <- plot_func_facet_p(
+  data = df_rTx_stats,
+  vec = vec_CMP,
+  facet_labels = vec_CMP_lab,
+  vjust_mult = 5,
+  n=3
+)
+
+g <- add_facet_letters(
+  p,
+  labels = LETTERS,
+  x_off = unit(c(2,2.25,2.65), "lines"),
+  y_off = unit(0, "lines"),
+  fontsize = 20
+)
+
+ggsave(paste0(Combined_graphs, "/WBC_MANU_CMP", date, ".png"),
+  g,
+  width = 12,
+  height = 5.5,
+  units = "in",
+  dpi = 600,
+  bg = "white")
+```
+
+#### CBC Plot (MANU)
+
+```{r}
+
+#Update Statistics Dataframe
+df_rTx_stats_cbc <- df_rTx %>% 
+  filter(!(ID == "A-EMv3.0-WBA 01" & Timepoint %in% c("EOS", "EOR", "1hr", "3hr", "6hr", "24hr"))) %>% 
+  group_by(GROUP, METRIC, NAME ,MODEL, Timepoint, TIME_VIS) %>% 
+  summarize(
+    N = n(),
+    MIN = min(VALUE, na.rm=TRUE),
+    MED = quantile(VALUE, probs=0.5, na.rm=TRUE),
+    MAX = max(VALUE, na.rm=TRUE),
+    MEAN = mean(VALUE, na.rm=TRUE),
+    SD = sd(VALUE, na.rm=TRUE),
+    .groups= "drop"
+  ) %>% 
+  arrange(GROUP,METRIC, NAME ,MODEL, Timepoint)
+
+#Variables to use
+vec_CBC <- c(
+  "Hb\n(g/dL)",
+  "Hct\n(%)",
+  "RBC\n(10^6/mm^3)",
+  "PLT\n(10^3/mm^3)",
+  "WBC\n(10^3/mm^3)",
+  " "
+)
+
+#Labels
+vec_cbc_lab <- setNames(c("Hb\n(g/dL)", "Hct\n(%)", "RBC\n(10⁶/mm³)", "PLT\n(10³/mm³)","WBC\n(10³/mm³)"," "),vec_CBC)
+
+#Plots
+p <- plot_func_facet_p(data = df_rTx_stats_cbc ,vec = vec_CBC,facet_labels = vec_cbc_lab,vjust_mult = 1.4,n=3)
+
+#Labels
+#Change "..." in x_off = unit(c(...)), to change postion of labels
+g <- add_facet_letters(p,
+  labels = LETTERS,
+  x_off = unit(c(2.30,1.85,1.55), "lines"),
+  y_off = unit(-0.05, "lines"),fontsize = 20)
+
+#Saving file
+ggsave(
+  paste0(Combined_graphs, "/CBC_Manu", date, ".png"),
+  g,width = 11,height = 6,units = "in",dpi = 600,bg = "white")
+```
+
 #### Map & LAC graphing
 
 ```{r,warning=FALSE}
@@ -409,6 +692,237 @@ ggsave(
 )
 ```
 
+#### N-Count Excel Sheet
+
+##### Functions
+```{r}
+#Function for master sheet
+
+Write_Master_Count <- function(wb, sheet_name, data_n, time_levels, models, mod_lab){
+  addWorksheet(wb, sheet_name)
+  
+  #Styles Used for master sheet
+  group_style <- createStyle(fontName = "Aptos Narrow", fgFill= "#F4B084", border= "TopBottomLeftRight")
+  
+  var_style <- createStyle( fontName = "Aptos Narrow", fgFill="#A9D08E", border= "TopBottomLeftRight")
+  
+  table_style <- createStyle(fontName = "Aptos Narrow", border="TopBottomLeftRight", halign="center")
+  
+  bold_style <- createStyle(fontName = "Aptos Narrow", textDecoration = "bold")
+  Total_top_line <- createStyle (border= "Top", borderStyle = "medium")
+  
+  #Starting Row
+  current_row <- 2
+  
+  #Gets unqiue Groups
+  groups <- unique(data_n$GROUP)
+  groups <- groups[groups %in% c("ABG", "CBC", "CMP", "MAP", "TEG 5000")]
+  
+  for (grp in groups){
+    #Writes Group name First
+    writeData(wb, sheet_name, grp, startCol=2, startRow= current_row)
+    addStyle(wb, sheet_name, group_style, rows= current_row, cols=2)
+    
+    #Filters data for only that group
+    grp_data <- data_n %>%  filter(GROUP == grp)
+    
+    #Gets unique variables for the group
+    metrics <- unique(grp_data$METRIC)
+    
+    #Reset starting column for varaibles (col 3 = C)
+    current_col <- 3
+    max_table_height <- 0 #finds tallest table in group, use for next group
+    
+    for (met in metrics){
+      #Writes Variable Name
+      var_row<- current_row +2
+      writeData(wb, sheet_name, met, startCol= current_col, startRow= var_row)
+      addStyle(wb, sheet_name, var_style, rows= var_row, cols= current_col)
+      
+      #Space between variable and Table
+      table_row <- var_row +2
+      table_col <- current_col +1
+      #Wrangles Table Data
+      #i.e. pivots and caculates totals
+      tbl_data <- grp_data %>% 
+        filter(METRIC == met) %>% 
+        group_by(MODEL, Timepoint) %>% 
+        summarise(Total_N = sum(N, na.rm= TRUE), .groups="drop") %>% 
+        mutate(Timepoint= factor(Timepoint, levels= time_levels, labels= time_levels)) %>% 
+        mutate(MODEL = factor(MODEL, levels= models, labels=mod_lab)) %>% 
+        pivot_wider(names_from = Timepoint, values_from= Total_N, values_fill=0, names_sort= TRUE)
+
+      
+      #Caculates column Totals 
+      total_row <- tbl_data %>% 
+        summarise(across(where(is.numeric),~sum(., na.rm= TRUE))) %>% 
+        mutate(MODEL= "Total") %>% 
+        relocate(MODEL)
+      
+      #Binds totals and makes first column blank
+      tbl_data <- bind_rows(tbl_data, total_row) %>% 
+        rename(" "= MODEL)
+      
+      #Writes the table
+      table_row <- current_row +3
+      writeData(wb, sheet_name, tbl_data, startCol= table_col, startRow= table_row)
+      
+      total_row_idx <- table_row + nrow (tbl_data)
+      total_col_idx <- table_col + ncol (tbl_data) -1
+      
+      #Applies grid borders
+      addStyle(wb, sheet_name, table_style,
+               rows= table_row:total_row_idx,
+               cols= current_col:total_col_idx,
+               gridExpand = TRUE, stack= TRUE)
+      
+      #Applies Total Column bolding
+      addStyle(wb, sheet_name, bold_style,
+               table_row:total_row_idx, cols = total_col_idx,
+               gridExpand = TRUE, stack= TRUE)
+      
+      
+      addStyle(wb, sheet_name, Total_top_line,
+               rows= total_row_idx,
+               cols= table_col:total_col_idx,
+               gridExpand = TRUE, stack= TRUE)
+      
+      #Tracks height to position the next group
+      max_table_height <- max (max_table_height, total_row_idx - current_row)
+      #Uppdates column position (With 1 extra empty space)
+      current_col <- total_col_idx + 2
+    }
+    
+    #updates row positon for next group
+    current_row <- current_row+ max_table_height+ 2
+  }
+}
+
+#Counts for combined and indvidual models
+Writes_Count_Tables<- function (wb,sheet_name, data_n){
+  addWorksheet(wb,sheet_name)
+  
+  #Creates custom style to highlight group name
+  group_style<-createStyle(fontName="Aptos Narrow",fgFill = "#F2CEEF", halign="center",valign="center")
+  header_style<-createStyle(fontName="Aptos Narrow",border="Bottom",halign="left")
+  metric_style<-createStyle(fontName="Aptos Narrow",border="Right",halign="left")
+  data_style<-createStyle(fontName="Aptos Narrow",halign="left")
+  intersection_style<-createStyle(border="BottomRight")
+  
+  #Starting row
+  current_row<-2
+  
+  #Gets unique group names
+  groups<-unique(data_n$GROUP)
+  groups<-groups[groups %in% c("ABG", "CBC", "CMP", "MAP", "TEG 5000")]
+  
+  for (grp in groups){
+    
+    #Writes Group's data
+    writeData(wb,sheet_name,grp,startCol = 2,startRow = current_row)
+    addStyle(wb, sheet_name,group_style,rows=current_row,cols=2)
+    
+    #Skips a row for spacing
+    table_row<-current_row +2
+    table_col<-3
+    
+    #Pivots to wideformat
+    grp_data<-data_n %>% 
+      filter(GROUP == grp) %>%
+      #Factors TimePoints
+      mutate(Timepoint=factor(Timepoint,levels=time_levels,labels=time_levels)) %>%
+      arrange(Timepoint) %>% 
+      select(-GROUP) %>% #Since "GROUP" is the title, remove it
+      pivot_wider(names_from=Timepoint,values_from=Total_N,names_sort=TRUE) %>% 
+      rename(" "=METRIC) #Renaming Metric to blank to stop header from appearing in table
+    
+    #Writes data to pivoted data table
+    writeData(wb,sheet_name,grp_data,startCol = table_col,startRow = table_row)
+    
+    #Applying header style
+    if(ncol(grp_data)>1){
+      addStyle(wb,sheet_name,header_style, rows=table_row, cols=(table_col+1):(table_col+ncol(grp_data)-1), gridExpand=TRUE)
+    }
+    
+    #Applys intersection formatting
+    addStyle(wb,sheet_name,intersection_style, rows=table_row,cols=table_col,gridExpand = TRUE)
+    
+    #Formatting columns below the header
+    #Formatting metric column
+    if(nrow(grp_data)>0){
+      addStyle(wb,sheet_name,metric_style,
+               rows=(table_row+1):(table_row+nrow(grp_data)),
+               cols=table_col,gridExpand=TRUE)
+      
+      #Formatting numbers
+      if(nrow(grp_data)>1){
+        addStyle(wb,sheet_name,data_style,
+          rows=(table_row+1):(table_row+nrow(grp_data)),
+          cols=(table_col+1):(table_col+ncol(grp_data)-1),gridExpand = TRUE)    
+      }
+    }
+    
+    #Updates current row for next group's table
+    current_row<-table_row+nrow(grp_data)+2
+  }
+}
+```
+
+##### Writes Data
+```{r,message=FALSE,warning=FALSE}
+#Nikolai Vukov
+#7/25/2026
+#Simplifies the "CreateWorkBook" function
+wb<-createWorkbook()
+
+  #Gets unique Models name
+  models<-unique(Style_Guide$MODEL)
+  mod_lab<-unique(Style_Guide$label)
+  
+
+#Calls the master function first
+Write_Master_Count(wb, "master_count", df_rTx_stats, time_levels, models, mod_lab)
+
+#Starts with "combined" sheet
+  df_combined<-df_rTx_stats %>% 
+   group_by(GROUP, METRIC, Timepoint) %>% 
+   summarise(Total_N=sum(N,na.rm=TRUE), .groups="drop") %>% 
+    complete( 
+      nesting(GROUP,METRIC),
+      Timepoint=time_levels,
+      fill=list(Total_N=0)
+    )
+
+  
+  #Calls function to generate workbook 
+  Writes_Count_Tables(wb,"Combined N-Count",df_combined)
+  
+#Creates sheets for models seperately
+  
+  walk2(models, mod_lab, \(mod,lab){
+    df_model<-df_rTx_stats %>% 
+      filter(MODEL == mod) %>% 
+      group_by(GROUP, METRIC, Timepoint) %>% 
+      summarise(Total_N=sum(N,na.rm=TRUE), .groups="drop") %>% 
+    complete( 
+      nesting(GROUP,METRIC),
+      Timepoint=time_levels,
+      fill=list(Total_N=0)
+    )
+    
+    #Writes each model as it's own sheet
+    Writes_Count_Tables(wb,as.character(lab),df_model)
+  })
+  
+  
+  
+  #Saves Data
+  n_count_excel<-paste0(CSV_files,"/df_n_Counts.xlsx")
+  saveWorkbook(wb,n_count_excel,overwrite=TRUE)
+```
+
+### Additional Figures
+
 #### Exploratory Longitudinal Figures
 ```{r, fig.show = 'hide'}
 plot_func_facet <- function(data, vec, file, facet_labels = NULL, vjust_mult = 1.4,n) {
@@ -475,7 +989,7 @@ plot_func_facet <- function(data, vec, file, facet_labels = NULL, vjust_mult = 1
     
     geom_errorbar(
   aes(ymin = MEAN - SD,ymax = MEAN + SD,color = factor(MODEL)),
-  width = 0.1,
+  width = 0.2,
   linewidth = 0.6
 ) +
     
@@ -535,7 +1049,7 @@ panel.spacing.x = unit(1.5, "lines"),
 
 ```
 
-#### Old Code, can be skipped - same function as codeblock below
+#### Old Code, can be skipped 
 ```{r,fig.show = 'hide',eval= FALSE}
 
 vec_CBC <- c(
@@ -556,7 +1070,7 @@ vec_CBC_lab <- c(
 names(vec_CBC_lab) <- vec_CBC
 
 invisible(plot_func_facet(data = df_rTx_stats,vec = vec_CBC,
-    file = "EXPLORE_CBC",facet_labels = vec_CBC_lab,vjust_mult = 1.4,n=3))
+    file = "MANU_CBC",facet_labels = vec_CBC_lab,vjust_mult = 1.4,n=3))
 
 
 vec_vitals <- c("Free Hb\n(%)", "Free Hb\n(uM)", "Heart rate\n(bpm)", "Temperature\n(°C)")
@@ -565,7 +1079,7 @@ vec_vitals_lab <- c("Free Hb<br>(%)", "Free Hb<br>(uM)", "Heart rate<br>(bpm)", 
 names(vec_vitals_lab) <- vec_vitals
 
 invisible(plot_func_facet(data = df_rTx_stats,vec = vec_vitals,
-    file = "EXPLORE_vitals",facet_labels = vec_vitals_lab,vjust_mult = 1.4,n=2))
+    file = "MANU_vitals",facet_labels = vec_vitals_lab,vjust_mult = 1.4,n=2))
 
 vec_ABG <- c("pH\n(value)", "pCO2\n(mmHg)",  "pO2\n(mmHg)")
 
@@ -573,7 +1087,7 @@ vec_ABG_lab <- c("pH","pCO2<br>(mmHg)","pO2<br>(mmHg)")
 names(vec_ABG_lab) <- vec_ABG
 
 invisible(plot_func_facet(data = df_rTx_stats,vec = vec_ABG,
-    file = "EXPLORE_ABG",facet_labels = vec_ABG_lab,vjust_mult = 1.4,n=3))
+    file = "MANU_ABG",facet_labels = vec_ABG_lab,vjust_mult = 1.4,n=3))
 
 vec_CMP <- c("BUN\n(mg/dL)", "AST\n(U/L)", "LDH\n(U/L)", "CR\n(mg/dL)", "ALT\n(U/L)", "AMY\n(U/L)", "GLU\n(mg/dL)", "GGT\n(U/L)", "TG\n(mg/dL)")
 
@@ -583,7 +1097,7 @@ vec_CMP_lab <- c("BUN<br>(mg/dL)","AST<br>(U/L)","LDH<br>(U/L)",
 names(vec_CMP_lab) <- vec_CMP
 
 invisible(plot_func_facet(data = df_rTx_stats,vec = vec_CMP,
-    file = "EXPLORE_CMP",facet_labels = vec_CMP_lab,vjust_mult = 1.4,n=3))
+    file = "MANU_CMP",facet_labels = vec_CMP_lab,vjust_mult = 1.4,n=3))
 
 vec_TEG <- c("R.Time\n(min)", "K.Time\n(min)", "Angle\n(degree)", "MA\n(mm)")
 vec_TEG_lab <- c("R-Time<br>(min)","K-Time<br>(min)","Angle<br>(degree)",
@@ -592,242 +1106,7 @@ vec_TEG_lab <- c("R-Time<br>(min)","K-Time<br>(min)","Angle<br>(degree)",
 names(vec_TEG_lab) <- vec_TEG
 
 invisible(plot_func_facet(data = df_rTx_stats,vec = vec_TEG,
-    file = "EXPLORE_TEG",facet_labels = vec_TEG_lab,vjust_mult = 1.4,n=2))
-```
-
-#### 'Explore' Plots
-
-```{r,warning=FALSE}
-
-plot_func_facet_p <- function(data, vec, facet_labels = NULL, vjust_mult = 1,n) {
-  
-  df_temp <- data %>%
-    filter(NAME %in% vec) %>%
-    mutate(
-      NAME_F = factor(NAME, levels = vec),
-      model_index = as.numeric(factor(MODEL, levels = vec_breaks)),
-      VJUST = vjust_mult * model_index
-    )
-  
-  p <- ggplot(df_temp, aes(x = TIME_VIS, y = MEAN, color = factor(MODEL))) +
-    
-    ggh4x::facet_wrap2(
-      ~NAME_F,
-      ncol = n,
-      scales = "free_y",
-      strip.position = "left",
-      labeller = if (is.null(facet_labels)) label_value else as_labeller(facet_labels),
-      strip = ggh4x::strip_vanilla(size = "constant")
-    ) +
-    
-    geom_point(size = 2) +
-    geom_line(linewidth = 1) +
-    
-    geom_errorbar(
-  aes(ymin = MEAN - SD,ymax = MEAN + SD,color = factor(MODEL)),
-  width = 0.1,
-  linewidth = 0.6
-) +
-    
-    scale_x_continuous(
-      breaks = TIME_VIS, 
-      labels = time_levels,
-      expand = expansion(add = c(0.18, 0.22))
-    ) +
-    
-    scale_y_continuous(
-      breaks = pretty_breaks(),
-      expand = expansion(mult = c(0.05, 0.05))
-    ) +
-    
-    scale_color_manual(
-      breaks = vec_breaks,
-      values = vec_colors,
-      labels = vec_labels
-    ) +
-    
-    labs(x = "", y = "", color = "") +
-    coord_cartesian(clip = "off") +
-    theme_minimal() +
-    my_theme() +
-    theme(
-      axis.text.x = element_markdown(
-        hjust = 1, vjust = 1.2, size = 8, color = "black",angle=65),
-      strip.text.y.left = element_text(
-        size = 11,
-        face = "bold",
-        angle = 90,
-        lineheight = 1,
-        margin= margin(r=2)),
-      legend.position = "top",
-      legend.justification = "center",
-  legend.direction = "horizontal",
-  legend.box = "horizontal",
-  legend.box.just = "center",
-      panel.spacing.x = unit(0.8, "lines"),
-      panel.border = element_rect(
-        color = "black", fill = NA, linewidth = 0.9
-      ),
-      axis.line = element_line(color = "black"),
-      panel.grid.minor = element_blank(),
-      plot.margin = margin(12, 16, 12, 1)
-    )
-  
-  return(p)
-}
-
-add_facet_letters <- function(p,
-                              labels = LETTERS,
-                              x_off = unit(0, "lines"),
-                              y_off = unit(0.18, "lines"),
-                              fontsize = 24) {
-  
-  g <- ggplotGrob(p)
-  
-  panel_id <- grep("^panel", g$layout$name)
-  panel_layout <- g$layout[panel_id, ]
-  
-  n_panels <- nrow(panel_layout)
-  labs <- labels[seq_len(n_panels)]
-  
-
-  for (i in seq_len(n_panels)) {
-    
-    #Caculates the index to avoid unit subsetting
-    idx_x <- (i-1) %% length(x_off) + 1
-    idx_y <- (i-1) %% length(y_off) + 1
-    
-    g <- gtable::gtable_add_grob(
-      g,
-      grobs = grid::textGrob(
-        labs[i],
-        
-        # Safety recycled index
-        x = unit(0, "npc") - x_off[idx_x],
-        y = unit(1, "npc") + y_off[idx_y],
-        just = c("center", "center"),
-        gp = grid::gpar(fontsize = fontsize, fontface = "bold")
-      ),
-      t = panel_layout$t[i],
-      l = panel_layout$l[i],
-      clip = "off",
-      name = paste0("facet-letter-", i)
-    )
-  }
-  
-  return(g)
-}
-
-vec_combine <- c("pH\n(value)", "AST\n(U/L)", "ALT\n(U/L)", "CR\n(mg/dL)",
-  "R.Time\n(min)", "K.Time\n(min)", "Angle\n(degree)", "MA\n(mm)")
-
-vec_combine_lab <- setNames(c("pH\n\u00A0","AST\n(U/L)","ALT\n(U/L)",
-    "CR\n(mg/dL)","R-Time\n(min)","K-Time\n(min)","Angle\n(degree)",
-    "MA\n(mm)"),vec_combine)
-
-p <- plot_func_facet_p(
-  data = df_rTx_stats,
-  vec = vec_combine,
-  facet_labels = vec_combine_lab,
-  vjust_mult = 1.4,
-  n=4
-)
-
-g <- add_facet_letters(
-  p,
-  labels = LETTERS,
-  x_off = unit(c(1.95,2.05,2.20,1.85), "lines"),
-  y_off = unit(-0.05, "lines"),
-  fontsize = 20
-)
-
-ggsave(
-  paste0(Combined_graphs, "/WBC_EXPLORE_Combine", date, ".png"),
-  g,
-  width = 12,
-  height = 5.5,
-  units = "in",
-  dpi = 600,
-  bg = "white"
-)
-
-
-vec_vitals <- c("Free Hb\n(%)", "Free Hb\n(uM)", "Heart rate\n(bpm)", "Temperature\n(°C)")
-
-vec_vitals_lab <- setNames(c("Free Hb\n(%)", "Free Hb\n(uM)", "Heart rate\n(bpm)", "Temperature\n(°C)"),vec_vitals)
-
-p <- plot_func_facet_p(data = df_rTx_stats,vec = vec_vitals,facet_labels = vec_vitals_lab,vjust_mult = 1.4,n=2)
-
-g <- add_facet_letters(p,
-  labels = LETTERS,
-  x_off = unit(c(2,2.1), "lines"),
-  y_off = unit(-0.05, "lines"),fontsize = 20)
-
-ggsave(
-  paste0(Combined_graphs, "/WBC_EXPLORE_vitals", date, ".png"),
-  g,width = 11,height = 6,units = "in",dpi = 600,bg = "white")
-
-
-
-vec_ABG <- c("pH\n(value)", "pCO2\n(mmHg)",  "pO2\n(mmHg)")
-
-vec_ABG_lab <- setNames(c("pH\n(value)", "pCO2\n(mmHg)",  "pO2\n(mmHg)"),vec_ABG)
-
-p <- plot_func_facet_p(data = df_rTx_stats,vec = vec_ABG,facet_labels = vec_ABG_lab,vjust_mult = 1.4,n=3)
-
-g <- add_facet_letters(p,
-     labels = LETTERS,
-     x_off = unit(c(1.75,1.85,2.05), "lines"),
-     y_off = unit(-0.05, "lines"),fontsize = 20)
-
-ggsave(
-  paste0(Combined_graphs, "/WBC_EXPLORE_ABG", date, ".png"),
-  g,width = 12,height = 5.5,units = "in",dpi = 600,bg = "white")
-
-
-
-vec_TEG <- c("R.Time\n(min)", "K.Time\n(min)", "Angle\n(degree)", "MA\n(mm)")
-vec_TEG_lab <- setNames(c("R-Time\n(min)", "K-Time\n(min)", "Angle\n(degree)", "MA\n(mm)"),vec_TEG)
-
-p <- plot_func_facet_p(data = df_rTx_stats,vec = vec_TEG,facet_labels = vec_TEG_lab,vjust_mult = 1.4,n=2)
-
-g <- add_facet_letters(p,
-     labels = LETTERS,
-     x_off = unit(c(1.55,1.75), "lines"),
-     y_off = unit(-0.05, "lines"),fontsize = 20)
-
-ggsave(
-  paste0(Combined_graphs, "/WBC_EXPLORE_TEG", date, ".png"),
-  g,width = 11,height = 6,units = "in",dpi = 600,bg = "white")
-
-
-vec_CMP <- c("BUN\n(mg/dL)", "AST\n(U/L)", "LDH\n(U/L)", "CR\n(mg/dL)", "ALT\n(U/L)", "AMY\n(U/L)", "GLU\n(mg/dL)", "GGT\n(U/L)", "TG\n(mg/dL)")
-
-vec_CMP_lab <- setNames(c("BUN\n(mg/dL)", "AST\n(U/L)", "LDH\n(U/L)", "CR\n(mg/dL)", "ALT\n(U/L)", "AMY\n(U/L)", "GLU\n(mg/dL)", "GGT\n(U/L)", "TG\n(mg/dL)"),vec_CMP)
-
-p <- plot_func_facet_p(
-  data = df_rTx_stats,
-  vec = vec_CMP,
-  facet_labels = vec_CMP_lab,
-  vjust_mult = 5,
-  n=3
-)
-
-g <- add_facet_letters(
-  p,
-  labels = LETTERS,
-  x_off = unit(c(2,2.25,2.65), "lines"),
-  y_off = unit(0, "lines"),
-  fontsize = 20
-)
-
-ggsave(paste0(Combined_graphs, "/WBC_EXPLORE_CMP", date, ".png"),
-  g,
-  width = 12,
-  height = 5.5,
-  units = "in",
-  dpi = 600,
-  bg = "white")
+    file = "MANU_TEG",facet_labels = vec_TEG_lab,vjust_mult = 1.4,n=2))
 ```
 
 
@@ -1621,7 +1900,7 @@ plot_func_single_metric_core <- function(data, metric_name, show_legend = FALSE)
     geom_line(linewidth = 1) +
     geom_errorbar(
       aes(ymin = MEAN - SD, ymax = MEAN + SD, color = factor(MODEL)),
-      width = 0.2,
+      width = 0.3,
       linewidth= 0.6
     ) +
     scale_x_continuous(
@@ -1902,57 +2181,10 @@ plot_CBC_final <- plot_func_CBC_with_N(
   data_main = df_rTx_stats_cbc,
   data_N = df_rTx_stats_1,
   vec = vec_CBC,
-  file = "EXPLORE_CBC"
+  file = "MANU_CBC"
 )
 ```
 
-#### CBC Plot (Explore)
-
-```{r}
-
-#Update Statistics Dataframe
-df_rTx_stats_cbc <- df_rTx %>% 
-  filter(!(ID == "A-EMv3.0-WBA 01" & Timepoint %in% c("EOS", "EOR", "1hr", "3hr", "6hr", "24hr"))) %>% 
-  group_by(GROUP, METRIC, NAME ,MODEL, Timepoint, TIME_VIS) %>% 
-  summarize(
-    N = n(),
-    MIN = min(VALUE, na.rm=TRUE),
-    MED = quantile(VALUE, probs=0.5, na.rm=TRUE),
-    MAX = max(VALUE, na.rm=TRUE),
-    MEAN = mean(VALUE, na.rm=TRUE),
-    SD = sd(VALUE, na.rm=TRUE),
-    .groups= "drop"
-  ) %>% 
-  arrange(GROUP,METRIC, NAME ,MODEL, Timepoint)
-
-#Variables to use
-vec_CBC <- c(
-  "Hb\n(g/dL)",
-  "Hct\n(%)",
-  "RBC\n(10^6/mm^3)",
-  "PLT\n(10^3/mm^3)",
-  "WBC\n(10^3/mm^3)",
-  " "
-)
-
-#Labels
-vec_cbc_lab <- setNames(c("Hb\n(g/dL)", "Hct\n(%)", "RBC\n(10^6/mm^3)", "PLT\n(10^3/mm^3)","WBC\n(10^3/mm^3)"," "),vec_CBC)
-
-#Plots
-p <- plot_func_facet_p(data = df_rTx_stats_cbc ,vec = vec_CBC,facet_labels = vec_cbc_lab,vjust_mult = 1.4,n=3)
-
-#Labels
-#Change "..." in x_off = unit(c(...)), to change postion of labels
-g <- add_facet_letters(p,
-  labels = LETTERS,
-  x_off = unit(c(2.30,1.85,1.55), "lines"),
-  y_off = unit(-0.05, "lines"),fontsize = 20)
-
-#Saving file
-ggsave(
-  paste0(Combined_graphs, "/CBC_Not_EXPLORE", date, ".png"),
-  g,width = 11,height = 6,units = "in",dpi = 600,bg = "white")
-```
 
 #### Creates the "FACET" graphs
 
@@ -2126,119 +2358,4 @@ invisible(plot_func_CBC_blank_with_N(
   data_N = df_rTx_stats_1
 ))
 
-```
-
-#### N-Count Excel Sheet
-
-```{r,message=FALSE,warning=FALSE}
-#Nikolai Vukov
-#7/25/2026
-Writes_Count_Tables<- function (wb,sheet_name, data_n){
-  addWorksheet(wb,sheet_name)
-  
-  #Creates custom style to highlight group name
-  group_style<-createStyle(fontName="Aptos Narrow",fgFill = "#F2CEEF", halign="center",valign="center")
-  header_style<-createStyle(fontName="Aptos Narrow",border="Bottom",halign="left")
-  metric_style<-createStyle(fontName="Aptos Narrow",border="Right",halign="left")
-  data_style<-createStyle(fontName="Aptos Narrow",halign="left")
-  intersection_style<-createStyle(border="BottomRight")
-  
-  #Starting row
-  current_row<-2
-  
-  #Gets unique group names
-  groups<-unique(data_n$GROUP)
-  groups<-groups[groups %in% c("ABG", "CBC", "CMP", "MAP", "TEG 5000")]
-  
-  for (grp in groups){
-    
-    #Writes Group's data
-    writeData(wb,sheet_name,grp,startCol = 2,startRow = current_row)
-    addStyle(wb, sheet_name,group_style,rows=current_row,cols=2)
-    
-    #Skips a row for spacing
-    table_row<-current_row +2
-    table_col<-3
-    
-    #Pivots to wideformat
-    grp_data<-data_n %>% 
-      filter(GROUP == grp) %>%
-      #Factors TimePoints
-      mutate(Timepoint=factor(Timepoint,levels=time_levels,labels=time_levels)) %>%
-      arrange(Timepoint) %>% 
-      select(-GROUP) %>% #Since "GROUP" is the title, remove it
-      pivot_wider(names_from=Timepoint,values_from=Total_N,names_sort=TRUE) %>% 
-      rename(" "=METRIC) #Renaming Metric to blank to stop header from appearing in table
-    
-    #Writes data to pivoted data table
-    writeData(wb,sheet_name,grp_data,startCol = table_col,startRow = table_row)
-    
-    #Applying header style
-    if(ncol(grp_data)>1){
-      addStyle(wb,sheet_name,header_style, rows=table_row, cols=(table_col+1):(table_col+ncol(grp_data)-1), gridExpand=TRUE)
-    }
-    
-    #Applys intersection formatting
-    addStyle(wb,sheet_name,intersection_style, rows=table_row,cols=table_col,gridExpand = TRUE)
-    
-    #Formatting columns below the header
-    #Formatting metric column
-    if(nrow(grp_data)>0){
-      addStyle(wb,sheet_name,metric_style,
-               rows=(table_row+1):(table_row+nrow(grp_data)),
-               cols=table_col,gridExpand=TRUE)
-      
-      #Formatting numbers
-      if(nrow(grp_data)>1){
-        addStyle(wb,sheet_name,data_style,
-          rows=(table_row+1):(table_row+nrow(grp_data)),
-          cols=(table_col+1):(table_col+ncol(grp_data)-1),gridExpand = TRUE)    
-      }
-    }
-    
-    #Updates current row for next group's table
-    current_row<-table_row+nrow(grp_data)+2
-  }
-}
-
-#Simplifies the "CreateWorkBook" function
-wb<-createWorkbook()
-
-#Starts with "combined" sheet
-  df_combined<-df_rTx_stats %>% 
-   group_by(GROUP, METRIC, Timepoint) %>% 
-   summarise(Total_N=sum(N,na.rm=TRUE), .groups="drop") %>% 
-    complete( 
-      nesting(GROUP,METRIC),
-      Timepoint=time_levels,
-      fill=list(Total_N=0)
-    )
-
-  
-  #Calls function to generate workbook 
-  Writes_Count_Tables(wb,"Combined N-Count",df_combined)
-  
-#Creates sheets for models seperately
-  
-  #Gets unique Models name
-  models<-unique(df_rTx_stats$MODEL)
-  
-  for(mod in models){
-    df_model<-df_rTx_stats %>% 
-      filter(MODEL == mod) %>% 
-      group_by(GROUP, METRIC, Timepoint) %>% 
-      summarise(Total_N=sum(N,na.rm=TRUE), .groups="drop") %>% 
-    complete( 
-      nesting(GROUP,METRIC),
-      Timepoint=time_levels,
-      fill=list(Total_N=0)
-    )
-    
-    #Writes each model as it's own sheet
-    Writes_Count_Tables(wb,as.character(mod),df_model)
-  }
-  
-  #Saves Data
-  n_count_excel<-paste0(CSV_files,"/df_n_Counts.xlsx")
-  saveWorkbook(wb,n_count_excel,overwrite=TRUE)
 ```

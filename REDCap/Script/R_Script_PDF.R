@@ -3,12 +3,12 @@
 ##################################
 
 
-required_packages <- c("dplyr", "tidyr", "tidyverse", "openxlsx", "data.table", "stringr", "pdftools","magick", "tesseract")
+required_packages <- c("dplyr", "tidyr", "tidyverse", "openxlsx", "data.table", "stringr", "pdftools","magick", "tesseract","purrr")
 
 invisible(new_packages <- required_packages[!(required_packages %in% installed.packages()[,"Package"])])
 invisible(if(length(new_packages) > 0) {install.packages(new_packages)})
 
-invisible(lapply(required_packages, library, character.only = TRUE))
+suppressPackageStartupMessages(lapply(required_packages, library, character.only = TRUE))
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -560,6 +560,10 @@ extract_possible_pairs <- function(raw_grid) {
       normalized_value = sapply(raw_value, Normalize_Cell),
       clean_text = normalized_value %>%
         gsub(",", "", .) %>%
+        gsub("[_\\|`]", "", .) %>% 
+        gsub("\\.{2,}", ".", .) %>% 
+        gsub("^[^a-zA-Z0-9\\+\\-]+", "", .) %>% 
+        gsub("[^a-zA-Z0-9%]+$", "", .) %>% 
         trimws(),
       
       is_pure_num = grepl("^[-+]?[0-9]*\\.?[0-9]+$", clean_text),
@@ -964,7 +968,7 @@ date_rows <- raw_master_dataset %>%
 possible_pairs_master <- bind_rows(possible_pairs_master, time_rows, date_rows) %>% 
   mutate(Subject_ID= extract_rabit(Source_File),
          Subject_ID=ifelse(is.na(Subject_ID), str_remove(Source_File, "(?i)(_.*)?\\.pdf$"), Subject_ID),
-         Subject_ID=str_replace(Subject_ID,"_"," ")
+         Subject_ID=str_split(Subject_ID, "(?<=[A-Za-z])(?=[0-9])")
          ) %>% 
   relocate(Subject_ID,Source_File, page,page_type,Standardized_Variable) %>% 
   arrange(Source_File, page, desc(Standardized_Variable == "Date"), desc(Standardized_Variable == "Time"),Variable_Y)
@@ -1007,6 +1011,15 @@ event_mapping<- possible_pairs_master %>%
     group_by(Subject_ID) %>% 
     summarize(Transfusion_date=first(Value),.groups="drop")
 
+#Paqe Dictioanries
+  page_dictionary<- possible_pairs_master %>% 
+    select(Subject_ID, page, page_type) %>% 
+    distinct() %>% 
+    arrange(Subject_ID, page)
+  
+  list_of_dict <- split(page_dictionary,page_dictionary$Subject_ID)
+
+#Wide Format Master
  #Pivots the Dataset
  wide_master <- possible_pairs_master %>% 
    filter(Standardized_Variable != "Date") %>% 
@@ -1057,12 +1070,15 @@ event_mapping<- possible_pairs_master %>%
  
 #Global Create Workbook
 wb <- createWorkbook()
-
+ 
 addWorksheet(wb,"Raw Extraction")
 writeData(wb,"Raw Extraction", raw_master_dataset) 
  
 addWorksheet(wb,"Pairwise Master")
 writeData(wb,"Pairwise Master", possible_pairs_master)
+
+
+addWorksheet(wb, "Page Dictionary")
 
 #Creates Formatting for the excels
 
@@ -1077,7 +1093,7 @@ style_meta<- createStyle(fontName="Aptos Narrow",textDecoration = "bold",halign=
 #Styles for the main body: Rows 12 and down
 bold_center<- createStyle(textDecoration = "bold",halign="center",valign="center",fontSize = 11, fontName= "Aptos Narrow")
 header_fill <- createStyle(textDecoration = "bold",halign="center",valign="center", fgFill="#c0e4f5", border="bottom", fontSize=11, fontName = "Calibri",borderStyle="medium")
-style_num<- createStyle(fontName= "Aptos Narrow", numFmt="Number", halign="center")
+style_num<- createStyle(fontName= "Aptos Narrow", numFmt="general", halign="center")
 
 #Stles for anomalies
 outlier_style <- createStyle(fgFill = "#FFC7CE") 
@@ -1089,9 +1105,38 @@ sandwich_style <- createStyle(fgFill = "#FFF6B3", )
 #Gets every list of models
 list_of_models<- split(wide_master,wide_master$Subject_ID)
 
+#starting Column and row for page dictionary
+start_col <- 1
+start_row <- 2
+
 #Loops through every subject name in the list of models
 for (subj in names(list_of_models)){
   
+#First: Page number   
+  df_subj_pg <- list_of_dict[[subj]] %>% 
+    select(page, page_type)
+  
+  n_cols <- ncol(df_subj_pg)
+  n_rows <- nrow(df_subj_pg)
+  
+  #Writes the Data
+  writeData(wb, "Page Dictionary", x= paste("Subject:", subj),
+            startCol = start_col,
+            startRow = start_row-1)
+  
+  
+  addStyle(wb, "Page Dictionary", Main_Head_Style, rows=start_row-1, cols=start_col)
+  
+  WriteData(wb,"Page Dictionary",
+            x= df_subj_pg, startCol = start_col, startRow = start_row)
+  addStyle(wb,"Page Dictionary", header_fill, rows=start_row, cols= start_col:(start_col + n_cols -1),
+           gridExpand = TRUE)
+  addStyle(wb,"Page Dictionary", header_fill, rows= (start_row+1):(start_row), cols= start_col:(start_col + n_cols -1),
+           gridExpand = TRUE)
+  start_col <- start_col + n_cols + 1
+  
+  
+#Second: Wide format   
   #Ensures the sheetname doesn't exceed excel's limit of 31 characters
   sheet_name <- substr(subj,1,31)
   addWorksheet(wb, sheet_name)
@@ -1261,6 +1306,8 @@ for (subj in names(list_of_models)){
     }
   }
 }
+
+setColWidths(wb, "Page Dictionary", cols = 1:(start_col-1), widths = "auto")
 
 #Saves the finished workbook
   time<- Sys.time()
