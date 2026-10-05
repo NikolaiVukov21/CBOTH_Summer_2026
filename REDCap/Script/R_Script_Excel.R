@@ -422,6 +422,15 @@ final_redcap_data<-map_dfr(excel_files,function(file){
   }
 })
 
+if(nrow(final_redcap_data) == 0 || !"redcap_event_name" %in% names(final_redcap_data)) {
+
+attempted_files <- paste(basename(excel_files), collapse = ", ")
+
+stop("Error: final_redcap_data is empty or missing.\n",
+     "Please check if the following file(s) have empty or missing timepoints: ", attempted_files)
+}
+
+
 #Fixes Event Name
 final_redcap_data<- final_redcap_data %>% 
   mutate(

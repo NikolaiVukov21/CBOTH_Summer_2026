@@ -704,7 +704,7 @@ Write_Master_Count <- function(wb, sheet_name, data_n, time_levels, models, mod_
   #Styles Used for master sheet
   group_style <- createStyle(fontName = "Aptos Narrow", fgFill= "#F4B084", border= "TopBottomLeftRight")
   
-  var_style <- createStyle( fontName = "Aptos Narrow", fgFill="#A9D08E", border= "TopBottomLeftRight")
+  var_style <- createStyle( fontName = "Aptos Narrow", fgFill="#A9D08E", border= "TopBottomLeftRight",halign="center")
   
   table_style <- createStyle(fontName = "Aptos Narrow", border="TopBottomLeftRight", halign="center")
   
@@ -740,8 +740,9 @@ Write_Master_Count <- function(wb, sheet_name, data_n, time_levels, models, mod_
       addStyle(wb, sheet_name, var_style, rows= var_row, cols= current_col)
       
       #Space between variable and Table
-      table_row <- var_row +2
-      table_col <- current_col +1
+      table_row <- var_row +1
+      table_col <- current_col +0
+      
       #Wrangles Table Data
       #i.e. pivots and caculates totals
       tbl_data <- grp_data %>% 
@@ -750,6 +751,7 @@ Write_Master_Count <- function(wb, sheet_name, data_n, time_levels, models, mod_
         summarise(Total_N = sum(N, na.rm= TRUE), .groups="drop") %>% 
         mutate(Timepoint= factor(Timepoint, levels= time_levels, labels= time_levels)) %>% 
         mutate(MODEL = factor(MODEL, levels= models, labels=mod_lab)) %>% 
+        complete(MODEL, Timepoint, fill = list(Total_N = 0)) %>%
         pivot_wider(names_from = Timepoint, values_from= Total_N, values_fill=0, names_sort= TRUE)
 
       
@@ -773,12 +775,12 @@ Write_Master_Count <- function(wb, sheet_name, data_n, time_levels, models, mod_
       #Applies grid borders
       addStyle(wb, sheet_name, table_style,
                rows= table_row:total_row_idx,
-               cols= current_col:total_col_idx,
+               cols= table_col:total_col_idx,
                gridExpand = TRUE, stack= TRUE)
       
       #Applies Total Column bolding
       addStyle(wb, sheet_name, bold_style,
-               table_row:total_row_idx, cols = total_col_idx,
+               rows= total_row_idx, cols = table_col:total_col_idx,
                gridExpand = TRUE, stack= TRUE)
       
       
@@ -879,7 +881,7 @@ wb<-createWorkbook()
   models<-unique(Style_Guide$MODEL)
   mod_lab<-unique(Style_Guide$label)
   
-
+models
 #Calls the master function first
 Write_Master_Count(wb, "master_count", df_rTx_stats, time_levels, models, mod_lab)
 
