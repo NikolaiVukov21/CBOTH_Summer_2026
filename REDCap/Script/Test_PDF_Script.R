@@ -624,11 +624,12 @@ extract_possible_pairs <- function(raw_grid) {
   
   pair_list <- vector("list", nrow(values))
   
+  #Trying to limit pair output to only 5 outputs
+  pair_prog = max(1, round(nrow(values) * 0.20, 0))
+  
   #Process every numeric value
   for(i in seq_len(nrow(values))) {
-    
-    #Trying to limit pair output to only 5 outputs
-    pair_prog = round((i * .20),0)
+
     
     if(i %% pair_prog ==0){
       cat(sprintf(" ...paired %d of %d numeric values\n",i, nrow(values)))
@@ -752,7 +753,7 @@ extract_possible_pairs <- function(raw_grid) {
           page == value$page,
           x > value$x,
           abs(y - value$y) <= 20,
-          (x - value$x) <= 300
+          (x - value$x) <= 500
         )
       
       if(nrow(unit_candidates) > 0) {
@@ -1300,20 +1301,19 @@ for (subj in names(list_of_models)){
     #Requiring at least 3 points to determine what "normal" looks like for that variable and model
     if(length(valid_vals) >= 3){
       
-      #Using MAD (Median Absolute Deviation) because it's resistant to extreme outliers
+      #The goal is to capture Systematic OCR failures
+      #Which failures stem from discrete base-10 transofmrations (248 -> 24.8)
+      #To measure this, using determistic rules to capture at least 10x and 1/5th bounds
+      
       med <- median(valid_vals, na.rm= TRUE)
-      mad_val <- mad(valid_vals, na.rm= TRUE)
       
-      #if MAD is 0 (more than 50% of deviation is identical to the med), fallbacks to a 50% deviation limit
+      #Safe medium to prevent divison by 0
+      safe_med <- max(abs(med), 0.01)
       
-      #Extreme Anomalies
-      if (mad_val >0){
-        upper_bound <- med + (6* mad_val)
-        lower_bound <- med - (6* mad_val)
-      } else {
-        upper_bound <- Inf
-        lower_bound <- -Inf
-      }
+      #Missing a decimal points causes a 10x spike
+      
+      upper_bound <- safe_med * 10.0 #Flags anything 5x the median 
+      lower_bound <- safe_med *0.10 #Flags anything 1/5th the median (exp. 17.3 read as 1)
       
       
       outlier_idx <- which (vals > upper_bound | vals < lower_bound)

@@ -9,7 +9,7 @@ output: pdf_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Background
+# Background {#sec-background}
 
 ```{r,warning=FALSE}
 
@@ -21,27 +21,29 @@ source("R_Setup_Script.R") #establishes API key for data upload:
 #To Obtain Token: Go To Applications -> click on API -> select Request API Token
 ```
 
-# PDF
+# PDF {#sec-pdf}
 
 ```{r,warning=FALSE, messages=FALSE,echo=FALSE}
 #Select where the input PDF sheets are stored
 
 Directory<-getwd()
 
-PDF_File_Path<- r"(C:\Users\nvuko\CBOTH_Summer_2026\REDCap\Input Sheets\PDF's\AWBAEM-16_Test_Sheet.pdf)"
+PDF_File_Path<- r"(C:\Users\nvuko\CBOTH_Summer_2026\REDCap\Input Sheets\Test_PDF's)"
 
 
-source("R_Script_PDF.R")
+#source("R_Script_PDF.R")
+
+source("Test_PDF_Script.R")
 ```
 
-# Excel
+# Excel {#sec-excel}
 
 ```{r,warning=FALSE,messages=FALSE,echo=FALSE}
 
 Directory<-getwd()
 
 #Select where the input excel sheets are stored
-Excel_File_Path<-r"(C:\Users\nvuko\CBOTH_Summer_2026\REDCap\Input Sheets\Excel Sheets\B_LR_Low Res-TEST.xlsx)"
+Excel_File_Path<-r"(C:\Users\nvuko\CBOTH_Summer_2026\REDCap\Input Sheets\Excel Sheets\A_Processed_PDFs_09-29.xlsx)"
 
 source("R_Script_Excel.R")
 ```
