@@ -40,8 +40,6 @@ Status:
 
 Notes:
 - The code is a recreation of Yuxin Wang's original Manu concert code
-- Their are various improvements and fixes that can improve this code, including:
-  * Making "Vec_Labels_NI" more scalable by using "vec_labels" and removing control variables (FWB,LR, and SEC)
 
 ### Scenario B:
 
