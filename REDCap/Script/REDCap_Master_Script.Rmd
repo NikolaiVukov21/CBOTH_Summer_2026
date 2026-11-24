@@ -24,16 +24,23 @@ source("R_Setup_Script.R") #establishes API key for data upload:
 # PDF {#sec-pdf}
 
 ```{r,warning=FALSE, messages=FALSE,echo=FALSE}
+
+Directory<-getwd
+
+#Settings
+CHECK_BUN_CREA_RATIO <- FALSE #Flag Mismatched Bun/Creatinine ratios
+ANNOATE_SAVE_CROPS <- FALSE #Save individual value crops (avoid for large batches)
+ANNOATE_SHOW_OCR_TEXT <- TRUE #Show OCR text above crop boxes
+ANNOATE_FLAGGED_ONLY <- TRUE #TRUE = pictures only draw boxes for flagged / uncertain values (orange)
+
+
 #Select where the input PDF sheets are stored
-
-Directory<-getwd()
-
-PDF_File_Path<- r"(C:\Users\nvuko\CBOTH_Summer_2026\REDCap\Input Sheets\Test_PDF's)"
+PDF_File_Path<- r"("C:\Users\nvuko\CBOTH_Summer_2026\REDCap\Input\PDF's\Initial Test\AWBAEM-16_Test_Sheet.pdf")"
 
 
-#source("R_Script_PDF.R")
+source("R_Script_PDF.R")
 
-source("Test_PDF_Script.R")
+#source("Test_PDF_Script.R")
 ```
 
 # Excel {#sec-excel}
@@ -43,7 +50,7 @@ source("Test_PDF_Script.R")
 Directory<-getwd()
 
 #Select where the input excel sheets are stored
-Excel_File_Path<-r"(C:\Users\nvuko\CBOTH_Summer_2026\REDCap\Input Sheets\Excel Sheets\A_Processed_PDFs_09-29.xlsx)"
+Excel_File_Path<-r"(C:\Users\nvuko\CBOTH_Summer_2026\REDCap\Input Sheets\Excel Sheets)"
 
 source("R_Script_Excel.R")
 ```
