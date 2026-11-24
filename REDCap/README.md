@@ -1,255 +1,89 @@
-**Setup Script "R\_Setup\_Script" - API Setup Script: 
-
-**Core Purpose:**
-* *Purpose:* This R script asks, and stores the API key used in REDCap to directly parse / upload data.
-* *Method:* checks the local system environment for an API key (Via. *REDCAP\_API\_TOKEN*, 
-	* if none is returned ask user to type / upload the key
-		* Saves upload key to a private local system environment called "*.Renviron*"	 
-* *End goal:* Securely helps the user establish and save their API to be use
-
-
-**Script 1: "R\_Script\_PDF" -Clinical PDF OCR & Extraction Pipeline**
-
-
-
-**Core Purpose:**
-
-* *Purpose:* This R script automates the extraction of biomedical laboratory data (ABG, CBC, CMP, TEG, and Coagulation panels) from multi-page PDFs. 
-* *Method:* It uses spatial coordinate mapping and Optical Character Recognition (OCR) to pair variables with their numeric values
-* *End goal:* structuring the data into a formatted, multi-sheet Excel workbook.
-
-
-
-**1. Ingestion \& Pre-Processing**
-
-
-
-* *Package Dependencies:* Relies heavily on -
-
-  * ***pdftools*** (native text extraction)
-  * ***tesseract*** / ***magick*** (OCR and image processing)
-  * ***tidyverse*** packages for data manipulation.
-
-
-
-* *Hybrid Extraction:* 
-
-  * *First: at*tempts to read native PDF text.
-  * *If a page is scanned or blank:* falls back to rendering the page as a high-DPI image
-
-    * enhances the page (grayscale, high contrast, deskewing)
-    * Runs `tesseract` OCR to extract text alongside precise X/Y bounding box coordinates. (OCR \& Spatial Coordinate Mapping)
-
-
-
-**2. Normalization \& Classification**
-
-
-
-* Text Normalization (*Normalize\_Cell*): Cleans up common OCR artifacts and corrects known misread variables
-
-  * e.g.:
-
-    * fixing commas to decimals 
-    * correcting `pC02` to `pCO2`, or 
-    * `oH` to `pH`
-
-
-
-* Page Fingerprinting (*detect\_page\_type*): Classifies the specific lab panel type on each page
-
-  * Method: by scanning for required trigger variables 
-
-    * (e.g., finding WBC, RBC, HGB, and HCT designates a page as a "CBC" report)
-
-
-
-**3. Spatial Pairing Logic**
-
-
-
-* *Coordinate Matching:* Since lab reports are laid out visually rather than sequentially in text:
-
-  * the script relies on X/Y coordinates to pair a numeric value with its correct variable label.
-
-
-
-* *Search Hierarchy:* For every identified number, the script looks for text elements:
-
-  1. Immediately to the **left** (tight vertical alignment).
-  2. Directly **above** (same column).
-  3. Matching the **exact Y-axis** across the row.
-
-
-
-* *Confidence Scoring*: Assigns a match confidence (High, Medium, Low) based on:
-
-  * &#x20;the absolute **horizontal** and **vertical** **distance** **between** the **value** and the **matched label**.
-
-
-
-**4. Data Structuring**
-
-
-
-* *Subject \& Time Identification:* Uses Regular Expressions (Regex) to:
-
-  * Pull specific test subjects (Rabbit IDs) 
-  * isolate the date and time of the transfusion/event from the ABG pages.
-
-
-
-* *Pivoting:* Transforms the matched coordinate pairs from a long dataset into a wide format 
-
-  * Aggravates the data by *Subject\_ID* and chronological *Event\_ID*
-
-
-
-**5. Export \& Quality Control**
-
-
-
-* *Excel Workbook Generation:* Uses **openxlsx** to output a master file containing:
-
-  * raw extraction logs 
-  * pairwise master sheet 
-  * individual sheets dedicated to each specific subject.
-
-
-
-* *Automated Anomaly Detection:*
-
-  * *Extreme Outliers:* Calculates the Median Absolute Deviation (MAD) for each column. 
-
-    * Values exceeding a 6x MAD threshold are highlighted in red (*#FFC7CE*).
-  * *"Sandwich" Missing Data:* if cells are empty and surrounded by valid data points:
-
-    * Highlights empty cells in yellow (*#FFE536*) 
-    * does this across timepoints or related assay groups
-
-      * flags potential extraction failures for manual review.
-
-
-
-
-
-
-
-**Script 2: "R\_Script\_Excel" - Excel-to-REDCap Integration Pipeline**
-
-
-
-**Core Purpose:**
-
-* *Purpose:* This R script acts as the bridge between the processed Excel sheets and the REDCap database. 
-* *Method:* dynamically reads raw clinical data from various experimental rabbit models, standardizes the variables
-
-  * Maps them to their specific REDCap events (based on the experimental arm)
-  * Automates the database upload via the REDCap API
-* *End Goal:* automates the uploading of data to the REDCap project 
-
-
-
-**1. Dynamic File \& Range Discovery**
-
-* Package Dependencies: Relies on -
-
-  * **readxl** for importing 
-  * **tidyverse** for data manipulation
-  * **REDCapR** for the final API push.
-
-
-
-* Smart Range Finder (*find\_long\_data\_range*): Finds the range of rows and columns of the sheet by:
-
-  * Actively scans Column A to locate the "Timepoint/Event" header.
-  * 'Runs' alongside the *'Measurment>'* column till it reaches a empty header 
-  * Determines the exact bounding box of the valid data dynamically.
-
-
-
-2\. **Metadata Extraction \& Cleaning**
-
-* *Targeted Cell Extraction:* Pulls baseline metadata (Subject ID, weight, transfusion volumes, telemetry ID) from specific static cells (e.g., B4:B9, F4:F5).
-
-
-
-* *Date Normalization:* Contains robust error-handling to standardize dates into REDCap’s required YYYY-MM-DD format.
-
-  * Actively catches and fixes Excel's known date formatting issues 
-
-    * like converting days elapsed since January 1, 1900.
-
-
-
-* *Header Mapping:* Converts messy or inconsistent Excel column names into the standardized REDCap variable dictionary 
-
-  * e.g.:
-
-    * converting "heartrate" to bpm
-    * converting "appt" to aptt.
-
-
-
-**3. Experimental Arm Routing**
-
-* *Scenario Logic:* The script looks at the filename to determine the experimental arm (Scenario A, B, or C).
-
-
-
-* *Scenario C Specifics:* If it detects Scenario C:
-
-  * triggers a specialized extraction block to pull targeted baseline data like:
-
-    * DAMP load info, brain tissue volume
-    * 4-hour/5-min metrics 
-
-      * Uses: columns K, O, P, S, and T.
-
-
-
-* *Timepoint Standardization:* Unifies inconsistent timepoint naming. 
-
-  * Uses numeric conversion to accurately map bleed percentages (e.g., 10%, 0.1) into standard REDCap event names:
-
-    * first\_bleed 
-    * second\_bleed
-    * third\_bleed
-    * fourth\_bleed
-  * accounts for different naming conventions across procedures.
-
-
-
-**4. REDCap Payload Construction**
-
-* *Event Mapping:* Generates the crucial *redcap\_event\_name* column required for longitudinal REDCap databases 
-
-  * (e.g., appending \_arm\_1, \_arm\_2, or \_arm\_3 based on the scenario).
-
-
-
-* *Completion Flags:* Evaluates each row of data and automatically calculates REDCap form completion statuses 
-
-  * (e.g., abg\_complete, cbc\_complete). 
-
-    * If data is present in the required fields for that panel, flags the form with a 1 (unverified)
-
-
-
-**5. Automated Export \& API Upload**
-
-* *Local Backup:* Saves a compiled CSV of the cleaned payload to an *"Output Sheets"* folder with the current date.
-
-
-
-* *Direct API Integration:* Uses a locally stored environment variable (REDCAP\_API\_TOKEN) to:
-* Authenticate and securely push the structured dataframe directly to the university's REDCap server:
-
-  * (\[https://umbredcap.umaryland.edu/](https://umbredcap.umaryland.edu/api/))
-
-    * eliminating the need for manual data entry.
-
-
-
-
-
+# Lab Data to REDCap
+ 
+This project takes the lab printouts from the rabbit experiments (Scenarios A–C), turns them into a spreadsheet, and uploads the results to the **REDCap** online database, so nobody has to input every number by hand.
+ 
+## How it fits together
+ 
+| Step | Script | What it does |
+|---|---|---|
+| 0 | `REDCap_Master_Script` | Runs the steps below in order. |
+| 1 | `R_Setup_Script` | Saves your REDCap access key (one-time setup). |
+| 2 | `R_Script_PDF` | Reads the scanned PDFs and builds an Excel workbook. |
+| 3 | `R_Script_Excel` | Checks the Excel workbook and uploads it to REDCap. |
+ 
+**The usual workflow:** run the PDF reader → review the flagged (orange) cells in Excel → run the uploader.
+ 
+---
+ 
+## 1. Setup — `R_Setup_Script`
+ 
+REDCap needs a private access key (an "API token") before anything can be uploaded.
+ 
+- The script first looks for a saved key on your computer.
+- If it can't find one, it asks you to paste it in, then saves it privately on your computer (in a file called `.Renviron`) so you only do this once.
+- **Never share this key or put it in the scripts themselves.**
+---
+ 
+## 2. PDF Reader — `R_Script_PDF`
+ 
+Reads the multi-page PDFs from each experiment and pulls out the lab results for **blood gas (ABG), blood count (CBC), chemistry (CMP), clotting (TEG) and coagulation (Coag)** panels.
+ 
+### What it does, step by step
+ 
+1. **Reads each page.** Pages are scanned images, so the script uses text recognition (OCR) to read them. Page 1 of every PDF is a handwritten summary sheet and is skipped.
+2. **Fixes page orientation.** Sideways, upside-down or slightly tilted pages are turned and straightened before reading.
+3. **Works out what each page is.** It looks for the variable names it expects (e.g. WBC, RBC, HGB and HCT mean a CBC page). Pages it doesn't recognise, such as forms and graphs, are ignored.
+4. **Matches each variable to its value.** Most printouts list the value to the right of its name; on TEG printouts it sits underneath. Common misreadings of variable names (e.g. "Py" for PT) are corrected automatically.
+5. **Double-checks every value.** Each number is re-read several times from close-up images, and the readings must agree. It also:
+   - rejects values that are impossible (e.g. a pH of 1.4) or printed in the wrong format,
+   - checks the image for a decimal point when one may have been missed (so "154" becomes 15.4, while a real 19 stays 19),
+   - on blood gas pages, uses the analyser's own formulas (Henderson-Hasselbalch & Van Slyke base excess) to confirm that pH, pCO2 and HCO3 agree with each other, and corrects a misread digit when they don't.
+6. **Flags anything it isn't sure about** instead of guessing. If the readings disagree, the cell is left blank and flagged.
+### What you get
+ 
+An Excel workbook in the **Processed PDFs** folder with:
+ 
+- **One sheet per rabbit:** results laid out by timepoint (Baseline, EOS, EOR, 20%, 15%, 10%, EOB, 1HR, 24HR), ready for upload.
+- **Review Queue:** every value that needs a human check, with the reason.
+- **Supporting sheets:** everything the script read (*Raw Extraction*), every variable–value match (*Pairwise Master*), which pages were which type (*Page Dictionary*), and processing time per page.
+**Cell colours on the rabbit sheets:**
+ 
+| Colour | Meaning | What to do |
+|---|---|---|
+| 🟧 Orange | The script wasn't sure, or left the cell blank. Hover over the cell to see why. | Check against the printout. |
+| 🟥 Pink | Value is far higher or lower than that rabbit's other values (often a misplaced decimal point). | Check against the printout. |
+| 🟨 Yellow | Value is missing although the values around it were found. | Look for it on the printout. |
+ 
+Timepoints are filled in order. If a rabbit doesn't have exactly 9 rows, its timepoints are flagged orange so you can confirm them.
+ 
+**Optional — `Annotated_Images` folder:** a picture of every lab page with what the script read drawn on it, one folder per rabbit. Useful to quickly locate and find the missing or unsure values.
+ 
+### Settings
+ 
+All adjustable options are at the top of the script, each with a short note. The most useful:
+ 
+- `SAVE_OCR_DEBUG`: turn the annotated pictures on or off (off is faster for large batches).
+- `ANNOATE_FLAGGED_ONLY`: have the annotated pictures show only the uncertain values.
+- `ANNOATE_SHOW_OCR_TEXT`: Show OCR text above crop boxes
+---
+ 
+## 3. REDCap Uploader — `R_Script_Excel`
+ 
+Takes the reviewed Excel workbook and uploads it to REDCap.
+ 
+1. **Finds the data.** It locates the results table on each rabbit's sheet automatically, along with the rabbit's details (ID, weight, transfusion volumes, telemetry ID).
+2. **Cleans it up.**
+   - Dates are converted to the format REDCap needs, fixing Excel's habit of turning dates into numbers.
+   - Column names are matched to REDCap's variable names (e.g. "heartrate" → `bpm`).
+3. **Sorts by experiment.** The file name tells it which scenario (A, B or C) the rabbit belongs to. Scenario C has extra baseline measurements (e.g. DAMP load, brain tissue volume, 4-hour and 5-minute measurements), which are collected too.
+4. **Matches timepoints to REDCap.** Timepoint names are standardised (e.g. bleed percentages become `first_bleed` … `fourth_bleed`) and linked to the right REDCap event for that scenario.
+5. **Marks completed forms.** Each form (ABG, CBC, …) with data in it is marked "unverified" in REDCap, ready for review there.
+6. **Saves a backup and uploads.** A dated copy of everything sent is saved as a CSV in the **Output Sheets** folder, then the data is uploaded to the university's REDCap server (https://umbredcap.umaryland.edu).
+---
+ 
+## Good to know
+ 
+- **Always review the orange cells before uploading.** The script flags what it's unsure about, but it can't fix every scan.
+- **Scan quality matters most.** Clear, straight scans at 300 DPI give the best results.
+- Processing takes roughly a few seconds per page. Blood gas and clotting pages take longest, because they're read twice.
+ 
