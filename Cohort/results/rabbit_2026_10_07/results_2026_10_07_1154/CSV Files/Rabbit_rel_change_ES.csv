@@ -1,0 +1,61 @@
+"","METRIC","TIMERANGE","ES","VJUST","MEASURE"
+"1","LAC","AUC EOS
+to 1 hr",0,1.5,"TPP"
+"2","LAC","AUC EOS
+to 24 hr",0,1.5,"TPP"
+"3","LAC","AUC EOS
+to 3 hr",0,1.5,"TPP"
+"4","LAC","AUC EOS
+to 6 hr",0,1.5,"TPP"
+"5","LAC","AUC EOS
+to EOR",0,1.5,"TPP"
+"6","MAP","AUC EOS
+to 1 hr",0,1.5,"TPP"
+"7","MAP","AUC EOS
+to 24 hr",0,1.5,"TPP"
+"8","MAP","AUC EOS
+to 3 hr",0,1.5,"TPP"
+"9","MAP","AUC EOS
+to 6 hr",0,1.5,"TPP"
+"10","MAP","AUC EOS
+to EOR",0,1.5,"TPP"
+"11","LAC","AUC EOS
+to 1 hr",0,1.5,"30% Margin"
+"12","LAC","AUC EOS
+to 24 hr",0,1.5,"30% Margin"
+"13","LAC","AUC EOS
+to 3 hr",0,1.5,"30% Margin"
+"14","LAC","AUC EOS
+to 6 hr",0,1.5,"30% Margin"
+"15","LAC","AUC EOS
+to EOR",0,1.5,"30% Margin"
+"16","MAP","AUC EOS
+to 1 hr",0,1.5,"30% Margin"
+"17","MAP","AUC EOS
+to 24 hr",0,1.5,"30% Margin"
+"18","MAP","AUC EOS
+to 3 hr",0,1.5,"30% Margin"
+"19","MAP","AUC EOS
+to 6 hr",0,1.5,"30% Margin"
+"20","MAP","AUC EOS
+to EOR",0,1.5,"30% Margin"
+"21","LAC","AUC EOS
+to 1 hr",0,1.5,"Total"
+"22","LAC","AUC EOS
+to 24 hr",0,1.5,"Total"
+"23","LAC","AUC EOS
+to 3 hr",0,1.5,"Total"
+"24","LAC","AUC EOS
+to 6 hr",0,1.5,"Total"
+"25","LAC","AUC EOS
+to EOR",0,1.5,"Total"
+"26","MAP","AUC EOS
+to 1 hr",0,1.5,"Total"
+"27","MAP","AUC EOS
+to 24 hr",0,1.5,"Total"
+"28","MAP","AUC EOS
+to 3 hr",0,1.5,"Total"
+"29","MAP","AUC EOS
+to 6 hr",0,1.5,"Total"
+"30","MAP","AUC EOS
+to EOR",0,1.5,"Total"

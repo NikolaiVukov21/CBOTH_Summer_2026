@@ -1,0 +1,399 @@
+---
+title: "PAD_Reading"
+author: "Nikolai Vukov"
+date: "2026-10-27"
+output: pdf_document
+---
+
+- Open Sheet (only "Absorbance 1_02")
+- Crete 2 dynamic / Scalable Dataframes (df_405m, df_630nm)
+- Crate 2 dynamic caculated dataframes (df_OD= 40nm - df630nm, mOD: Multiply each value by 1000)
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Pre-processing
+
+```{r}
+required_packages <- c("dplyr", "tidyr", "stringr", "tibble",
+                       "openxlsx","ggplot2","pROC","writexl")
+
+missing_packages <- setdiff(required_packages, rownames(installed.packages()))
+if (length(missing_packages) > 0) install.packages(missing_packages)
+
+suppressPackageStartupMessages(suppressWarnings(
+  invisible(lapply(required_packages, library, character.only = TRUE))
+))
+
+date=Sys.Date()
+
+#Reads CSV
+csv_file <- r"(C:\Users\nvuko\CBOTH_Summer_2026\PAD\Input\20261021_PAD-5 CLOFAL_ACR(Absorbance 1_02).csv)"
+
+Pad_df<-gsub("\\\\", "/", csv_file, ignore.case=FALSE)
+
+#Gets directory, creates a result folder
+Parent_Directory <- getwd()
+Results_Folder<-file.path(Parent_Directory,paste0("PAD_Results_"))
+Date_Results_Folder<-file.path(Results_Folder,paste0("Results_",date))
+Plots<-file.path(Date_Results_Folder,paste0("Plots"))
+
+if(!dir.exists(Results_Folder)){
+  dir.create(Results_Folder,recursive = TRUE, showWarnings = FALSE)
+}
+
+if(!dir.exists(Date_Results_Folder)){
+  dir.create(Date_Results_Folder,recursive = TRUE, showWarnings = FALSE)
+}
+if(!dir.exists(Plots)){
+  dir.create(Plots,recursive = TRUE, showWarnings = FALSE)
+}
+```
+
+# Initial Dataframes
+
+```{r}
+#Gets the raw text first, checks and removes any encoding problems, try to fix them
+
+
+raw_lines <- readLines(Pad_df, warn=FALSE)
+bad<- !validUTF8(raw_lines) #Checks for valid UTF-8 text
+raw_lines[bad] <- iconv(raw_lines[bad],"latin1","UTF-8") #Converts latin1 text (most common) to UTF-8 text
+raw_lines <- sub("^\ufeff","",raw_lines) #Removes common BOM from rawlines
+
+#Number of columns
+n_cols <- max(count.fields(textConnection(raw_lines),sep=",",quote="\"", blank.lines.skip = FALSE),na.rm=TRUE)
+
+raw<- read.csv(text=raw_lines, header= FALSE,colClasses = "character",col.names = paste0("V",seq_len(n_cols)),fill=TRUE,blank.lines.skip = FALSE,na.strings=character(0))
+raw[is.na(raw)]<- ""
+raw[] <- lapply(raw,trimws)
+
+#Pulls wavelength label
+extract_block <-function(raw,wavelength, header_key="Reading"){
+  is_blank <- function(x) is.na(x) | x=="" #Checks for blank
+  
+  #Gets the wavelength and header rows
+  wl_rows <- which(grepl(wavelength,raw[[1]],ignore.case=TRUE))
+  hdr_rows <- which(apply(raw,1,function(r) any(tolower(r)==tolower(header_key))))
+  
+  #Pairs each wavelength label with the next reading header
+  next_hdr <- sapply(wl_rows,function(r){
+    header <- hdr_rows[hdr_rows >=r]
+    if(length(header)) header[1] else NA
+  })
+  ok <- !is.na(next_hdr)
+  if(!any(ok)) stop("No '",header_key,"' header found after '", wavelength,"'.")
+  hdr_row<- next_hdr[ok][which.min((next_hdr-wl_rows)[ok])]
+  
+  #Columns from the 'Reading' cell after the first blank header cell
+  hdr<-unlist(raw[hdr_row, ], use.names=FALSE) #Gets header
+  first_col <-which(tolower(hdr) == tolower(header_key))[1] #Get first column
+  gaps <- which(is_blank(hdr) & seq_along(hdr) > first_col) #Looks for gaps
+  last_col <- if(length(gaps)) gaps[1] -1 else length(hdr) #Gets last column before blank
+  cols<- first_col:last_col #Gets all columns
+  
+  #Runs from below the header down to the first blank row that is fully blank
+  if(hdr_row == nrow(raw)) stop("'",wavelength,"' block has a header but no data.")
+  body<- raw[(hdr_row +1):nrow(raw),cols,drop=FALSE]
+  stop_at<- which(apply(body,1,function(r) all(is_blank(r))))[1]
+  if( !is.na(stop_at)) body <- body[seq_len(stop_at-1), , drop=FALSE]
+  
+  names(body) <- make.unique(hdr[cols])
+  rownames(body) <- NULL
+  
+  #Makes a column numeric
+  body[] <- lapply(body,function(x){
+    num <- suppressWarnings(as.numeric(x))
+    filled <- !is_blank(x)
+    if(any(filled) && mean(!is.na(num[filled])) >=0.5) num else x
+  })
+  as_tibble(body)
+}
+wavelengths<- c("405","630")
+
+Frames<- setNames(lapply(wavelengths, function(w) extract_block(raw,w)), wavelengths)
+
+for (n in wavelengths){
+assign(paste0("df_", n, "nm"), Frames[[n]])
+}
+
+#Caculation Dataframes
+id_col <- names(df_405nm)[1:2] #Setting the first column as the ID column, using the first dataset
+value_cols <- setdiff(intersect(names(df_405nm)[sapply(df_405nm,is.numeric)],
+                                names(df_630nm)[sapply(df_630nm,is.numeric)]),
+id_col)
+
+df_OD <- df_405nm
+df_OD[value_cols] <- df_405nm[value_cols] - df_630nm[value_cols]
+
+df_mOD <- df_OD
+df_mOD[value_cols] <- df_OD[value_cols] * 1000
+
+
+for (b in c("df_OD")) {
+  
+  df <- get(b)
+  
+  # Extract the last 3 columns safely
+  blank_cols <- df[, (ncol(df) - 2):ncol(df)]
+}
+
+Blank_mean<-rowMeans(blank_cols)
+
+df_mOD %>% 
+  mutate("Average Blank" = Blank_mean)
+
+df_BlankNorm<- df_OD
+
+   for (i in 3:(ncol(df_OD)-3)) {
+  df_BlankNorm[,i] <- df_OD[,i] -Blank_mean
+}
+
+#Grouping by letters
+groups <- str_match(names(df_BlankNorm),"\\(([A-Z])\\d+\\)")[,2]
+Letters <- unique(na.omit(groups))
+
+df_group<- df_BlankNorm %>% 
+  select(Reading,`avg. time [s]`) %>% 
+  bind_cols(sapply(Letters,function(letter){
+    cols<- names(df_BlankNorm)[!is.na(groups) & groups==letter]
+    rowMeans(df_BlankNorm[,cols,drop=FALSE],na.rm=TRUE)
+  }) %>% as.data.frame() %>%
+    setNames(Letters)) %>% 
+    mutate(`avg. time [m]` =`avg. time [s]`/60)
+
+```
+
+# Plotting
+
+```{r,warning=FALSE}
+df_group_plt <- df_group %>% 
+  pivot_longer(cols= all_of(Letters), names_to="Group",values_to="Group_Reading") %>% 
+  select(-"Reading")
+
+```
+
+```{r,warning=FALSE,message}
+
+df_group_plt_noF <- df_group %>% 
+  pivot_longer(cols= all_of(Letters), names_to="Group",values_to="Group_Reading") %>% 
+  filter(Group !="F")
+
+
+ggplot(df_group_plt_noF,aes(x= `avg. time [s]`,y= Group_Reading,color=Group))+
+  geom_line(se=FALSE)+
+  labs(x="Average Time (seconds)",y="Average Reading") +
+  theme_classic()
+ggsave(paste0(Plots,"/Group_Seconds.png"), width = 6, height = 4, dpi = 300)
+
+
+ggplot(df_group_plt_noF,aes(x= `avg. time [m]`,y= Group_Reading,color=Group))+
+  geom_line(se=FALSE)+
+  labs(x="Average Time (minutes)",y="Average Reading") +
+  theme_classic()
+ggsave(paste0(Plots,"/Group_Minutes.png"), width = 6, height = 4, dpi = 300)
+```
+
+# Analytic
+
+names_to
+
+```{r}
+#Function to caculate each group:
+calc_metrics <- function(t, y, window_end = 1800, buffer = 60, delta_cut = -10) {
+  has_value <- !is.na(t) & !is.na(y)
+  t <- t[has_value]
+  y <- y[has_value]
+  ord <- order(t)
+  t <- t[ord] 
+  y <- y[ord]
+  
+  #Finds the window, as well as max y index and baseline
+  window<- t <= window_end
+  y_min <- min(y[window])
+  index_max<- which.max(y)
+  y_max <- y[index_max]
+  baseline<- y[1]
+  
+  #MA and T1
+  MA <- y_max - y_min
+  T1 <- round(t[index_max])
+  
+  #Tlag5
+  fiveprc <- 0.05 * (baseline)
+  thr   <- baseline +fiveprc
+  i_lag <- which(y>=thr)[1]
+  Tlag5 <- t[i_lag]
+  y_Tlag5 <- y[i_lag]
+  
+  #Finds the window 
+  time_window <- round(t[window])
+  y_window    <- y[window]
+  AUC <- sum(diff(time_window) * (head(y_window, -1) + tail(y_window, -1)) / 2)
+  
+  y_prev <- approx(t, y, xout = t - 60)$y #Searchs for prev y-point 60 seconds back
+  delta  <- (y - y_prev) *1000 #Caculates the change in y
+  search <- which(t >= T1 + buffer) #Applies a minute buffer
+  search <- search[search > 1] #Searches after the buffer
+  hit    <- search[which(delta[search - 1] < delta_cut & delta[search] >= delta_cut)][1] #Looks for when, the change after the search exceeds -10
+  T2     <- if (is.na(hit)) NA_real_ else round(t[hit]) #Retrurns timepoint value
+  y_T2 <- if (is.na(hit)) NA_real_ else y[hit]
+  
+  tibble(y_min, y_max, MA, T1, Tlag5, AUC, T2, T2_minus_T1 = T2 - T1,y_Tlag5,y_T2)
+}
+
+
+df_group_plt <- df_group %>% 
+  pivot_longer(cols= all_of(Letters), names_to="Group",values_to="Group_Reading") %>% 
+  filter(Group !="F")
+
+df_analytics <- df_group_plt %>% 
+  group_by(Group) %>% 
+  summarise(calc_metrics(`avg. time [s]`, Group_Reading), .groups = "drop")
+
+df_points<-bind_rows(
+  df_analytics %>% transmute(Group, Point="T1",`avg. time [s]`=T1, Group_Reading=y_max),
+  df_analytics %>% transmute(Group, Point="T2",`avg. time [s]`=T2, Group_Reading=y_T2),
+  df_analytics %>% transmute(Group, Point="Tlag5",`avg. time [s]`=Tlag5, Group_Reading=y_Tlag5)
+) %>%
+  filter(!is.na(`avg. time [s]`))
+
+#Plots
+g<- ggplot(df_group_plt, aes(`avg. time [s]`, Group_Reading, color=Group))+
+  geom_line()+
+  geom_vline(data=filter(df_analytics, !is.na(T2)), aes(xintercept=T2, color=Group), linetype="dashed",show.legend = FALSE)+
+  geom_point(data=df_points, aes(shape=Point),size=3)+
+  scale_shape_manual(name="Point",values=c("Tlag5"=16, "T1"=17,"T2"=15))+
+   coord_cartesian(xlim = c(0, 4000))
+  labs(x="Average Time (seconds)",y="Average Reading")
+
+ggsave(paste0(Plots,"/Annotated Graph.png"), width = 6, height = 4, dpi = 300)
+```
+# Excel Sheet
+```{r}
+excel_folder<- file.path(Date_Results_Folder,paste0("Excels"))
+
+if(!dir.exists(excel_folder)){
+  dir.create(excel_folder,recursive = TRUE,showWarnings = FALSE)
+}
+
+
+df_Sheets<- list(
+  df_group=df_group,
+  df_analytics=df_analytics,
+  df_points=df_points,
+  df_group_plt_noF=df_group_plt_noF,
+  df_group_plt=df_group_plt,
+  df_BlankNorm=df_BlankNorm,
+  df_mOD=df_mOD,
+  df_OD=df_OD,
+  df_630nm=df_630nm,
+  df_405nm=df_405nm
+)
+
+write.xlsx(df_Sheets, file=file.path(excel_folder,paste0("Pad_Results.xlsx")),
+           overwrite = TRUE, firstRow=TRUE,colWidths="auto")
+```
+
+
+
+# TEsting
+```{r,warning=FALSE,message=FALSE}
+
+sample_folder<-file.path(Date_Results_Folder,paste0("Sample_Folder"))
+if(!dir.exists(sample_folder)){
+  dir.create(sample_folder,recursive = TRUE, showWarnings = FALSE)
+}
+
+library(readxl)
+#Reads CSV
+Excel_file <- r"(C:\Users\nvuko\CBOTH_Summer_2026\PAD\Input\Test_PAD.xlsx)"
+Pad_df<-gsub("\\\\", "/", Excel_file, ignore.case=FALSE)
+
+Excel_file
+
+df_group_test<- read.xlsx(Excel_file)
+df_group_test
+
+#Function to caculate each group's statistics
+calc_metrics <- function(t, y, window_end = 1800, buffer = 60, delta_cut = -10) {
+  has_value <- !is.na(t) & !is.na(y)
+  t <- t[has_value]
+  y <- y[has_value]
+  ord <- order(t)
+  t <- t[ord] 
+  y <- y[ord]
+  
+  #Finds the window, as well as max y index and baseline
+  window<- t <= window_end
+  y_min <- min(y[window])
+  index_max<- which.max(y)
+  y_max <- y[index_max]
+  baseline<- y[1]
+  
+  #MA and T1
+  MA <- y_max - y_min
+  T1 <- round(t[index_max])
+  
+  #Tlag5
+  fiveprc <- 0.05 * (baseline)
+  thr   <- baseline +fiveprc
+  i_lag <- which(y>=thr)[1]
+  Tlag5 <- t[i_lag]
+  y_Tlag5 <- y[i_lag]
+  
+  #Finds the window 
+  time_window <- round(t[window])
+  y_window    <- y[window]
+  AUC <- sum(diff(time_window) * (head(y_window, -1) + tail(y_window, -1)) / 2)
+  
+  y_prev <- approx(t, y, xout = t - 60)$y #Searchs for prev y-point 60 seconds back
+  delta  <- (y - y_prev) #Caculates the change in y
+  search <- which(t >= T1 + buffer) #Applies a minute buffer
+  search <- search[search > 1] #Searches after the buffer
+  hit    <- search[which(delta[search - 1] < delta_cut & delta[search] >= delta_cut)][1] #Looks for when, the change after the search exceeds -10
+  T2     <- if (is.na(hit)) NA_real_ else round(t[hit]) #Retrurns timepoint value
+  y_T2 <- if (is.na(hit)) NA_real_ else y[hit]
+  
+  tibble(y_min, y_max, MA, T1, Tlag5, AUC, T2, T2_minus_T1 = T2 - T1,y_Tlag5,y_T2)
+}
+
+test_letters <- c("A","B","C","D","E")
+
+df_group_plt<- df_group_test %>% pivot_longer(cols=all_of(test_letters), names_to="Group",values_to="Group_Reading") 
+
+df_analytics<- df_group_plt %>% 
+  group_by(Group) %>% 
+  summarise(calc_metrics(`avg..time.[s]`, Group_Reading),.groups="drop")
+
+
+
+
+df_points<-bind_rows(
+  df_analytics %>% transmute(Group, Point="T1",`avg..time.[s]`=T1, Group_Reading=y_max),
+  df_analytics %>% transmute(Group, Point="T2",`avg..time.[s]`=T2, Group_Reading=y_T2),
+  df_analytics %>% transmute(Group, Point="Tlag5",`avg..time.[s]`=Tlag5, Group_Reading=y_Tlag5)
+) %>%
+  filter(!is.na(`avg..time.[s]`))
+
+#Plots
+gt<- ggplot(df_group_plt, aes(`avg..time.[s]`, Group_Reading, color=Group))+
+  geom_line()+
+  geom_point(data=df_points, aes(shape=Point),size=3)+
+  scale_shape_manual(name="Point",values=c("Tlag5"=16, "T1"=17,"T2"=15))+
+labs(x="Average Time (seconds)",y="Average Reading")
+
+ggsave(paste0(sample_folder,"/Annotated_Sample_Graph.png"),dpi = 300)
+
+sample_sheets<-list(
+  df_group=df_group_test,
+  df_analytics=df_analytics,
+  df_points=df_points,
+  df_group_plt=df_group_plt
+)
+
+write.xlsx(sample_sheets,file=file.path(sample_folder,paste0("Sample_Pad_Results.xlsx")),
+           overwrite = TRUE, firstRow=TRUE, colWidth="auto")
+
+```

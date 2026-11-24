@@ -9,7 +9,8 @@ required_packages<-c("dplyr","readxl", "tidyr","tidyverse", "tools","purrr","rst
 new_packages<-required_packages[!(required_packages %in% installed.packages()[,"Package"])]
 if(length(new_packages) > 0) {install.packages(new_packages)}
 
-invisible(lapply(required_packages,library,character.only = TRUE))
+
+suppressPackageStartupMessages(lapply(required_packages,library,character.only = TRUE))
 
 if(Excel_File_Path !=" "){
   Excel_File_Path<-gsub("\\\\","/",Excel_File_Path,ignore.case=FALSE)
@@ -110,7 +111,7 @@ process_lowres_rabbitdata<- function(file_path,arm){
   sheets<-excel_sheets(file_path)
   
   #Excluding the template sheet
-  sheets <- sheets[!grepl("template",sheets,ignore.case = TRUE)]
+  sheets <- sheets[!grepl(c("template","Template (1)","sheet"),sheets,ignore.case = TRUE)]
 
   
   #Trying to capture these excel entries to treat as blanks
@@ -170,6 +171,24 @@ process_lowres_rabbitdata<- function(file_path,arm){
     }else{
       tbvr_val <- NA
     }
+    
+    cat(subject_id_val)
+    cat("|")
+    
+    
+    
+    if(!is.null(tbvr_val)){
+    if (tbvr_val >1 & tbvr_val<6){
+      tbvr_val=tbvr_val/10
+    } else if (tbvr_val>1 & tbvr_val>6){
+      tbvr_val=tbvr_val/100
+    } else{
+      tbvr_val
+    }}
+    
+    tbvr_val<-sprintf("%.2f", tbvr_val)
+    
+    
     #Handles Exclusion
     exclude_raw<-tolower(trimws(as.character(meta_F$val[1])))
     exclusion_reason_val<-trimws(as.character(meta_F$val[2]))
@@ -553,6 +572,12 @@ if(api_token==""){
   warning("REDCAP_API_TOKEN not found, skipping REDcap Upload, please run R_Setup_Script.R")
 } else{
   message("Uploading Pipeline")
+  # upload_result<-redcap_write(
+  #   ds=final_redcap_data,
+  #   redcap_uri=redcap_url,
+  #   token=api_token
+  # )
+  
   upload_result<-redcap_write(
     ds=final_redcap_data,
     redcap_uri=redcap_url,
@@ -561,4 +586,7 @@ if(api_token==""){
 
   message(upload_result$outcome_message)
 }
+
+
+
 

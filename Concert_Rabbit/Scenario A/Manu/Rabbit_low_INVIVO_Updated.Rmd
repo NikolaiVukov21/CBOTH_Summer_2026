@@ -113,7 +113,6 @@ Style_Guide<- tribble(
   "WBA-pHb",       "WBA-pHb",    "#E18727",     TRUE
 )
 
-#When 
 
 df_rTx <- read.csv(paste0(mypath, "/Data/analysis_ready_data/df_INVIVO_scenarioA.csv")) %>%
   left_join(Time_lookup, by= "Timepoint") %>% 

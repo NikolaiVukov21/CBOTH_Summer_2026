@@ -1,0 +1,34 @@
+"picture","source_file","page","page_type","orientation_fix","values_read","values_flagged"
+"B-EA 01_page001.png","B-EA 01.pdf",1,"SKIPPED","turned 90 deg, straightened +0.6 deg","",0
+"B-EA 01_page002.png","B-EA 01.pdf",2,"ABG","straightened +1.9 deg","pH = 7.453; pCO2 = 44.9; pO2 = 68.9; ctHb = 12.2; LAC = 1.6; HCO3 = 31.4; ABE = 6.6",0
+"B-EA 01_page003.png","B-EA 01.pdf",3,"CBC","straightened +0.7 deg","WBC = 3.2; RBC = 5.67; HGB = 12.4; HCT = 36.7; MCV = 65; MCHC = 33.9; PLT = 276",0
+"B-EA 01_page004.png","B-EA 01.pdf",4,"CMP","straightened +0.6 deg","GGT = 3; AST = 11; ALT = 34; AMY = 323; LDH = 184; CREA = 0.8; BUN = 17.74; BUN.CREA = 94.486; GLU = 168.49; TG = 78.02",5
+"B-EA 01_page005.png","B-EA 01.pdf",5,"Coag","","APTT = 127.7; PT = 14.3; TT = 36.5; Fib = 1.60",1
+"B-EA 01_page006.png","B-EA 01.pdf",6,"TEG","","R.Time = 7.8; K.Time = 1.7; Angle = 63.3; MA.Min = 60.5",0
+"B-EA 01_page007.png","B-EA 01.pdf",7,"ABG","straightened +7.1 deg","pH = 7.470; pCO2 = 54.2; pO2 = 77.6; ctHb = 8.9; LAC = 2.4; HCO3 = 39.4; ABE = 14.1",0
+"B-EA 01_page008.png","B-EA 01.pdf",8,"CBC","","WBC = 3.2; RBC = 4.05; HGB = 8.9; HCT = 26.2; MCV = 65; MCHC = 34.0; PLT = 185",0
+"B-EA 01_page009.png","B-EA 01.pdf",9,"CMP","straightened +0.3 deg","GGT = 2; AST = 13; ALT = 44; AMY = 227; LDH = 126; CREA = 1.2; BUN = 17.18; BUN.CREA = 58.965; GLU = 207.32; TG = 127.87",5
+"B-EA 01_page010.png","B-EA 01.pdf",10,"Coag","","APTT = 117.8; PT = 7.58; TT = 23.5; Fib = 2.64",1
+"B-EA 01_page011.png","B-EA 01.pdf",11,"TEG","","R.Time = 11.6; K.Time = 1.6; Angle = 39.4; MA.Min = 67.0",0
+"B-EA 01_page012.png","B-EA 01.pdf",12,"ABG","","pH = 7.416; pCO2 = 55.1; pO2 = 79.8; ctHb = 6.5; LAC = 1.9; HCO3 = 35.3; ABE = 9.7",0
+"B-EA 01_page013.png","B-EA 01.pdf",13,"CBC","straightened +0.4 deg","WBC = 3.5; RBC = 2.97; HGB = 6.6; HCT = 19.2; MCV = 65; MCHC = 34.5; PLT = 145",1
+"B-EA 01_page014.png","B-EA 01.pdf",14,"CMP","straightened +0.6 deg","GGT = 2; AST = 5; ALT = 32; AMY = 167; LDH = 74; CREA = 1.0; BUN = 15.65; BUN.CREA = 61.135; GLU = 176.42; TG = 81.81",2
+"B-EA 01_page015.png","B-EA 01.pdf",15,"Coag","straightened +1.0 deg","APTT = 126.5; PT = 13.4; TT = 17.3; Fib = 1.66",1
+"B-EA 01_page016.png","B-EA 01.pdf",16,"TEG","straightened +0.4 deg","R.Time = 9.1; K.Time = 1.6; Angle = 68.0; MA.Min = 61.0",0
+"B-EA 01_page017.png","B-EA 01.pdf",17,"ABG","straightened +2.4 deg","pH = 7.508; pCO2 = 27.7; pO2 = 93.1; ctHb = 8.3; LAC = 2.7; HCO3 = 22.0; ABE = -0.6",1
+"B-EA 01_page018.png","B-EA 01.pdf",18,"ABG","straightened -0.9 deg","pH = 7.636; pCO2 = 23.7; pO2 = 96.1; ctHb = 1.7; LAC = 2.4; HCO3 = 20.0; ABE = -2.0",3
+"B-EA 01_page019.png","B-EA 01.pdf",19,"ABG","straightened -0.4 deg","pH = 7.625; pCO2 = 26.7; pO2 = 94.3; ctHb = 7.3; LAC = 1.7; HCO3 = 22.0; ABE = -0.5",2
+"B-EA 01_page020.png","B-EA 01.pdf",20,"ABG","","pH = 7.500; pCO2 = 35.1; pO2 = 106; ctHb = 6.4; LAC = 2.8; HCO3 = 27.4; ABE = 3.9",1
+"B-EA 01_page021.png","B-EA 01.pdf",21,"CBC","","WBC = 0.8; RBC = 3.72; HGB = 8.2; HCT = 23.7; MCV = 64; MCHC = 34.6; PLT = 127",0
+"B-EA 01_page022.png","B-EA 01.pdf",22,"CMP","straightened +0.5 deg","GGT = 2; AST = 17; ALT = 34; AMY = 203; LDH = 65; CREA = 0.7; BUN = 15.18; BUN.CREA = 90.666; GLU = 188.70; TG = 195.68",4
+"B-EA 01_page023.png","B-EA 01.pdf",23,"Coag","","APTT = 119.6; PT = 9.2; TT = 25.78; Fib = 1.97",2
+"B-EA 01_page024.png","B-EA 01.pdf",24,"ABG","","pH = 7.536; pCO2 = 31.0; pO2 = 82.7; ctHb = 7.9; LAC = 2.4; HCO3 = 26.3; ABE = 3.6",1
+"B-EA 01_page025.png","B-EA 01.pdf",25,"CBC","","WBC = 1.0; RBC = 3.79; HGB = 10.6; HCT = 24.1; MCV = 64; MCHC = 33.5; PLT = 104",3
+"B-EA 01_page026.png","B-EA 01.pdf",26,"CMP","","GGT = 2; AST = 21; ALT = 32; AMY = 200; LDH = 140; CREA = 1.0; BUN = 13.65; BUN.CREA = 52.638; GLU = 189.89; TG = 202.35",4
+"B-EA 01_page027.png","B-EA 01.pdf",27,"Coag","","APTT = 113.5; PT = 7.1; TT = 15.8; Fib = 1.63",2
+"B-EA 01_page028.png","B-EA 01.pdf",28,"TEG","","R.Time = 6.3; K.Time = 1.8; Angle = 43.8; MA.Min = 57.0",0
+"B-EA 01_page029.png","B-EA 01.pdf",29,"ABG","","pH = 7.509; pCO2 = 30.1; pO2 = 91.7; ctHb = 9.2; LAC = 3.3; HCO3 = 23.9; ABE = 4.2",3
+"B-EA 01_page030.png","B-EA 01.pdf",30,"CBC","","WBC = 5.3; RBC = 4.14; HGB = 9.3; HCT = 26.4; MCV = 64; MCHC = 35.1; PLT = 168",0
+"B-EA 01_page031.png","B-EA 01.pdf",31,"CMP","","GGT = 2; AST = 262; ALT = 175; AMY = 159; LDH = 418; CREA = 1.1; BUN = 20.44; BUN.CREA = 75.710; GLU = 190.11",4
+"B-EA 01_page032.png","B-EA 01.pdf",32,"Coag","","APTT = 109.4; PT = 8.1; Fib = 6.41",1
+"B-EA 01_page033.png","B-EA 01.pdf",33,"TEG","","R.Time = 11.7; K.Time = 2.9; Angle = 55.5; MA.Min = 70.3",0

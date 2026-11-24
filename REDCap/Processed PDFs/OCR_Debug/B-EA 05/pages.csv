@@ -1,0 +1,34 @@
+"picture","source_file","page","page_type","orientation_fix","values_read","values_flagged"
+"B-EA 05_page001.png","B-EA 05.pdf",1,"SKIPPED","turned 270 deg, straightened +0.3 deg","",0
+"B-EA 05_page002.png","B-EA 05.pdf",2,"ABG","","pH = 7.472; pCO2 = 41.0; pO2 = 74.8; LAC = 0.9; HCO3 = 29.9",0
+"B-EA 05_page003.png","B-EA 05.pdf",3,"CBC","","WBC = 4.7; RBC = 5.44; HGB = 12.1; HCT = 36.3; MCV = 67; MCHC = 33.2; PLT = 252",0
+"B-EA 05_page004.png","B-EA 05.pdf",4,"CMP","","GGT = 3; AST = 8; ALT = 50; AMY = 234; LDH = 147; CREA = 0.6; BUN = 15.21; BUN.CREA = 109323; GLU = 238.31; TG = 172.85",5
+"B-EA 05_page005.png","B-EA 05.pdf",5,"Coag","","APTT = 8.5; PT = 13.0; Fib = 1.28",1
+"B-EA 05_page006.png","B-EA 05.pdf",6,"TEG","","R.Time = 5.6; K.Time = 1.4; Angle = 50.4; MA.Min = 64.6",0
+"B-EA 05_page007.png","B-EA 05.pdf",7,"ABG","straightened +0.6 deg","pH = 7.392; pCO2 = 45.4; pO2 = 106; ctHb = 8.1; LAC = 8.9; HCO3 = 27.6; ABE = 2.4",0
+"B-EA 05_page008.png","B-EA 05.pdf",8,"CBC","straightened -0.4 deg","WBC = 8.6; RBC = 3.81; HGB = 8.5; HCT = 25.4; MCV = 67; MCHC = 33.6; PLT = 410",0
+"B-EA 05_page009.png","B-EA 05.pdf",9,"CMP","straightened -0.5 deg","GGT = 2; AST = 18; ALT = 53; AMY = 274; LDH = 143; CREA = 1.0; BUN = 23.88; BUN.CREA = 97.810; GLU = 419.91; TG = 195.34",5
+"B-EA 05_page010.png","B-EA 05.pdf",10,"TEG","","R.Time = 10.0; K.Time = 2.2; Angle = 60.9; MA.Min = 65.6",0
+"B-EA 05_page011.png","B-EA 05.pdf",11,"Coag","","APTT = 125.2; PT = 17.6; Fib = 1.96",1
+"B-EA 05_page012.png","B-EA 05.pdf",12,"ABG","straightened -0.6 deg","pH = 7.309; pCO2 = 46.9; pO2 = 92.5; ctHb = 5.0; LAC = 7.4; HCO3 = 23.5; ABE = -2.4",1
+"B-EA 05_page013.png","B-EA 05.pdf",13,"CBC","","WBC = 6.9; RBC = 2.28; HGB = 5.6; HCT = 15.1; MCV = 66; MCHC = 37.0; PLT = 211",0
+"B-EA 05_page014.png","B-EA 05.pdf",14,"CMP","straightened -0.7 deg","GGT = 2; AST = 8; ALT = 36; AMY = 161; LDH = 94; CREA = 0.9; BUN = 22.30; BUN.CREA = 104.918; GLU = 330.07; TG = 146.28",1
+"B-EA 05_page015.png","B-EA 05.pdf",15,"TEG","","R.Time = 6.9; K.Time = 1.8; Angle = 58.7; MA.Min = 44.7",0
+"B-EA 05_page016.png","B-EA 05.pdf",16,"Coag","","APTT = 116.3; PT = 24.3; TT = 19.7; Fib = 1.38",2
+"B-EA 05_page017.png","B-EA 05.pdf",17,"ABG","","pH = 7.468; pCO2 = 28.6; pO2 = 34.9; ctHb = 7.2; LAC = 3.9; HCO3 = 20.7; ABE = -2.6",1
+"B-EA 05_page018.png","B-EA 05.pdf",18,"CBC","","WBC = 1.1; RBC = 3.33; HGB = 7.6; HCT = 21.8; MCV = 65; MCHC = 34.7; PLT = 153",0
+"B-EA 05_page019.png","B-EA 05.pdf",19,"CMP","","GGT = 2; AST = 8; ALT = 30; AMY = 201; LDH = 71; CREA = 1.1; BUN = 27.01; BUN.CREA = 75.455; GLU = 138.45; TG = 107.88",8
+"B-EA 05_page020.png","B-EA 05.pdf",20,"Coag","","APTT = 8.6; PT = 26.3; TT = 18.6; Fib = 1.48",1
+"B-EA 05_page021.png","B-EA 05.pdf",21,"ABG","","pH = 7.448; pCO2 = 31.3; pO2 = 28.0; ctHb = 7.0; LAC = 3.3; HCO3 = 21.7; ABE = -2.1",0
+"B-EA 05_page022.png","B-EA 05.pdf",22,"CBC","","RBC = 3.20; HGB = 7.2; HCT = 20.9; MCV = 65; MCHC = 34.6; PLT = 148",1
+"B-EA 05_page023.png","B-EA 05.pdf",23,"CMP","","GGT = 2; AST = 24; ALT = 33; AMY = 209; LDH = 79; CREA = 1.1; BUN = 22.51; BUN.CREA = 80.571; GLU = 144.98; TG = 116.84",3
+"B-EA 05_page024.png","B-EA 05.pdf",24,"TEG","","R.Time = 8.7; K.Time = 2.9; MA.Min = 50.1; Angle = 51.5",0
+"B-EA 05_page025.png","B-EA 05.pdf",25,"Coag","","PT = 16.6; Fib = 1.81",1
+"B-EA 05_page026.png","B-EA 05.pdf",26,"ABG","","pH = 7.509; pCO2 = 39.6; pO2 = 37.0; ctHb = 5.8; LAC = 2.8; HCO3 = 31.6; ABE = 7.8",0
+"B-EA 05_page027.png","B-EA 05.pdf",27,"ABG","","pH = 7.521; pCO2 = 27.0; pO2 = 32.2; ctHb = 6.1; LAC = 2.9; HCO3 = 22.1; ABE = -0.6",1
+"B-EA 05_page028.png","B-EA 05.pdf",28,"ABG","","pH = 7.467; pCO2 = 29.6; pO2 = 27.4; ctHb = 7.0; LAC = 4.3; HCO3 = 21.3; ABE = 2.4",3
+"B-EA 05_page029.png","B-EA 05.pdf",29,"ABG","straightened -0.8 deg","pH = 7.326; pCO2 = 52.4; pO2 = 26.0; LAC = 9.4; HCO3 = 27.4; ABE = 1.1",2
+"B-EA 05_page030.png","B-EA 05.pdf",30,"CBC","straightened -0.4 deg","WBC = 11.1; RBC = 3.48; HGB = 7.7; HCT = 23.1; MCV = 66; MCHC = 33.2; PLT = 150",1
+"B-EA 05_page031.png","B-EA 05.pdf",31,"CMP","straightened -0.4 deg","GGT = 2; AST = 23; ALT = 14; AMY = 278; LDH = 125; CREA = 0.7; BUN = 21.59; BUN.CREA = 118.682; GLU = 158.21; TG = 332.89",4
+"B-EA 05_page032.png","B-EA 05.pdf",32,"Coag","straightened -0.4 deg","APTT = 8.5; PT = 15.9; TT = 19.8; Fib = 2.29",1
+"B-EA 05_page033.png","B-EA 05.pdf",33,"TEG","","R.Time = 27.2; K.Time = 8.6; Angle = 28.4; MA.Min = 59.5",0
